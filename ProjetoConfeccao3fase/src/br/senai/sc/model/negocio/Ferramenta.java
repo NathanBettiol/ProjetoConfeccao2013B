@@ -12,7 +12,10 @@ import java.util.Objects;
  * @author ariane_souza
  */
 public class Ferramenta {
+
     //Atributos da classe
+
+    private int id;
     private String nome;
     private String descricao;
     private String nmFabricante;
@@ -20,6 +23,13 @@ public class Ferramenta {
     private boolean status;
 
     //Métodos Get e Set
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getNome() {
         return nome;
     }
@@ -62,6 +72,12 @@ public class Ferramenta {
 
     //Equals
     @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
@@ -70,6 +86,9 @@ public class Ferramenta {
             return false;
         }
         final Ferramenta other = (Ferramenta) obj;
+        if (this.id != other.id) {
+            return false;
+        }
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
@@ -87,8 +106,9 @@ public class Ferramenta {
         }
         return true;
     }
+
     
-    //Construtar vazio
+    //Construtor vazio
 
     public Ferramenta() {
     }
@@ -100,6 +120,7 @@ public class Ferramenta {
                 "\nDescricao: " + descricao +
                 "\nNome do Fabricante: " + nmFabricante +
                 "\nData do Cadastro: " + dtCadastro +
-                "\nStatus: " + status;
+                "\nStatus: " + status+
+                "\nCódigo: " + id;
     }
 }
