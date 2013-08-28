@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 public class MateriaPrima {
 //declaração das variaveis
-
+    private int cod;
     private String fornecedor;
     private String nome;
     private CategoriaMateriaPrima categoria;
@@ -20,8 +20,16 @@ public class MateriaPrima {
     //construtor
     public MateriaPrima() {
     }
-    //getters e setters
 
+    //getters e setters
+    public int getCodigo() {
+        return cod;
+    }
+
+    public void setCodigo(int codigo) {
+        this.cod = codigo;
+    }
+     
     public String getFornecedor() {
         return fornecedor;
     }
@@ -69,11 +77,13 @@ public class MateriaPrima {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-   //para mostrar os atributos da materia-prima
+
+    //para mostrar os atributos da materia-prima
     @Override
     public String toString() {
-        return "MateriaPrima{" + "fornecedor=" + fornecedor + ", nome=" + nome + ", categoria=" + categoria + ", preco=" + preco + ", tpUnidade=" + tpUnidade + ", quantidade=" + quantidade + '}';
+        return "MateriaPrima{" + "codigo=" + cod + ", fornecedor=" + fornecedor + ", nome=" + nome + ", categoria=" + categoria + ", preco=" + preco + ", tpUnidade=" + tpUnidade + ", quantidade=" + quantidade + '}';
     }
+   
 
     @Override
     public int hashCode() {
