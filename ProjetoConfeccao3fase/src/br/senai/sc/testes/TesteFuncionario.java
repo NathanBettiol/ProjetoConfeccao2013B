@@ -13,9 +13,9 @@ public class TesteFuncionario {
         
     //Instanciando o primeiro funcionário
      Funcionario f1 = new Funcionario();
-      
         String cargo;                     
-                 
+        
+        f1.setLogin(JOptionPane.showInputDialog("Informe o login do funcionário" + f1.getLogin()));
         f1.setEmail(JOptionPane.showInputDialog("Informe o e-mail do funcionário" + f1.getEmail()));
         
          do{
@@ -31,6 +31,8 @@ public class TesteFuncionario {
         
         //Instanciando o segundo Funcionário
         Funcionario f2 = new Funcionario();
+        
+        f2.setLogin(JOptionPane.showInputDialog("Informe o login do funcionário" + f2.getLogin()));
         f2.setEmail(JOptionPane.showInputDialog("Informe o e-mail do funcionário" + f2.getEmail()));
         
          do{
