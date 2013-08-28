@@ -12,11 +12,11 @@ public class Produto {
     private String tamanho;
     private Colecao colecao;
     private String cor;
+    private int qtProdutos;
 
     public Produto() {
-
     }
-    
+
     public int getCodigo() {
         return codigo;
     }
@@ -81,9 +81,17 @@ public class Produto {
         this.cor = cor;
     }
 
+    public int getQtProdutos() {
+        return qtProdutos;
+    }
+
+    public void setQtProdutos(int qtProdutos) {
+        this.qtProdutos = qtProdutos;
+    }
+
     @Override
     public String toString() {
-        return "Produto{" + "codigo=" + codigo + ", fabricante=" + fabricante + ", modelo=" + modelo + ", preco=" + preco + ", categoria=" + categoria + ", tamanho=" + tamanho + ", colecao=" + colecao + ", cor=" + cor + '}';
+        return "Produto{" + "codigo=" + codigo + ", fabricante=" + fabricante + ", modelo=" + modelo + ", preco=" + preco + ", categoria=" + categoria + ", tamanho=" + tamanho + ", colecao=" + colecao + ", cor=" + cor + ", qtProdutos=" + qtProdutos + '}';
     }
 
     @Override
@@ -117,6 +125,9 @@ public class Produto {
             return false;
         }
         if (!Objects.equals(this.cor, other.cor)) {
+            return false;
+        }
+        if (this.qtProdutos != other.qtProdutos) {
             return false;
         }
         return true;
