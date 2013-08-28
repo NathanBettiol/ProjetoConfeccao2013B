@@ -4,7 +4,7 @@
  */
 package br.senai.sc.testes;
 
-import br.senai.sc.model.negocio.CategoriaColecao;
+import br.senai.sc.model.negocio.CategoriaProduto;
 import br.senai.sc.model.negocio.Colecao;
 import javax.swing.JOptionPane;
 
@@ -16,20 +16,20 @@ public class Teste {
 
     public static void main(String[] args) {
 
-        //Teste da classe CategoriaColecao
-        CategoriaColecao cc1 = new CategoriaColecao();
+        //Teste da classe CategoriaProduto
+        CategoriaProduto cc1 = new CategoriaProduto();
         cc1.setCod(1);
         cc1.setNome(JOptionPane.showInputDialog("Informe o nome da categoria " + cc1.getCod()));
         cc1.setDescricao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
 
-        CategoriaColecao cc2 = new CategoriaColecao();
+        CategoriaProduto cc2 = new CategoriaProduto();
         cc2.setCod(2);
         cc2.setNome(JOptionPane.showInputDialog("Informe o nome da categoria " + cc2.getCod()));
         cc2.setDescricao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
 
         JOptionPane.showMessageDialog(null, cc1.toString());
         JOptionPane.showMessageDialog(null, cc2.toString());
-        //Fim teste CategoriaColecao
+        //Fim teste CategoriaProduto
 
         //Teste da classe Colecao
         Colecao c1 = new Colecao();
