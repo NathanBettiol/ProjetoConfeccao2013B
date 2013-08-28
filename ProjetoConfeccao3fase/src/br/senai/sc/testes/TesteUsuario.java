@@ -18,7 +18,7 @@ public class TesteUsuario {
         //Instancia do usuario 1  
      Usuario u1 = new Usuario();
     u1.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe o código: " + u1.getCod())));
-    u1.setCod_usuario(Integer.parseInt(JOptionPane.showInputDialog("Informe o cógigo do usuario: ")));
+    u1.setCodUsuario(Integer.parseInt(JOptionPane.showInputDialog("Informe o cógigo do usuario: ")));
     u1.setNome(JOptionPane.showInputDialog("Digite seu nome: "));
     u1.setCpf(JOptionPane.showInputDialog("Informe o cpf: "));
     u1.setDataCadastro(JOptionPane.showInputDialog("Informe a data de cadastro: "));
@@ -32,7 +32,7 @@ public class TesteUsuario {
         //Instancia do usuario 2
      Usuario u2 = new Usuario();
     u2.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe o código: " + u1.getCod())));
-    u2.setCod_usuario(Integer.parseInt(JOptionPane.showInputDialog("Informe o cógigo do usuario: ")));
+    u2.setCodUsuario(Integer.parseInt(JOptionPane.showInputDialog("Informe o cógigo do usuario: ")));
     u2.setNome(JOptionPane.showInputDialog("Digite seu nome: "));
     u2.setCpf(JOptionPane.showInputDialog("Informe o cpf: "));
     u2.setDataCadastro(JOptionPane.showInputDialog("Informe a data de cadastro: "));
