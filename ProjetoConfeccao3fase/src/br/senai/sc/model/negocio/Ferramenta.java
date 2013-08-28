@@ -15,7 +15,7 @@ public class Ferramenta {
 
     //Atributos da classe
 
-    private int id;
+    private int codFerramenta;
     private String nome;
     private String descricao;
     private String nmFabricante;
@@ -23,12 +23,12 @@ public class Ferramenta {
     private boolean status;
 
     //Métodos Get e Set
-    public int getId() {
-        return id;
+    public int getCodFerramenta() {
+        return codFerramenta;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCodFerramenta(int codFerramenta) {
+        this.codFerramenta = codFerramenta;
     }
     public String getNome() {
         return nome;
@@ -86,7 +86,7 @@ public class Ferramenta {
             return false;
         }
         final Ferramenta other = (Ferramenta) obj;
-        if (this.id != other.id) {
+        if (this.codFerramenta != other.codFerramenta) {
             return false;
         }
         if (!Objects.equals(this.nome, other.nome)) {
@@ -121,6 +121,6 @@ public class Ferramenta {
                 "\nNome do Fabricante: " + nmFabricante +
                 "\nData do Cadastro: " + dtCadastro +
                 "\nStatus: " + status+
-                "\nCódigo: " + id;
+                "\nCódigo: " + codFerramenta;
     }
 }
