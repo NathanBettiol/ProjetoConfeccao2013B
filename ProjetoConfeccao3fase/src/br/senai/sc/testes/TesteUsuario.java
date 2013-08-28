@@ -22,7 +22,7 @@ public class TesteUsuario {
     u1.setNome(JOptionPane.showInputDialog("Digite seu nome: "));
     u1.setCpf(JOptionPane.showInputDialog("Informe o cpf: "));
     u1.setDataCadastro(JOptionPane.showInputDialog("Informe a data de cadastro: "));
-    u1.setDataNascimento(Integer.parseInt(JOptionPane.showInputDialog("Informe a data de nascimento: ")));
+    u1.setDataNascimento(JOptionPane.showInputDialog("Informe a data de nascimento: "));
     u1.setEmail(JOptionPane.showInputDialog("Informe seu E-mail: "));
     u1.setEndereco(JOptionPane.showInputDialog("Informe o endereço: "));
     u1.setLogin(JOptionPane.showInputDialog("Entre com o login: "));
@@ -36,7 +36,7 @@ public class TesteUsuario {
     u2.setNome(JOptionPane.showInputDialog("Digite seu nome: "));
     u2.setCpf(JOptionPane.showInputDialog("Informe o cpf: "));
     u2.setDataCadastro(JOptionPane.showInputDialog("Informe a data de cadastro: "));
-    u2.setDataNascimento(Integer.parseInt(JOptionPane.showInputDialog("Informe a data de nascimento: ")));
+    u2.setDataNascimento(JOptionPane.showInputDialog("Informe a data de nascimento: "));
     u2.setEmail(JOptionPane.showInputDialog("Informe seu E-mail: "));
     u2.setEndereco(JOptionPane.showInputDialog("Informe o endereço: "));
     u2.setLogin(JOptionPane.showInputDialog("Entre com o login: "));
