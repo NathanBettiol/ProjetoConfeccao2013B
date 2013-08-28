@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Produto {
 
     private int codigo;
-    private String fabricante;
+    private Fabricante fabricante;
     private String modelo;
     private double preco;
     private CategoriaProduto categoria;
@@ -25,11 +25,11 @@ public class Produto {
         this.codigo = codigo;
     }
 
-    public String getFabricante() {
+    public Fabricante getFabricante() {
         return fabricante;
     }
 
-    public void setFabricante(String fabricante) {
+    public void setFabricante(Fabricante fabricante) {
         this.fabricante = fabricante;
     }
 
