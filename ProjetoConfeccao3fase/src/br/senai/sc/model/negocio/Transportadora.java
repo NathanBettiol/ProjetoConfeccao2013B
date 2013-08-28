@@ -9,7 +9,7 @@ import java.util.Objects;
 public class Transportadora extends PessoaJuridica {
 
     //Atributos
-    private int codigo;
+    private int codTransportadora;
     private String endereco;
     private String telefone;
     private String email;
@@ -21,12 +21,12 @@ public class Transportadora extends PessoaJuridica {
     }
 
     //Métodos getters e setters
-    public int getCodigo() {
-        return codigo;
+    public int getCodTransportadora() {
+        return codTransportadora;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCodTransportadora(int codTransportadora) {
+        this.codTransportadora = codTransportadora;
     }
 
     public String getEndereco() {
@@ -79,7 +79,7 @@ public class Transportadora extends PessoaJuridica {
             return false;
         }
         final Transportadora other = (Transportadora) obj;
-        if (this.codigo != other.codigo) {
+        if (this.codTransportadora != other.codTransportadora) {
             return false;
         }
         if (!Objects.equals(this.endereco, other.endereco)) {
@@ -104,7 +104,7 @@ public class Transportadora extends PessoaJuridica {
     @Override
     public String toString() {
         return "Transportadora:"
-                + "\nCodigo = " + codigo
+                + "\nCodigo = " + codTransportadora
                 + "\nNome Fantasia = " + getNmFantasia()
                 + "\nCnpj = " + getCnpj()
                 + "\nEndereco = " + endereco
