@@ -12,6 +12,8 @@ public class TesteProduto {
         p1.setPreco(Double.parseDouble(JOptionPane.showInputDialog("Informe o preço do produto " + p1.getCodigo())));
         p1.setTamanho(JOptionPane.showInputDialog("Informe o tamanho do produto " + p1.getCodigo()));
         p1.setCor(JOptionPane.showInputDialog("Informe a cor do produto " + p1.getCodigo()));
+        p1.setQtProdutos(Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade do produto " + p1.getCodigo())));
+
         System.out.println(p1.toString());
 
         Produto p2 = new Produto();
@@ -20,6 +22,7 @@ public class TesteProduto {
         p2.setPreco(Double.parseDouble(JOptionPane.showInputDialog("Informe o preço do produto " + p2.getCodigo())));
         p2.setTamanho(JOptionPane.showInputDialog("Informe o tamanho do produto " + p2.getCodigo()));
         p2.setCor(JOptionPane.showInputDialog("Informe a cor do produto " + p2.getCodigo()));
+        p2.setQtProdutos(Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade do produto " + p2.getCodigo())));
 
         System.out.println(p2.toString());
     }
