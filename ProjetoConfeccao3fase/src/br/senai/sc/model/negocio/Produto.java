@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Produto {
 
-    private int codigo;
+    private int codProduto;
     private Fabricante fabricante;
     private String modelo;
     private double preco;
@@ -17,12 +17,12 @@ public class Produto {
     public Produto() {
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getCodProduto() {
+        return codProduto;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
     }
 
     public Fabricante getFabricante() {
@@ -91,7 +91,7 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" + "codigo=" + codigo + ", fabricante=" + fabricante + ", modelo=" + modelo + ", preco=" + preco + ", categoria=" + categoria + ", tamanho=" + tamanho + ", colecao=" + colecao + ", cor=" + cor + ", qtProdutos=" + qtProdutos + '}';
+        return "Produto{" + "codProduto=" + codProduto + ", fabricante=" + fabricante + ", modelo=" + modelo + ", preco=" + preco + ", categoria=" + categoria + ", tamanho=" + tamanho + ", colecao=" + colecao + ", cor=" + cor + ", qtProdutos=" + qtProdutos + '}';
     }
 
     @Override
@@ -103,7 +103,7 @@ public class Produto {
             return false;
         }
         final Produto other = (Produto) obj;
-        if (this.codigo != other.codigo) {
+        if (this.codProduto != other.codProduto) {
             return false;
         }
         if (!Objects.equals(this.fabricante, other.fabricante)) {
