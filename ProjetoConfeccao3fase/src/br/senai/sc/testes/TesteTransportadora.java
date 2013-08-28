@@ -15,7 +15,7 @@ public class TesteTransportadora {
         Transportadora trans2 = new Transportadora();
 
         trans1.setCodigo(Integer.parseInt(JOptionPane.showInputDialog("Informe um código: ")));
-        trans1.setNmTransportadora(JOptionPane.showInputDialog("Informe o nome: "));
+        trans1.setNmFantasia(JOptionPane.showInputDialog("Informe o nome fantasia: "));
         trans1.setCnpj(JOptionPane.showInputDialog("Informe o cnpj: "));
         trans1.setEndereco(JOptionPane.showInputDialog("Informe o endereço: "));
         trans1.setRazaoSocial(JOptionPane.showInputDialog("Informe a razão social: "));
@@ -26,7 +26,7 @@ public class TesteTransportadora {
         JOptionPane.showMessageDialog(null, trans1.toString());
 
         trans2.setCodigo(Integer.parseInt(JOptionPane.showInputDialog("Informe um código: ")));
-        trans2.setNmTransportadora(JOptionPane.showInputDialog("Informe o nome: "));
+        trans2.setNmFantasia(JOptionPane.showInputDialog("Informe o nome fantasia: "));
         trans2.setCnpj(JOptionPane.showInputDialog("Informe o cnpj: "));
         trans2.setEndereco(JOptionPane.showInputDialog("Informe o endereço: "));
         trans2.setRazaoSocial(JOptionPane.showInputDialog("Informe a razão social: "));
