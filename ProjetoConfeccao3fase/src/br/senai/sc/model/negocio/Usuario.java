@@ -12,7 +12,7 @@ import java.util.Objects;
 // USUARIO codigo login senha nome cpf email telefone endereco dataNascimento 
 public class Usuario extends Pessoa {
 
-    private int id_usuario;
+    private int codUsuario;
     private String login;
     private String senha;
     private String nome;
@@ -25,12 +25,12 @@ public class Usuario extends Pessoa {
     }
 
     //getters e settres
-    public int getCod_usuario() {
-        return id_usuario;
+    public int getCodUsuario() {
+        return codUsuario;
     }
 
-    public void setCod_usuario(int cod_usuario) {
-        this.id_usuario = cod_usuario;
+    public void setCodUsuario(int codUsuario) {
+        this.codUsuario = codUsuario;
     }
 
     public String getLogin() {
@@ -84,7 +84,7 @@ public class Usuario extends Pessoa {
     //toString
     public String toString() {
         return "Usuario"
-                + "\nId_usuario: " + id_usuario
+                + "\nCódigo do usuário: " + codUsuario
                 + "\nLogin: " + login
                 + "\nSenha: " + senha
                 + "\nNome: " + nome
@@ -108,7 +108,7 @@ public class Usuario extends Pessoa {
             return false;
         }
         final Usuario other = (Usuario) obj;
-        if (this.id_usuario != other.id_usuario) {
+        if (this.codUsuario != other.codUsuario) {
             return false;
         }
         if (!Objects.equals(this.login, other.login)) {
