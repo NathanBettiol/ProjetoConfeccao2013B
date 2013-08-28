@@ -87,6 +87,12 @@ public class Ferramenta {
         }
         return true;
     }
+    
+    //Construtar vazio
+
+    public Ferramenta() {
+    }
+        
     //toString
     @Override
     public String toString() {
