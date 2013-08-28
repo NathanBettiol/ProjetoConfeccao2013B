@@ -1,57 +1,32 @@
 package br.senai.sc.model.negocio;
+
+import java.util.Objects;
+
 /**
  * Classe que representa os funcionarios do software
  *
  * @version 1.0 26/08/2013
  * @author Patricia Gageiro
  */
-public class Funcionario extends Pessoa {
+public class Funcionario extends PessoaFisica {
 
-    private int cod;
     private String login;
-    private String nome;
-    private int cpf;
     private String email;
-    private String telefone;
-    private String endereco;
     private String ctps;
     private String cargo;
-    private String rg;
     private double salario;
     private String dtAdimissao;
-    private String dtNascimento;
     private String dtRecisao;
-    
+
     public Funcionario() {
     }
 
-    public int getCod() {
-        return cod;
-    }
-
-    public void setCod(int cod) {
-        this.cod = cod;
-    }    
-  
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
     public String getLogin() {
         return login;
     }
-
-    public String getNome() {
-        return nome;
-    }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-
-    public int getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
+    
+    public void setLogin(String login){
+        this.login =  login;
     }
 
     public String getEmail() {
@@ -60,22 +35,6 @@ public class Funcionario extends Pessoa {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
     }
 
     public String getCtps() {
@@ -94,14 +53,6 @@ public class Funcionario extends Pessoa {
         this.cargo = cargo;
     }
 
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
     public double getSalario() {
         return salario;
     }
@@ -118,14 +69,6 @@ public class Funcionario extends Pessoa {
         this.dtAdimissao = dtAdimissao;
     }
 
-    public String getDtNascimento() {
-        return dtNascimento;
-    }
-
-    public void setDtNascimento(String dtNascimento) {
-        this.dtNascimento = dtNascimento;
-    }
-
     public String getDtRecisao() {
         return dtRecisao;
     }
@@ -133,26 +76,62 @@ public class Funcionario extends Pessoa {
     public void setDtRecisao(String dtRecisao) {
         this.dtRecisao = dtRecisao;
     }
+    //Métodos ToString
 
-    public String toString(){
-        return "Código: "             + this.getCod() +
-               "Login:  "             + this.getLogin() +
-               "Nome: "               + this.getNome() +
-               "Cpf: "                + this.getCpf() + 
-               "Email: "              + this.getEmail() + 
-               "Telefone: "           + this.getTelefone() +
-               "Endereço: "           + this.getEndereco() +
-               "Ctps: "               + this.getCtps() +
-               "Cargo: "              + this.getCargo() +
-               "Rg: "                 + this.getRg() + 
-               "Salário: "            + this.getSalario() +
-               "Data Adimissão: "     + this.getDtAdimissao() +
-               "Data Nascimento: "    + this.getDtNascimento() +
-               "Data Recisão: "       + this.getDtRecisao();
+    public String toString() {
+        return "Código: " + this.getCod()
+                + "Login:  " + this.getLogin()
+                + "Nome: " + this.getNome()
+                + "Cpf: " + this.getCpf()
+                + "Email: " + this.getEmail()
+                + "Telefone: " + this.getTelefone()
+                + "Endereço: " + this.getEndereco()
+                + "Ctps: " + this.getCtps()
+                + "Cargo: " + this.getCargo()
+                + "Rg: " + this.getRg()
+                + "Salário: " + this.getSalario()
+                + "Data Adimissão: " + this.getDtAdimissao()
+                + "Data Nascimento: " + this.getDtNascimento()
+                + "Data Recisão: " + this.getDtRecisao();
     }
 
-  
+    //Métodos Equals
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Funcionario other = (Funcionario) obj;
 
-    
+        if (!Objects.equals(this.login, other.login)) {
+            return false;
+        }
+
+
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
+
+
+        if (!Objects.equals(this.ctps, other.ctps)) {
+            return false;
+        }
+        if (!Objects.equals(this.cargo, other.cargo)) {
+            return false;
+        }
+
+        if (Double.doubleToLongBits(this.salario) != Double.doubleToLongBits(other.salario)) {
+            return false;
+        }
+        if (!Objects.equals(this.dtAdimissao, other.dtAdimissao)) {
+            return false;
+        }
+
+        if (!Objects.equals(this.dtRecisao, other.dtRecisao)) {
+            return false;
+        }
+        return true;
+    }
 }
-
