@@ -3,14 +3,13 @@ package br.senai.sc.model.negocio;
 import java.util.Objects;
 
 /**
- * Classe Colecao
- * Representa as informações de cada coleção
- * 
+ * Classe Colecao * Representa as informações de cada coleção
+ *
  * @version v1.0 28/08/2013
  * @author Gabriel Arsênio
  */
 public class Colecao {
-    
+
     private int cod;
     private String estacao;
     private int ano;
@@ -18,17 +17,20 @@ public class Colecao {
     private String pubAlvo;
     private String funResponsavel;
 
+    public Colecao() {
+    }
+
     @Override
     public String toString() {
-        return "\nColeção"+""
-                + "\nCódigo da coleção: "+cod+""
-                + "\nEstação: "+estacao+""
-                + "\nAno: "+ano+""
-                + "\nProdutos da coleção: "+prodColecao+""
-                + "\nPúblico alvo: "+pubAlvo+""
-                + "\nFuncionário responsável: "+funResponsavel;
+        return "\nColeção" + ""
+                + "\nCódigo da coleção: " + cod + ""
+                + "\nEstação: " + estacao + ""
+                + "\nAno: " + ano + ""
+                + "\nProdutos da coleção: " + prodColecao + ""
+                + "\nPúblico alvo: " + pubAlvo + ""
+                + "\nFuncionário responsável: " + funResponsavel;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -63,8 +65,8 @@ public class Colecao {
             return false;
         }
         return true;
-    }    
-    
+    }
+
     //Getters e Setters
     public int getCod() {
         return cod;
@@ -110,8 +112,8 @@ public class Colecao {
         return funResponsavel;
     }
 
-    public void setFuncionarioResponsavel(String funResponsavel) {
+    public void setFunResponsavel(String funResponsavel) {
         this.funResponsavel = funResponsavel;
-    }   
+    }
     //Fim Getters e Setters
 }
