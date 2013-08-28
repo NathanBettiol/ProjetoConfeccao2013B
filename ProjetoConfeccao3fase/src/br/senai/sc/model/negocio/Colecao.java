@@ -13,7 +13,6 @@ public class Colecao {
     private int cod;
     private String estacao;
     private int ano;
-    private String prodColecao;
     private String pubAlvo;
     private String funResponsavel;
 
@@ -25,8 +24,7 @@ public class Colecao {
         return "\nColeção" + ""
                 + "\nCódigo da coleção: " + cod + ""
                 + "\nEstação: " + estacao + ""
-                + "\nAno: " + ano + ""
-                + "\nProdutos da coleção: " + prodColecao + ""
+                + "\nAno: " + ano + ""               
                 + "\nPúblico alvo: " + pubAlvo + ""
                 + "\nFuncionário responsável: " + funResponsavel;
     }
@@ -54,10 +52,7 @@ public class Colecao {
         }
         if (this.ano != other.ano) {
             return false;
-        }
-        if (!Objects.equals(this.prodColecao, other.prodColecao)) {
-            return false;
-        }
+        }        
         if (!Objects.equals(this.pubAlvo, other.pubAlvo)) {
             return false;
         }
@@ -90,15 +85,7 @@ public class Colecao {
 
     public void setAno(int ano) {
         this.ano = ano;
-    }
-
-    public String getProdColecao() {
-        return prodColecao;
-    }
-
-    public void setProdColecao(String prodColecao) {
-        this.prodColecao = prodColecao;
-    }
+    }    
 
     public String getPubAlvo() {
         return pubAlvo;
