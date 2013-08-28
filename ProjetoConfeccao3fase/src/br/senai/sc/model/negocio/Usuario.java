@@ -9,26 +9,21 @@ import java.util.Objects;
  *
  *
  */
- 
-
 // USUARIO codigo login senha nome cpf email telefone endereco dataNascimento 
 public class Usuario extends Pessoa {
- 
+
     private int id_usuario;
     private String login;
     private String senha;
     private String nome;
     private String cpf;
     private String email;
-    private String endereco;
-    private int dataNascimento;
+    private String dataNascimento;
 
-    
     //Construtor padrão
     public Usuario() {
     }
 
-    
     //getters e settres
     public int getCod_usuario() {
         return id_usuario;
@@ -78,35 +73,24 @@ public class Usuario extends Pessoa {
         this.email = email;
     }
 
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public int getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(int dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
-    
     //toString
     public String toString() {
         return "Usuario"
-                +"\nId_usuario: " + id_usuario 
-                +"\nLogin: " + login
-                +"\nSenha: " + senha 
-                +"\nNome: " + nome 
-                +"\nCpf: " + cpf
-                +"\nE-mail: " + email                
-                +"\nEndereco: " + endereco 
-                +"\nDataNascimento: " + dataNascimento;
+                + "\nId_usuario: " + id_usuario
+                + "\nLogin: " + login
+                + "\nSenha: " + senha
+                + "\nNome: " + nome
+                + "\nCpf: " + cpf
+                + "\nE-mail: " + email
+                + "\nDataNascimento: " + dataNascimento;
     }
 
     @Override
@@ -115,7 +99,7 @@ public class Usuario extends Pessoa {
         return hash;
     }
 
-   //equals
+    //equals
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
@@ -142,17 +126,9 @@ public class Usuario extends Pessoa {
         if (!Objects.equals(this.email, other.email)) {
             return false;
         }
-
-       
-        if (!Objects.equals(this.endereco, other.endereco)) {
-            return false;
-        }
-        if (this.dataNascimento != other.dataNascimento) {
+        if (!(this.dataNascimento.equalsIgnoreCase(other.dataNascimento))) {
             return false;
         }
         return true;
     }
-   
-    
 }
-

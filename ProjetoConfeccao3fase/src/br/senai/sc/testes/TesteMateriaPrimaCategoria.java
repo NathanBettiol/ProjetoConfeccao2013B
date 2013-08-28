@@ -2,6 +2,7 @@
 package br.senai.sc.testes;
 
 import br.senai.sc.model.negocio.CategoriaMateriaPrima;
+import br.senai.sc.model.negocio.MateriaPrima;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,5 +29,28 @@ public class TesteMateriaPrimaCategoria {
 
         JOptionPane.showMessageDialog(null, cmp1.toString());
         JOptionPane.showMessageDialog(null, cmp2.toString());
+        
+            MateriaPrima mp1= new MateriaPrima();
+            mp1.setCodigo(1);
+            mp1.setFornecedor(JOptionPane.showInputDialog("Digite o nome do fornecedor:"));
+            mp1.setNome(JOptionPane.showInputDialog("Informe o nome da matéria-prima: "));
+            mp1.setPreco(Double.parseDouble(JOptionPane.showInputDialog("Digite o preço da matéria-prima:")));
+            mp1.setTpUnidade(JOptionPane.showInputDialog("Digite o tipo das unidades:"));
+            mp1.setQuantidade(Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de matéria-prima:")));
+            CategoriaMateriaPrima cat = new CategoriaMateriaPrima();
+            mp1.setCategoria(cmp2);
+            
+            
+              MateriaPrima mp2= new MateriaPrima();
+            mp2.setCodigo(2);
+            mp2.setFornecedor(JOptionPane.showInputDialog("Digite o nome do fornecedor:"));
+            mp2.setNome(JOptionPane.showInputDialog("Informe o nome da matéria-prima: "));
+            mp2.setPreco(Double.parseDouble(JOptionPane.showInputDialog("Digite o preço da matéria-prima:")));
+            mp2.setTpUnidade(JOptionPane.showInputDialog("Digite o tipo das unidades:"));
+            mp2.setQuantidade(Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de matéria-prima:")));
+            mp2.setCategoria(cmp1);
+
+            
+                    
     }
 }
