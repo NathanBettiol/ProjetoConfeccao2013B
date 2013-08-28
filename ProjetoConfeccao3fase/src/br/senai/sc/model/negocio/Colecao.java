@@ -18,6 +18,16 @@ public class Colecao {
     private String pubAlvo;
     private String funResponsavel;
 
+    @Override
+    public String toString() {
+        return "\nColeção"+""
+                + "\nCódigo da coleção: "+cod+""
+                + "\nEstação: "+estacao+""
+                + "\nAno: "+ano+""
+                + "\nProdutos da coleção: "+prodColecao+""
+                + "\nPúblico alvo: "+pubAlvo+""
+                + "\nFuncionário responsável: "+funResponsavel;
+    }
     
     @Override
     public int hashCode() {
