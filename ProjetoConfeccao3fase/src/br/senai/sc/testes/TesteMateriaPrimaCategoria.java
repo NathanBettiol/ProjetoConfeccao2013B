@@ -1,14 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.senai.sc.testes;
 
 import br.senai.sc.model.negocio.CategoriaMateriaPrima;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *@version  v1 28/08/2013
  * @author leticia_jesus
  */
 public class TesteMateriaPrimaCategoria {
