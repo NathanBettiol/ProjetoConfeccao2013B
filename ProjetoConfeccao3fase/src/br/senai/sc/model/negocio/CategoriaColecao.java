@@ -3,8 +3,8 @@ package br.senai.sc.model.negocio;
 import java.util.Objects;
 
 /**
- * Classe CategoriaColecao * A possui atributos para cadastrar categorias de
- * coleção
+ * Classe CategoriaColecao * A classe possui atributos para cadastrar
+ * categorias de coleção
  *
  * @version v1.0 28/08/2013
  * @author Gabriel Arsênio
@@ -17,7 +17,7 @@ public class CategoriaColecao {
 
     @Override
     public String toString() {
-        return "Categoria de coleção" + ""
+        return "\nCategoria de coleção" + ""
                 + "\nCódigo da categoria: " + cod + ""
                 + "\nNome: " + nome + ""
                 + "\nDescrição: " + descricao;
@@ -55,7 +55,7 @@ public class CategoriaColecao {
         return cod;
     }
 
-    public void setCodigo(int cod) {
+    public void setCod(int cod) {
         this.cod = cod;
     }
 
