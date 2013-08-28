@@ -23,12 +23,12 @@ public class Ferramenta {
     private boolean status;
 
     //Métodos Get e Set
-    public int getIdFerramenta() {
+    public int getCodFerramenta() {
         return codFerramenta;
     }
 
-    public void setIdFerramenta(int idFerramenta) {
-        this.codFerramenta = idFerramenta;
+    public void setCodFerramenta(int codFerramenta) {
+        this.codFerramenta = codFerramenta;
     }
     public String getNome() {
         return nome;
