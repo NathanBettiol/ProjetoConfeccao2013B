@@ -8,7 +8,7 @@ public class Produto {
     private Fabricante fabricante;
     private String modelo;
     private double preco;
-    private CategoriaProduto categoria;
+    private CategoriaColecao categoria;
     private String tamanho;
     private Colecao colecao;
     private String cor;
@@ -49,11 +49,11 @@ public class Produto {
         this.preco = preco;
     }
 
-    public CategoriaProduto getCategoria() {
+    public CategoriaColecao getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(CategoriaProduto categoria) {
+    public void setCategoria(CategoriaColecao categoria) {
         this.categoria = categoria;
     }
 
