@@ -18,7 +18,7 @@ public class Entrada {
     //Declaração das Variaveis
     private  int codigo;
     private  double preco;
-    private  Calendar dataEmissao;
+    private  String dtEmissao;
     private String produto;
     private int qtProduto;
     private int nrNotaFiscal;
@@ -49,12 +49,12 @@ public class Entrada {
         this.preco = preco;
     }
 
-    public Calendar getDataEmissao() {
-        return dataEmissao;
+    public String getDtEmissao() {
+        return dtEmissao;
     }
 
-    public void setDataEmissao(Calendar dataEmissao) {
-        this.dataEmissao = dataEmissao;
+    public void setDtEmissao(String dtEmissao) {
+        this.dtEmissao = dtEmissao;
     }
 
     public String getProduto() {
@@ -118,7 +118,7 @@ public class Entrada {
 
     @Override
     public String toString() {
-        return "Entrada{" + "codigo=" + codigo + ", preco=" + preco + ", dataEmissao=" + dataEmissao + ", produto=" + produto + ", qtProduto=" + qtProduto + ", nrNotaFiscal=" + nrNotaFiscal + '}';
+        return "Entrada{" + "codigo=" + codigo + ", preco=" + preco + ", dataEmissao=" + dtEmissao + ", produto=" + produto + ", qtProduto=" + qtProduto + ", nrNotaFiscal=" + nrNotaFiscal + '}';
     }
 
  //Final toString--------------------------------------------
@@ -140,7 +140,7 @@ public class Entrada {
         if (Double.doubleToLongBits(this.preco) != Double.doubleToLongBits(other.preco)) {
             return false;
         }
-        if (!Objects.equals(this.dataEmissao, other.dataEmissao)) {
+        if (!Objects.equals(this.dtEmissao, other.dtEmissao)) {
             return false;
         }
         if (!Objects.equals(this.produto, other.produto)) {
