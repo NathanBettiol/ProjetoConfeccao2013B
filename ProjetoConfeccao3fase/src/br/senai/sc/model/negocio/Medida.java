@@ -4,17 +4,17 @@ package br.senai.sc.model.negocio;
  * @version 1.0 28/08/2013
  * @author gustavo_lourenco
  */
-public class Medidas {
+public class Medida {
 
     private int codigo;
-    private String nomeUsuario;
+    private Usuario usuario ;
     private double mdBusto;
     private double mdCintura;
     private double mdQuadril;
     private double mdOmbros;
     private double altura;
 
-    public Medidas() {
+    public Medida() {
     }
 
     public int getCodigo() {
@@ -25,13 +25,15 @@ public class Medidas {
         this.codigo = codigo;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setUsuario(Usuario Usuario) {
+        this.usuario = Usuario;
     }
+
+    
 
     public double getMdBusto() {
         return mdBusto;
@@ -87,12 +89,12 @@ public class Medidas {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Medidas other = (Medidas) obj;
+        final Medida other = (Medida) obj;
         return true;
     }
 
     @Override
     public String toString() {
-        return "Medidas{" + "codigo=" + codigo + ", nomeUsuario=" + nomeUsuario + ", mdBusto=" + mdBusto + ", mdCintura=" + mdCintura + ", mdQuadril=" + mdQuadril + ", mdOmbros=" + mdOmbros + ", altura=" + altura + '}';
+        return "Medidas{" + "codigo=" + codigo + ", Usuario=" + usuario + ", mdBusto=" + mdBusto + ", mdCintura=" + mdCintura + ", mdQuadril=" + mdQuadril + ", mdOmbros=" + mdOmbros + ", altura=" + altura + '}';
     }
 }

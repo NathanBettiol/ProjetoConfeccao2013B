@@ -8,14 +8,14 @@ package br.senai.sc.model.negocio;
  * @version 1.0 28/08/2013
  * @author gustavo_lourenco
  */
-public class TiposFisicos {
+public class TipoFisico {
 
     private int codigo;
     private String genero;
     private String nome;
     private String descricao;
 
-    public TiposFisicos() {
+    public TipoFisico() {
     }
 
     public int getCodigo() {
@@ -64,7 +64,7 @@ public class TiposFisicos {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final TiposFisicos other = (TiposFisicos) obj;
+        final TipoFisico other = (TipoFisico) obj;
         return true;
     }
 
