@@ -19,14 +19,13 @@ public class PrincipalTreinamento {
        
        treina.nome = JOptionPane.showInputDialog("Digite nome do treinamento: ");
        
+       
        //Envoquei o SET
        treina.setCargaHoraria(150);
        treina.conteudo = "Estilo Comportamental e Como Agir Diante a Um Problema";
        
-       //Imprimi os valores de VARIAVEIS e de GETS da classe TREINAMENTO
-        System.out.println("Nome: " + treina.nome + "\nCarga Horária: " + treina.getCargaHoraria()
-                + "\nConteúdo: " + treina.getConteudo() + 
-                "\n------------------------------------------------------------------");
-    }
+       //Imprimi os valores com op método toString de VARIAVEIS e de GETS da classe TREINAMENTO
+        System.out.println(treina.toString());
     
+}
 }

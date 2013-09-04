@@ -1,6 +1,8 @@
 
 package br.senai.sc.model.negocio;
 
+import java.util.Objects;
+
 /**
 * Vagas
 * @version v1.0  28/08/2013
@@ -96,8 +98,46 @@ public class Vagas {
                "\nFunção: " + this.getFuncao() +
                "\nFaixa Salarial: " + this.getfaixaSalarial();
         
-               
+        
+        
 
+    }
+
+
+    //Iniciando o equals
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Vagas other = (Vagas) obj;
+        if (this.codigo != other.codigo) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (this.qtVaga != other.qtVaga) {
+            return false;
+        }
+        if (!Objects.equals(this.preRequisito, other.preRequisito)) {
+            return false;
+        }
+        if (!Objects.equals(this.funcao, other.funcao)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.faixaSalarial) != Double.doubleToLongBits(other.faixaSalarial)) {
+            return false;
+        }
+        return true;
+        
+        //Finalizando o equals
     }
     
 }

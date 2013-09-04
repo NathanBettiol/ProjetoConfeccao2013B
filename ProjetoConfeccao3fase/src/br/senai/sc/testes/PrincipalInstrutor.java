@@ -20,12 +20,10 @@ public class PrincipalInstrutor {
         
         inst.codTreinamento = Integer.parseInt(JOptionPane.showInputDialog("Digite o código: "));
         inst.nmfuncionario = JOptionPane.showInputDialog("Digite o nome: ");
-        inst.treinamento = JOptionPane.showInputDialog("Digite o treinamento: ");
+        inst.treinamento = JOptionPane.showInputDialog("Digite o nome do treinamento: ");
         
-        
-        //Imprimi os valores das VARIAVEIS da classe INSTRUTOR
-        System.out.println("Número do Código: " + inst.codTreinamento + "\nNome do Funcionário: " + inst.nmfuncionario +
-                "\nTipo de Treinamento: " + inst.treinamento);
+        //Imprimi os valores no método toString das VARIAVEIS da classe INSTRUTOR
+        System.out.println(inst.toString());
         
         
     }
