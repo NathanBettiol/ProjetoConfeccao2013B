@@ -15,6 +15,7 @@ public class Colecao {
     private int ano;
     private String pubAlvo;
     private String funResponsavel;
+    private CategoriaColecao categoria;
 
     public Colecao() {
     }
@@ -101,6 +102,14 @@ public class Colecao {
 
     public void setFunResponsavel(String funResponsavel) {
         this.funResponsavel = funResponsavel;
+    }
+
+    public CategoriaColecao getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(CategoriaColecao categoria) {
+        this.categoria = categoria;
     }
     //Fim Getters e Setters
 }
