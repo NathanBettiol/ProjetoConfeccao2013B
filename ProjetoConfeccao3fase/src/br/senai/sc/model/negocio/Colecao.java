@@ -10,12 +10,12 @@ import java.util.Objects;
  */
 public class Colecao {
 
-    private int cod;
-    private String estacao;
-    private int ano;
-    private String pubAlvo;
-    private String funResponsavel;
-    private CategoriaColecao categoria;
+    private int codColecao;
+    private String estacaoColecao;
+    private int anoColecao;
+    private String pubAlvoColecao;
+    private String funResponsavelColecao;
+    private CategoriaColecao categoriaColecao;
 
     public Colecao() {
     }
@@ -23,11 +23,11 @@ public class Colecao {
     @Override
     public String toString() {
         return "\nColeção" + ""
-                + "\nCódigo da coleção: " + cod + ""
-                + "\nEstação: " + estacao + ""
-                + "\nAno: " + ano + ""               
-                + "\nPúblico alvo: " + pubAlvo + ""
-                + "\nFuncionário responsável: " + funResponsavel;
+                + "\nCódigo da coleção: " + codColecao + ""
+                + "\nEstação: " + estacaoColecao + ""
+                + "\nAno: " + anoColecao + ""               
+                + "\nPúblico alvo: " + pubAlvoColecao + ""
+                + "\nFuncionário responsável: " + funResponsavelColecao;
     }
 
     @Override
@@ -45,71 +45,71 @@ public class Colecao {
             return false;
         }
         final Colecao other = (Colecao) obj;
-        if (this.cod != other.cod) {
+        if (this.codColecao != other.codColecao) {
             return false;
         }
-        if (!Objects.equals(this.estacao, other.estacao)) {
+        if (!Objects.equals(this.estacaoColecao, other.estacaoColecao)) {
             return false;
         }
-        if (this.ano != other.ano) {
+        if (this.anoColecao != other.anoColecao) {
             return false;
         }        
-        if (!Objects.equals(this.pubAlvo, other.pubAlvo)) {
+        if (!Objects.equals(this.pubAlvoColecao, other.pubAlvoColecao)) {
             return false;
         }
-        if (!Objects.equals(this.funResponsavel, other.funResponsavel)) {
+        if (!Objects.equals(this.funResponsavelColecao, other.funResponsavelColecao)) {
             return false;
         }
         return true;
     }
 
     //Getters e Setters
-    public int getCod() {
-        return cod;
+    public int getCodColecao() {
+        return codColecao;
     }
 
-    public void setCod(int cod) {
-        this.cod = cod;
+    public void setCodColecao(int codColecao) {
+        this.codColecao = codColecao;
     }
 
-    public String getEstacao() {
-        return estacao;
+    public String getEstacaoColecao() {
+        return estacaoColecao;
     }
 
-    public void setEstacao(String estacao) {
-        this.estacao = estacao;
+    public void setEstacaoColecao(String estacaoColecao) {
+        this.estacaoColecao = estacaoColecao;
     }
 
-    public int getAno() {
-        return ano;
+    public int getAnoColecao() {
+        return anoColecao;
     }
 
-    public void setAno(int ano) {
-        this.ano = ano;
+    public void setAnoColecao(int anoColecao) {
+        this.anoColecao = anoColecao;
     }    
 
-    public String getPubAlvo() {
-        return pubAlvo;
+    public String getPubAlvoColecao() {
+        return pubAlvoColecao;
     }
 
-    public void setPubAlvo(String pubAlvo) {
-        this.pubAlvo = pubAlvo;
+    public void setPubAlvoColecao(String pubAlvoColecao) {
+        this.pubAlvoColecao = pubAlvoColecao;
     }
 
-    public String getFunResponsavel() {
-        return funResponsavel;
+    public String getFunResponsavelColecao() {
+        return funResponsavelColecao;
     }
 
-    public void setFunResponsavel(String funResponsavel) {
-        this.funResponsavel = funResponsavel;
+    public void setFunResponsavelColecao(String funResponsavelColecao) {
+        this.funResponsavelColecao = funResponsavelColecao;
     }
 
-    public CategoriaColecao getCategoria() {
-        return categoria;
+    public CategoriaColecao getCategoriaColecao() {
+        return categoriaColecao;
     }
 
-    public void setCategoria(CategoriaColecao categoria) {
-        this.categoria = categoria;
+    public void setCategoriaColecao(CategoriaColecao categoriaColecao) {
+        this.categoriaColecao = categoriaColecao;
     }
     //Fim Getters e Setters
 }
