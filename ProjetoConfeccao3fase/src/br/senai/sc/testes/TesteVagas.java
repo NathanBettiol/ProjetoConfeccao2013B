@@ -1,21 +1,15 @@
 
 package br.senai.sc.testes;
+
 import br.senai.sc.model.negocio.Vagas;
 import javax.swing.JOptionPane;
 
-/**
-* PrincipalVagas
-* @version v1.0  28/08/2013
-* @author Bruna Zakrzeski
-*/
-
-public class PrincipalVagas {
+public class TesteVagas {
     
     public static void main(String[] args) {
         
-        
-        
-        
+    
+    
         //Primeira classe instanciada VAGAS
         Vagas vaga = new Vagas();
          
@@ -31,14 +25,6 @@ public class PrincipalVagas {
          
        //System out imprimindo os valores do método toString
         System.out.println(vaga.toString());
-                
     
-    
-   
-        
-       
-       
-    
-    }
-    
+}
 }
