@@ -3,12 +3,12 @@ package br.senai.sc.testes;
 import br.senai.sc.model.negocio.Treinamento;
 import javax.swing.JOptionPane;
 /**
-* PrincipalTreinamento
+* TesteTreinamento
 * @version v1.0  28/08/2013
 * @author Bruna Zakrzeski
 */
 
-public class PrincipalTreinamento {
+public class TesteTreinamento {
     
     public static void main(String[] args) {
         

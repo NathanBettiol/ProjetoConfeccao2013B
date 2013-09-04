@@ -3,19 +3,19 @@ package br.senai.sc.model.negocio;
 import java.util.Objects;
 
 /**
- * Classe CategoriaProduto * A classe possui atributos para cadastrar categorias
+ * Classe CategoriaColecao * A classe possui atributos para cadastrar categorias
  * de coleção
  *
  * @version v1.0 28/08/2013
  * @author Gabriel Arsênio
  */
-public class CategoriaProduto {
-
+public class CategoriaColecao {
+    
     private int cod;
     private String nome;
     private String descricao;
 
-    public CategoriaProduto() {
+    public CategoriaColecao() {
     }
 
     @Override
@@ -40,7 +40,7 @@ public class CategoriaProduto {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CategoriaProduto other = (CategoriaProduto) obj;
+        final CategoriaColecao other = (CategoriaColecao) obj;
         if (this.cod != other.cod) {
             return false;
         }

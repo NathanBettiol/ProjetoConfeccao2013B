@@ -4,12 +4,12 @@ import br.senai.sc.model.negocio.Vagas;
 import javax.swing.JOptionPane;
 
 /**
-* PrincipalVagas
+* TesteVagas
 * @version v1.0  28/08/2013
 * @author Bruna Zakrzeski
 */
 
-public class PrincipalVagas {
+public class TesteVagas {
     
     public static void main(String[] args) {
         

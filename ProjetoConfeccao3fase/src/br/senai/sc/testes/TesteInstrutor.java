@@ -4,12 +4,12 @@ import br.senai.sc.model.negocio.Instrutor;
 import javax.swing.JOptionPane;
 
 /**
-* PrincipalInstrutor
+* TesteInstrutor
 * @version v1.0  28/08/2013
 * @author Bruna Zakrzeski
 */
 
-public class PrincipalInstrutor {
+public class TesteInstrutor {
     
     public static void main(String[] args) {
         
