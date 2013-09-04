@@ -2,14 +2,20 @@ package br.senai.sc.model.negocio;
 
 import java.util.Objects;
 
+/**
+ * Classe NotaFiscal * A classe possui atributos para formação de uma nota
+ * fiscal
+ *
+ * @version v1.0 28/08/2013
+ * @author Elivelton Sipriano
+ */
 public class NotaFiscal {
-//criei estes atributos para a formação da nota fiscal
 
     private int codNumero;
     private String dataEmissao;
     private String produtos;
     private double valorTotal;
-    private String funcionarioResponsavel;
+    private Funcionario funcionarioResponsavel;
     private String destinatario;
     private String remetente;
 
@@ -41,11 +47,11 @@ public class NotaFiscal {
         this.valorTotal = valorTotal;
     }
 
-    public String getFuncionarioResponsavel() {
+    public Funcionario getFuncionarioResponsavel() {
         return funcionarioResponsavel;
     }
 
-    public void setFuncionarioResponsavel(String funcionarioResponsavel) {
+    public void setFuncionarioResponsavel(Funcionario funcionarioResponsavel) {
         this.funcionarioResponsavel = funcionarioResponsavel;
     }
 
@@ -104,5 +110,16 @@ public class NotaFiscal {
         }
 
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "NotaFiscal" + "\nCodNumero:" + codNumero
+                + "\nData Emissao: " + dataEmissao
+                + "\n Produtos: " + produtos
+                + "\n Valor Total" + valorTotal
+                + "\n Funcionario Responsavel:" + funcionarioResponsavel
+                + "\n Destinatario:" + destinatario
+                + "\nRemetente:" + remetente;
     }
 }
