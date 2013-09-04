@@ -10,7 +10,7 @@ import java.util.Objects;
 public class MateriaPrima {
 //declaração das variaveis
     private int cod;
-    private String fornecedor;
+    private Fornecedor Fornecedor;
     private String nome;
     private CategoriaMateriaPrima categoria;
     private double preco;
@@ -29,14 +29,17 @@ public class MateriaPrima {
     public void setCodigo(int codigo) {
         this.cod = codigo;
     }
-     
-    public String getFornecedor() {
-        return fornecedor;
+
+    public Fornecedor getFornecedor() {
+        return Fornecedor;
     }
 
-    public void setFornecedor(String fornecedor) {
-        this.fornecedor = fornecedor;
+    public void setFornecedor(Fornecedor Fornecedor) {
+        this.Fornecedor = Fornecedor;
     }
+
+   
+  
 
     public String getNome() {
         return nome;
@@ -81,7 +84,7 @@ public class MateriaPrima {
     //para mostrar os atributos da materia-prima
     @Override
     public String toString() {
-        return "MateriaPrima{" + "codigo=" + cod + ", fornecedor=" + fornecedor + ", nome=" + nome + ", categoria=" + categoria + ", preco=" + preco + ", tpUnidade=" + tpUnidade + ", quantidade=" + quantidade + '}';
+        return "MateriaPrima{" + "codigo=" + cod + ", fornecedor=" + Fornecedor + ", nome=" + nome + ", categoria=" + categoria + ", preco=" + preco + ", tpUnidade=" + tpUnidade + ", quantidade=" + quantidade + '}';
     }
    
 
@@ -100,13 +103,19 @@ public class MateriaPrima {
             return false;
         }
         final MateriaPrima other = (MateriaPrima) obj;
-        if (!Objects.equals(this.fornecedor, other.fornecedor)) {
+        if (this.cod != other.cod) {
+            return false;
+        }
+        if (!Objects.equals(this.Fornecedor, other.Fornecedor)) {
             return false;
         }
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
         if (!Objects.equals(this.categoria, other.categoria)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.preco) != Double.doubleToLongBits(other.preco)) {
             return false;
         }
         if (!Objects.equals(this.tpUnidade, other.tpUnidade)) {
@@ -117,7 +126,8 @@ public class MateriaPrima {
         }
         return true;
     }
-    
+
+   
 
     
     }

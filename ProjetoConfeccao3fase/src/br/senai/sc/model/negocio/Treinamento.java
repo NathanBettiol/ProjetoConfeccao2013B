@@ -12,10 +12,21 @@ import java.util.Objects;
 public class Treinamento {
     
     //Variaveis declaradas
+    
     public Long id;
     public String nome;
     public int cargaHoraria;
     public String conteudo;
+    
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
 
     //Iniciando o id com LONG
     public Long getId() {
@@ -33,13 +44,7 @@ public class Treinamento {
     }
 
     //Inicio de Get e Set
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public int getCargaHoraria() {
         return cargaHoraria;
@@ -84,6 +89,20 @@ public class Treinamento {
     }
     
     //Finalizando o método equals
+    
+    
+    
+     //toString declarado
+    public String toString(){
+        return "\nNome: " + this.getNome() +
+               "\nCarga Horária: " + this.getCargaHoraria() +
+               "\nConteúdo: " + this.getConteudo();
+        
+        //Finalizando o método toString
+               
+    }
+    
+    
     
     
     
