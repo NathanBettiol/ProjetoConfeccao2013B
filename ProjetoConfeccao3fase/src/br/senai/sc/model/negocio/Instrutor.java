@@ -8,6 +8,9 @@ import java.util.Objects;
  * @version v1.0 28/08/2013
  * @author Bruna Zakrzeski
  */
+
+
+
 public class Instrutor {
 
     //Variaveis declaradas
