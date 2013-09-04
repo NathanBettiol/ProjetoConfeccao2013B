@@ -26,7 +26,6 @@ public class TesteMedidaTipoFisico {
         Usuario usuario = new Usuario();
 
         usuario.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe o código: ")));
-        usuario.setCodUsuario(Integer.parseInt(JOptionPane.showInputDialog("Informe o cógigo do usuario: ")));
         usuario.setNome(JOptionPane.showInputDialog("Digite seu nome: "));
         usuario.setCpf(JOptionPane.showInputDialog("Informe o cpf: "));
         usuario.setDataCadastro(JOptionPane.showInputDialog("Informe a data de cadastro: "));
