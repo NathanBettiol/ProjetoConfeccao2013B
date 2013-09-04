@@ -4,32 +4,32 @@ import java.util.Objects;
 
 public class Produto {
 
-    private int codigo;
-    private String fabricante;
+    private int codProduto;
+    private Fabricante fabricante;
     private String modelo;
     private double preco;
-    private CategoriaProduto categoria;
+    private CategoriaColecao categoria;
     private String tamanho;
     private Colecao colecao;
     private String cor;
+    private int qtProdutos;
 
     public Produto() {
-
-    }
-    
-    public int getCodigo() {
-        return codigo;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public int getCodProduto() {
+        return codProduto;
     }
 
-    public String getFabricante() {
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
+    }
+
+    public Fabricante getFabricante() {
         return fabricante;
     }
 
-    public void setFabricante(String fabricante) {
+    public void setFabricante(Fabricante fabricante) {
         this.fabricante = fabricante;
     }
 
@@ -49,11 +49,11 @@ public class Produto {
         this.preco = preco;
     }
 
-    public CategoriaProduto getCategoria() {
+    public CategoriaColecao getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(CategoriaProduto categoria) {
+    public void setCategoria(CategoriaColecao categoria) {
         this.categoria = categoria;
     }
 
@@ -81,9 +81,17 @@ public class Produto {
         this.cor = cor;
     }
 
+    public int getQtProdutos() {
+        return qtProdutos;
+    }
+
+    public void setQtProdutos(int qtProdutos) {
+        this.qtProdutos = qtProdutos;
+    }
+
     @Override
     public String toString() {
-        return "Produto{" + "codigo=" + codigo + ", fabricante=" + fabricante + ", modelo=" + modelo + ", preco=" + preco + ", categoria=" + categoria + ", tamanho=" + tamanho + ", colecao=" + colecao + ", cor=" + cor + '}';
+        return "Produto{" + "codProduto=" + codProduto + ", fabricante=" + fabricante + ", modelo=" + modelo + ", preco=" + preco + ", categoria=" + categoria + ", tamanho=" + tamanho + ", colecao=" + colecao + ", cor=" + cor + ", qtProdutos=" + qtProdutos + '}';
     }
 
     @Override
@@ -95,7 +103,7 @@ public class Produto {
             return false;
         }
         final Produto other = (Produto) obj;
-        if (this.codigo != other.codigo) {
+        if (this.codProduto != other.codProduto) {
             return false;
         }
         if (!Objects.equals(this.fabricante, other.fabricante)) {
@@ -117,6 +125,9 @@ public class Produto {
             return false;
         }
         if (!Objects.equals(this.cor, other.cor)) {
+            return false;
+        }
+        if (this.qtProdutos != other.qtProdutos) {
             return false;
         }
         return true;

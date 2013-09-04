@@ -6,43 +6,27 @@ import java.util.Objects;
  *
  * @author wesley_s
  */
-public class Transportadora {
+public class Transportadora extends PessoaJuridica {
 
-    private int codigo;
-    private String nmTransportadora;
-    private String cnpj;
+    //Atributos
+    private int codTransportadora;
     private String endereco;
-    private String razaoSocial;
     private String telefone;
     private String email;
     private String paginaWeb;
     private String contato;
 
+    //Construtor sem parâmetros
     public Transportadora() {
     }
 
-    public int getCodigo() {
-        return codigo;
+    //Métodos getters e setters
+    public int getCodTransportadora() {
+        return codTransportadora;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNmTransportadora() {
-        return nmTransportadora;
-    }
-
-    public void setNmTransportadora(String nmTransportadora) {
-        this.nmTransportadora = nmTransportadora;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setCodTransportadora(int codTransportadora) {
+        this.codTransportadora = codTransportadora;
     }
 
     public String getEndereco() {
@@ -51,14 +35,6 @@ public class Transportadora {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-
-    public String getRazaoSocial() {
-        return razaoSocial;
-    }
-
-    public void setRazaoSocial(String razaoSocial) {
-        this.razaoSocial = razaoSocial;
     }
 
     public String getTelefone() {
@@ -93,6 +69,7 @@ public class Transportadora {
         this.contato = contato;
     }
 
+    //Equals
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -102,19 +79,10 @@ public class Transportadora {
             return false;
         }
         final Transportadora other = (Transportadora) obj;
-        if (this.codigo != other.codigo) {
-            return false;
-        }
-        if (!Objects.equals(this.nmTransportadora, other.nmTransportadora)) {
-            return false;
-        }
-        if (!Objects.equals(this.cnpj, other.cnpj)) {
+        if (this.codTransportadora != other.codTransportadora) {
             return false;
         }
         if (!Objects.equals(this.endereco, other.endereco)) {
-            return false;
-        }
-        if (!Objects.equals(this.razaoSocial, other.razaoSocial)) {
             return false;
         }
         if (!Objects.equals(this.telefone, other.telefone)) {
@@ -132,14 +100,15 @@ public class Transportadora {
         return true;
     }
 
+    //toString
     @Override
     public String toString() {
         return "Transportadora:"
-                + "\nCodigo = " + codigo
-                + "\nNome = " + nmTransportadora
-                + "\nCnpj = " + cnpj
+                + "\nCodigo = " + codTransportadora
+                + "\nNome Fantasia = " + getNmFantasia()
+                + "\nCnpj = " + getCnpj()
                 + "\nEndereco = " + endereco
-                + "\nRazao Social = " + razaoSocial
+                + "\nRazão Social = " + getRazaoSocial()
                 + "\nTelefone = " + telefone
                 + "\nE-mail = " + email
                 + "\nPagina Web = " + paginaWeb

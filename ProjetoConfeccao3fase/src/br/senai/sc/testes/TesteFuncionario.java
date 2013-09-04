@@ -13,20 +13,9 @@ public class TesteFuncionario {
         
     //Instanciando o primeiro funcionário
      Funcionario f1 = new Funcionario();
-        String nome;
-        String cargo;
+        String cargo;                     
         
-        f1.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe o código do funcionário" + f1.getCod())));
-        do{
-            nome = JOptionPane.showInputDialog("Informe o nome do funcionário" + f1.getNome());
-        }while(!Validadores.somenteLetras(nome));
-        f1.setNome(nome);
-        
-        f1.setCpf(JOptionPane.showInputDialog("Informe o cpf do funcionário" + f1.getCpf()));
-        f1.setRg(JOptionPane.showInputDialog("Informe o RG do funcionário" + f1.getRg()));
-        f1.setDtNascimento(JOptionPane.showInputDialog("Informe a data de nascimento do funcionário" + f1.getDtNascimento()));   
-        f1.setTelefone(JOptionPane.showInputDialog("Informe o telefone do funcionário" + f1.getTelefone()));
-        f1.setEndereco(JOptionPane.showInputDialog("Informe o endereço do funcionário" + f1.getEndereco()));
+        f1.setLogin(JOptionPane.showInputDialog("Informe o login do funcionário" + f1.getLogin()));
         f1.setEmail(JOptionPane.showInputDialog("Informe o e-mail do funcionário" + f1.getEmail()));
         
          do{
@@ -43,17 +32,7 @@ public class TesteFuncionario {
         //Instanciando o segundo Funcionário
         Funcionario f2 = new Funcionario();
         
-        f2.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe o código do funcionário" + f2.getCod())));
-         do{
-            nome = JOptionPane.showInputDialog("Informe o nome do funcionário" + f2.getNome());
-        }while(!Validadores.somenteLetras(nome));
-        f2.setNome(nome);
-        
-        f2.setCpf(JOptionPane.showInputDialog("Informe o cpf do funcionário" + f2.getCpf()));
-        f2.setRg(JOptionPane.showInputDialog("Informe o RG do funcionário" + f2.getRg()));
-        f2.setDtNascimento(JOptionPane.showInputDialog("Informe a data de nascimento do funcionário" + f2.getDtNascimento()));
-        f2.setTelefone(JOptionPane.showInputDialog("Informe o telefone do funcionário" + f2.getTelefone() ));
-        f2.setEndereco(JOptionPane.showInputDialog("Informe o endereço do funcionário" + f2.getEndereco()));
+        f2.setLogin(JOptionPane.showInputDialog("Informe o login do funcionário" + f2.getLogin()));
         f2.setEmail(JOptionPane.showInputDialog("Informe o e-mail do funcionário" + f2.getEmail()));
         
          do{
