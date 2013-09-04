@@ -32,7 +32,6 @@ public class TesteMateriaPrimaCategoria {
         
             MateriaPrima mp1= new MateriaPrima();
             mp1.setCodigo(1);
-            mp1.setFornecedor(JOptionPane.showInputDialog("Digite o nome do fornecedor:"));
             mp1.setNome(JOptionPane.showInputDialog("Informe o nome da matéria-prima: "));
             mp1.setPreco(Double.parseDouble(JOptionPane.showInputDialog("Digite o preço da matéria-prima:")));
             mp1.setTpUnidade(JOptionPane.showInputDialog("Digite o tipo das unidades:"));
@@ -43,7 +42,6 @@ public class TesteMateriaPrimaCategoria {
             
               MateriaPrima mp2= new MateriaPrima();
             mp2.setCodigo(2);
-            mp2.setFornecedor(JOptionPane.showInputDialog("Digite o nome do fornecedor:"));
             mp2.setNome(JOptionPane.showInputDialog("Informe o nome da matéria-prima: "));
             mp2.setPreco(Double.parseDouble(JOptionPane.showInputDialog("Digite o preço da matéria-prima:")));
             mp2.setTpUnidade(JOptionPane.showInputDialog("Digite o tipo das unidades:"));

@@ -2,6 +2,7 @@ package br.senai.sc.model.negocio;
 
 import java.util.Objects;
 
+
 public class NotaFiscal {
 //criei estes atributos para a formação da nota fiscal
 

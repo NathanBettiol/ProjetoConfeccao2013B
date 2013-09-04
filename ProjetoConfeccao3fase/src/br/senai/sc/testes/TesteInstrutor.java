@@ -1,6 +1,7 @@
 
 package br.senai.sc.testes;
 
+
 import br.senai.sc.model.negocio.Instrutor;
 import javax.swing.JOptionPane;
 

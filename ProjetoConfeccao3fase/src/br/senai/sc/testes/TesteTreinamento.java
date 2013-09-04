@@ -1,3 +1,4 @@
+
 package br.senai.sc.testes;
 
 import br.senai.sc.model.negocio.Treinamento;
@@ -23,4 +24,5 @@ public class TesteTreinamento {
         System.out.println(treina.toString());
 
     }
+
 }
