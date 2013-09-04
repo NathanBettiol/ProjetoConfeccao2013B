@@ -14,7 +14,7 @@ import java.util.Objects;
 
 
 public class Ferias {
-    private int codFerias;
+
     private String funcionario;
     private String dataInicio;
     private String dataFim;
@@ -25,12 +25,7 @@ public class Ferias {
     
     //getters e setters
     
-    public int getcodFerias() {
-        return codFerias;
-    }
-    public void setcodFerias(int codFerias) {
-        this.codFerias = codFerias;
-    }
+
     public String getFuncionario() {
         return funcionario;
     }
