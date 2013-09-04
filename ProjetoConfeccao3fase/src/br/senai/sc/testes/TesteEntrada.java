@@ -29,5 +29,9 @@ public class TesteEntrada {
          e2.setProduto("ovo");
          e2.setQtProduto(99);
          
+        System.out.println(e1.toString());
+        System.out.println(e2.toString());
+        
+         
     }
 }
