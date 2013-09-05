@@ -11,9 +11,9 @@ import java.util.Objects;
  */
 public class CategoriaColecao {
     
-    private int cod;
-    private String nome;
-    private String descricao;
+    private int codCategoriaColecao;
+    private String nomeCategoriaColecao;
+    private String descricaoCategoriaColecao;
 
     public CategoriaColecao() {
     }
@@ -21,9 +21,9 @@ public class CategoriaColecao {
     @Override
     public String toString() {
         return "\nCategoria de coleção" + ""
-                + "\nCódigo da categoria: " + cod + ""
-                + "\nNome: " + nome + ""
-                + "\nDescrição: " + descricao;
+                + "\nCódigo da categoria: " + codCategoriaColecao + ""
+                + "\nNome: " + nomeCategoriaColecao + ""
+                + "\nDescrição: " + descricaoCategoriaColecao;
     }
 
     @Override
@@ -41,41 +41,41 @@ public class CategoriaColecao {
             return false;
         }
         final CategoriaColecao other = (CategoriaColecao) obj;
-        if (this.cod != other.cod) {
+        if (this.codCategoriaColecao != other.codCategoriaColecao) {
             return false;
         }
-        if (!Objects.equals(this.nome, other.nome)) {
+        if (!Objects.equals(this.nomeCategoriaColecao, other.nomeCategoriaColecao)) {
             return false;
         }
-        if (!Objects.equals(this.descricao, other.descricao)) {
+        if (!Objects.equals(this.descricaoCategoriaColecao, other.descricaoCategoriaColecao)) {
             return false;
         }
         return true;
     }
 
     //Getters e Setters
-    public int getCod() {
-        return cod;
+    public int getCodCategoriaColecao() {
+        return codCategoriaColecao;
     }
 
-    public void setCod(int cod) {
-        this.cod = cod;
+    public void setCodCategoriaColecao(int codCategoriaColecao) {
+        this.codCategoriaColecao = codCategoriaColecao;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeCategoriaColecao() {
+        return nomeCategoriaColecao;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeCategoriaColecao(String nomeCategoriaColecao) {
+        this.nomeCategoriaColecao = nomeCategoriaColecao;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescricaoCategoriaColecao() {
+        return descricaoCategoriaColecao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescricaoCategoriaColecao(String descricaoCategoriaColecao) {
+        this.descricaoCategoriaColecao = descricaoCategoriaColecao;
     }
     //Fim Getters e Setters
 }
