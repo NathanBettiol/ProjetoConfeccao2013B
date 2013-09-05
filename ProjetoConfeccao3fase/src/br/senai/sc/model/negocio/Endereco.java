@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author gustavo_cm
  */
-public class CadastrodeEndereco {
+public class Endereco {
     
    private int codigo;
    private String rua;
@@ -22,7 +22,7 @@ public class CadastrodeEndereco {
    private String complemento;
    private double numero;
 
-    public CadastrodeEndereco() {
+    public Endereco() {
     }
 
    
@@ -95,7 +95,7 @@ public class CadastrodeEndereco {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CadastrodeEndereco other = (CadastrodeEndereco) obj;
+        final Endereco other = (Endereco) obj;
         if (this.codigo != other.codigo) {
             return false;
         }

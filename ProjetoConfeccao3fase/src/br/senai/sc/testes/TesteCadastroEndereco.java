@@ -5,7 +5,7 @@
 package br.senai.sc.testes;
 
 
-import br.senai.sc.model.negocio.CadastrodeEndereco;
+import br.senai.sc.model.negocio.Endereco;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class TesteCadastroEndereco {
     
      public static void main(String[] args) {
-       CadastrodeEndereco e1 = new CadastrodeEndereco();
+       Endereco e1 = new Endereco();
         e1.setCodigo(1);
         e1.setRua(JOptionPane.showInputDialog("Digite o nome da rua: "));
         e1.setBairro(JOptionPane.showInputDialog("Digite seu bairro: "));
@@ -32,7 +32,7 @@ public class TesteCadastroEndereco {
                 + "\nComplemento: " + e1.getComplemento()
                 + "\nNumero: " + e1.getNumero());
         
-        CadastrodeEndereco e2 = new CadastrodeEndereco();
+        Endereco e2 = new Endereco();
         e2.setCodigo(1);
         e2.setRua(JOptionPane.showInputDialog("Digite o nome da rua: "));
         e2.setBairro(JOptionPane.showInputDialog("Digite seu bairro: "));
