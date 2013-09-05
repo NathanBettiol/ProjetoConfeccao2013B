@@ -20,17 +20,17 @@ public class TesteCategoriaColecao {
 
         //Instância de CategoriaColecao 0
         CategoriaColecao cc = new CategoriaColecao();
-        cc.setCod(0);
-        cc.setNome(JOptionPane.showInputDialog("Informe o nome da categoria de coleção"));
-        cc.setDescricao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
+        cc.setCodCategoriaColecao(0);
+        cc.setNomeCategoriaColecao(JOptionPane.showInputDialog("Informe o nome da categoria de coleção"));
+        cc.setDescricaoCategoriaColecao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
 
         JOptionPane.showMessageDialog(null, cc.toString());
 
         //Instância de CategoriaColecao 1
         CategoriaColecao cc1 = new CategoriaColecao();
-        cc1.setCod(1);
-        cc1.setNome(JOptionPane.showInputDialog("Informe o nome da categoria de coleção"));
-        cc1.setDescricao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
+        cc1.setCodCategoriaColecao(1);
+        cc1.setNomeCategoriaColecao(JOptionPane.showInputDialog("Informe o nome da categoria de coleção"));
+        cc1.setDescricaoCategoriaColecao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
 
         JOptionPane.showMessageDialog(null, cc1.toString());
     }
