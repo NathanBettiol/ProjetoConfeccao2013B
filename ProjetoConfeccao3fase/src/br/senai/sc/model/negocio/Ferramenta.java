@@ -20,7 +20,7 @@ public class Ferramenta {
     private String descricao;
     private String nmFabricante;
     private String dtCadastro;
-    private boolean status;
+    private String status;
 
     //Métodos Get e Set
     public int getCodFerramenta() {
@@ -62,13 +62,14 @@ public class Ferramenta {
         this.dtCadastro = dtCadastro;
     }
 
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
+
 
     //Equals
     @Override
