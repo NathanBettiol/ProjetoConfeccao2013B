@@ -1,5 +1,6 @@
 package br.senai.sc.model.negocio;
 
+import java.sql.Date;
 import java.util.Objects;
 
 /**
@@ -13,7 +14,7 @@ public abstract class Pessoa {
     private int cod;
     private String endereco;
     private String telefone;
-    private String dtCadastro;
+    private Date dtCadastro;
 
     //Contrutor Vazio
     public Pessoa() {
@@ -44,11 +45,11 @@ public abstract class Pessoa {
         this.telefone = telefone;
     }
 
-    public String getDtCadastro() {
+    public Date getDtCadastro() {
         return dtCadastro;
     }
 
-    public void setDataCadastro(String dtCadastro) {
+    public void setDataCadastro(Date dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 
