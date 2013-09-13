@@ -49,7 +49,7 @@ public abstract class Pessoa {
         return dtCadastro;
     }
 
-    public void setDataCadastro(Date dtCadastro) {
+    public void setDtCadastro(Date dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 
