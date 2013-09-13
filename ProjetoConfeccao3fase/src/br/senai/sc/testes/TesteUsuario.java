@@ -5,6 +5,8 @@
 package br.senai.sc.testes;
 
 import br.senai.sc.model.negocio.Usuario;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +22,12 @@ public class TesteUsuario {
         u1.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe o código: " + u1.getCod())));
         u1.setNome(JOptionPane.showInputDialog("Digite seu nome: "));
         u1.setCpf(JOptionPane.showInputDialog("Informe o cpf: "));
-        u1.setDataCadastro(JOptionPane.showInputDialog("Informe a data de cadastro: "));
+        try {
+            String data = JOptionPane.showInputDialog("Data de Cadastro: ");
+            u1.setDtCadastro((Date) new SimpleDateFormat("dd/MM/yyyy").parse(data));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data incorreta: " + e);
+        }
         u1.setDataNascimento(JOptionPane.showInputDialog("Informe a data de nascimento: "));
         u1.setEmail(JOptionPane.showInputDialog("Informe seu E-mail: "));
         u1.setEndereco(JOptionPane.showInputDialog("Informe o endereço: "));
@@ -33,7 +40,12 @@ public class TesteUsuario {
         u2.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe o código: " + u1.getCod())));
         u2.setNome(JOptionPane.showInputDialog("Digite seu nome: "));
         u2.setCpf(JOptionPane.showInputDialog("Informe o cpf: "));
-        u2.setDataCadastro(JOptionPane.showInputDialog("Informe a data de cadastro: "));
+        try {
+            String data = JOptionPane.showInputDialog("Data de Cadastro: ");
+            u2.setDtCadastro((Date) new SimpleDateFormat("dd/MM/yyyy").parse(data));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data incorreta: " + e);
+        }
         u2.setDataNascimento(JOptionPane.showInputDialog("Informe a data de nascimento: "));
         u2.setEmail(JOptionPane.showInputDialog("Informe seu E-mail: "));
         u2.setEndereco(JOptionPane.showInputDialog("Informe o endereço: "));

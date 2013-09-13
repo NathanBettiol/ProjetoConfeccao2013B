@@ -9,7 +9,6 @@ import java.util.Objects;
 public class Transportadora extends PessoaJuridica {
 
     //Atributos
-    private int codTransportadora;
     private String email;
     private String paginaWeb;
     private String contato;
@@ -21,14 +20,6 @@ public class Transportadora extends PessoaJuridica {
 
 //------------------------------------------------------------------------------
     //Métodos getters e setters
-    public int getCodTransportadora() {
-        return codTransportadora;
-    }
-
-    public void setCodTransportadora(int codTransportadora) {
-        this.codTransportadora = codTransportadora;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -64,9 +55,6 @@ public class Transportadora extends PessoaJuridica {
             return false;
         }
         final Transportadora other = (Transportadora) obj;
-        if (this.codTransportadora != other.codTransportadora) {
-            return false;
-        }
         if (!Objects.equals(this.email, other.email)) {
             return false;
         }
@@ -84,7 +72,7 @@ public class Transportadora extends PessoaJuridica {
     @Override
     public String toString() {
         return "Transportadora:"
-                + "\nCodigo = " + codTransportadora
+                + "\nCodigo = " + getCod()
                 + "\nNome Fantasia = " + getNmFantasia()
                 + "\nCnpj = " + getCnpj()
                 + "\nEndereco = " + getEndereco()
@@ -92,6 +80,7 @@ public class Transportadora extends PessoaJuridica {
                 + "\nTelefone = " + getTelefone()
                 + "\nE-mail = " + email
                 + "\nPagina Web = " + paginaWeb
-                + "\nContato = " + contato;
+                + "\nContato = " + contato
+                + "\nData de Cadastro = " + getDtCadastro();
     }
 }
