@@ -10,16 +10,16 @@ public class Transportadora extends PessoaJuridica {
 
     //Atributos
     private int codTransportadora;
-    private String endereco;
-    private String telefone;
     private String email;
     private String paginaWeb;
     private String contato;
 
+//------------------------------------------------------------------------------
     //Construtor sem parâmetros
     public Transportadora() {
     }
 
+//------------------------------------------------------------------------------
     //Métodos getters e setters
     public int getCodTransportadora() {
         return codTransportadora;
@@ -27,22 +27,6 @@ public class Transportadora extends PessoaJuridica {
 
     public void setCodTransportadora(int codTransportadora) {
         this.codTransportadora = codTransportadora;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
     }
 
     public String getEmail() {
@@ -69,6 +53,7 @@ public class Transportadora extends PessoaJuridica {
         this.contato = contato;
     }
 
+//------------------------------------------------------------------------------
     //Equals
     @Override
     public boolean equals(Object obj) {
@@ -80,12 +65,6 @@ public class Transportadora extends PessoaJuridica {
         }
         final Transportadora other = (Transportadora) obj;
         if (this.codTransportadora != other.codTransportadora) {
-            return false;
-        }
-        if (!Objects.equals(this.endereco, other.endereco)) {
-            return false;
-        }
-        if (!Objects.equals(this.telefone, other.telefone)) {
             return false;
         }
         if (!Objects.equals(this.email, other.email)) {
@@ -100,6 +79,7 @@ public class Transportadora extends PessoaJuridica {
         return true;
     }
 
+//------------------------------------------------------------------------------
     //toString
     @Override
     public String toString() {
@@ -107,9 +87,9 @@ public class Transportadora extends PessoaJuridica {
                 + "\nCodigo = " + codTransportadora
                 + "\nNome Fantasia = " + getNmFantasia()
                 + "\nCnpj = " + getCnpj()
-                + "\nEndereco = " + endereco
+                + "\nEndereco = " + getEndereco()
                 + "\nRazão Social = " + getRazaoSocial()
-                + "\nTelefone = " + telefone
+                + "\nTelefone = " + getTelefone()
                 + "\nE-mail = " + email
                 + "\nPagina Web = " + paginaWeb
                 + "\nContato = " + contato;
