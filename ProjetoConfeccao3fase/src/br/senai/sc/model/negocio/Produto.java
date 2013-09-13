@@ -7,8 +7,9 @@ public class Produto {
     private int codProduto;
     private Fabricante fabricante;
     private String modelo;
+    private String nome;
     private double preco;
-    private CategoriaColecao categoria;
+    private CategoriaProduto categoria;
     private String tamanho;
     private Colecao colecao;
     private String cor;
@@ -41,6 +42,14 @@ public class Produto {
         this.modelo = modelo;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public double getPreco() {
         return preco;
     }
@@ -49,11 +58,11 @@ public class Produto {
         this.preco = preco;
     }
 
-    public CategoriaColecao getCategoria() {
+    public CategoriaProduto getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(CategoriaColecao categoria) {
+    public void setCategoria(CategoriaProduto categoria) {
         this.categoria = categoria;
     }
 
@@ -90,8 +99,9 @@ public class Produto {
     }
 
     @Override
-    public String toString() {
-        return "Produto{" + "codProduto=" + codProduto + ", fabricante=" + fabricante + ", modelo=" + modelo + ", preco=" + preco + ", categoria=" + categoria + ", tamanho=" + tamanho + ", colecao=" + colecao + ", cor=" + cor + ", qtProdutos=" + qtProdutos + '}';
+    public int hashCode() {
+        int hash = 3;
+        return hash;
     }
 
     @Override
@@ -110,6 +120,9 @@ public class Produto {
             return false;
         }
         if (!Objects.equals(this.modelo, other.modelo)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
         if (Double.doubleToLongBits(this.preco) != Double.doubleToLongBits(other.preco)) {
@@ -131,5 +144,10 @@ public class Produto {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" + "codProduto=" + codProduto + ", fabricante=" + fabricante + ", modelo=" + modelo + ", nome=" + nome + ", preco=" + preco + ", categoria=" + categoria + ", tamanho=" + tamanho + ", colecao=" + colecao + ", cor=" + cor + ", qtProdutos=" + qtProdutos + '}';
     }
 }
