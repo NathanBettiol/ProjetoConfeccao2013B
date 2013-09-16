@@ -17,16 +17,19 @@ import javax.swing.JOptionPane;
  */
 public class TransportadoraDaoJDBC implements TransportadoraDAO {
 
-    private final String INSERT = "insert into transportadora(nmFantasia, "
-            + "razaoSocial, cnpj, endereco, telefone, contato, email, paginaWeb,"
-            + " dtCadastro) values (?, ?, ?)";
-    private final String UPDATE = "update transportadora set nmFantasia = ?, "
-            + "razaoSocial = ?, cnpj = ?, endereco = ?, telefone = ?, "
-            + "contato = ?, email = ?, paginaWeb = ? where cod = ?";
-    private final String DELETE = "delete from transportadora where cod = ?";
+    private final String INSERT = "insert into transportadora("
+            + "nm_transportadora, razao_social, cnpj, endereco, telefone, "
+            + "contato, email, pagina_web, dt_cadastro) "
+            + "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private final String UPDATE = "update transportadora set "
+            + "nm_transportadora = ?, razao_social = ?, cnpj = ?, endereco = ?, "
+            + "telefone = ?, contato = ?, email = ?, pagina_web = ?, "
+            + "dt_cadastro = ? where cod_transportadora = ?";
+    private final String DELETE = "delete from transportadora "
+            + "where cod_transportadora = ?";
     private final String LIST = "select * from transportadora";
     private final String LISTBYID = "select * from transportadora "
-            + "where cod = ?";
+            + "where cod_transportadora = ?";
 
 //------------------------------------------------------------------------------
     /*
@@ -40,14 +43,14 @@ public class TransportadoraDaoJDBC implements TransportadoraDAO {
             PreparedStatement pstm = conn.prepareStatement(INSERT);
 
             pstm.setString(1, t.getNmFantasia());
-            pstm.setString(1, t.getRazaoSocial());
-            pstm.setString(1, t.getCnpj());
-            pstm.setString(1, t.getEndereco());
-            pstm.setString(1, t.getTelefone());
-            pstm.setString(1, t.getContato());
-            pstm.setString(1, t.getEmail());
-            pstm.setString(1, t.getPaginaWeb());
-            pstm.setDate(8, new java.sql.Date(t.getDtCadastro().getTime()));
+            pstm.setString(2, t.getRazaoSocial());
+            pstm.setString(3, t.getCnpj());
+            pstm.setString(4, t.getEndereco());
+            pstm.setString(5, t.getTelefone());
+            pstm.setString(6, t.getContato());
+            pstm.setString(7, t.getEmail());
+            pstm.setString(8, t.getPaginaWeb());
+            pstm.setDate(9, new java.sql.Date(t.getDtCadastro().getTime()));
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com "
                     + "sucesso");
@@ -80,6 +83,7 @@ public class TransportadoraDaoJDBC implements TransportadoraDAO {
             pstm.setString(7, t.getEmail());
             pstm.setString(8, t.getPaginaWeb());
             pstm.setDate(9, new java.sql.Date(t.getDtCadastro().getTime()));
+            pstm.setInt(10, t.getCod());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com "
                     + "sucesso");
@@ -131,16 +135,16 @@ public class TransportadoraDaoJDBC implements TransportadoraDAO {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Transportadora t = new Transportadora();
-                t.setCod(rs.getInt("cod"));
-                t.setNmFantasia(rs.getString("nome"));
-                t.setRazaoSocial(rs.getString("nome"));
-                t.setCnpj(rs.getString("nome"));
-                t.setEndereco(rs.getString("nome"));
-                t.setTelefone(rs.getString("nome"));
-                t.setContato(rs.getString("nome"));
-                t.setEmail(rs.getString("nome"));
-                t.setPaginaWeb(rs.getString("nome"));
-                t.setDtCadastro(rs.getDate("dtCadastro"));
+                t.setCod(rs.getInt("cod_transportadora"));
+                t.setNmFantasia(rs.getString("nm_transportadora"));
+                t.setRazaoSocial(rs.getString("razao_social"));
+                t.setCnpj(rs.getString("cnpj"));
+                t.setEndereco(rs.getString("endereco"));
+                t.setTelefone(rs.getString("telefone"));
+                t.setContato(rs.getString("contato"));
+                t.setEmail(rs.getString("email"));
+                t.setPaginaWeb(rs.getString("pagina_web"));
+                t.setDtCadastro(rs.getDate("dt_cadastro"));
                 transportadoras.add(t);
             }
             ConnectionFactory.closeConnection(conn, pstm);
@@ -157,26 +161,26 @@ public class TransportadoraDaoJDBC implements TransportadoraDAO {
      * parâmetro
      */
     @Override
-    public Transportadora listById(int id) {
+    public Transportadora listById(int cod) {
         Connection conn;
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(LISTBYID);
 
-            pstm.setInt(1, id);
+            pstm.setInt(1, cod);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Transportadora t = new Transportadora();
-                t.setCod(rs.getInt("id"));
-                t.setNmFantasia(rs.getString("nmFantasia"));
-                t.setRazaoSocial(rs.getString("nmFantasia"));
-                t.setCnpj(rs.getString("nmFantasia"));
-                t.setEndereco(rs.getString("nmFantasia"));
-                t.setTelefone(rs.getString("nmFantasia"));
-                t.setContato(rs.getString("nmFantasia"));
-                t.setEmail(rs.getString("nmFantasia"));
-                t.setPaginaWeb(rs.getString("nmFantasia"));
-                t.setDtCadastro(rs.getDate("dtCadastro"));
+                t.setCod(rs.getInt("cod_transportadora"));
+                t.setNmFantasia(rs.getString("nm_transportadora"));
+                t.setRazaoSocial(rs.getString("razao_social"));
+                t.setCnpj(rs.getString("cnpj"));
+                t.setEndereco(rs.getString("endereco"));
+                t.setTelefone(rs.getString("telefone"));
+                t.setContato(rs.getString("contato"));
+                t.setEmail(rs.getString("email"));
+                t.setPaginaWeb(rs.getString("pagina_web"));
+                t.setDtCadastro(rs.getDate("dt_cadastro"));
                 return t;
             }
             ConnectionFactory.closeConnection(conn, pstm);

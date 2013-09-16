@@ -1,7 +1,7 @@
 package br.senai.sc.model.persistencia;
 
-import br.senai.sc.model.negocio.Produto;
-import br.senai.sc.persistencia.dao.ProdutoDAO;
+import br.senai.sc.model.negocio.CategoriaProduto;
+import br.senai.sc.persistencia.dao.CategoriaProdutoDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,34 +10,30 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class ProdutosDaoJDBC implements ProdutoDAO {
-
-    //private final String INSERT = "INSERT INTO produtos(cod_categoria, cod_colecao, cod_fabricante, modelo, preco, tamanho, cor) values (?,?,?,?,?,?,?)";
-    //private final String UPDATE = "UPDATE produtos SET cod_categoria = ?, cod_colecao = ?, cod_fabricante = ?, modelo = ?, preco = ?, tamanho = ?, cor = ? WHERE cod_produto = ?";
-    private final String INSERT = "INSERT INTO produtos(modelo, nome, preco, tamanho, cor, qt_produto) values (?,?,?,?,?,?)";
-    private final String UPDATE = "UPDATE produtos SET modelo = ?, nome = ?, preco = ?, tamanho = ?, cor = ?, qt_produto = ? WHERE cod_produto = ?";
-    private final String DELETE = "DELETE FROM produtos WHERE cod_produto = ?";
-    private final String LIST = "SELECT * FROM produto";
-    private final String LISTBYID = "SELECT * FROM produto WHERE cod_produto = ?";
-
+public class CategoriaProdutoDaoJDBC implements CategoriaProdutoDAO {
+    
+    private final String INSERT = "INSERT INTO categorias_produtos (nome, descricao) values (?,?)";
+    private final String UPDATE = "UPDATE categorias_produtos SET nome = ?, descricao = ? WHERE cod_categoria = ?";
+    private final String DELETE = "DELETE FROM categorias_produtos WHERE cod_categoria = ?";
+    private final String LIST = "SELECT * FROM categorias_produtos";
+    private final String LISTBYID = "SELECT * FROM categorias_produtos WHERE cod_categoria = ?";
+    
     @Override
-    public boolean insert(Produto p) {
+    public boolean insert(CategoriaProduto CP) {
         Connection conn;
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
-            pstm.setString(1, p.getModelo());
-            pstm.setString(2, p.getNome());
-            pstm.setDouble(3, p.getPreco());
-            pstm.setString(4, p.getTamanho());
-            pstm.setString(5, p.getCor());
-            pstm.setInt(6, p.getQtProdutos());
+            pstm.setString(1, CP.getNomeCategoriaProduto());
+            pstm.setString(2, CP.getDescricaoCategoriaProduto());
             pstm.execute();
+            
             try (ResultSet rs = pstm.getGeneratedKeys()) {
                 if (rs.next()) {
-                    p.setCodProduto(rs.getInt(1));
+                    CP.setCodCategoriaProduto(rs.getInt(1));
                 }
             }
+            
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             ConnectionFactory.closeConnection(conn, pstm);
             return true;
@@ -46,19 +42,17 @@ public class ProdutosDaoJDBC implements ProdutoDAO {
             return false;
         }
     }
-
+    
     @Override
-    public boolean update(Produto p) {
+    public boolean update(CategoriaProduto CP) {
         Connection conn;
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(UPDATE);
-            pstm.setString(1, p.getModelo());
-            pstm.setString(2, p.getNome());
-            pstm.setDouble(3, p.getPreco());
-            pstm.setString(4, p.getTamanho());
-            pstm.setString(5, p.getCor());
-            pstm.setInt(6, p.getQtProdutos());
+            pstm.setString(1, CP.getNomeCategoriaProduto());
+            pstm.setString(2, CP.getDescricaoCategoriaProduto());
+            pstm.setInt(3, CP.getCodCategoriaProduto());
+            System.out.println(UPDATE);
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             ConnectionFactory.closeConnection(conn, pstm);
@@ -68,15 +62,15 @@ public class ProdutosDaoJDBC implements ProdutoDAO {
             return false;
         }
     }
-
+    
     @Override
-    public boolean delete(int codProduto) {
+    public boolean delete(int codCategoriaProduto) {
         Connection conn;
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(DELETE);
-
-            pstm.setInt(1, codProduto);
+            
+            pstm.setInt(1, codCategoriaProduto);
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             ConnectionFactory.closeConnection(conn, pstm);
@@ -86,60 +80,49 @@ public class ProdutosDaoJDBC implements ProdutoDAO {
             return false;
         }
     }
-
-    @Override
-    public List<Produto> listAll() {
+    
+    public List<CategoriaProduto> listAll() {
         Connection conn;
-        List<Produto> produtos = new ArrayList<>();
+        List<CategoriaProduto> CP = new ArrayList<>();
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(LIST);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
-                Produto p = new Produto();
-                p.setCodProduto(rs.getInt("cod_produto"));
-                p.setNome(rs.getString("nome"));
-                p.setModelo(rs.getString("modelo"));
-                p.setPreco(rs.getDouble("preco"));
-                p.setTamanho(rs.getString("tamanho"));
-                p.setCor(rs.getString("cor"));
-                p.setQtProdutos(rs.getInt("qt_produto"));
-                produtos.add(p);
+                CategoriaProduto CPList = new CategoriaProduto();
+                CPList.setCodCategoriaProduto(rs.getInt("cod_categoria"));
+                CPList.setNomeCategoriaProduto(rs.getString("nome"));
+                CPList.setDescricaoCategoriaProduto(rs.getString("descricao"));
+                CP.add(CPList);
             }
             ConnectionFactory.closeConnection(conn, pstm);
-
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Não foi possível efetuar a transação");
         }
-        return produtos;
+        return CP;
     }
-
+    
     @Override
-    public Produto listById(int codProduto) {
+    public CategoriaProduto listById(int codCategoriaProduto) {
         Connection conn;
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(LISTBYID);
-            pstm.setInt(1, codProduto);
+            pstm.setInt(1, codCategoriaProduto);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
-                Produto p = new Produto();
-                p.setCodProduto(rs.getInt("cod_produto"));
-                p.setNome(rs.getString("nome"));
-                p.setModelo(rs.getString("modelo"));
-                p.setPreco(rs.getDouble("preco"));
-                p.setTamanho(rs.getString("tamanho"));
-                p.setCor(rs.getString("cor"));
-                p.setQtProdutos(rs.getInt("qt_produto"));
-                return p;
+                CategoriaProduto CPList = new CategoriaProduto();
+                CPList.setCodCategoriaProduto(rs.getInt("cod_categoria"));
+                CPList.setNomeCategoriaProduto(rs.getString("nome"));
+                CPList.setDescricaoCategoriaProduto(rs.getString("descricao"));
+                return CPList;
             }
             ConnectionFactory.closeConnection(conn, pstm);
-
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Não foi possível efetuar a transação");
         }
         return null;
     }
-    
-
 }

@@ -71,16 +71,17 @@ public class Transportadora extends PessoaJuridica {
     //toString
     @Override
     public String toString() {
-        return "Transportadora:"
-                + "\nCodigo = " + getCod()
-                + "\nNome Fantasia = " + getNmFantasia()
-                + "\nCnpj = " + getCnpj()
-                + "\nEndereco = " + getEndereco()
-                + "\nRazão Social = " + getRazaoSocial()
-                + "\nTelefone = " + getTelefone()
-                + "\nE-mail = " + email
-                + "\nPagina Web = " + paginaWeb
-                + "\nContato = " + contato
-                + "\nData de Cadastro = " + getDtCadastro();
+        return "------ TRANSPORTADORA ------"
+                + "\nCodigo: " + getCod()
+                + "\nNome Fantasia: " + getNmFantasia()
+                + "\nCnpj: " + getCnpj()
+                + "\nEndereco: " + getEndereco()
+                + "\nRazão Social: " + getRazaoSocial()
+                + "\nTelefone: " + getTelefone()
+                + "\nE-mail: " + email
+                + "\nPagina Web: " + paginaWeb
+                + "\nContato: " + contato
+                + "\nData de Cadastro: " + getDtCadastro()
+                + "\n\n";
     }
 }
