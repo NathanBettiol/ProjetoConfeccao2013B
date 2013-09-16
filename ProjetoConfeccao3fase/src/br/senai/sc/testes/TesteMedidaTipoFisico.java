@@ -7,6 +7,8 @@ package br.senai.sc.testes;
 import br.senai.sc.model.negocio.Medida;
 import br.senai.sc.model.negocio.TipoFisico;
 import br.senai.sc.model.negocio.Usuario;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,7 +30,12 @@ public class TesteMedidaTipoFisico {
         usuario.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe o código: ")));
         usuario.setNome(JOptionPane.showInputDialog("Digite seu nome: "));
         usuario.setCpf(JOptionPane.showInputDialog("Informe o cpf: "));
-        usuario.setDataCadastro(JOptionPane.showInputDialog("Informe a data de cadastro: "));
+        try {
+            String data = JOptionPane.showInputDialog("Data de Cadastro: ");
+            usuario.setDtCadastro((Date) new SimpleDateFormat("dd/MM/yyyy").parse(data));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data incorreta: " + e);
+        }
         usuario.setDataNascimento(JOptionPane.showInputDialog("Informe a data de nascimento: "));
         usuario.setEmail(JOptionPane.showInputDialog("Informe seu E-mail: "));
         usuario.setEndereco(JOptionPane.showInputDialog("Informe o endereço: "));
