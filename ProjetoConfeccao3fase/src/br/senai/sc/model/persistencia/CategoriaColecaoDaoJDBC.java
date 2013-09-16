@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,11 +24,38 @@ public class CategoriaColecaoDaoJDBC {
     //Strings com os comandos SQL
     private static final String INSERT = "INSERT INTO categoria_colecao VALUES (null, ?, ?)";
     private static final String UPDATE = "UPDATE categoria_colecao set ? = ?";
-    private static final String DELETE = "DELETE FROM categoria_colecao WHERE ? = ?";
+    private static final String DELETE = "DELETE FROM categoria_colecao WHERE cod_categoria = ?";
     private static final String SELECT = "select * from categoria_colecao";
 
+    //Método para atualizar valores da tabela categoria_colecao
+//    public boolean update(CategoriaColecao cc, String campo, String valor){
+//        return true;
+//    }
     
-    
+    //Método para deletar valores da tabela categoria_colecao
+    public boolean delete(int cod) throws SQLException {
+        //Cria uma nova conexão
+        Connection con = null;
+        try {
+            //Abre a conexão
+            con = ConnectionFactory.getConnection();
+            //Executa o comando SQL
+            PreparedStatement pstm = con.prepareStatement(DELETE);
+            //Substitui os pontos de interrogação do comando            
+            pstm.setInt(1, cod);
+            //Executa o comando
+            pstm.execute();
+            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+            ConnectionFactory.closeConnection(con, pstm);
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir: " + ex.getMessage());
+            //Fecha a conexão
+            ConnectionFactory.closeConnection(con);
+            return false;
+        }
+    }
+
     //Método para procurar valores da tabela categoria_colecao
     public List<CategoriaColecao> listAll() throws SQLException {
         //Cria uma nova conexão
@@ -38,8 +67,9 @@ public class CategoriaColecaoDaoJDBC {
             con = ConnectionFactory.getConnection();
             //Executa o comando SQL, no caso o comando SELECT
             PreparedStatement pstm = con.prepareStatement(SELECT);
-
+            //Executa o comando SQL dentro do ResultSet rs
             ResultSet rs = pstm.executeQuery();
+            //Percorre a lista colocando os resultados dentro do ResultSet rs
             while (rs.next()) {
                 CategoriaColecao cc = new CategoriaColecao();
                 //Pega os valores que estão no campo "nm_categoria_colecao" da tabela
