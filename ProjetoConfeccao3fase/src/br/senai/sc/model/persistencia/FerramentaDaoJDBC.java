@@ -1,7 +1,9 @@
 package br.senai.sc.model.persistencia;
 
+import br.senai.sc.model.negocio.Ferramenta;
+import br.senai.sc.model.negocio.Pessoa;
 import br.senai.sc.model.negocio.Produto;
-import br.senai.sc.persistencia.dao.ProdutoDAO;
+import br.senai.sc.persistencia.dao.FerramentaDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,28 +11,25 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class ProdutosDaoJDBC implements ProdutoDAO {
+public class FerramentaDaoJDBC implements FerramentaDAO{
 
-    //private final String INSERT = "INSERT INTO produtos(cod_categoria, cod_colecao, cod_fabricante, modelo, preco, tamanho, cor) values (?,?,?,?,?,?,?)";
-    //private final String UPDATE = "UPDATE produtos SET cod_categoria = ?, cod_colecao = ?, cod_fabricante = ?, modelo = ?, preco = ?, tamanho = ?, cor = ? WHERE cod_produto = ?";
-    private final String INSERT = "INSERT INTO produtos(modelo, nome, preco, tamanho, cor, qt_produto) values (?,?,?,?,?,?)";
-    private final String UPDATE = "UPDATE produtos SET modelo = ?, nome = ?, preco = ?, tamanho = ?, cor = ?, qt_produto = ? WHERE cod_produto = ?";
+    private final String INSERT = "INSERT INTO produtos(codFerramenta, nome, descricao, nmFabricante, dtCadastro, status) values (?,?,?,?,?,?)";
+    private final String UPDATE = "UPDATE produtos SET codFerramenta = ?, nome = ?, descricao = ?, nmFabricante = ?, dtCadastro = ?, status = ? WHERE cod_produto = ?";
     private final String DELETE = "DELETE FROM produtos WHERE cod_produto = ?";
     private final String LIST = "SELECT * FROM produto";
     private final String LISTBYID = "SELECT * FROM produto WHERE cod_produto = ?";
 
-    @Override
-    public boolean insert(Produto p) {
+    public boolean insert(Ferramenta f) {
         Connection conn;
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(INSERT);
-            pstm.setString(1, p.getModelo());
-            pstm.setString(2, p.getNome());
-            pstm.setDouble(3, p.getPreco());
-            pstm.setString(4, p.getTamanho());
-            pstm.setString(5, p.getCor());
-            pstm.setInt(6, p.getQtProdutos());
+            pstm.setInt(1, f.getCodFerramenta());
+            pstm.setString(2, f.getNome());
+            pstm.setString(3, f.getDescricao());
+            pstm.setString(4, f.getNmFabricante());
+            pstm.setDate(5, f.getDtCadastro());
+            pstm.setString(6, f.getStatus());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             ConnectionFactory.closeConnection(conn, pstm);
@@ -41,36 +40,34 @@ public class ProdutosDaoJDBC implements ProdutoDAO {
         }
     }
 
-    @Override
-    public boolean update(Produto p) {
+    public boolean update(Ferramenta f) {
         Connection conn;
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(UPDATE);
-            pstm.setString(1, p.getModelo());
-            pstm.setString(2, p.getNome());
-            pstm.setDouble(3, p.getPreco());
-            pstm.setString(4, p.getTamanho());
-            pstm.setString(5, p.getCor());
-            pstm.setInt(6, p.getQtProdutos());
+            pstm.setInt(1, f.getCodFerramenta());
+            pstm.setString(2, f.getNome());
+            pstm.setString(3, f.getDescricao());
+            pstm.setString(4, f.getNmFabricante());
+            pstm.setDate(5, f.getDtCadastro());
+            pstm.setString(6, f.getStatus());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             ConnectionFactory.closeConnection(conn, pstm);
             return true;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possível efetuar a transação");
+            JOptionPane.showMessageDialog(null, "Não foi possível efetuar a transação" + e.getMessage());
             return false;
         }
     }
 
-    @Override
-    public boolean delete(int codProduto) {
+    public boolean delete(int codFerramenta) {
         Connection conn;
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(DELETE);
 
-            pstm.setInt(1, codProduto);
+            pstm.setInt(1, codFerramenta);
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             ConnectionFactory.closeConnection(conn, pstm);
@@ -78,54 +75,52 @@ public class ProdutosDaoJDBC implements ProdutoDAO {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Não foi possível efetuar a transação" + e.getMessage());
             return false;
+
         }
     }
-
-    @Override
-    public List<Produto> listAll() {
+    
+         public List<Ferramenta> listAll() {
         Connection conn;
-        List<Produto> produtos = new ArrayList<>();
+        List<Ferramenta> ferramentas = new ArrayList<>();
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(LIST);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
-                Produto p = new Produto();
-                p.setCodProduto(rs.getInt("cod_produto"));
-                p.setNome(rs.getString("nome"));
-                p.setModelo(rs.getString("modelo"));
-                p.setPreco(rs.getDouble("preco"));
-                p.setTamanho(rs.getString("tamanho"));
-                p.setCor(rs.getString("cor"));
-                p.setQtProdutos(rs.getInt("qt_produto"));
-                produtos.add(p);
+                Ferramenta f = new Ferramenta();
+                f.setCodFerramenta(rs.getInt("codFerramenta"));
+                f.setNome(rs.getString("nome"));
+                f.setDescricao(rs.getString("descricao"));
+                f.setNmFabricante(rs.getString("nmFabricante"));
+                f.setDtCadastro(rs.getDate("dtCadastro"));
+                f.setStatus(rs.getString("status"));
+                ferramentas.add(f);
             }
             ConnectionFactory.closeConnection(conn, pstm);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Não foi possível efetuar a transação");
         }
-        return produtos;
+        return ferramentas;
     }
-
+            
     @Override
-    public Produto listById(int codProduto) {
+        public Ferramenta listById(int codFerramenta) {
         Connection conn;
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(LISTBYID);
-            pstm.setInt(1, codProduto);
+            pstm.setInt(1, codFerramenta);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
-                Produto p = new Produto();
-                p.setCodProduto(rs.getInt("cod_produto"));
-                p.setNome(rs.getString("nome"));
-                p.setModelo(rs.getString("modelo"));
-                p.setPreco(rs.getDouble("preco"));
-                p.setTamanho(rs.getString("tamanho"));
-                p.setCor(rs.getString("cor"));
-                p.setQtProdutos(rs.getInt("qt_produto"));
-                return p;
+                Ferramenta f = new Ferramenta();
+                f.setCodFerramenta(rs.getInt("codFerramenta"));
+                f.setNome(rs.getString("nome"));
+                f.setDescricao(rs.getString("descricao"));
+                f.setNmFabricante(rs.getString("nmFabricante"));
+                f.setDtCadastro(rs.getDate("dtCadastro"));
+                f.setStatus(rs.getString("status"));
+                return f;
             }
             ConnectionFactory.closeConnection(conn, pstm);
 
@@ -134,6 +129,4 @@ public class ProdutosDaoJDBC implements ProdutoDAO {
         }
         return null;
     }
-    
-
 }
