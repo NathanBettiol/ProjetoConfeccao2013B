@@ -10,8 +10,10 @@ import java.util.List;
  */
 public interface TransportadoraDAO {
 
-    /*
+//------------------------------------------------------------------------------
+    /**
      * Método responsável pela inserção de uma transportadora na base de dados
+     *
      * @author Wesley Batista
      * @version 1.0 09/09/13
      * @param t
@@ -19,9 +21,11 @@ public interface TransportadoraDAO {
      */
     boolean insert(Transportadora t);
 
-    /*
-     * Método responsável pela atualização de uma transportadora na base de 
+//------------------------------------------------------------------------------
+    /**
+     * Método responsável pela atualização de uma transportadora na base de
      * dados
+     *
      * @author Wesley Batista
      * @version 1.0 09/09/13
      * @param t
@@ -29,18 +33,22 @@ public interface TransportadoraDAO {
      */
     boolean update(Transportadora t);
 
-    /*
+//------------------------------------------------------------------------------
+    /**
      * Método responsável pela remoção de uma transportadora na base de dados
+     *
      * @author Wesley Batista
      * @version 1.0 09/09/13
-     * @param id
+     * @param cod
      * @return
      */
-    boolean delete(int id);
+    boolean delete(int cod);
 
-    /*
-     * Método responsável pela listagem de todas as transportadoras cadastradas 
+//------------------------------------------------------------------------------
+    /**
+     * Método responsável pela listagem de todas as transportadoras cadastradas
      * na base de dados
+     *
      * @author Wesley Batista
      * @version 1.0 09/09/13
      * @param
@@ -48,13 +56,15 @@ public interface TransportadoraDAO {
      */
     List<Transportadora> listAll();
 
-    /*
-     * Método responsável por buscar uma transportadora na base de dados
-     * através de um id
+//------------------------------------------------------------------------------
+    /**
+     * Método responsável por buscar uma transportadora na base de dados através
+     * de um id
+     *
      * @author Wesley Batista
      * @version 1.0 09/09/13
-     * @param id
+     * @param cod
      * @return
      */
-    Transportadora listById(int id);
+    Transportadora listById(int cod);
 }

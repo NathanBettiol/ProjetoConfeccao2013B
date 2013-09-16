@@ -4,6 +4,7 @@
  */
 package br.senai.sc.model.negocio;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -19,7 +20,7 @@ public class Ferramenta {
     private String nome;
     private String descricao;
     private String nmFabricante;
-    private String dtCadastro;
+    private Date dtCadastro;
     private String status;
 
     //Métodos Get e Set
@@ -54,11 +55,11 @@ public class Ferramenta {
         this.nmFabricante = nmFabricante;
     }
 
-    public String getDtCadastro() {
+    public Date getDtCadastro() {
         return dtCadastro;
     }
 
-    public void setDtCadastro(String dtCadastro) {
+    public void setDtCadastro(Date dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 
