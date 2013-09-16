@@ -11,12 +11,10 @@ import javax.swing.JOptionPane;
  *
  * @author wesley_s
  */
-public class TesteConexaoTransportadoraInsercao {
+public class TesteConexaoTransportadoraAtualizacao {
 
 //------------------------------------------------------------------------------
     public static void main(String[] args) {
-
-
         Transportadora t = new Transportadora();
 
         t.setNmFantasia(JOptionPane.showInputDialog("Informe o nome "
@@ -40,7 +38,10 @@ public class TesteConexaoTransportadoraInsercao {
             System.out.println("Erro ao converter a data de nascimento");
         }
 
+        t.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe o "
+                + "id da transportadora a ser alterada")));
+
         TransportadoraDAO daoTrans = new TransportadoraDaoJDBC();
-        daoTrans.insert(t);
+        daoTrans.update(t);
     }
 }
