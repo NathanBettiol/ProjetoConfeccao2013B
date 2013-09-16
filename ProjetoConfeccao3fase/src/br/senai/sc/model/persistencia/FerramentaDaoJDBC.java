@@ -5,6 +5,7 @@ import br.senai.sc.model.negocio.Pessoa;
 import br.senai.sc.model.negocio.Produto;
 import br.senai.sc.persistencia.dao.FerramentaDAO;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -13,8 +14,8 @@ import javax.swing.JOptionPane;
 
 public class FerramentaDaoJDBC implements FerramentaDAO{
 
-    private final String INSERT = "INSERT INTO produtos(codFerramenta, nome, descricao, nmFabricante, dtCadastro, status) values (?,?,?,?,?,?)";
-    private final String UPDATE = "UPDATE produtos SET codFerramenta = ?, nome = ?, descricao = ?, nmFabricante = ?, dtCadastro = ?, status = ? WHERE cod_produto = ?";
+    private final String INSERT = "INSERT INTO produtos(cod_ferramenta, nome, descricao, nm_fabricante, dt_cadastro, status) values (?,?,?,?,?,?)";
+    private final String UPDATE = "UPDATE produtos SET cod_ferramenta = ?, nome = ?, descricao = ?, nm_fabricante = ?, dt_cadastro = ?, status = ? WHERE cod_produto = ?";
     private final String DELETE = "DELETE FROM produtos WHERE cod_produto = ?";
     private final String LIST = "SELECT * FROM produto";
     private final String LISTBYID = "SELECT * FROM produto WHERE cod_produto = ?";
@@ -28,7 +29,7 @@ public class FerramentaDaoJDBC implements FerramentaDAO{
             pstm.setString(2, f.getNome());
             pstm.setString(3, f.getDescricao());
             pstm.setString(4, f.getNmFabricante());
-            pstm.setDate(5, f.getDtCadastro());
+            pstm.setDate(5, new java.sql.Date(f.getDtCadastro().getTime()));
             pstm.setString(6, f.getStatus());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
@@ -49,7 +50,7 @@ public class FerramentaDaoJDBC implements FerramentaDAO{
             pstm.setString(2, f.getNome());
             pstm.setString(3, f.getDescricao());
             pstm.setString(4, f.getNmFabricante());
-            pstm.setDate(5, f.getDtCadastro());
+            pstm.setDate(5, (Date) f.getDtCadastro());
             pstm.setString(6, f.getStatus());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
@@ -88,11 +89,11 @@ public class FerramentaDaoJDBC implements FerramentaDAO{
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Ferramenta f = new Ferramenta();
-                f.setCodFerramenta(rs.getInt("codFerramenta"));
+                f.setCodFerramenta(rs.getInt("cod_ferramenta"));
                 f.setNome(rs.getString("nome"));
                 f.setDescricao(rs.getString("descricao"));
-                f.setNmFabricante(rs.getString("nmFabricante"));
-                f.setDtCadastro(rs.getDate("dtCadastro"));
+                f.setNmFabricante(rs.getString("nm_fabricante"));
+                f.setDtCadastro(rs.getDate("dt_cadastro"));
                 f.setStatus(rs.getString("status"));
                 ferramentas.add(f);
             }
@@ -114,11 +115,11 @@ public class FerramentaDaoJDBC implements FerramentaDAO{
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Ferramenta f = new Ferramenta();
-                f.setCodFerramenta(rs.getInt("codFerramenta"));
+                f.setCodFerramenta(rs.getInt("cod_ferramenta"));
                 f.setNome(rs.getString("nome"));
                 f.setDescricao(rs.getString("descricao"));
-                f.setNmFabricante(rs.getString("nmFabricante"));
-                f.setDtCadastro(rs.getDate("dtCadastro"));
+                f.setNmFabricante(rs.getString("nm_fabricante"));
+                f.setDtCadastro(rs.getDate("dt_cadastro"));
                 f.setStatus(rs.getString("status"));
                 return f;
             }
