@@ -3,7 +3,6 @@ package br.senai.sc.testes.persistencia;
 import br.senai.sc.model.negocio.Transportadora;
 import br.senai.sc.model.persistencia.TransportadoraDaoJDBC;
 import br.senai.sc.persistencia.dao.TransportadoraDAO;
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
@@ -28,9 +27,9 @@ public class TesteConexaoTransportadoraInsercao {
         t.setEmail(JOptionPane.showInputDialog("Informe um e-mail: "));
         t.setPaginaWeb(JOptionPane.showInputDialog("Informe uma página web: "));
 
-        String dtCadastro = JOptionPane.showInputDialog("Informe a data de nascimento: ");
+        String dtCadastro = JOptionPane.showInputDialog("Informe a data de cadastro: ");
         try {
-            t.setDtCadastro((Date) new SimpleDateFormat("dd/MM/yyyy").parse(dtCadastro));
+            t.setDtCadastro(new SimpleDateFormat("dd/MM/yyyy").parse(dtCadastro));
         } catch (ParseException ex) {
             System.out.println("Erro ao converter a data de nascimento");
         }
