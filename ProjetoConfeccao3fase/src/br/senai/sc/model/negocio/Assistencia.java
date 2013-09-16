@@ -3,8 +3,6 @@ package br.senai.sc.model.negocio;
 import java.util.Objects;
 
 /**
- * Classe Assistencia * Informações da assistência
- *
  * @version v1.0 04/09/2013
  * @author wesley_s
  */
@@ -147,7 +145,7 @@ public class Assistencia {
 
     @Override
     public String toString() {
-        return "\nAssistência"
+        return "------ ASSISTÊNCIA ------"
                 + "\nCódigo: " + codAssistencia
                 + "\nNome: " + nomeAssistencia
                 + "\nNome Fantasia: " + nomeFantasiaAssistencia
@@ -156,6 +154,7 @@ public class Assistencia {
                 + "\nTelefone: " + telefoneAssistencia
                 + "\nE-mail: " + emailAssistencia
                 + "\nPágina Web: " + paginaWebAssistencia
-                + "\nContato: " + contatoAssistencia;
+                + "\nContato: " + contatoAssistencia
+                + "\n\n";
     }
 }
