@@ -19,10 +19,10 @@ import javax.swing.JOptionPane;
  */
 public class TipoFisicoDaoJDCB implements TipoFisicoDAO {
 
-    private final String INSERT = "Insert into tipofisico(nm, genero, descricao) values (?, ?, ?)";
-    private final String UPDATE = "update tipofisico set nm = ?, genero = ?, descricao = ? where cod_tipofisico = ?";
-    private final String DELETE = "delete from tipofisico where cod_tipofisico = ?";
-    private final String LIST = "select * from tipofisico";
+    private final String INSERT = "Insert into tipos_fisicos(nm_tipos_fisicos, genero, descricao) values (?, ?, ?)";
+    private final String UPDATE = "update tipos_fisicos set nm_tipos_fisicos = ?, genero = ?, descricao = ? where cod_tipos_fisicos = ?";
+    private final String DELETE = "delete from tipos_fisicos where cod_tipos_fisicos = ?";
+    private final String LIST = "select * from tipos_fisicos";
 
     @Override
     public boolean insert(TipoFisico tf) {
@@ -92,7 +92,7 @@ public class TipoFisicoDaoJDCB implements TipoFisicoDAO {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 TipoFisico tf = new TipoFisico();
-                tf.setNome(rs.getString("nm"));
+                tf.setNome(rs.getString("nm_tipos_fisicos"));
                 tf.setGenero(rs.getString("genero"));
                 tf.setDescicao(rs.getString("descricao"));
                 tipofisico.add(tf);
