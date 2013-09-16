@@ -92,6 +92,7 @@ public class TipoFisicoDaoJDCB implements TipoFisicoDAO {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 TipoFisico tf = new TipoFisico();
+                tf.setCodigo(rs.getInt("cod_tipos_fisicos"));
                 tf.setNome(rs.getString("nm_tipos_fisicos"));
                 tf.setGenero(rs.getString("genero"));
                 tf.setDescicao(rs.getString("descricao"));
