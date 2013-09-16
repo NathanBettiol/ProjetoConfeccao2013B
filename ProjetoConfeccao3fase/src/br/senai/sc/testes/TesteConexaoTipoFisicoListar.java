@@ -17,10 +17,11 @@ public class TesteConexaoTipoFisicoListar {
 
     public static void main(String[] args) {
         TipoFisicoDAO dao = new TipoFisicoDaoJDCB();
-        List<TipoFisico> tipofisico = dao.listall();
-        for (TipoFisico tipoFisico : tipofisico) {
-            System.out.println(tipofisico);
+        List<TipoFisico> tipofisicos = dao.listall();
+        for (TipoFisico tipoFisico : tipofisicos) {
+            System.out.println(tipoFisico);
+        }
 
         }
     }
-}
+
