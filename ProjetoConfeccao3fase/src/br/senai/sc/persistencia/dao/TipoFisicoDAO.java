@@ -37,10 +37,10 @@ public interface TipoFisicoDAO {
      */
     boolean delete(int id);
 
-    List<TipoFisico> listall();
     /*
      * Método responsável pela listagem dos tipos fisicos na base de dados
      * @author gustavo_lourenco
      * @version 1.0 16/09/2013
      */
+    List<TipoFisico> listall();
 }
