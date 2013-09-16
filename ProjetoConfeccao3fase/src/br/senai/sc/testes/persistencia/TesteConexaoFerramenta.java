@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.senai.sc.testes.persistencia;
 
 import br.senai.sc.model.negocio.Ferramenta;
@@ -12,13 +8,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author ariane_souza
  */
 public class TesteConexaoFerramenta {
-        public static void main(String[] args) {
+
+    public static void main(String[] args) {
         Ferramenta f = new Ferramenta();
         f.setNome(JOptionPane.showInputDialog("Informe o nome da pessoa"));
         String dataCadastro = JOptionPane.showInputDialog("Informe a data de nascimento");
@@ -27,7 +23,7 @@ public class TesteConexaoFerramenta {
         } catch (ParseException ex) {
             System.out.println("Erro ao converter a data de nascimento");
         }
-        
+
         FerramentaDAO dao = new FerramentaDaoJDBC();
         dao.insert(f);
     }
