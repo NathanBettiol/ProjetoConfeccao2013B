@@ -3,6 +3,9 @@ package br.senai.sc.testes.persistencia;
 import br.senai.sc.model.negocio.Transportadora;
 import br.senai.sc.model.persistencia.TransportadoraDaoJDBC;
 import br.senai.sc.persistencia.dao.TransportadoraDAO;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,11 +18,19 @@ public class TesteConexaoTransportadoraInsercao {
 
 
         Transportadora t = new Transportadora();
-        
-        t.setNmFantasia(JOptionPane.showInputDialog(""));
-        t.String dataNascimento = JOptionPane.showInputDialog("Informe a data de nascimento: ");
+
+        t.setNmFantasia(JOptionPane.showInputDialog("Informe o nome fantasia: "));
+        t.setRazaoSocial(JOptionPane.showInputDialog("Informe a razão social: "));
+        t.setCnpj(JOptionPane.showInputDialog("Informe o cnpj: "));
+        t.setEndereco(JOptionPane.showInputDialog("Informe o endereço: "));
+        t.setTelefone(JOptionPane.showInputDialog("Informe o telefone: "));
+        t.setContato(JOptionPane.showInputDialog("Informe um nome para contato: "));
+        t.setEmail(JOptionPane.showInputDialog("Informe um e-mail: "));
+        t.setPaginaWeb(JOptionPane.showInputDialog("Informe uma página web: "));
+
+        String dtCadastro = JOptionPane.showInputDialog("Informe a data de nascimento: ");
         try {
-            p.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(dataNascimento));
+            t.setDtCadastro((Date) new SimpleDateFormat("dd/MM/yyyy").parse(dtCadastro));
         } catch (ParseException ex) {
             System.out.println("Erro ao converter a data de nascimento");
         }
