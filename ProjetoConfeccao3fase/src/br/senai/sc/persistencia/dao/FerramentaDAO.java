@@ -44,7 +44,7 @@ public interface FerramentaDAO {
      * @param p
      * @return
      */
-    List<Pessoa> listAll();
+    List<Ferramenta> listAll();
     /*
      * Método responsável pela listagem de ferramnetas com o codigo enviado pelo parametro
      * @author Ariane Souza da Silva
@@ -52,7 +52,7 @@ public interface FerramentaDAO {
      * @param p
      * @return
      */
-    Pessoa listById(int codFerramenta);
+    Ferramenta listById(int codFerramenta);
 }
 
 
