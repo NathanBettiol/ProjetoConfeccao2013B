@@ -5,30 +5,63 @@
 package br.senai.sc.model.persistencia;
 
 import br.senai.sc.model.negocio.CategoriaColecao;
+import br.senai.sc.model.negocio.Colecao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- * @version v1.0 30/08/2013
- * @author Gabriel Arsênio
+ *
+ * @author gabriel_arsenio
  */
-public class CategoriaColecaoDaoJDBC {
+public class ColecaoDaoJDBC {
 
     //Strings com os comandos SQL
-    private static final String INSERT = "INSERT INTO categoria_colecao VALUES (null, ?, ?)";
-    private static final String UPDATE = "UPDATE categoria_colecao set nm_categoria_colecao = ?, descricao = ? where cod_categoria = ?";
-    private static final String DELETE = "DELETE FROM categoria_colecao WHERE cod_categoria = ?";
+    private static final String INSERT = "INSERT INTO colecao VALUES "
+            + "(null, ?, ?, ? ,? ,?)";
+    private static final String UPDATE = "UPDATE colecao set estacao = ?, ano = ?, "
+            + "pub_alvo = ?, cod_funcionario = ?, categoria_colecao_cod_categoria = ? "
+            + "where cod_colecao = ?";
+    private static final String DELETE = "DELETE FROM categoria_colecao "
+            + "WHERE cod_categoria = ?";
     private static final String SELECT = "select * from categoria_colecao";
 
+    //Método de inserção de valores da tabela categoria_colecao
+    public boolean insert(Colecao c) throws SQLException {
+        //Cria uma nova conexão
+        Connection con = null;
+        try {
+            //Abre a conexão 'conn'
+            con = ConnectionFactory.getConnection();
+            //Recebe a String com o comando SQL, no caso, o comando INSERT
+            PreparedStatement pstm = con.prepareStatement(INSERT);
+            //Subustitui os pontos de interrogação do comando
+            pstm.setString(1, c.getEstacaoColecao());
+            pstm.setInt(2, c.getAnoColecao());
+            pstm.setString(3, c.getPubAlvoColecao());
+            pstm.setInt(4, c.getFunResponsavelColecao().getCod());
+            pstm.setInt(5, c.getCategoriaColecao().getCodCategoriaColecao());
+            pstm.setInt(6, c.getCodColecao());
+            //Executa o comando SQL
+            pstm.execute();
+            //Fecha a conexão
+            ConnectionFactory.closeConnection(con, pstm);
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao inserir: " + ex.getMessage());
+            //Fecha a conxão
+            ConnectionFactory.closeConnection(con);
+            return false;
+        }
+    }
+
     //Método para atualizar valores da tabela categoria_colecao
-    public boolean update(CategoriaColecao cc) throws SQLException {
+    public boolean update(Colecao c) throws SQLException {
         //Cria uma nova conexão
         Connection con = null;
         try {
@@ -37,9 +70,12 @@ public class CategoriaColecaoDaoJDBC {
             //Prepara o comando SQL
             PreparedStatement pstm = con.prepareStatement(UPDATE);
             //Substitui os pontos de interrogação do comando
-            pstm.setString(1, cc.getNomeCategoriaColecao());
-            pstm.setString(2, cc.getDescricaoCategoriaColecao());
-            pstm.setInt(3, cc.getCodCategoriaColecao());
+            pstm.setString(1, c.getEstacaoColecao());
+            pstm.setInt(2, c.getAnoColecao());
+            pstm.setString(3, c.getPubAlvoColecao());
+            pstm.setInt(4, c.getFunResponsavelColecao().getCod());
+            pstm.setInt(5, c.getCategoriaColecao().getCodCategoriaColecao());
+            pstm.setInt(6, c.getCodColecao());
             //Executa o comando
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
@@ -77,7 +113,7 @@ public class CategoriaColecaoDaoJDBC {
             return false;
         }
     }
-
+    
     //Método para procurar valores da tabela categoria_colecao
     public List<CategoriaColecao> listAll() throws SQLException {
         //Cria uma nova conexão
@@ -93,13 +129,18 @@ public class CategoriaColecaoDaoJDBC {
             ResultSet rs = pstm.executeQuery();
             //Percorre a lista colocando os resultados dentro do ResultSet rs
             while (rs.next()) {
-                CategoriaColecao cc = new CategoriaColecao();
-                //Pega os valores que estão no campo "nm_categoria_colecao" da tabela
-                cc.setNomeCategoriaColecao(rs.getString("nm_categoria_colecao"));
-                //pega os valores que estão no campo "descricao" da tabela
-                cc.setDescricaoCategoriaColecao(rs.getString("descricao"));
+                Colecao c = new Colecao();
+                //Pega os valores da coluna Int com o nome de "cod_colecao" da tabela
+                c.setCodColecao(rs.getInt("cod_colecao"));
+                //Pega os valores que estão no campo "estacao" da tabela
+                c.setEstacaoColecao(rs.getString("estacao"));
+                //pega os valores que estão no campo "ano" da tabela
+                c.setAnoColecao(rs.getInt("ano"));
+                //Pega os valores que estão no campo "pub_alvo" da tabela
+                c.setPubAlvoColecao(rs.getString("pub_alvo"));
+                c.setFunResponsavelColecao(rs.getInt("cod_funcionario"));
                 //Adiciona os valores na lista
-                listaCategoriasColecao.add(cc);
+                listaCategoriasColecao.add(c);
             }
             //Fecha a conexão e o statement
             ConnectionFactory.closeConnection(con, pstm);
@@ -108,38 +149,5 @@ public class CategoriaColecaoDaoJDBC {
             ConnectionFactory.closeConnection(con);
         }
         return listaCategoriasColecao;
-    }
-
-    //Método de inserção de valores da tabela categoria_colecao
-    public boolean insert(CategoriaColecao cc) throws SQLException {
-
-        //Cria uma nova conexão
-        Connection con = null;
-        try {
-            //Abre a conexão 'conn'
-            con = ConnectionFactory.getConnection();
-
-            //Recebe a String com o comando SQL, no caso, o comando INSERT
-            PreparedStatement pstm = con.prepareStatement(INSERT);
-
-            //Subustitui os pontos de interrogação do comando
-            pstm.setString(1, cc.getNomeCategoriaColecao());
-            pstm.setString(2, cc.getDescricaoCategoriaColecao());
-
-            //Executa o comando SQL
-            pstm.execute();
-
-            //Fecha a conexão
-            ConnectionFactory.closeConnection(con, pstm);
-
-            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
-            return true;
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao inserir: " + ex.getMessage());
-
-            //Fecha a conxão
-            ConnectionFactory.closeConnection(con);
-            return false;
-        }
     }
 }
