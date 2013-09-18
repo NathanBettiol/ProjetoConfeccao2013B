@@ -2,7 +2,8 @@ package br.senai.sc.model.negocio;
 
 
 
-import java.util.Calendar;
+
+import java.util.Date;
 import java.util.Objects;
 import javax.swing.JOptionPane;
 
@@ -14,14 +15,17 @@ import javax.swing.JOptionPane;
 // Classe Entrada onde seram recebidas as informações de entrada de Produtos no Sistima
 
 public class Entrada {
-    
+   
     //Declaração das Variaveis
-    private  int codigo;
+    private int codigo;
     private  double preco;
-    private  String dtEmissao;
     private String produto;
+    private Date dtEmissao;
     private int qtProduto;
     private int nrNotaFiscal;
+    private String funcionario;
+
+
 
     //Construtor sem parametros
     
@@ -30,7 +34,7 @@ public class Entrada {
    
     //Final Construtor sem parametro--------------------------------------------
     
-    //Getters and Setters
+    //Getters and Setters dos atributos da classe entrada
     
 
     public int getCodigo() {
@@ -41,20 +45,30 @@ public class Entrada {
         this.codigo = codigo;
     }
 
+    public Date getDtEmissao() {
+        return dtEmissao;
+    }
+
+    public void setDtEmissao(Date dtEmissao) {
+        this.dtEmissao = dtEmissao;
+    }
+    
+    
+
     public double getPreco() {
         return preco;
+    }
+       
+    public String getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(String funcionario) {
+        this.funcionario = funcionario;
     }
 
     public void setPreco(double preco) {
         this.preco = preco;
-    }
-
-    public String getDtEmissao() {
-        return dtEmissao;
-    }
-
-    public void setDtEmissao(String dtEmissao) {
-        this.dtEmissao = dtEmissao;
     }
 
     public String getProduto() {
@@ -89,7 +103,7 @@ public class Entrada {
     //Metodo para alteração dos preços
     public double alteraPreco(double preco){
     
-       preco = Double.parseDouble(JOptionPane.showInputDialog("Digite o novo Preço do Produto: "));
+       
         
         return this.preco;
     }
@@ -97,7 +111,7 @@ public class Entrada {
     //Metodo para alteração dos nomes dos produtos
     public String alteraNomeProduto(String produto){
     
-       produto = JOptionPane.showInputDialog("Digite o novo nome do Produto: ");
+      
         
         return this.produto;
     }
@@ -106,7 +120,7 @@ public class Entrada {
     //Metodo para alteração das quantidades de produtos
       public int alteraQtProduto(int qtProduto){
     
-       qtProduto = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade em estoque: "));
+      
         
         return this.qtProduto;
     }

@@ -5,6 +5,8 @@
 package br.senai.sc.testes;
 
 import br.senai.sc.model.negocio.CategoriaColecao;
+import br.senai.sc.model.persistencia.CategoriaColecaoDaoJDBC;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,22 +18,26 @@ import javax.swing.JOptionPane;
  */
 public class TesteCategoriaColecao {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         //Instância de CategoriaColecao 0
-        CategoriaColecao cc = new CategoriaColecao();
-        cc.setCodCategoriaColecao(0);
-        cc.setNomeCategoriaColecao(JOptionPane.showInputDialog("Informe o nome da categoria de coleção"));
-        cc.setDescricaoCategoriaColecao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
+//        CategoriaColecao cc = new CategoriaColecao();        
+//        cc.setNomeCategoriaColecao(JOptionPane.showInputDialog("Informe o nome da categoria de coleção"));
+//        cc.setDescricaoCategoriaColecao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
 
-        JOptionPane.showMessageDialog(null, cc.toString());
+        CategoriaColecaoDaoJDBC ccjdbc = new CategoriaColecaoDaoJDBC();
+//        ccjdbc.insert(cc);
+        ccjdbc.delete(1);
+        JOptionPane.showMessageDialog(null, ccjdbc.listAll());
 
-        //Instância de CategoriaColecao 1
-        CategoriaColecao cc1 = new CategoriaColecao();
-        cc1.setCodCategoriaColecao(1);
-        cc1.setNomeCategoriaColecao(JOptionPane.showInputDialog("Informe o nome da categoria de coleção"));
-        cc1.setDescricaoCategoriaColecao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
+//        JOptionPane.showMessageDialog(null, cc.toString());
 
-        JOptionPane.showMessageDialog(null, cc1.toString());
+//        //Instância de CategoriaColecao 1
+//        CategoriaColecao cc1 = new CategoriaColecao();
+//        cc1.setCodCategoriaColecao(1);
+//        cc1.setNomeCategoriaColecao(JOptionPane.showInputDialog("Informe o nome da categoria de coleção"));
+//        cc1.setDescricaoCategoriaColecao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
+//
+//        JOptionPane.showMessageDialog(null, cc1.toString());
     }
 }
