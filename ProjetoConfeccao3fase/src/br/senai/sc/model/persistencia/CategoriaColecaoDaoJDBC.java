@@ -23,15 +23,36 @@ public class CategoriaColecaoDaoJDBC {
 
     //Strings com os comandos SQL
     private static final String INSERT = "INSERT INTO categoria_colecao VALUES (null, ?, ?)";
-    private static final String UPDATE = "UPDATE categoria_colecao set ? = ?";
+    private static final String UPDATE = "UPDATE categoria_colecao set nm_categoria_colecao = ?, descricao = ? where cod_categoria = ?";
     private static final String DELETE = "DELETE FROM categoria_colecao WHERE cod_categoria = ?";
     private static final String SELECT = "select * from categoria_colecao";
 
     //Método para atualizar valores da tabela categoria_colecao
-//    public boolean update(CategoriaColecao cc, String campo, String valor){
-//        return true;
-//    }
-    
+    public boolean update(CategoriaColecao cc) throws SQLException {
+        //Cria uma nova conexão
+        Connection con = null;
+        try {
+            //Abre a conexão
+            con = ConnectionFactory.getConnection();
+            //Prepara o comando SQL
+            PreparedStatement pstm = con.prepareStatement(UPDATE);
+            //Substitui os pontos de interrogação do comando
+            pstm.setString(1, cc.getNomeCategoriaColecao());
+            pstm.setString(2, cc.getDescricaoCategoriaColecao());
+            pstm.setInt(3, cc.getCodCategoriaColecao());
+            //Executa o comando
+            pstm.execute();
+            JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
+            //Fecha a conexão
+            ConnectionFactory.closeConnection(con, pstm);
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex.getMessage());
+            ConnectionFactory.closeConnection(con);
+            return false;
+        }
+    }
+
     //Método para deletar valores da tabela categoria_colecao
     public boolean delete(int cod) throws SQLException {
         //Cria uma nova conexão
@@ -46,6 +67,7 @@ public class CategoriaColecaoDaoJDBC {
             //Executa o comando
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+            //Fecha a conexão e o statement
             ConnectionFactory.closeConnection(con, pstm);
             return true;
         } catch (SQLException ex) {
@@ -110,10 +132,10 @@ public class CategoriaColecaoDaoJDBC {
             //Fecha a conexão
             ConnectionFactory.closeConnection(con, pstm);
 
-            JOptionPane.showMessageDialog(null, "Sucesso!");
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
             return true;
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao inserir: " + ex.getMessage());
 
             //Fecha a conxão
             ConnectionFactory.closeConnection(con);
