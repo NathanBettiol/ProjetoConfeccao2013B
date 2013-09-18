@@ -20,7 +20,7 @@ public interface CategoriaMateriaPrimaDAO {
      * @param p
      * @return
      */
-    boolean update(CategoriaMateriaPrimaDAO mp);
+    boolean update(CategoriaMateriaPrima mp);
     /*
      * Método responsável pela remoção de uma categoria de matéria-prima 
      * @author LetíciaJRibeiro
@@ -36,7 +36,7 @@ public interface CategoriaMateriaPrimaDAO {
      * @param p
      * @return
      */
-    List<CategoriaMateriaPrimaDAO> listAll();
+    List<CategoriaMateriaPrima> listAll();
     /*
      * Método responsável pela listagem de categoria de matéria-prima com o codigo enviado pelo parametro
      * @author LetíciaJRibeiro
@@ -44,7 +44,9 @@ public interface CategoriaMateriaPrimaDAO {
      * @param p
      * @return
      */
-    CategoriaMateriaPrimaDAO listById(int codCategoriaMateriaPrima);
+    CategoriaMateriaPrima listById(int codCategoriaMateriaPrima);
+
+    public List<CategoriaMateriaPrima> listall();
 }
 
 
