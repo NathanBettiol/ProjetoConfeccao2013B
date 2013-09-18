@@ -6,7 +6,7 @@ import java.util.List;
 
  /**
  * Interface responsável pela declaração dos métodos 
- * relacionados a persistência da classe Treinamento
+ * relacionados a persistencia da classe Treinamento
  * @author Bruna Zakrzeski
  */
 
