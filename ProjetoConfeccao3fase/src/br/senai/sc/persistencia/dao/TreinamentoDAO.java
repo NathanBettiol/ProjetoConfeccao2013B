@@ -5,7 +5,7 @@ import br.senai.sc.model.negocio.Treinamento;
 import java.util.List;
 
  /**
- * Interface responsável pela declaração dos métodos 
+ * Interface responsavel pela declaração dos métodos 
  * relacionados a persistencia da classe Treinamento
  * @author Bruna Zakrzeski
  */
