@@ -8,6 +8,8 @@ package br.senai.sc.model.negocio;
  *
  * @author leticia_jesus
  */
-class Fornecedor {
-    
+public class Fornecedor {
+    public int cod_fornecedor;
+    public String nome;
+    public String cnpj;
 }
