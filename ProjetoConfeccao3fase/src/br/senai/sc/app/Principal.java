@@ -8,7 +8,7 @@ package br.senai.sc.app;
  * @version 1.0 20/08/2013
  */
 public class Principal {
-    
+    // PRINCIPAL
     public static void main(String[] args) {
         
         
