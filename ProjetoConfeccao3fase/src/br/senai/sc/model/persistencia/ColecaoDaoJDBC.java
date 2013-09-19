@@ -6,6 +6,7 @@ package br.senai.sc.model.persistencia;
 
 import br.senai.sc.model.negocio.CategoriaColecao;
 import br.senai.sc.model.negocio.Colecao;
+import br.senai.sc.model.negocio.Funcionario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -115,11 +116,11 @@ public class ColecaoDaoJDBC {
     }
     
     //Método para procurar valores da tabela categoria_colecao
-    public List<CategoriaColecao> listAll() throws SQLException {
+    public List<Colecao> listAll() throws SQLException {
         //Cria uma nova conexão
         Connection con = null;
         //Cria lista onde vai ser colocado os resultados da busca
-        List<CategoriaColecao> listaCategoriasColecao = new ArrayList();
+        List<Colecao> listaColecao = new ArrayList();
         try {
             //Abre a conexão
             con = ConnectionFactory.getConnection();
@@ -138,9 +139,12 @@ public class ColecaoDaoJDBC {
                 c.setAnoColecao(rs.getInt("ano"));
                 //Pega os valores que estão no campo "pub_alvo" da tabela
                 c.setPubAlvoColecao(rs.getString("pub_alvo"));
-                c.setFunResponsavelColecao(rs.getInt("cod_funcionario"));
+                //Pega os valores que estão no campo "cod_funcionario" da tabela
+                c.setFunResponsavelColecao((Funcionario) rs.getObject("cod_funcionario"));
+                //Pega os valores que estão no campo "categoria_colecao_cod_categoria" da tabela
+                c.setCategoriaColecao((CategoriaColecao) rs.getObject("categoria_colecao_cod_categoria"));                
                 //Adiciona os valores na lista
-                listaCategoriasColecao.add(c);
+                listaColecao.add(c);
             }
             //Fecha a conexão e o statement
             ConnectionFactory.closeConnection(con, pstm);
@@ -148,6 +152,6 @@ public class ColecaoDaoJDBC {
             JOptionPane.showMessageDialog(null, "Erro  no busca: " + ex.getMessage());
             ConnectionFactory.closeConnection(con);
         }
-        return listaCategoriasColecao;
+        return listaColecao;
     }
 }
