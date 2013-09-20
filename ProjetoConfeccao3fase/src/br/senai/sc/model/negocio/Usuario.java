@@ -1,5 +1,6 @@
 package br.senai.sc.model.negocio;
 
+import java.util.Date;
 import java.util.Objects;
 
 /*
@@ -9,115 +10,117 @@ import java.util.Objects;
  *
  *
  */
-// USUARIO codigo login senha nome cpf email telefone endereco dataNascimento 
+// USUARIO codigo login senha nome cpf email telefone endereco dataNascimento
 public class Usuario extends Pessoa {
 
-    private String login;
-    private String senha;
-    private String nome;
-    private String cpf;
-    private String email;
-    private String dataNascimento;
+	private String login;
+	private String senha;
+	private String nome;
+	private String cpf;
+	private String email;
+	private Date dataNascimento;
 
-    //Construtor padrão
-    public Usuario() {
-    }
+	//Construtor padrão
+	public Usuario() {
+	}
 
-    //getters e settres
-    public String getLogin() {
-        return login;
-    }
+	//getters e settres
+	public String getLogin() {
+    	return login;
+	}
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+	public void setLogin(String login) {
+    	this.login = login;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public String getSenha() {
+    	return senha;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public void setSenha(String senha) {
+    	this.senha = senha;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+    	return nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setNome(String nome) {
+    	this.nome = nome;
+	}
 
-    public String getCpf() {
-        return cpf;
-    }
+	public String getCpf() {
+    	return cpf;
+	}
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+	public void setCpf(String cpf) {
+    	this.cpf = cpf;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+    	return email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setEmail(String email) {
+    	this.email = email;
+	}
 
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
+	public Date getDataNascimento() {
+    	return dataNascimento;
+	}
 
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
+	public void setDataNascimento(Date dataNascimento) {
+    	this.dataNascimento = dataNascimento;
+	}
 
-    //toString
-    public String toString() {
-        return "Usuario"
-                + "\nLogin: " + login
-                + "\nSenha: " + senha
-                + "\nNome: " + nome
-                + "\nCpf: " + cpf
-                + "\nE-mail: " + email
-                + "\nDataNascimento: " + dataNascimento;
-    }
+	//toString
+	public String toString() {
+    	return "Usuario"
+            	+ "\nLogin: " + login
+            	+ "\nSenha: " + senha
+            	+ "\nNome: " + nome
+            	+ "\nCpf: " + cpf
+            	+ "\nE-mail: " + email
+            	+ "\nDataNascimento: " + dataNascimento;
+	}
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
-    }
+	@Override
+	public int hashCode() {
+    	int hash = 7;
+    	return hash;
+	}
 
-    //equals
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Usuario other = (Usuario) obj;
+	//equals
+	public boolean equals(Object obj) {
+    	if (obj == null) {
+        	return false;
+    	}
+    	if (getClass() != obj.getClass()) {
+        	return false;
+    	}
+    	final Usuario other = (Usuario) obj;
 
 
-        if (!Objects.equals(this.login, other.login)) {
-            return false;
-        }
-        if (!Objects.equals(this.senha, other.senha)) {
-            return false;
-        }
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
-        }
-        if (!Objects.equals(this.cpf, other.cpf)) {
-            return false;
-        }
-        if (!Objects.equals(this.email, other.email)) {
-            return false;
-        }
-        if (!(this.dataNascimento.equalsIgnoreCase(other.dataNascimento))) {
-            return false;
-        }
-        return true;
-    }
+    	if (!Objects.equals(this.login, other.login)) {
+        	return false;
+    	}
+    	if (!Objects.equals(this.senha, other.senha)) {
+        	return false;
+    	}
+    	if (!Objects.equals(this.nome, other.nome)) {
+        	return false;
+    	}
+    	if (!Objects.equals(this.cpf, other.cpf)) {
+        	return false;
+    	}
+    	if (!Objects.equals(this.email, other.email)) {
+        	return false;
+    	}
+    	if (!(this.dataNascimento == (other.dataNascimento))) {
+        	return false;
+    	}
+    	return true;
+	}
 }
+
+
