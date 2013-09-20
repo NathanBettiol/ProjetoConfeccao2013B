@@ -5,9 +5,11 @@
 package br.senai.sc.model.negocio;
 
 /**
- *
- * @author giliard_j_carvalho
- */
+* Categoria Fornecedor
+*
+* @version v1.0 Setembro/2013
+* @author Giliard Carvalho
+*/
 public class CategoriaFornecedor {
     private int codCategoriaFornecedor;
     private String nome;

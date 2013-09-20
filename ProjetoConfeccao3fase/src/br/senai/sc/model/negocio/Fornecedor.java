@@ -5,9 +5,11 @@
 package br.senai.sc.model.negocio;
 
 /**
- *
- * @author leticia_jesus
- */
+* Fornecedor
+*
+* @version v1.0 Setembro/2013
+* @author Giliard Carvalho
+*/
 public class Fornecedor {
     private int codFornecedor;
     private String nome;
@@ -20,12 +22,12 @@ public class Fornecedor {
     private String contato;
     private CategoriaFornecedor categoriaFornecedor;
 
-    public int getCod_fornecedor() {
+    public int getCodFornecedor() {
         return codFornecedor;
     }
 
-    public void setCod_fornecedor(int cod_fornecedor) {
-        this.codFornecedor = cod_fornecedor;
+    public void setCodFornecedor(int codFornecedor) {
+        this.codFornecedor = codFornecedor;
     }
 
     public String getNome() {
