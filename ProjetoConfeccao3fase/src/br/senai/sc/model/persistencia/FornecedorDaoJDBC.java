@@ -45,6 +45,7 @@ public class FornecedorDaoJDBC {
             pstm.setString(7, Forn.getEmail());
             pstm.setString(8, Forn.getPaginaWeb());
             pstm.setString(9, Forn.getContato());
+            pstm.setInt(10, Forn.getCategoriaFornecedor().getCodCategoriaFornecedor());
 
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso!");
