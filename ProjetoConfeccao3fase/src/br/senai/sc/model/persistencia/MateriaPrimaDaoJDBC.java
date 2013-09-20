@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  * @author leticia_jesus
- *  * @version 1.0 20/09/2013
+ * @version 1.0 20/09/2013
  */
 public class MateriaPrimaDaoJDBC implements MateriaPrimaDAO {
 
