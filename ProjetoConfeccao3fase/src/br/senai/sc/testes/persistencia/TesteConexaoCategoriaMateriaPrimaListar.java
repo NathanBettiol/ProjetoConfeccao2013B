@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.senai.sc.testes.persistencia;
 
 import br.senai.sc.model.negocio.CategoriaMateriaPrima;
@@ -13,6 +10,9 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author leticia_jesus
+ * @version 1.0 20/09/2013
+ * 
+ * Classe responsavel pelo teste de listagem de uma categoria de matéria-prima na base de dados.
  */
 public class TesteConexaoCategoriaMateriaPrimaListar {
     
