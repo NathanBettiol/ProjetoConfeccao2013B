@@ -12,6 +12,9 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author leticia_jesus
+ * @version 1.0 20/09/2012
+ * 
+ *  Classe responsável pelo teste de inserção  de uma  categoria de materia-prima na base de dados.
  */
 public class TesteConexaoCategoriaMateriaPrimaInsercao {
      public static void main(String[] args) {
