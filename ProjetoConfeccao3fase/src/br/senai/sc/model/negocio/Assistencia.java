@@ -89,9 +89,9 @@ public class Assistencia extends PessoaJuridica {
         }
         return true;
     }
+
 //------------------------------------------------------------------------------
     //Método toString
-
     @Override
     public String toString() {
         return "------ ASSISTÊNCIA ------"
