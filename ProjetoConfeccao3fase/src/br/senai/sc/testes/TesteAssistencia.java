@@ -1,45 +1,74 @@
 package br.senai.sc.testes;
 
+//------------------------------------------------------------------------------
 import br.senai.sc.model.negocio.Assistencia;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
+//------------------------------------------------------------------------------
 /**
- * Classe TesteAssistencia * Instância de dois objetos da classe Assistencia
- * para testar sua funcionalidade.
+ * Classe para testar a classe Assistencia
  *
  * @version v1.0 04/09/2013
- * @author Gabriel Arsênio
+ * @author wesley_s
  */
 public class TesteAssistencia {
 
+//------------------------------------------------------------------------------
     public static void main(String[] args) {
 
-        //Instância da assistência 0
-        Assistencia as = new Assistencia();
-        as.setCodAssistencia(0);
-        as.setNomeAssistencia(JOptionPane.showInputDialog("Informe o nome da assistência"));
-        as.setNomeFantasiaAssistencia(JOptionPane.showInputDialog("Informe o nome fantasia da assistência"));
-        as.setCnpjAssistencia(JOptionPane.showInputDialog("Informe o CNPJ da assistência"));
-        as.setRazaoSocialAssistencia(JOptionPane.showInputDialog("Informe a razão social da assistência"));
-        as.setTelefoneAssistencia(JOptionPane.showInputDialog("Informe o telefone"));
-        as.setEmailAssistencia(JOptionPane.showInputDialog("Informe o e-mail"));
-        as.setPaginaWebAssistencia(JOptionPane.showInputDialog("Informe a página na web da assistência"));
-        as.setContatoAssistencia(JOptionPane.showInputDialog("Contato"));
+        //----------------------------------------------------------------------
+        Assistencia a1 = new Assistencia();
+        a1.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe um "
+                + "códgio: ")));
+        a1.setNmFantasia(JOptionPane.showInputDialog("Informe o nome "
+                + "fantasia: "));
+        a1.setRazaoSocial(JOptionPane.showInputDialog("Informe a razão "
+                + "social: "));
+        a1.setCnpj(JOptionPane.showInputDialog("Informe o CNPJ: "));
+        a1.setEndereco(JOptionPane.showInputDialog("Informe o endereço: "));
+        a1.setTelefone(JOptionPane.showInputDialog("Informe o telefone: "));
+        a1.setContato(JOptionPane.showInputDialog("Informe um nome para "
+                + "contato: "));
+        a1.setEmail(JOptionPane.showInputDialog("Informe o e-mail: "));
+        a1.setPaginaWeb(JOptionPane.showInputDialog("Informe a página na "
+                + "web: "));
+        try {
+            String data = JOptionPane.showInputDialog("Informe a data de "
+                    + "cadastro: ");
+            a1.setDtCadastro((Date) new SimpleDateFormat("dd/MM/yyyy").
+                    parse(data));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data incorreta: " + e);
+        }
 
-        JOptionPane.showMessageDialog(null, as.toString());
+        JOptionPane.showMessageDialog(null, a1.toString());
 
-        //Instância do assistência 1
-        Assistencia as1 = new Assistencia();
-        as1.setCodAssistencia(1);
-        as1.setNomeAssistencia(JOptionPane.showInputDialog("Informe o nome da assistência"));
-        as1.setNomeFantasiaAssistencia(JOptionPane.showInputDialog("Informe o nome fantasia da assistência"));
-        as1.setCnpjAssistencia(JOptionPane.showInputDialog("Informe o CNPJ da assistência"));
-        as1.setRazaoSocialAssistencia(JOptionPane.showInputDialog("Informe a razão social da assistência"));
-        as1.setTelefoneAssistencia(JOptionPane.showInputDialog("Informe o telefone"));
-        as1.setEmailAssistencia(JOptionPane.showInputDialog("Informe o e-mail"));
-        as1.setPaginaWebAssistencia(JOptionPane.showInputDialog("Informe a página na web da assistência"));
-        as1.setContatoAssistencia(JOptionPane.showInputDialog("Contato"));
-
-        JOptionPane.showMessageDialog(null, as1.toString());
+        //----------------------------------------------------------------------
+        Assistencia a2 = new Assistencia();
+        a2.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe um "
+                + "códgio: ")));
+        a2.setNmFantasia(JOptionPane.showInputDialog("Informe o nome "
+                + "fantasia: "));
+        a2.setRazaoSocial(JOptionPane.showInputDialog("Informe a razão "
+                + "social: "));
+        a2.setCnpj(JOptionPane.showInputDialog("Informe o CNPJ: "));
+        a2.setEndereco(JOptionPane.showInputDialog("Informe o endereço: "));
+        a2.setTelefone(JOptionPane.showInputDialog("Informe o telefone: "));
+        a2.setContato(JOptionPane.showInputDialog("Informe um nome para "
+                + "contato: "));
+        a2.setEmail(JOptionPane.showInputDialog("Informe o e-mail: "));
+        a2.setPaginaWeb(JOptionPane.showInputDialog("Informe a página na "
+                + "web: "));
+        try {
+            String data = JOptionPane.showInputDialog("Informe a data de "
+                    + "cadastro: ");
+            a2.setDtCadastro((Date) new SimpleDateFormat("dd/MM/yyyy").
+                    parse(data));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data incorreta: " + e);
+        }
+        JOptionPane.showMessageDialog(null, a2.toString());
     }
 }
