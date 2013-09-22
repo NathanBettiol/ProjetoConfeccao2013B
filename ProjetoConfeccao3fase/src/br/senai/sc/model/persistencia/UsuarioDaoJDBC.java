@@ -26,8 +26,7 @@ public class UsuarioDaoJDBC implements UsuarioDAO {
 	private final String DELETE = "delete from usuario where id = ?";
 	private final String LIST = "select * from usuario, endereco where "
         	+ "usuario.id_endereco = endereco.id";
-	private final String LISTBYID = "select * from usuario, endereco"
-        	+ "where usuario.id_endereco = endereco.id and id = ?";
+
 	/*
  	* Método que realiza a inserção de uma pessoa na base de dados
  	*/
