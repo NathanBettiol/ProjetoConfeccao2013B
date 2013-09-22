@@ -7,18 +7,12 @@ import java.util.Objects;
  * @author wesley_s
  */
 //------------------------------------------------------------------------------
-public class Assistencia {
+public class Assistencia extends PessoaJuridica {
 
     //Atributos
-    private int codAssistencia;
-    private String nomeAssistencia;
-    private String nomeFantasiaAssistencia;
-    private String cnpjAssistencia;
-    private String razaoSocialAssistencia;
-    private String telefoneAssistencia;
-    private String emailAssistencia;
-    private String paginaWebAssistencia;
-    private String contatoAssistencia;
+    private String email;
+    private String paginaWeb;
+    private String contato;
 
 //------------------------------------------------------------------------------
     //Construtor default
@@ -27,76 +21,28 @@ public class Assistencia {
 
 //------------------------------------------------------------------------------
     //Getters e Setters
-    public int getCodAssistencia() {
-        return codAssistencia;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCodAssistencia(int codAssistencia) {
-        this.codAssistencia = codAssistencia;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getNomeAssistencia() {
-        return nomeAssistencia;
+    public String getPaginaWeb() {
+        return paginaWeb;
     }
 
-    public void setNomeAssistencia(String nomeAssistencia) {
-        this.nomeAssistencia = nomeAssistencia;
+    public void setPaginaWeb(String paginaWeb) {
+        this.paginaWeb = paginaWeb;
     }
 
-    public String getNomeFantasiaAssistencia() {
-        return nomeFantasiaAssistencia;
+    public String getContato() {
+        return contato;
     }
 
-    public void setNomeFantasiaAssistencia(String nomeFantasiaAssistencia) {
-        this.nomeFantasiaAssistencia = nomeFantasiaAssistencia;
-    }
-
-    public String getCnpjAssistencia() {
-        return cnpjAssistencia;
-    }
-
-    public void setCnpjAssistencia(String cnpjAssistencia) {
-        this.cnpjAssistencia = cnpjAssistencia;
-    }
-
-    public String getRazaoSocialAssistencia() {
-        return razaoSocialAssistencia;
-    }
-
-    public void setRazaoSocialAssistencia(String razaoSocialAssistencia) {
-        this.razaoSocialAssistencia = razaoSocialAssistencia;
-    }
-
-    public String getTelefoneAssistencia() {
-        return telefoneAssistencia;
-    }
-
-    public void setTelefoneAssistencia(String telefoneAssistencia) {
-        this.telefoneAssistencia = telefoneAssistencia;
-    }
-
-    public String getEmailAssistencia() {
-        return emailAssistencia;
-    }
-
-    public void setEmailAssistencia(String emailAssistencia) {
-        this.emailAssistencia = emailAssistencia;
-    }
-
-    public String getPaginaWebAssistencia() {
-        return paginaWebAssistencia;
-    }
-
-    public void setPaginaWebAssistencia(String paginaWebAssistencia) {
-        this.paginaWebAssistencia = paginaWebAssistencia;
-    }
-
-    public String getContatoAssistencia() {
-        return contatoAssistencia;
-    }
-
-    public void setContatoAssistencia(String contatoAssistencia) {
-        this.contatoAssistencia = contatoAssistencia;
+    public void setContato(String contato) {
+        this.contato = contato;
     }
     //Fim Getters e Setters
 
@@ -111,50 +57,54 @@ public class Assistencia {
             return false;
         }
         final Assistencia other = (Assistencia) obj;
-        if (this.codAssistencia != other.codAssistencia) {
+        if (this.getCod() != other.getCod()) {
             return false;
         }
-        if (!Objects.equals(this.nomeAssistencia, other.nomeAssistencia)) {
+        if (!Objects.equals(this.getNmFantasia(), other.getNmFantasia())) {
             return false;
         }
-        if (!Objects.equals(this.nomeFantasiaAssistencia, other.nomeFantasiaAssistencia)) {
+        if (!Objects.equals(this.getRazaoSocial(), other.getRazaoSocial())) {
             return false;
         }
-        if (!Objects.equals(this.cnpjAssistencia, other.cnpjAssistencia)) {
+        if (!Objects.equals(this.getCnpj(), other.getCnpj())) {
             return false;
         }
-        if (!Objects.equals(this.razaoSocialAssistencia, other.razaoSocialAssistencia)) {
+        if (!Objects.equals(this.getTelefone(), other.getTelefone())) {
             return false;
         }
-        if (!Objects.equals(this.telefoneAssistencia, other.telefoneAssistencia)) {
+        if (!Objects.equals(this.getEndereco(), other.getEndereco())) {
             return false;
         }
-        if (!Objects.equals(this.emailAssistencia, other.emailAssistencia)) {
+        if (!Objects.equals(this.getEmail(), other.getEmail())) {
             return false;
         }
-        if (!Objects.equals(this.paginaWebAssistencia, other.paginaWebAssistencia)) {
+        if (!Objects.equals(this.getPaginaWeb(), other.getPaginaWeb())) {
             return false;
         }
-        if (!Objects.equals(this.contatoAssistencia, other.contatoAssistencia)) {
+        if (!Objects.equals(this.getContato(), other.getContato())) {
+            return false;
+        }
+        if (!Objects.equals(this.getDtCadastro(), other.getDtCadastro())) {
             return false;
         }
         return true;
     }
+
 //------------------------------------------------------------------------------
     //Método toString
-
     @Override
     public String toString() {
         return "------ ASSISTÊNCIA ------"
-                + "\nCódigo: " + codAssistencia
-                + "\nNome: " + nomeAssistencia
-                + "\nNome Fantasia: " + nomeFantasiaAssistencia
-                + "\nCNPJ: " + cnpjAssistencia
-                + "\nRazao Social: " + razaoSocialAssistencia
-                + "\nTelefone: " + telefoneAssistencia
-                + "\nE-mail: " + emailAssistencia
-                + "\nPágina Web: " + paginaWebAssistencia
-                + "\nContato: " + contatoAssistencia
+                + "\nCódigo: " + getCod()
+                + "\nNome Fantasia: " + getNmFantasia()
+                + "\nRazao Social: " + getRazaoSocial()
+                + "\nCNPJ: " + getCnpj()
+                + "\nTelefone: " + getTelefone()
+                + "\nEndereço: " + getEndereco()
+                + "\nE-mail: " + email
+                + "\nPágina Web: " + paginaWeb
+                + "\nContato: " + contato
+                + "\nData de Cadastro: " + getDtCadastro()
                 + "\n\n";
     }
 }

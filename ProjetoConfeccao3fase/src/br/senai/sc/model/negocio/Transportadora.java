@@ -55,13 +55,34 @@ public class Transportadora extends PessoaJuridica {
             return false;
         }
         final Transportadora other = (Transportadora) obj;
+        if (!Objects.equals(this.getCod(), other.getCod())) {
+            return false;
+        }
+        if (!Objects.equals(this.getNmFantasia(), other.email)) {
+            return false;
+        }
+        if (!Objects.equals(this.getRazaoSocial(), other.getRazaoSocial())) {
+            return false;
+        }
+        if (!Objects.equals(this.getCnpj(), other.getCnpj())) {
+            return false;
+        }
+        if (!Objects.equals(this.getEndereco(), other.getEndereco())) {
+            return false;
+        }
+        if (!Objects.equals(this.getTelefone(), other.getTelefone())) {
+            return false;
+        }
+        if (!Objects.equals(this.contato, other.contato)) {
+            return false;
+        }
         if (!Objects.equals(this.email, other.email)) {
             return false;
         }
         if (!Objects.equals(this.paginaWeb, other.paginaWeb)) {
             return false;
         }
-        if (!Objects.equals(this.contato, other.contato)) {
+        if (!Objects.equals(this.getDtCadastro(), other.getDtCadastro())) {
             return false;
         }
         return true;
@@ -74,13 +95,13 @@ public class Transportadora extends PessoaJuridica {
         return "------ TRANSPORTADORA ------"
                 + "\nCodigo: " + getCod()
                 + "\nNome Fantasia: " + getNmFantasia()
+                + "\nRazão Social: " + getRazaoSocial()
                 + "\nCnpj: " + getCnpj()
                 + "\nEndereco: " + getEndereco()
-                + "\nRazão Social: " + getRazaoSocial()
                 + "\nTelefone: " + getTelefone()
+                + "\nContato: " + contato
                 + "\nE-mail: " + email
                 + "\nPagina Web: " + paginaWeb
-                + "\nContato: " + contato
                 + "\nData de Cadastro: " + getDtCadastro()
                 + "\n\n";
     }
