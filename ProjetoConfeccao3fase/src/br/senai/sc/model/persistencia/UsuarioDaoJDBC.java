@@ -112,17 +112,26 @@ public class UsuarioDaoJDBC implements UsuarioDAO {
  	*/
 	public List<Usuario> listAll() {
     	Connection conn;
-    	List<Usuario> pessoas = new ArrayList<>();
+    	List<Usuario> usuarios = new ArrayList<>();
     	try {
         	conn = ConnectionFactory.getConnection();
         	PreparedStatement pstm = conn.prepareStatement(LIST);
 
         	ResultSet rs = pstm.executeQuery();
         	while (rs.next()) {
-            	Usuario p = new Usuario();
-            	p.setNome(rs.getString("nome"));
-            	p.setDataNascimento(rs.getDate("datanascimento"));
-            	pessoas.add(p);
+            	Usuario u = new Usuario();
+            	u.setCod(rs.getInt("codigo"));
+                u.setCpf(rs.getString("cpf"));
+                u.setDataNascimento(rs.getDate("datanascimento"));
+                u.setDtCadastro(rs.getDate("datacadastro"));
+                u.setEmail(rs.getString("email"));
+                u.setLogin(rs.getString("login"));
+                u.setNome(rs.getString("nome"));
+                u.setSenha(rs.getString("senha"));
+                u.setTelefone(rs.getString("telefone"));
+            	
+            	
+                usuarios.add(u);
 
         	}
         	ConnectionFactory.closeConnection(conn, pstm);
@@ -130,7 +139,7 @@ public class UsuarioDaoJDBC implements UsuarioDAO {
         	JOptionPane.showMessageDialog(null, "Não foi possível efetuar a "
                 	+ "transação: " + e.getMessage());
     	}
-    	return pessoas;
+    	return null;
 	}
 
    
