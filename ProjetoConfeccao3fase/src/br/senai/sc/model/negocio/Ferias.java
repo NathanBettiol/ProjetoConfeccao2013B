@@ -4,6 +4,7 @@
  */
 package br.senai.sc.model.negocio;
 
+import java.util.Date;
 import java.util.Objects;
 
 /*
@@ -15,9 +16,13 @@ import java.util.Objects;
 
 public class Ferias {
 
+    public static void add(Ferias f) {
+        
+    }
+
     private String funcionario;
-    private String dataInicio;
-    private String dataFim;
+    private Date dataInicio;
+    private Date dataFim;
 
     //Construtor padrão
     public Ferias() {
@@ -34,19 +39,19 @@ public class Ferias {
         this.funcionario = funcionario;
     }
 
-    public String getDataInicio() {
+    public Date getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(String dataInicio) {
+    public void setDataInicio(Date dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public String getDataFim() {
+    public Date getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(String dataFim) {
+    public void setDataFim(Date dataFim) {
         this.dataFim = dataFim;
     }
 
