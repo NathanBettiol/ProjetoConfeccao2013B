@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author larissa_mezari
  */
-public class FeriasDaoJDBC {
+public class FeriasDaoJDBC implements FeriasDAO {
    
     
 	private final String INSERT = "insert into ferias(cod_funcionario, dt_inicio, dt_fim) "
