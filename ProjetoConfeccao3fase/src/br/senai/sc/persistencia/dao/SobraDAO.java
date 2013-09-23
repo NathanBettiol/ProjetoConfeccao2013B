@@ -6,13 +6,13 @@ import java.util.List;
 /**
  *
  * @author Patricia Gageiro
- * @version 1.0 22/09/2013
+ * @version 1.0 23/09/2013
  * 
  */
 public interface SobraDAO {
     /*
      * Método responsável pela inserção de uma sobra.
-     * @version 1.0 22/09/2013
+     * @version 1.0 23/09/2013
      * @author Patricia Gageiro
      * @param p
      * @return
@@ -22,7 +22,7 @@ public interface SobraDAO {
 
     /*
      * Método responsável pela atualização de uma sobra
-     * @version 1.0 22/09/2013
+     * @version 1.0 23/09/2013
      * @author Patricia Gageiro
      * @param p
      * @return
@@ -33,7 +33,7 @@ public interface SobraDAO {
 
     /*
      * Método responsável pela deleção de uma sobra.
-     * @version 1.0 22/06/2013
+     * @version 1.0 23/06/2013
      * @author Patricia Gageiro
      * @param p
      * @return
@@ -42,7 +42,7 @@ public interface SobraDAO {
 
     /*
      * Método responsável pela listagem das Sobras.
-     * @version 1.0 22/09/2013
+     * @version 1.0 23/09/2013
      * @author Patricia Gageiro
      * @param p
      * @return
@@ -51,7 +51,7 @@ public interface SobraDAO {
     
     /*
      * Método responsável pela listagem por id da Sobras.
-     * @version 1.0 22/09/2013
+     * @version 1.0 23/09/2013
      * @author Patricia Gageiro
      * @param p
      * @return
