@@ -10,7 +10,7 @@ import java.util.Objects;
  * @author Patricia Gageiro
  */
 public class Sobra {
-    private String codSobra;
+    private int codSobra;
     private String peso;
     private String categoria;
     private String materiaPrima;
@@ -59,11 +59,11 @@ public class Sobra {
         this.funcionarioResponsavel = funcionarioResponsavel;
     }
     
-    public String getCodSobra() {
+    public int getCodSobra() {
         return codSobra;
     }
 
-    public void setCodSobra(String codSobra) {
+    public void setCodSobra(int codSobra) {
         this.codSobra = codSobra;
     }
 
