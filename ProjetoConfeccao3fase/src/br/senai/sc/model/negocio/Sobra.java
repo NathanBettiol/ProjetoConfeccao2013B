@@ -10,7 +10,7 @@ import java.util.Objects;
  * @author Patricia Gageiro
  */
 public class Sobra {
-    private String cod;
+    private String codSobra;
     private String peso;
     private String categoria;
     private String materiaPrima;
