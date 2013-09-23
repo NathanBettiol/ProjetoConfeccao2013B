@@ -91,6 +91,7 @@ public class Sobra {
         if (!Objects.equals(this.funcionarioResponsavel, other.funcionarioResponsavel)) {
             return false;
         }
+        
         return true;
     }
     
