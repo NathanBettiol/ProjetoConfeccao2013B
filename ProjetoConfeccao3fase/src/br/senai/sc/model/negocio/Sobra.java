@@ -1,6 +1,8 @@
 package br.senai.sc.model.negocio;
 
+import java.util.Date;
 import java.util.Objects;
+
 
 /**
  * 
@@ -12,7 +14,7 @@ public class Sobra {
     private String peso;
     private String categoria;
     private String materiaPrima;
-    private String dtCadastro;
+    private Date dtCadastro;
     private String funcionarioResponsavel;
 
     
@@ -41,11 +43,11 @@ public class Sobra {
         this.materiaPrima = materiaPrima;
     }
 
-    public String getDtCadastro() {
+    public Date getDtCadastro() {
         return dtCadastro;
     }
 
-    public void setDtCadastro(String dtCadastro) {
+    public void setDtCadastro(Date dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 
@@ -85,11 +87,11 @@ public class Sobra {
     }
     
     public String ToString(){
-         return "\nPeso: " + this.getPeso()
-              + "\nCategoria: " + this.getCategoria()
-              + "\nMatéria Prima: " + this.getMateriaPrima()
-              + "\nData Cadastro: " + this.getDtCadastro()
-              + "\nFuncionário Responsável: " + this.getFuncionarioResponsavel();
+         return "\nPeso: "                        + this.getPeso()
+              + "\nCategoria: "                   + this.getCategoria()
+              + "\nMatéria Prima: "               + this.getMateriaPrima()
+              + "\nData Cadastro: "               + this.getDtCadastro()
+              + "\nFuncionário Responsável: "     + this.getFuncionarioResponsavel();
     }
     
     
