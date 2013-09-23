@@ -59,12 +59,12 @@ public class Sobra {
         this.funcionarioResponsavel = funcionarioResponsavel;
     }
     
-    public String getCod() {
-        return cod;
+    public String getCodSobra() {
+        return codSobra;
     }
 
-    public void setCod(String cod) {
-        this.cod = cod;
+    public void setCodSobra(String codSobra) {
+        this.codSobra = codSobra;
     }
 
         // Métodos Equals
@@ -95,7 +95,8 @@ public class Sobra {
     }
     
     public String ToString(){
-         return "\nPeso: "                        + this.getPeso()
+         return "\nCódigo: "                      + this.getCodSobra()
+              + "\nPeso: "                        + this.getPeso()
               + "\nCategoria: "                   + this.getCategoria()
               + "\nMatéria Prima: "               + this.getMateriaPrima()
               + "\nData Cadastro: "               + this.getDtCadastro()
