@@ -36,7 +36,12 @@ public class TesteMedidaTipoFisico {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Data incorreta: " + e);
         }
-        usuario.setDataNascimento(JOptionPane.showInputDialog("Informe a data de nascimento: "));
+        try {
+            String data = JOptionPane.showInputDialog("Data de Nascimento: ");
+            usuario.setDataNascimento((Date) new SimpleDateFormat("dd/MM/yyyy").parse(data));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data incorreta: " + e);
+        }
         usuario.setEmail(JOptionPane.showInputDialog("Informe seu E-mail: "));
         usuario.setEndereco(JOptionPane.showInputDialog("Informe o endereço: "));
         usuario.setLogin(JOptionPane.showInputDialog("Entre com o login: "));
