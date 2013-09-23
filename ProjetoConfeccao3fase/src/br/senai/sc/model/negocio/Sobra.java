@@ -10,7 +10,7 @@ import java.util.Objects;
  * @author Patricia Gageiro
  */
 public class Sobra {
-    
+    private String cod;
     private String peso;
     private String categoria;
     private String materiaPrima;
@@ -58,6 +58,14 @@ public class Sobra {
     public void setFuncionarioResponsavel(String funcionarioResponsavel) {
         this.funcionarioResponsavel = funcionarioResponsavel;
     }
+    
+    public String getCod() {
+        return cod;
+    }
+
+    public void setCod(String cod) {
+        this.cod = cod;
+    }
 
         // Métodos Equals
     public boolean equals(Object obj) {
@@ -93,6 +101,8 @@ public class Sobra {
               + "\nData Cadastro: "               + this.getDtCadastro()
               + "\nFuncionário Responsável: "     + this.getFuncionarioResponsavel();
     }
+
+    
     
     
 }
