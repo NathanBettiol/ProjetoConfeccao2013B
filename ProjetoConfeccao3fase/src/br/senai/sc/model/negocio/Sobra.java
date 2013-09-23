@@ -6,7 +6,7 @@ import java.util.Objects;
 
 /**
  * 
- * @version 1.0 04/09/2013
+ * @version 1.0 23/09/2013
  * @author Patricia Gageiro
  */
 public class Sobra {
