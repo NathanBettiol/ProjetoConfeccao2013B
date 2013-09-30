@@ -4,12 +4,10 @@
  */
 package br.senai.sc.testes.persistencia;
 
-import br.senai.sc.model.negocio.Entrada;
+
 import br.senai.sc.model.negocio.Entrada;
 import br.senai.sc.model.persistencia.EntradaDaoJDBC;
 import br.senai.sc.persistencia.dao.EntradaDAO;
-import java.sql.Date;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 

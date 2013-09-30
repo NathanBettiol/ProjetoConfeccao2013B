@@ -28,7 +28,7 @@ public class EntradaDaoJDBC implements EntradaDAO {
     private final String UPDATE = "update entrada set data_emissao = ?, funcionario = ?, produto = ?, quantidade = ?, preco = ?, nr_nota_fiscal = ? where cod_entrada = ?";
     private final String DELETE = "delete from entrada where cod_entrada = ?";
     private final String LIST = "select * from entrada ";
-    private final String LISTBYID = "select * from entrada where cod_entrada = ?";
+
     
     
     
@@ -137,26 +137,4 @@ public class EntradaDaoJDBC implements EntradaDAO {
         }
         return entradas;
     }
-    
-    @Override
-    public Entrada listById(int codigoEntrada) {
-        Connection conn;
-        try {
-            conn = ConnectionFactory.getConnection();
-            PreparedStatement pstm = conn.prepareStatement(LISTBYID);
-
-            pstm.setInt(1, codigoEntrada);
-            ResultSet rs = pstm.executeQuery();
-            ConnectionFactory.closeConnection(conn, pstm);
-        }catch (Exception ex){
-              JOptionPane.showMessageDialog(null, "Não foi possível efetuar a "
-                    + "transação" + ex.getMessage());
-        }
-        return null;
-    }
-  
-   
-    
-   
-    
 }
