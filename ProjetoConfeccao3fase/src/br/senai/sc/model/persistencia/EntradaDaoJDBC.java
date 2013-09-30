@@ -5,7 +5,6 @@
 package br.senai.sc.model.persistencia;
 
 import br.senai.sc.model.negocio.Entrada;
-import br.senai.sc.model.negocio.Pessoa;
 import br.senai.sc.persistencia.dao.EntradaDAO;
 import java.sql.Connection;
 import java.sql.Date;
@@ -21,18 +20,27 @@ import javax.swing.JOptionPane;
  *
  * @author nathan_bettiol
  */
+ 
+ /* classe EntradaDaoJDBC que sera responsavel pela inserção, atualização, remoção, e lista dos registros  */
 public class EntradaDaoJDBC implements EntradaDAO {
 
+
+//Comando SLQ que insere um registro no banco de dados 
      private final String INSERT = "insert into entrada(data_emissao, funcionario,produto ,quantidade, preco , nr_nota_fiscal) "
             + "values (?, ?, ?, ?, ?, ?)";
-    private final String UPDATE = "update entrada set data_emissao = ?, funcionario = ?, produto = ?, quantidade = ?, preco = ?, nr_nota_fiscal = ? where cod_entrada = ?";
-    private final String DELETE = "delete from entrada where cod_entrada = ?";
-    private final String LIST = "select * from entrada ";
 
+//Comando SLQ que atualiza um registro no banco de dados           
+    private final String UPDATE = "update entrada set data_emissao = ?, funcionario = ?, produto = ?, quantidade = ?, preco = ?, nr_nota_fiscal = ? where cod_entrada = ?";
+
+//Comando SLQ que remove um registro no banco de dados    
+    private final String DELETE = "delete from entrada where cod_entrada = ?";
+
+//Comando SLQ que lista os registro do banco de dados
+    private final String LIST = "select * from entrada ";
     
     
     
-    
+ //inserir um registro no banco de dados   
     @Override
     public boolean insert(Entrada e) {
         Connection conn;
@@ -61,6 +69,8 @@ public class EntradaDaoJDBC implements EntradaDAO {
         }
     }
 
+
+//atualiza um registro no banco de dados
     @Override
     public boolean update(Entrada e) {
           Connection conn;
@@ -90,6 +100,7 @@ public class EntradaDaoJDBC implements EntradaDAO {
         }
     }
 
+//remove um registro no banco de dados
     @Override
     public boolean delete(int codigoEntrada) {
             Connection conn;
@@ -110,6 +121,7 @@ public class EntradaDaoJDBC implements EntradaDAO {
         }
     }
 
+//inserir um registro no banco de dados
     @Override
     public List<Entrada> listAll() {
       List<Entrada> entradas = new ArrayList<>();
@@ -137,4 +149,5 @@ public class EntradaDaoJDBC implements EntradaDAO {
         }
         return entradas;
     }
+    
 }

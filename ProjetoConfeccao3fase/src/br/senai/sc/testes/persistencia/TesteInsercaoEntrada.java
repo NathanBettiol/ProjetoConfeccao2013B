@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author nathan_bettiol
+ * Classe responsavel por atualizar um registro na base de dados
  */
 public class TesteInsercaoEntrada {
 

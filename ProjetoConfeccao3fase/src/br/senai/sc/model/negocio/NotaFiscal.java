@@ -1,5 +1,6 @@
 package br.senai.sc.model.negocio;
 
+import java.util.Date;
 import java.util.Objects;
 
 
@@ -7,7 +8,7 @@ public class NotaFiscal {
 //criei estes atributos para a formação da nota fiscal
 
     private int codNumero;
-    private String dataEmissao;
+    private Date dataEmissao;
     private String produtos;
     private double valorTotal;
     private String funcionarioResponsavel;
@@ -16,15 +17,17 @@ public class NotaFiscal {
 
     public NotaFiscal() {
     }
-//criei os metodos get e sets
 
-    public String getDataEmissao() {
+    //criei os metodos get e sets
+    public Date getDataEmissao() {
         return dataEmissao;
     }
 
-    public void setDataEmissao(String dataEmissao) {
+    public void setDataEmissao(Date dataEmissao) {
         this.dataEmissao = dataEmissao;
     }
+
+
 
     public String getProdutos() {
         return produtos;

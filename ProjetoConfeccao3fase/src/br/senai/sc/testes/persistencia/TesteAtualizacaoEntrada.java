@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author nathan_bettiol
+ * 
+ * Classe de teste da atualização do banco de dados da tabela entrada
  */
 public class TesteAtualizacaoEntrada {
     

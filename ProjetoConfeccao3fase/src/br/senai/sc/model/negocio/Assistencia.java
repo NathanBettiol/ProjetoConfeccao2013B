@@ -3,50 +3,50 @@ package br.senai.sc.model.negocio;
 import java.util.Objects;
 
 /**
- * Classe Assistencia * Informações da assistência
- *
  * @version v1.0 04/09/2013
- * @author Gabriel Arsênio
+ * @author wesley_s
  */
-public class Assistencia {
+//------------------------------------------------------------------------------
+public class Assistencia extends PessoaJuridica {
 
     //Atributos
-    private int codAssistencia;
-    private String nomeAssistencia;
-    private String nomeFantasiaAssistencia;
-    private String cnpjAssistencia;
-//    private Endereco endereco; //Aguardando a classe endereco ser criada
-    private String razaoSocialAssistencia;
-    private String telefoneAssistencia;
-    private String emailAssistencia;
-    private String paginaWebAssistencia;
-    private String contatoAssistencia;
+    private String email;
+    private String paginaWeb;
+    private String contato;
 
+//------------------------------------------------------------------------------
     //Construtor default
     public Assistencia() {
     }
 
-    //Método toString
-    @Override
-    public String toString() {
-        return "\nAssistência"
-                + "\nCódigo: " + codAssistencia
-                + "\nNome: " + nomeAssistencia
-                + "\nNome Fantasia: " + nomeFantasiaAssistencia
-                + "\nCNPJ: " + cnpjAssistencia
-                + "\nRazao Social: " + razaoSocialAssistencia
-                + "\nTelefone: " + telefoneAssistencia
-                + "\nE-mail: " + emailAssistencia
-                + "\nPágina Web: " + paginaWebAssistencia
-                + "\nContato: " + contatoAssistencia;
+//------------------------------------------------------------------------------
+    //Getters e Setters
+    public String getEmail() {
+        return email;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
+    public void setEmail(String email) {
+        this.email = email;
     }
-    
+
+    public String getPaginaWeb() {
+        return paginaWeb;
+    }
+
+    public void setPaginaWeb(String paginaWeb) {
+        this.paginaWeb = paginaWeb;
+    }
+
+    public String getContato() {
+        return contato;
+    }
+
+    public void setContato(String contato) {
+        this.contato = contato;
+    }
+    //Fim Getters e Setters
+
+//------------------------------------------------------------------------------
     //Método equals
     @Override
     public boolean equals(Object obj) {
@@ -57,107 +57,54 @@ public class Assistencia {
             return false;
         }
         final Assistencia other = (Assistencia) obj;
-        if (this.codAssistencia != other.codAssistencia) {
+        if (this.getCod() != other.getCod()) {
             return false;
         }
-        if (!Objects.equals(this.nomeAssistencia, other.nomeAssistencia)) {
+        if (!Objects.equals(this.getNmFantasia(), other.getNmFantasia())) {
             return false;
         }
-        if (!Objects.equals(this.nomeFantasiaAssistencia, other.nomeFantasiaAssistencia)) {
+        if (!Objects.equals(this.getRazaoSocial(), other.getRazaoSocial())) {
             return false;
         }
-        if (!Objects.equals(this.cnpjAssistencia, other.cnpjAssistencia)) {
+        if (!Objects.equals(this.getCnpj(), other.getCnpj())) {
             return false;
         }
-        if (!Objects.equals(this.razaoSocialAssistencia, other.razaoSocialAssistencia)) {
+        if (!Objects.equals(this.getTelefone(), other.getTelefone())) {
             return false;
         }
-        if (!Objects.equals(this.telefoneAssistencia, other.telefoneAssistencia)) {
+        if (!Objects.equals(this.getEndereco(), other.getEndereco())) {
             return false;
         }
-        if (!Objects.equals(this.emailAssistencia, other.emailAssistencia)) {
+        if (!Objects.equals(this.getEmail(), other.getEmail())) {
             return false;
         }
-        if (!Objects.equals(this.paginaWebAssistencia, other.paginaWebAssistencia)) {
+        if (!Objects.equals(this.getPaginaWeb(), other.getPaginaWeb())) {
             return false;
         }
-        if (!Objects.equals(this.contatoAssistencia, other.contatoAssistencia)) {
+        if (!Objects.equals(this.getContato(), other.getContato())) {
+            return false;
+        }
+        if (!Objects.equals(this.getDtCadastro(), other.getDtCadastro())) {
             return false;
         }
         return true;
     }
 
-    //Getters e Setters
-    public int getCodAssistencia() {
-        return codAssistencia;
+//------------------------------------------------------------------------------
+    //Método toString
+    @Override
+    public String toString() {
+        return "------ ASSISTÊNCIA ------"
+                + "\nCódigo: " + getCod()
+                + "\nNome Fantasia: " + getNmFantasia()
+                + "\nRazao Social: " + getRazaoSocial()
+                + "\nCNPJ: " + getCnpj()
+                + "\nTelefone: " + getTelefone()
+                + "\nEndereço: " + getEndereco()
+                + "\nE-mail: " + email
+                + "\nPágina Web: " + paginaWeb
+                + "\nContato: " + contato
+                + "\nData de Cadastro: " + getDtCadastro()
+                + "\n\n";
     }
-
-    public void setCodAssistencia(int codAssistencia) {
-        this.codAssistencia = codAssistencia;
-    }
-
-    public String getNomeAssistencia() {
-        return nomeAssistencia;
-    }
-
-    public void setNomeAssistencia(String nomeAssistencia) {
-        this.nomeAssistencia = nomeAssistencia;
-    }
-
-    public String getNomeFantasiaAssistencia() {
-        return nomeFantasiaAssistencia;
-    }
-
-    public void setNomeFantasiaAssistencia(String nomeFantasiaAssistencia) {
-        this.nomeFantasiaAssistencia = nomeFantasiaAssistencia;
-    }
-
-    public String getCnpjAssistencia() {
-        return cnpjAssistencia;
-    }
-
-    public void setCnpjAssistencia(String cnpjAssistencia) {
-        this.cnpjAssistencia = cnpjAssistencia;
-    }
-
-    public String getRazaoSocialAssistencia() {
-        return razaoSocialAssistencia;
-    }
-
-    public void setRazaoSocialAssistencia(String razaoSocialAssistencia) {
-        this.razaoSocialAssistencia = razaoSocialAssistencia;
-    }
-
-    public String getTelefoneAssistencia() {
-        return telefoneAssistencia;
-    }
-
-    public void setTelefoneAssistencia(String telefoneAssistencia) {
-        this.telefoneAssistencia = telefoneAssistencia;
-    }
-
-    public String getEmailAssistencia() {
-        return emailAssistencia;
-    }
-
-    public void setEmailAssistencia(String emailAssistencia) {
-        this.emailAssistencia = emailAssistencia;
-    }
-
-    public String getPaginaWebAssistencia() {
-        return paginaWebAssistencia;
-    }
-
-    public void setPaginaWebAssistencia(String paginaWebAssistencia) {
-        this.paginaWebAssistencia = paginaWebAssistencia;
-    }
-
-    public String getContatoAssistencia() {
-        return contatoAssistencia;
-    }
-
-    public void setContatoAssistencia(String contatoAssistencia) {
-        this.contatoAssistencia = contatoAssistencia;
-    }
-    //Fim Getters e Setters
 }
