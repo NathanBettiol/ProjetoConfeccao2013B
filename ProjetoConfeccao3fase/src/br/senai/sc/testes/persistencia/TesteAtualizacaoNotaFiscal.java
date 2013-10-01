@@ -23,11 +23,12 @@ public class TesteAtualizacaoNotaFiscal {
         NotaFiscal e = new NotaFiscal();
         int id = Integer.parseInt(JOptionPane.showInputDialog("digite o codigo a ser alterado"));
         e.setCodNumero(id);
-        e.setProdutos(JOptionPane.showInputDialog("Produtos: "));
+       e.setProdutos("Produto:");
         e.setValorTotal(Double.parseDouble(JOptionPane.showInputDialog("Valor Total: ")));
         e.setDestinatario(JOptionPane.showInputDialog("Destinatário"));
         e.setRemetente(JOptionPane.showInputDialog("Remetente"));
-        e.setFuncionarioResponsavel(JOptionPane.showInputDialog("codigo Funcionario: "));
+        e.setFuncionarioResponsavel("Funcionario:");
+       
         
         try {
              String data = JOptionPane.showInputDialog("Data:");
