@@ -28,7 +28,7 @@ public class TesteInsercaoMeta {
         } catch (ParseException ex) {
             System.out.println("Erro ao converter a data de cadastro");
         }
-        String dataFim = JOptionPane.showInputDialog("Informe a data de inicio");
+        String dataFim = JOptionPane.showInputDialog("Informe a data de terminio:");
         try {
             m.setDataFim((Date) new SimpleDateFormat("dd/MM/yyyy").parse(dataFim));
         } catch (ParseException ex) {
@@ -37,7 +37,7 @@ public class TesteInsercaoMeta {
         m.setQuantidade(Integer.parseInt(JOptionPane.showInputDialog("Quantidade:")));
         m.setValor(Integer.parseInt(JOptionPane.showInputDialog("Valor")));
 
-        MetaDAO dao = (MetaDAO) new MetaDaoJDBC();
+        MetaDAO dao = new MetaDaoJDBC();
         dao.insert(m);
 
 

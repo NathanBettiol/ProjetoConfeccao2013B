@@ -1,5 +1,7 @@
 package br.senai.sc.model.negocio;
 
+import java.util.Date;
+
 
 
 /**
@@ -9,8 +11,8 @@ package br.senai.sc.model.negocio;
 public class Meta {
 
     public int cod_meta;
-    public String dataInicio;
-    public String dataFim;
+    public Date dataInicio;
+    public Date dataFim;
     public double valor;
     public int quantidade;
 
@@ -22,19 +24,19 @@ public class Meta {
         this.cod_meta = cod_meta;
     }
 
-    public String getDataInicio() {
+    public Date getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(String dataInicio) {
+    public void setDataInicio(Date dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public String getDataFim() {
+    public Date getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(String dataFim) {
+    public void setDataFim(Date dataFim) {
         this.dataFim = dataFim;
     }
 
@@ -58,4 +60,5 @@ public class Meta {
     public String toString() {
         return "Codigo meta - " + cod_meta + " ,Data inicio - " + dataInicio + " ,Data Fim - " + dataFim + " ,Valor - " + valor + " ,Quantidade - " + quantidade ;
     }
+
 }

@@ -32,7 +32,7 @@ public static void main(String[] args) {
             	System.out.println("Erro ao converter a data");
     	} 
         d.setQuantidade(Integer.parseInt(JOptionPane.showInputDialog("Quantidade:")));
-    	DevolucaoDAO dao = (DevolucaoDAO) new DevolucaoDaoJDBC();
+    	DevolucaoDAO dao = new DevolucaoDaoJDBC();
     	dao.insert(d);
 
 

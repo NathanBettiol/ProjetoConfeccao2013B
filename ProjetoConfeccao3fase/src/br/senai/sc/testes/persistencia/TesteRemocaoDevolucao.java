@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.senai.sc.testes.persistencia;
 
 import br.senai.sc.model.persistencia.DevolucaoDaoJDBC;
@@ -17,7 +14,7 @@ public class TesteRemocaoDevolucao {
      	  	 
     	int codDelete = Integer.parseInt(JOptionPane.showInputDialog("Informe o ID a ser deletado: "));
         
-        DevolucaoDAO dao =  (DevolucaoDAO) new DevolucaoDaoJDBC();
+        DevolucaoDAO dao = new DevolucaoDaoJDBC();
         
         dao.delete(codDelete);
         

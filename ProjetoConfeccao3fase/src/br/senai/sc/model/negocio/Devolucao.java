@@ -1,5 +1,7 @@
 package br.senai.sc.model.negocio;
 
+import java.util.Date;
+
 /**
  * @version 1.00
  * @author douglas_ghisleri
@@ -9,7 +11,7 @@ public class Devolucao {
     public int cod_devolucao;
 
     public String peca;
-    public String dataDevolucao;
+    public Date dataDevolucao;
     public int quantidade;
 
     public int getCod_devolucao() {
@@ -28,11 +30,11 @@ public class Devolucao {
         this.peca = peca;
     }
 
-    public String getDataDevolucao() {
+    public Date getDataDevolucao() {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(String dataDevolucao) {
+    public void setDataDevolucao(Date dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 
@@ -48,4 +50,6 @@ public class Devolucao {
     public String toString() {
         return "Codigo devolução - " + cod_devolucao + " ,Peça - " + peca + " ,Data devolução - " + dataDevolucao + " ,Quantidade - " + quantidade ;
     }
+
+
 }

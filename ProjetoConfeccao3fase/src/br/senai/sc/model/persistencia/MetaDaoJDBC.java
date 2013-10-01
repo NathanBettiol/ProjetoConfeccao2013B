@@ -5,6 +5,7 @@
 package br.senai.sc.model.persistencia;
 
 import br.senai.sc.model.negocio.Meta;
+import br.senai.sc.persistencia.dao.MetaDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,19 +17,19 @@ import javax.swing.JOptionPane;
  *
  * @author douglas_ghisleri
  */
-public class MetaDaoJDBC {
+public class MetaDaoJDBC implements MetaDAO {
 
     private final String INSERT = "insert into meta"
             + "(dt_inicio, dt_fim, vl_produto, qt_pecas) values "
             + "(?,?,?,?)";
     private final String UPDATE = "update meta set "
-            + "dt_inico = ?, dt_fim = ?, vl_produto = ?, qt_pecas = ?"
+            + "dt_inicio = ?, dt_fim = ?, vl_produto = ?, qt_pecas = ?"
             + "where cod_meta = ?";
     private final String DELETE = "delete from meta "
-            + "where cod_meta = ?";
+            + "where cod_meta= ?";
     private final String LIST = "select * from meta";
     private final String LISTBYID = "select * from meta "
-            + "where cod_meta = ?";
+            + "where cod_meta= ?";
 
     /*
      * Método que realiza a inserção de uma endereco na base 
@@ -118,11 +119,11 @@ public class MetaDaoJDBC {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Meta m = new Meta();
-                m.setDataInicio(rs.getDate("data inicio"));
-                m.setDataFim(rs.getDate("data fim"));
-                m.setCod_meta(rs.getInt("Codigo meta"));
-                m.setValor(rs.getDouble("Valor"));
-                m.setQuantidade(rs.getInt("Quantidade"));
+                m.setDataInicio(rs.getDate("dt_inicio")); 
+                m.setDataFim(rs.getDate("dt_fim"));
+                m.setCod_meta(rs.getInt("Cod_meta"));
+                m.setValor(rs.getDouble("vl_produto"));
+                m.setQuantidade(rs.getInt("qt_pecas"));
 
                 metas.add(m);
             }
@@ -151,11 +152,11 @@ public class MetaDaoJDBC {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Meta m = new Meta();
-                m.setDataInicio(rs.getDate("Data inicio"));
-                m.setDataFim(rs.getDate("Data fim"));
-                m.setCod_meta(rs.getInt("cod_meta"));
-                m.setValor(rs.getDouble("Valor"));
-                m.setQuantidade(rs.getInt("Quantidade"));
+                m.setDataInicio(rs.getDate("dt_inicio")); 
+                m.setDataFim(rs.getDate("dt_fim"));
+                m.setCod_meta(rs.getInt("Cod_meta"));
+                m.setValor(rs.getDouble("vl_produto"));
+                m.setQuantidade(rs.getInt("qt_pecas"));
                 return m;
             }
             ConnectionFactory.closeConnection(conn, pstm);

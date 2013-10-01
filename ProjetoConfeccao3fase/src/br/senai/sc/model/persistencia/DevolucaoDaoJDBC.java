@@ -5,6 +5,7 @@
 package br.senai.sc.model.persistencia;
 
 import br.senai.sc.model.negocio.Devolucao;
+import br.senai.sc.persistencia.dao.DevolucaoDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author douglas_ghisleri
  */
-public class DevolucaoDaoJDBC {
+public class DevolucaoDaoJDBC implements DevolucaoDAO {
 
     private final String INSERT = "insert into devolucao"
             + "(peca, dt_devolucao, qt_devolucao) values "
@@ -116,10 +117,10 @@ public class DevolucaoDaoJDBC {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Devolucao d = new Devolucao();
-                d.setPeca(rs.getString("Peça"));
-                d.setDataDevolucao(rs.getDate("Data devolução"));
-                d.setCod_devolucao(rs.getInt("Codigo devolução"));
-                d.setQuantidade(rs.getInt("Quantidade"));
+                d.setPeca(rs.getString("Peca"));
+                d.setDataDevolucao(rs.getDate("dt_devolucao"));
+                d.setCod_devolucao(rs.getInt("cod_devolucao"));
+                d.setQuantidade(rs.getInt("qt_devolucao"));
 
                 devolucoes.add(d);
             }
@@ -148,10 +149,10 @@ public class DevolucaoDaoJDBC {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Devolucao d = new Devolucao();
-                d.setPeca(rs.getString("Peça"));
-                d.setDataDevolucao(rs.getDate("Data devolução"));
-                d.setCod_devolucao(rs.getInt("Codigo devolução"));
-                d.setQuantidade(rs.getInt("Quantidade"));
+                d.setPeca(rs.getString("Peca"));
+                d.setDataDevolucao(rs.getDate("dt_devolucao"));
+                d.setCod_devolucao(rs.getInt("cod_devolucao"));
+                d.setQuantidade(rs.getInt("qt_devolucao"));
                 return d;
             }
             ConnectionFactory.closeConnection(conn, pstm);
