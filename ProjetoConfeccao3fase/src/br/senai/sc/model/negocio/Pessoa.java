@@ -9,7 +9,7 @@ import java.util.Objects;
  * @version v1.0 28/08/2013
  */
 public abstract class Pessoa {
-    
+
     // Atributos
     private int cod;
     private String endereco;
@@ -19,7 +19,7 @@ public abstract class Pessoa {
     //Contrutor Vazio
     public Pessoa() {
     }
-        
+
     //Gets e Sets
     public int getCod() {
         return cod;
@@ -53,7 +53,6 @@ public abstract class Pessoa {
         this.dtCadastro = dtCadastro;
     }
 
-    
     // equals
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -77,16 +76,13 @@ public abstract class Pessoa {
         }
         return true;
     }
-    
+
     //toString
     public String toString() {
-        return "- PESSOA - " +
-               "\nCódigo: " + this.cod + 
-               "\nEndereço:" + this.endereco + 
-               "\nTelefone: " + this.telefone + 
-               "\nData Cadastro: " + this.dtCadastro + "\n---";
+        return "- PESSOA - "
+                + "\nCódigo: " + this.cod
+                + "\nEndereço:" + this.endereco
+                + "\nTelefone: " + this.telefone
+                + "\nData Cadastro: " + this.dtCadastro + "\n---";
     }
-    
-    
-    
 }
