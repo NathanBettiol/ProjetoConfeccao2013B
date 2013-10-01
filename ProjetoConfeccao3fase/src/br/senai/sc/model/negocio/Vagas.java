@@ -19,10 +19,8 @@ public class Vagas {
     public String funcao;
     public double faixaSalarial;
     
-    
 
-
-    //Construtor sem paramentro
+ 
     public Vagas() {
     }
 
