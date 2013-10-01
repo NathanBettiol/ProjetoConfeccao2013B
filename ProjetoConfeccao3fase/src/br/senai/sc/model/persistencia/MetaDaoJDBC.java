@@ -40,8 +40,8 @@ public class MetaDaoJDBC {
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(INSERT);
-            pstm.setString(1, m.getDataInicio());
-            pstm.setString(2, m.getDataFim());
+            pstm.setDate(1, new java.sql.Date(m.getDataInicio().getTime()));
+            pstm.setDate(2, new java.sql.Date(m.getDataFim().getTime()));
             pstm.setInt(3, m.getQuantidade());
             pstm.setDouble(4, m.getValor());
             pstm.execute();
@@ -65,8 +65,8 @@ public class MetaDaoJDBC {
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(UPDATE);
-            pstm.setString(1, m.getDataInicio());
-            pstm.setString(2, m.getDataFim());
+            pstm.setDate(1, new java.sql.Date(m.getDataInicio().getTime()));
+            pstm.setDate(2, new java.sql.Date(m.getDataFim().getTime()));
             pstm.setInt(3, m.getQuantidade());
             pstm.setDouble(4, m.getValor());
             pstm.setInt(5, m.getCod_meta());
@@ -118,8 +118,8 @@ public class MetaDaoJDBC {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Meta m = new Meta();
-                m.setDataInicio(rs.getString("data inicio"));
-                m.setDataFim(rs.getString("data fim"));
+                m.setDataInicio(rs.getDate("data inicio"));
+                m.setDataFim(rs.getDate("data fim"));
                 m.setCod_meta(rs.getInt("Codigo meta"));
                 m.setValor(rs.getDouble("Valor"));
                 m.setQuantidade(rs.getInt("Quantidade"));
@@ -151,8 +151,8 @@ public class MetaDaoJDBC {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Meta m = new Meta();
-                m.setDataInicio(rs.getString("Data inicio"));
-                m.setDataFim(rs.getString("Data fim"));
+                m.setDataInicio(rs.getDate("Data inicio"));
+                m.setDataFim(rs.getDate("Data fim"));
                 m.setCod_meta(rs.getInt("cod_meta"));
                 m.setValor(rs.getDouble("Valor"));
                 m.setQuantidade(rs.getInt("Quantidade"));
