@@ -24,15 +24,25 @@ public class TesteInsercaoUsuario {
     	u.setNome(JOptionPane.showInputDialog("Informe o nome do usuario: "));
     	u.setCpf(JOptionPane.showInputDialog("Digite seu cpf: "));
     	u.setEmail(JOptionPane.showInputDialog("Digite seu e-mail: "));
-    	String dataNascimento = JOptionPane.showInputDialog("Informe a data de nascimento: ");
+    	String dtNascimento = JOptionPane.showInputDialog("Informe a data de nascimento: ");
     	try {
-        	u.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(dataNascimento));
+        	u.setDtNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(dtNascimento));
     	} catch (ParseException ex) {
    	 
    	 
             	System.out.println("Erro ao converter a data de nascimento");
     	}
-
+        u.setRg(JOptionPane.showInputDialog("Digite seu rg: "));
+        u.setEndereco(JOptionPane.showInputDialog("Digite seu endereço: "));
+        u.setTelefone(JOptionPane.showInputDialog("Digite seu telefone: "));
+        String dtCadastro = JOptionPane.showInputDialog("Informe a data de cadastro: ");
+    	try {
+        	u.setDtCadastro(new SimpleDateFormat("dd/MM/yyyy").parse(dtCadastro));
+    	} catch (ParseException ex) {
+   	 
+   	 
+            	System.out.println("Erro ao converter a data de nascimento");
+    	}
    	 
 
     	UsuarioDAO dao = new UsuarioDaoJDBC();
@@ -41,5 +51,4 @@ public class TesteInsercaoUsuario {
 
 	}
 }
-
 
