@@ -18,8 +18,10 @@ public class TesteListarUsuario {
     	UsuarioDAO dao = new UsuarioDaoJDBC();
     	List<Usuario> usuarios = dao.listAll();
     	for (Usuario usuario : usuarios) {
-        	System.out.println(usuario);
+        	System.out.println(usuarios);
     	}
+           UsuarioDAO daoPes = new UsuarioDaoJDBC();
+        daoPes.listAll();
 	}
 }
 

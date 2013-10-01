@@ -12,7 +12,6 @@ public class CategoriaMateriaPrima {
     //declaração das variáveis
 
     private int cod;
-    private String materiaPrima;
     private String nome;
     private String descricao;
 
@@ -27,14 +26,6 @@ public class CategoriaMateriaPrima {
 
     public void setCod(int cod) {
         this.cod = cod;
-    }
-
-    public String getMateriaPrima() {
-        return materiaPrima;
-    }
-
-    public void setMateriaPrima(String materiaPrima) {
-        this.materiaPrima = materiaPrima;
     }
 
     public String getNome() {
@@ -56,7 +47,7 @@ public class CategoriaMateriaPrima {
 
     @Override
     public String toString() {
-        return "CategoriaMateriaPrima{" + "cod=" + cod + ", materiaPrima=" + materiaPrima + ", nome=" + nome + ", descricao=" + descricao + '}';
+        return "CategoriaMateriaPrima{" + "cod=" + cod + ", nome=" + nome + ", descricao=" + descricao + '}';
 
 
     }
@@ -79,9 +70,7 @@ public class CategoriaMateriaPrima {
         final CategoriaMateriaPrima other = (CategoriaMateriaPrima) obj;
         if (this.cod != other.cod) {
             return false;
-        }
-        if (!Objects.equals(this.materiaPrima, other.materiaPrima)) {
-            return false;
+
         }
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
@@ -91,7 +80,4 @@ public class CategoriaMateriaPrima {
         }
         return true;
     }
-
-   
-    }
-
+}
