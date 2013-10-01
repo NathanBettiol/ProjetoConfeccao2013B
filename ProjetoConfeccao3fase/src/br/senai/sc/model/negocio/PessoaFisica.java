@@ -4,6 +4,7 @@
  */
 package br.senai.sc.model.negocio;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -15,8 +16,7 @@ public class PessoaFisica extends Pessoa {
     
     // Atributos
     private String cpf;
-    private String nome;
-    private String dtNascimento;
+    private Date dtNascimento;
     private String rg;
     
     //Construtor vazio
@@ -33,19 +33,12 @@ public class PessoaFisica extends Pessoa {
         this.cpf = cpf;
     }
 
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDtNascimento() {
+    public Date getDtNascimento() {
         return dtNascimento;
     }
 
-    public void setDtNascimento(String dtNascimento) {
+    public void setDtNascimento(Date dtNascimento) {
         this.dtNascimento = dtNascimento;
     }
 
@@ -69,9 +62,7 @@ public class PessoaFisica extends Pessoa {
         if (!Objects.equals(this.cpf, other.cpf)) {
             return false;
         }
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
-        }
+
         if (!Objects.equals(this.dtNascimento, other.dtNascimento)) {
             return false;
         }
@@ -84,7 +75,6 @@ public class PessoaFisica extends Pessoa {
     //toString
     public String toString() {
         return "- PESSOA FÍSICA - " +
-               "\nNome:" + this.nome + 
                "\nData de Nascimento: " + this.dtNascimento + 
                "\nRG: " + this.rg + "\n---";    }
     
