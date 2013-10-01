@@ -29,6 +29,10 @@ public class TesteConexaoFuncionarioList {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 System.out.println("Id "       + rs.getInt("cod_funcionario")
+                        + "\nNome: "           + rs.getString("nome")
+                        + "\nCpf: "            + rs.getString("cpf")
+                        + "\nRg: "             + rs.getString("rg")
+                        + "\nData Nascimento: "+ rs.getDate("dt_nascimento")
                         + "\nLogin: "          + rs.getString("login")
                         + "\nEmail: "          + rs.getString("email")
                         + "\nCtps: "           + rs.getString("ctps")

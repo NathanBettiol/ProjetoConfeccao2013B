@@ -17,7 +17,7 @@ public class RemocaoTreinamento {
         
         TreinamentoDAO dao = new TreinamentoDaoJDBC();
         
-        dao.delete(4);
+        dao.delete(0);
         
         
         

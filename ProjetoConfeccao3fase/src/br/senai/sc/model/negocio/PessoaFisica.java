@@ -16,6 +16,9 @@ public class PessoaFisica extends Pessoa {
     
     // Atributos
     private String cpf;
+
+    private String nome;
+
     private Date dtNascimento;
     private String rg;
     
@@ -31,6 +34,12 @@ public class PessoaFisica extends Pessoa {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
 

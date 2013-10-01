@@ -3,15 +3,14 @@ package br.senai.sc.model.negocio;
 import java.util.Date;
 import java.util.Objects;
 
-
 public class NotaFiscal {
 //criei estes atributos para a formação da nota fiscal
 
     private int codNumero;
     private Date dataEmissao;
-    private String produtos;
+    private Produto produtos;
     private double valorTotal;
-    private String funcionarioResponsavel;
+    private Funcionario funcionarioResponsavel;
     private String destinatario;
     private String remetente;
 
@@ -27,14 +26,20 @@ public class NotaFiscal {
         this.dataEmissao = dataEmissao;
     }
 
-
-
-    public String getProdutos() {
+    public Produto getProdutos() {
         return produtos;
     }
 
-    public void setProdutos(String produtos) {
+    public void setProdutos(Produto produtos) {
         this.produtos = produtos;
+    }
+
+    public Funcionario getFuncionarioResponsavel() {
+        return funcionarioResponsavel;
+    }
+
+    public void setFuncionarioResponsavel(Funcionario funcionarioResponsavel) {
+        this.funcionarioResponsavel = funcionarioResponsavel;
     }
 
     public double getValorTotal() {
@@ -43,14 +48,6 @@ public class NotaFiscal {
 
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
-    }
-
-    public String getFuncionarioResponsavel() {
-        return funcionarioResponsavel;
-    }
-
-    public void setFuncionarioResponsavel(String funcionarioResponsavel) {
-        this.funcionarioResponsavel = funcionarioResponsavel;
     }
 
     public String getDestinatario() {
@@ -108,5 +105,13 @@ public class NotaFiscal {
         }
 
         return true;
+    }
+
+    public void setFuncionarioResponsavel(String showInputDialog) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setProdutos(String showInputDialog) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
