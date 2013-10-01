@@ -7,6 +7,7 @@ package br.senai.sc.model.persistencia;
 import br.senai.sc.model.negocio.CategoriaColecao;
 import br.senai.sc.model.negocio.Colecao;
 import br.senai.sc.model.negocio.Funcionario;
+import br.senai.sc.persistencia.dao.ColecaoDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,9 +18,9 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author gabriel_arsenio
+ * @author Gabriel Arsênio
  */
-public class ColecaoDaoJDBC {
+public class ColecaoDaoJDBC implements ColecaoDAO {
 
     //Strings com os comandos SQL
     private static final String INSERT = "INSERT INTO colecao VALUES "
@@ -27,11 +28,12 @@ public class ColecaoDaoJDBC {
     private static final String UPDATE = "UPDATE colecao set estacao = ?, ano = ?, "
             + "pub_alvo = ?, cod_funcionario = ?, categoria_colecao_cod_categoria = ? "
             + "where cod_colecao = ?";
-    private static final String DELETE = "DELETE FROM categoria_colecao "
+    private static final String DELETE = "DELETE FROM colecao "
             + "WHERE cod_categoria = ?";
-    private static final String SELECT = "select * from categoria_colecao";
+    private static final String SELECT = "select * from colecao";
 
     //Método de inserção de valores da tabela categoria_colecao
+    @Override
     public boolean insert(Colecao c) throws SQLException {
         //Cria uma nova conexão
         Connection con = null;
@@ -44,9 +46,10 @@ public class ColecaoDaoJDBC {
             pstm.setString(1, c.getEstacaoColecao());
             pstm.setInt(2, c.getAnoColecao());
             pstm.setString(3, c.getPubAlvoColecao());
-            pstm.setInt(4, c.getFunResponsavelColecao().getCod());
-            pstm.setInt(5, c.getCategoriaColecao().getCodCategoriaColecao());
-            pstm.setInt(6, c.getCodColecao());
+            pstm.setInt(4, 1);
+//            pstm.setInt(4, c.getFunResponsavelColecao().getCod());
+            pstm.setInt(5, 1);
+
             //Executa o comando SQL
             pstm.execute();
             //Fecha a conexão
@@ -62,6 +65,7 @@ public class ColecaoDaoJDBC {
     }
 
     //Método para atualizar valores da tabela categoria_colecao
+    @Override
     public boolean update(Colecao c) throws SQLException {
         //Cria uma nova conexão
         Connection con = null;
@@ -74,8 +78,8 @@ public class ColecaoDaoJDBC {
             pstm.setString(1, c.getEstacaoColecao());
             pstm.setInt(2, c.getAnoColecao());
             pstm.setString(3, c.getPubAlvoColecao());
-            pstm.setInt(4, c.getFunResponsavelColecao().getCod());
-            pstm.setInt(5, c.getCategoriaColecao().getCodCategoriaColecao());
+            pstm.setInt(4, 1);
+            pstm.setInt(5, 1);
             pstm.setInt(6, c.getCodColecao());
             //Executa o comando
             pstm.execute();
@@ -91,6 +95,7 @@ public class ColecaoDaoJDBC {
     }
 
     //Método para deletar valores da tabela categoria_colecao
+    @Override
     public boolean delete(int cod) throws SQLException {
         //Cria uma nova conexão
         Connection con = null;
@@ -114,8 +119,9 @@ public class ColecaoDaoJDBC {
             return false;
         }
     }
-    
+
     //Método para procurar valores da tabela categoria_colecao
+    @Override
     public List<Colecao> listAll() throws SQLException {
         //Cria uma nova conexão
         Connection con = null;
@@ -142,7 +148,7 @@ public class ColecaoDaoJDBC {
                 //Pega os valores que estão no campo "cod_funcionario" da tabela
                 c.setFunResponsavelColecao((Funcionario) rs.getObject("cod_funcionario"));
                 //Pega os valores que estão no campo "categoria_colecao_cod_categoria" da tabela
-                c.setCategoriaColecao((CategoriaColecao) rs.getObject("categoria_colecao_cod_categoria"));                
+                c.setCategoriaColecao((CategoriaColecao) rs.getObject("categoria_colecao_cod_categoria"));
                 //Adiciona os valores na lista
                 listaColecao.add(c);
             }

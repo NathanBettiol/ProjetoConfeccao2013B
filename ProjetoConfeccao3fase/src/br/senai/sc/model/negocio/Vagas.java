@@ -13,28 +13,14 @@ public class Vagas {
     
     //VARIAVEIS declaradas
     public int codigo;
-    public Long id;
     public String nome;
     public int qtVaga;
     public String preRequisito;
     public String funcao;
     public double faixaSalarial;
     
-    
 
-    //Iniciando o id com LONG
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-  
-    //Finalizando o id com LONG
-
-    
-    //Construtor sem paramentro
+ 
     public Vagas() {
     }
 
@@ -92,7 +78,7 @@ public class Vagas {
     //toString declarado
     public String toString(){
         return "Código: " + this.getCodigo() +
-               "\nNome: " + this.getCodigo() +
+               "\nNome: " + this.getNome() +
                "\nQuantidade de vagas: " + this.getQtVaga()+ 
                "\nPré Requisitos: " + this.getPreRequisito() +
                "\nFunção: " + this.getFuncao() +
@@ -117,9 +103,7 @@ public class Vagas {
         if (this.codigo != other.codigo) {
             return false;
         }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
+   
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }

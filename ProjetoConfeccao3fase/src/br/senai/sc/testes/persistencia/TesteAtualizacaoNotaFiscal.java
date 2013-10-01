@@ -4,7 +4,9 @@
  */
 package br.senai.sc.testes.persistencia;
 
+import br.senai.sc.model.negocio.Funcionario;
 import br.senai.sc.model.negocio.NotaFiscal;
+import br.senai.sc.model.negocio.Produto;
 import br.senai.sc.model.persistencia.NotaFiscalDaoJDBC;
 import br.senai.sc.persistencia.dao.NotaFiscalDAO;
 import java.text.ParseException;
@@ -23,16 +25,19 @@ public class TesteAtualizacaoNotaFiscal {
         NotaFiscal e = new NotaFiscal();
         int id = Integer.parseInt(JOptionPane.showInputDialog("digite o codigo a ser alterado"));
         e.setCodNumero(id);
-        e.setProdutos(JOptionPane.showInputDialog("Produtos: "));
+        Produto p = new Produto();
+        Funcionario f = new Funcionario();
+        e.setProdutos(p);
         e.setValorTotal(Double.parseDouble(JOptionPane.showInputDialog("Valor Total: ")));
         e.setDestinatario(JOptionPane.showInputDialog("Destinatário"));
         e.setRemetente(JOptionPane.showInputDialog("Remetente"));
-        e.setFuncionarioResponsavel(JOptionPane.showInputDialog("codigo Funcionario: "));
-        
+        e.setFuncionarioResponsavel(f);
+
+
         try {
-             String data = JOptionPane.showInputDialog("Data:");
-            e.setDataEmissao((Date)new SimpleDateFormat("dd/mm/yyyy").parse(data));
-     
+            String data = JOptionPane.showInputDialog("Data:");
+            e.setDataEmissao((Date) new SimpleDateFormat("dd/mm/yyyy").parse(data));
+
         } catch (ParseException ex) {
             System.out.println("Erro ao converter a data de emissao" + ex.getMessage());
         }
@@ -41,10 +46,3 @@ public class TesteAtualizacaoNotaFiscal {
         dao.update(e);
     }
 }
-//    private int codNumero;
-//    private String dataEmissao;
-//    private String produtos;
-//    private double valorTotal;
-//    private String funcionarioResponsavel;
-//    private String destinatario;
-//    private String remetente;

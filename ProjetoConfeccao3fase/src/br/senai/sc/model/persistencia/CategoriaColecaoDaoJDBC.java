@@ -5,21 +5,20 @@
 package br.senai.sc.model.persistencia;
 
 import br.senai.sc.model.negocio.CategoriaColecao;
+import br.senai.sc.persistencia.dao.CategoriaColecaoDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  * @version v1.0 30/08/2013
  * @author Gabriel Arsênio
  */
-public class CategoriaColecaoDaoJDBC {
+public class CategoriaColecaoDaoJDBC implements CategoriaColecaoDAO{
 
     //Strings com os comandos SQL
     private static final String INSERT = "INSERT INTO categoria_colecao VALUES (null, ?, ?)";
@@ -28,6 +27,7 @@ public class CategoriaColecaoDaoJDBC {
     private static final String SELECT = "select * from categoria_colecao";
 
     //Método para atualizar valores da tabela categoria_colecao
+    @Override
     public boolean update(CategoriaColecao cc) throws SQLException {
         //Cria uma nova conexão
         Connection con = null;
@@ -54,6 +54,7 @@ public class CategoriaColecaoDaoJDBC {
     }
 
     //Método para deletar valores da tabela categoria_colecao
+    @Override
     public boolean delete(int cod) throws SQLException {
         //Cria uma nova conexão
         Connection con = null;
@@ -79,6 +80,7 @@ public class CategoriaColecaoDaoJDBC {
     }
 
     //Método para procurar valores da tabela categoria_colecao
+    @Override
     public List<CategoriaColecao> listAll() throws SQLException {
         //Cria uma nova conexão
         Connection con = null;
@@ -111,6 +113,7 @@ public class CategoriaColecaoDaoJDBC {
     }
 
     //Método de inserção de valores da tabela categoria_colecao
+    @Override
     public boolean insert(CategoriaColecao cc) throws SQLException {
 
         //Cria uma nova conexão
