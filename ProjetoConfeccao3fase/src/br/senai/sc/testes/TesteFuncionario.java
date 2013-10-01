@@ -40,6 +40,8 @@ public class TesteFuncionario {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
         }
+        
+        
 
         
         //Instanciando o segundo Funcionário
