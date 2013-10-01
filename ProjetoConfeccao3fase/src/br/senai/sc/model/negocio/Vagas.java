@@ -78,7 +78,7 @@ public class Vagas {
     //toString declarado
     public String toString(){
         return "Código: " + this.getCodigo() +
-               "\nNome: " + this.getCodigo() +
+               "\nNome: " + this.getNome() +
                "\nQuantidade de vagas: " + this.getQtVaga()+ 
                "\nPré Requisitos: " + this.getPreRequisito() +
                "\nFunção: " + this.getFuncao() +
