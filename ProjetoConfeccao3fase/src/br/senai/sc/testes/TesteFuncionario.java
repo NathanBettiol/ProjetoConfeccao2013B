@@ -2,6 +2,7 @@ package br.senai.sc.testes;
 
 import br.senai.sc.model.negocio.Funcionario;
 import br.senai.sc.validador.Validadores;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,8 +26,22 @@ public class TesteFuncionario {
           
         f1.setSalario(Double.parseDouble(JOptionPane.showInputDialog("Informe o salário do funcionário" + f1.getSalario())));
         f1.setCtps(JOptionPane.showInputDialog("Informe o Ctps do funcionário" + f1.getCtps()));                               
-        f1.setDtAdimissao(JOptionPane.showInputDialog("Informe a data de adimissão do funcionário" + f1.getDtAdimissao()));
-        f1.setDtRecisao(JOptionPane.showInputDialog("Informe a data de recisão do funcionário" + f1.getDtRecisao()));
+       try {
+            String data = JOptionPane.showInputDialog("Data Adimissão");
+
+            f1.setDtAdimissao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
+        }
+        try {
+            String data = JOptionPane.showInputDialog("Data Recisão");
+
+            f1.setDtAdimissao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
+        }
+        
+        
 
         
         //Instanciando o segundo Funcionário
@@ -42,8 +57,19 @@ public class TesteFuncionario {
           
         f2.setSalario(Double.parseDouble(JOptionPane.showInputDialog("Informe o salário do funcionário" + f2.getSalario())));
         f2.setCtps(JOptionPane.showInputDialog("Informe o Ctps do funcionário" + f2.getCtps()));                               
-        f2.setDtAdimissao(JOptionPane.showInputDialog("Informe a data de adimissão do funcionário" + f2.getDtAdimissao()));
-        f2.setDtRecisao(JOptionPane.showInputDialog("Informe a data de recisão do funcionário" + f2.getDtRecisao()));
+      try {
+            String data = JOptionPane.showInputDialog("Data Adimissão");
 
+            f2.setDtAdimissao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
+        }
+       try {
+            String data = JOptionPane.showInputDialog("Data Recisão");
+
+            f2.setDtAdimissao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
+        }
     }
 }

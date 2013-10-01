@@ -56,6 +56,7 @@ public class TreinamentoDaoJDBC implements TreinamentoDAO {
             pstm.setInt(2, treina.getCargaHoraria());
             pstm.setString(3, treina.getConteudo());
             pstm.setLong(4, treina.getId());
+           
             
             pstm.execute();
             

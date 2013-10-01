@@ -27,7 +27,7 @@ public class TesteFornecedor {
         forn.setEmail(JOptionPane.showInputDialog("Informe o E-Mail do Fornecedor"));
         forn.setPaginaWeb(JOptionPane.showInputDialog("Informe o site do Fornecedor"));
         forn.setContato(JOptionPane.showInputDialog("Informe o contato do Fornecedor"));
-        forn.setCategoriaFornecedor(JOptionPane.showConfirmDialog("Informe a Categoria do Fornecedor"));
+        forn.setCategoriaFornecedor(JOptionPane.showInputDialog("Informe a Categoria do Fornecedor"));
         
         //Instância Fornecedor com o código 1
         Fornecedor forn1 = new Fornecedor();
@@ -40,6 +40,6 @@ public class TesteFornecedor {
         forn1.setEmail(JOptionPane.showInputDialog("Informe o E-Mail do Fornecedor"));
         forn1.setPaginaWeb(JOptionPane.showInputDialog("Informe o site do Fornecedor"));
         forn1.setContato(JOptionPane.showInputDialog("Informe o contato do Fornecedor"));
-        forn1.setCategoriaFornecedor(JOptionPane.showConfirmDialog("Informe a Categoria do Fornecedor"));
+        forn1.setCategoriaFornecedor(JOptionPane.showInputDialog("Informe a Categoria do Fornecedor"));
     }
 }

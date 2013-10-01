@@ -4,12 +4,13 @@
  */
 package br.senai.sc.testes.persistencia;
 
+
 import br.senai.sc.model.negocio.Entrada;
-import br.senai.sc.model.negocio.Entrada;
+import br.senai.sc.model.negocio.Funcionario;
+import br.senai.sc.model.negocio.NotaFiscal;
+import br.senai.sc.model.negocio.Produto;
 import br.senai.sc.model.persistencia.EntradaDaoJDBC;
 import br.senai.sc.persistencia.dao.EntradaDAO;
-import java.sql.Date;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
@@ -27,12 +28,21 @@ public class TesteInsercaoEntrada {
 
         Entrada e = new Entrada();
 
+        Produto p = new Produto();
+        p.setCodProduto(Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do produto"))); 
         
-        e.setProduto(JOptionPane.showInputDialog("Digite o nome do produto :"));
+        e.setProduto(p);
         e.setQtProduto(Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade do produto")));
         e.setPreco(Double.parseDouble(JOptionPane.showInputDialog("Digite o preço do produto")));
-        e.setFuncionario(JOptionPane.showInputDialog("Digite o nome do funcionario"));
-        e.setNrNotaFiscal(Integer.parseInt(JOptionPane.showInputDialog("Digite o numero da nota Fiscal")));
+        
+        Funcionario f = new Funcionario();
+        f.setCod(Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do funcionario :")));
+       
+        e.setFuncionario(f);
+        NotaFiscal nota = new NotaFiscal();
+        nota.setCodNumero(Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo da nota:")));
+        e.setNotaFiscal(nota);
+        
         String dataEmissao = JOptionPane.showInputDialog("Informe a data de Emissao: ");
         
         try {

@@ -6,6 +6,7 @@ package br.senai.sc.testes.persistencia;
 
 import br.senai.sc.model.persistencia.UsuarioDaoJDBC;
 import br.senai.sc.persistencia.dao.UsuarioDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,7 +16,7 @@ public class TesteRemocaoUsuario {
 	public static void main(String[] args) {
      	UsuarioDAO dao = new UsuarioDaoJDBC();
    	 
-    	dao.delete(1);
+    	dao.delete(Integer.parseInt(JOptionPane.showInputDialog("digite o numero do registro a ser excluido : ")));
 	}
 }
 

@@ -1,5 +1,6 @@
 package br.senai.sc.model.negocio;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -9,15 +10,18 @@ import java.util.Objects;
  * @author Patricia Gageiro
  */
 public class Funcionario extends PessoaFisica {
-
+    
+    private int codFuncionario;
     private String login;
     private String email;
     private String ctps;
     private String cargo;
     private double salario;
-    private String dtAdimissao;
-    private String dtRecisao;
+    private Date dtAdimissao;
+    private Date dtRecisao;
 
+    
+    
     public Funcionario() {
     }
 
@@ -61,38 +65,46 @@ public class Funcionario extends PessoaFisica {
         this.salario = salario;
     }
 
-    public String getDtAdimissao() {
+    public Date getDtAdimissao() {
         return dtAdimissao;
     }
 
-    public void setDtAdimissao(String dtAdimissao) {
+    public void setDtAdimissao(Date dtAdimissao) {
         this.dtAdimissao = dtAdimissao;
     }
 
-    public String getDtRecisao() {
+    public Date getDtRecisao() {
         return dtRecisao;
     }
 
-    public void setDtRecisao(String dtRecisao) {
+    public void setDtRecisao(Date dtRecisao) {
         this.dtRecisao = dtRecisao;
     }
+    public int getCodFuncionario() {
+        return codFuncionario;
+    }
+
+    public void setCodFuncionario(int codFuncionario) {
+        this.codFuncionario = codFuncionario;
+    }
+    
     //Métodos ToString
 
     public String toString() {
-        return "Código: " + this.getCod()
-                + "Login:  " + this.getLogin()
-                + "Nome: " + this.getNome()
-                + "Cpf: " + this.getCpf()
-                + "Email: " + this.getEmail()
-                + "Telefone: " + this.getTelefone()
-                + "Endereço: " + this.getEndereco()
-                + "Ctps: " + this.getCtps()
-                + "Cargo: " + this.getCargo()
-                + "Rg: " + this.getRg()
-                + "Salário: " + this.getSalario()
-                + "Data Adimissão: " + this.getDtAdimissao()
-                + "Data Nascimento: " + this.getDtNascimento()
-                + "Data Recisão: " + this.getDtRecisao();
+        return "Código: "                    + this.getCod()
+                + "Login:  "                 + this.getLogin()
+
+                + "Cpf: "                    + this.getCpf()
+                + "Email: "                  + this.getEmail()
+                + "Telefone: "               + this.getTelefone()
+                + "Endereço: "               + this.getEndereco()
+                + "Ctps: "                   + this.getCtps()
+                + "Cargo: "                  + this.getCargo()
+                + "Rg: "                     + this.getRg()
+                + "Salário: "                + this.getSalario()
+                + "Data Adimissão: "         + this.getDtAdimissao()
+                + "Data Nascimento: "        + this.getDtNascimento()
+                + "Data Recisão: "           + this.getDtRecisao();
     }
 
     //Métodos Equals
@@ -134,4 +146,6 @@ public class Funcionario extends PessoaFisica {
         }
         return true;
     }
+
+    
 }
