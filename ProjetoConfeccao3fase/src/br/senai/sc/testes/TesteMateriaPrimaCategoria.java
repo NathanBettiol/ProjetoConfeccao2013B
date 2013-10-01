@@ -17,13 +17,11 @@ public class TesteMateriaPrimaCategoria {
 
         CategoriaMateriaPrima cmp1 = new CategoriaMateriaPrima();
         cmp1.setCod(1);
-        cmp1.setMateriaPrima(JOptionPane.showInputDialog("Digite o nome da matéria-prima;"));
         cmp1.setNome(JOptionPane.showInputDialog("Informe o nome da categoria: "));
         cmp1.setDescricao(JOptionPane.showInputDialog("Descreva a categoria da matéria-prima:"));
 
         CategoriaMateriaPrima cmp2 = new CategoriaMateriaPrima();
         cmp2.setCod(2);
-        cmp2.setMateriaPrima(JOptionPane.showInputDialog("Digite o nome da matéria-prima:"));
         cmp2.setNome(JOptionPane.showInputDialog("Informe o nome da categoria:"));
         cmp2.setDescricao(JOptionPane.showInputDialog("Descreva a categoria da matéria-prima:"));
 
