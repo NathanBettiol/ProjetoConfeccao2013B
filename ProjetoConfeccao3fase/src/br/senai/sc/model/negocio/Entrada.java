@@ -5,7 +5,7 @@ package br.senai.sc.model.negocio;
 
 import java.util.Date;
 import java.util.Objects;
-import javax.swing.JOptionPane;
+
 
 /**
  * @version 1.0
@@ -19,11 +19,11 @@ public class Entrada {
     //Declaração das Variaveis
     private int codigo;
     private  double preco;
-    private String produto;
+    private Produto produto;
     private Date dtEmissao;
     private int qtProduto;
-    private int nrNotaFiscal;
-    private String funcionario;
+    private NotaFiscal notaFiscal;
+    private Funcionario funcionario;
 
 
 
@@ -33,10 +33,7 @@ public class Entrada {
     }
    
     //Final Construtor sem parametro--------------------------------------------
-    
     //Getters and Setters dos atributos da classe entrada
-    
-
     public int getCodigo() {
         return codigo;
     }
@@ -45,38 +42,28 @@ public class Entrada {
         this.codigo = codigo;
     }
 
-    public Date getDtEmissao() {
-        return dtEmissao;
-    }
-
-    public void setDtEmissao(Date dtEmissao) {
-        this.dtEmissao = dtEmissao;
-    }
-    
-    
-
     public double getPreco() {
         return preco;
-    }
-       
-    public String getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(String funcionario) {
-        this.funcionario = funcionario;
     }
 
     public void setPreco(double preco) {
         this.preco = preco;
     }
 
-    public String getProduto() {
+    public Produto getProduto() {
         return produto;
     }
 
-    public void setProduto(String produto) {
+    public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+
+    public Date getDtEmissao() {
+        return dtEmissao;
+    }
+
+    public void setDtEmissao(Date dtEmissao) {
+        this.dtEmissao = dtEmissao;
     }
 
     public int getQtProduto() {
@@ -87,29 +74,44 @@ public class Entrada {
         this.qtProduto = qtProduto;
     }
 
-    public int getNrNotaFiscal() {
-        return nrNotaFiscal;
+    public NotaFiscal getNotaFiscal() {
+        return notaFiscal;
     }
 
-    public void setNrNotaFiscal(int nrNotaFiscal) {
-        this.nrNotaFiscal = nrNotaFiscal;
+    public void setNotaFiscal(NotaFiscal notaFiscal) {
+        this.notaFiscal = notaFiscal;
     }
-    
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
     //Final Getters and Setters --------------------------------------------
-
-    
     //To String Retorna os valores do Objeto.
-   
-
     @Override
     public String toString() {
-        return "Entrada{" + "codigo=" + codigo + ", preco=" + preco + ", dataEmissao=" + dtEmissao + ", produto=" + produto + ", qtProduto=" + qtProduto + ", nrNotaFiscal=" + nrNotaFiscal + '}';
+        return "Entrada{" + "codigo=" + codigo + ", preco=" + preco + ", produto=" + produto + ", dtEmissao=" + dtEmissao + ", qtProduto=" + qtProduto + ", notaFiscal=" + notaFiscal + ", funcionario=" + funcionario + '}';
+    }
+   
+
+   
+
+    
+   
+   //Final Equals-------------------------------------------- 
+
+    //Final toString--------------------------------------------
+    // Equals que vai ser usado mais a frente
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
     }
 
- //Final toString--------------------------------------------
-    
-    // Equals que vai ser usado mais a frente
-    
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -125,20 +127,22 @@ public class Entrada {
         if (Double.doubleToLongBits(this.preco) != Double.doubleToLongBits(other.preco)) {
             return false;
         }
-        if (!Objects.equals(this.dtEmissao, other.dtEmissao)) {
+        if (!Objects.equals(this.produto, other.produto)) {
             return false;
         }
-        if (!Objects.equals(this.produto, other.produto)) {
+        if (!Objects.equals(this.dtEmissao, other.dtEmissao)) {
             return false;
         }
         if (this.qtProduto != other.qtProduto) {
             return false;
         }
-        if (this.nrNotaFiscal != other.nrNotaFiscal) {
+        if (!Objects.equals(this.notaFiscal, other.notaFiscal)) {
+            return false;
+        }
+        if (!Objects.equals(this.funcionario, other.funcionario)) {
             return false;
         }
         return true;
     }
-   //Final Equals-------------------------------------------- 
     
 } 

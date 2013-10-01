@@ -1,6 +1,7 @@
 package br.senai.sc.testes.persistencia;
 
 import br.senai.sc.model.negocio.CategoriaMateriaPrima;
+import br.senai.sc.model.negocio.Fornecedor;
 import br.senai.sc.model.negocio.MateriaPrima;
 import br.senai.sc.model.persistencia.CategoriaMateriaPrimaDaoJDBC;
 import br.senai.sc.model.persistencia.MateriaPrimaDaoJDBC;
@@ -19,15 +20,18 @@ public class TesteConexaoMateriaPrimaAtualizacao {
 
     public static void main(String[] args) {
         MateriaPrima mp = new MateriaPrima();
-
+           
         mp.setNome(JOptionPane.showInputDialog("Informe o nome "
                 + "da categoria da matéria-prima: "));
         mp.setPreco(Double.parseDouble(JOptionPane.showInputDialog("Informe o preço da matéria prima:")));
         mp.setTpUnidade(JOptionPane.showInputDialog("Informe o tipo das unidades de materia-prima:"));
         mp.setQuantidade(Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade de materia-prima:")));
-//        mp.setFornecedor(JOptionPane.showInputDialog("Informe o fornecedor da matéria-prima:"));
         mp.setCodigo(Integer.parseInt(JOptionPane.showInputDialog("Informe o "
                 + "codigo da categoria da materia-prima a ser alterada")));
+        Fornecedor f= new Fornecedor();
+        f.setCodFornecedor(9);
+        mp.setFornecedor(f);
+       
 
         MateriaPrimaDAO dao = new MateriaPrimaDaoJDBC();
         dao.update(mp);
