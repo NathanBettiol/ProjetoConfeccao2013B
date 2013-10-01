@@ -16,7 +16,7 @@ public interface DevolucaoDAO {
      /**
      * Método responsável pela inserção de uma pessoa 
      * na base de dados
-     * @author Rosicléia Frasson
+     * @author douglas_ghisleri
      * @version 1.0 09/09/13
      * @param d
      * @return 
@@ -26,7 +26,7 @@ public interface DevolucaoDAO {
     /**
      * Método responsável pela atualização de uma pessoa
      * na base de dados
-     * @author Rosicléia Frasson
+     * @author douglas_ghisleri
      * @version 1.0 09/09/13
      * @param d
      * @return 
@@ -36,7 +36,7 @@ public interface DevolucaoDAO {
     /**
      * Método responsável pela remoção de uma pessoa na
      * base de dados
-     * @author Rosicléia Frasson
+     * @author douglas_ghisleri
      * @version 1.0 09/09/13
      * @param id
      * @return 
@@ -46,7 +46,7 @@ public interface DevolucaoDAO {
     /**
      * Método responsável pela listagem de todas as 
      * pessoas cadastradas na base de dados
-     * @author Rosicléia Frasson
+     * @author douglas_ghisleri
      * @version 1.0 09/09/13
      * @return 
      */
@@ -55,7 +55,7 @@ public interface DevolucaoDAO {
     /**
      * Método responsável por buscar uma pessoa na base de
      * dados através de um id
-     * @author Rosicléia Frasson
+     * @author douglas_ghisleri
      * @version 1.0 09/09/13
      * @param id
      * @return 
