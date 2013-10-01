@@ -21,7 +21,7 @@ public class DevolucaoDaoJDBC implements DevolucaoDAO {
 
     private final String INSERT = "insert into devolucao"
             + "(peca, dt_devolucao, qt_devolucao) values "
-            + "(?,?,?,?)";
+            + "(?,?,?)";
     private final String UPDATE = "update devolucao set "
             + "peca = ?, dt_devolucao = ?, qt_devolucao = ?"
             + "where cod_devolucao = ?";
@@ -41,8 +41,8 @@ public class DevolucaoDaoJDBC implements DevolucaoDAO {
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(INSERT);
-            pstm.setDate(1, new java.sql.Date(d.getDataDevolucao().getTime()));
-            pstm.setString(2, d.getPeca());
+            pstm.setString(1, d.getPeca());
+            pstm.setDate(2, new java.sql.Date(d.getDataDevolucao().getTime()));
             pstm.setInt(3, d.getQuantidade());
             pstm.execute();
             JOptionPane.showMessageDialog(null,

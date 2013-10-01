@@ -15,19 +15,23 @@ import javax.swing.JOptionPane;
  * @author douglas_ghisleri
  */
 public class TesteAtualizacaoDevolucao {
+
     public static void main(String[] args) {
 
         Devolucao d = new Devolucao();
+
         
         d.setCod_devolucao(Integer.parseInt(JOptionPane.showInputDialog("Informe o Codigo da devolução:")));
-         try {
+        d.setPeca(JOptionPane.showInputDialog("Peça:"));
+        
+        try {
             String data = JOptionPane.showInputDialog("Data devolução:");
 
             d.setDataDevolucao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
         }
-        d.setPeca(JOptionPane.showInputDialog("Peça:"));
+
         d.setQuantidade(Integer.parseInt(JOptionPane.showInputDialog("Quantidade:")));
 
         DevolucaoDAO dao = new DevolucaoDaoJDBC();
