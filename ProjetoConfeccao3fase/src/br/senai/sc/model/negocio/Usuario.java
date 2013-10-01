@@ -11,14 +11,13 @@ import java.util.Objects;
  *
  */
 // USUARIO codigo login senha nome cpf email telefone endereco dataNascimento
-public class Usuario extends Pessoa {
+public class Usuario extends PessoaFisica {
 
 	private String login;
 	private String senha;
 	private String nome;
-	private String cpf;
 	private String email;
-	private Date dataNascimento;
+
 
 	//Construtor padrão
 	public Usuario() {
@@ -49,14 +48,6 @@ public class Usuario extends Pessoa {
     	this.nome = nome;
 	}
 
-	public String getCpf() {
-    	return cpf;
-	}
-
-	public void setCpf(String cpf) {
-    	this.cpf = cpf;
-	}
-
 	public String getEmail() {
     	return email;
 	}
@@ -65,13 +56,7 @@ public class Usuario extends Pessoa {
     	this.email = email;
 	}
 
-	public Date getDataNascimento() {
-    	return dataNascimento;
-	}
-
-	public void setDataNascimento(Date dataNascimento) {
-    	this.dataNascimento = dataNascimento;
-	}
+	
 
 	//toString
 	public String toString() {
@@ -79,9 +64,7 @@ public class Usuario extends Pessoa {
             	+ "\nLogin: " + login
             	+ "\nSenha: " + senha
             	+ "\nNome: " + nome
-            	+ "\nCpf: " + cpf
-            	+ "\nE-mail: " + email
-            	+ "\nDataNascimento: " + dataNascimento;
+            	+ "\nE-mail: " + email;
 	}
 
 	@Override
@@ -110,15 +93,11 @@ public class Usuario extends Pessoa {
     	if (!Objects.equals(this.nome, other.nome)) {
         	return false;
     	}
-    	if (!Objects.equals(this.cpf, other.cpf)) {
-        	return false;
-    	}
+    	
     	if (!Objects.equals(this.email, other.email)) {
         	return false;
     	}
-    	if (!(this.dataNascimento == (other.dataNascimento))) {
-        	return false;
-    	}
+    	
     	return true;
 	}
 }

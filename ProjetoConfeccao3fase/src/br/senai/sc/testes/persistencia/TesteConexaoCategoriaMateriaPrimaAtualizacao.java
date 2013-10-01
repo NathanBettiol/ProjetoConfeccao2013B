@@ -15,16 +15,17 @@ import javax.swing.JOptionPane;
 public class TesteConexaoCategoriaMateriaPrimaAtualizacao {
      public static void main(String[] args) {
         CategoriaMateriaPrima cmp = new CategoriaMateriaPrima();
-
+        cmp.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe o "
+                + "codigo da categoria da materia-prima a ser alterada")));
         cmp.setNome(JOptionPane.showInputDialog("Informe o nome "
                 + "da categoria da matéria-prima: "));
         cmp.setDescricao(JOptionPane.showInputDialog("Descreva a categoria da matéria-prima : "));
-        cmp.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe o "
-                + "codigo da categoria da materia-prima a ser alterada")));
+        
 
         CategoriaMateriaPrimaDAO dao = new CategoriaMateriaPrimaDaoJDBC();
         dao.update(cmp);
     }
 }
+
     
 

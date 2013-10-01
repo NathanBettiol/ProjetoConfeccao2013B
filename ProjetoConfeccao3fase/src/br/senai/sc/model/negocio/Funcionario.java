@@ -10,7 +10,8 @@ import java.util.Objects;
  * @author Patricia Gageiro
  */
 public class Funcionario extends PessoaFisica {
-
+    
+    private int codFuncionario;
     private String login;
     private String email;
     private String ctps;
@@ -77,6 +78,14 @@ public class Funcionario extends PessoaFisica {
     public void setDtRecisao(Date dtRecisao) {
         this.dtRecisao = dtRecisao;
     }
+    public int getCodFuncionario() {
+        return codFuncionario;
+    }
+
+    public void setCodFuncionario(int codFuncionario) {
+        this.codFuncionario = codFuncionario;
+    }
+    
     //Métodos ToString
 
     public String toString() {
@@ -135,4 +144,6 @@ public class Funcionario extends PessoaFisica {
         }
         return true;
     }
+
+    
 }
