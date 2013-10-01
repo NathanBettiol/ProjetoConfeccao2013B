@@ -33,7 +33,15 @@ public class TesteConexaoFuncionarioInsercao {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
         }
+        fun.setEndereco(JOptionPane.showInputDialog("Endereco: "));
+        fun.setTelefone(JOptionPane.showInputDialog("Telefone: "));
+        try {
+            String data = JOptionPane.showInputDialog("Data Cadastro");
 
+            fun.setDtCadastro(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
+        }
         fun.setLogin(JOptionPane.showInputDialog("Login: "));
         fun.setEmail(JOptionPane.showInputDialog("Email: "));
         fun.setCtps(JOptionPane.showInputDialog("Ctps: "));
