@@ -1,5 +1,8 @@
 package br.senai.sc.model.persistencia;
 
+import br.senai.sc.model.negocio.CategoriaProduto;
+import br.senai.sc.model.negocio.Colecao;
+import br.senai.sc.model.negocio.Fabricante;
 import br.senai.sc.model.negocio.Produto;
 import br.senai.sc.persistencia.dao.ProdutoDAO;
 import java.sql.Connection;
@@ -12,13 +15,24 @@ import javax.swing.JOptionPane;
 
 public class ProdutosDaoJDBC implements ProdutoDAO {
 
-    //private final String INSERT = "INSERT INTO produtos(cod_categoria, cod_colecao, cod_fabricante, modelo, preco, tamanho, cor) values (?,?,?,?,?,?,?)";
-    //private final String UPDATE = "UPDATE produtos SET cod_categoria = ?, cod_colecao = ?, cod_fabricante = ?, modelo = ?, preco = ?, tamanho = ?, cor = ? WHERE cod_produto = ?";
-    private final String INSERT = "INSERT INTO produtos(modelo, nome, preco, tamanho, cor, qt_produto) values (?,?,?,?,?,?)";
-    private final String UPDATE = "UPDATE produtos SET modelo = ?, nome = ?, preco = ?, tamanho = ?, cor = ?, qt_produto = ? WHERE cod_produto = ?";
+    private final String INSERT = "INSERT INTO produtos (cod_categoria, cod_colecao, cod_fabricante, modelo, nome, preco, tamanho, cor, qt_produtos)VALUES(?,?,?,?,?,?,?,?,?)";
+    private final String UPDATE = "UPDATE produtos SET cod_categoria = ?, cod_colecao = ?, cod_fabricante = ?, modelo = ?, nome = ?, preco = ?, tamanho = ?, cor = ?, qt_produtos = ? WHERE cod_produto = ?";
     private final String DELETE = "DELETE FROM produtos WHERE cod_produto = ?";
-    private final String LIST = "SELECT * FROM produto";
-    private final String LISTBYID = "SELECT * FROM produto WHERE cod_produto = ?";
+    private final String LIST = "SELECT p.cod_produto, p.nome, p.modelo, p.preco, p.cor, p.tamanho, p.cor, p.qt_produtos, "
+            + "cp.cod_categoria, cp.nome AS categoria, cp.descricao, "
+            + "f.cod_fabricante, f.nmfantasia, f.cnpj, f.telefone, f.email, f.endereco, "
+            + "c.cod_colecao, c.estacao, c.ano, c.pub_alvo, c.cod_funcionario, c.categoria_colecao_cod_categoria FROM produtos p "
+            + "LEFT JOIN categorias_produtos cp ON (cp.cod_categoria = p.cod_categoria) "
+            + "LEFT JOIN colecao c ON (c.cod_colecao = p.cod_categoria) "
+            + "LEFT JOIN fabricante f ON (f.cod_fabricante = p.cod_categoria)";
+    private final String LISTBYID = "SELECT p.cod_produto, p.nome, p.modelo, p.preco, p.cor, p.tamanho, p.cor, p.qt_produtos, "
+            + "cp.cod_categoria, cp.nome AS categoria, cp.descricao, "
+            + "f.cod_fabricante, f.nmfantasia, f.cnpj, f.telefone, f.email, f.endereco, "
+            + "c.cod_colecao, c.estacao, c.ano, c.pub_alvo, c.cod_funcionario, c.categoria_colecao_cod_categoria FROM produtos p "
+            + "LEFT JOIN categorias_produtos cp ON (cp.cod_categoria = p.cod_categoria) "
+            + "LEFT JOIN colecao c ON (c.cod_colecao = p.cod_categoria) "
+            + "LEFT JOIN fabricante f ON (f.cod_fabricante = p.cod_categoria) "
+            + "WHERE p.cod_produto = ?";
 
     @Override
     public boolean insert(Produto p) {
@@ -26,12 +40,15 @@ public class ProdutosDaoJDBC implements ProdutoDAO {
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
-            pstm.setString(1, p.getModelo());
-            pstm.setString(2, p.getNome());
-            pstm.setDouble(3, p.getPreco());
-            pstm.setString(4, p.getTamanho());
-            pstm.setString(5, p.getCor());
-            pstm.setInt(6, p.getQtProdutos());
+            pstm.setInt(1, p.getCategoria().getCodCategoriaProduto());
+            pstm.setInt(2, p.getColecao().getCodColecao());
+            pstm.setInt(3, p.getFabricante().getCod());
+            pstm.setString(4, p.getModelo());
+            pstm.setString(5, p.getNome());
+            pstm.setDouble(6, p.getPreco());
+            pstm.setString(7, p.getTamanho());
+            pstm.setString(8, p.getCor());
+            pstm.setInt(9, p.getQtProdutos());
             pstm.execute();
             try (ResultSet rs = pstm.getGeneratedKeys()) {
                 if (rs.next()) {
@@ -53,12 +70,16 @@ public class ProdutosDaoJDBC implements ProdutoDAO {
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(UPDATE);
-            pstm.setString(1, p.getModelo());
-            pstm.setString(2, p.getNome());
-            pstm.setDouble(3, p.getPreco());
-            pstm.setString(4, p.getTamanho());
-            pstm.setString(5, p.getCor());
-            pstm.setInt(6, p.getQtProdutos());
+            pstm.setInt(1, p.getCategoria().getCodCategoriaProduto());
+            pstm.setInt(2, p.getColecao().getCodColecao());
+            pstm.setInt(3, p.getFabricante().getCod());
+            pstm.setString(4, p.getModelo());
+            pstm.setString(5, p.getNome());
+            pstm.setDouble(6, p.getPreco());
+            pstm.setString(7, p.getTamanho());
+            pstm.setString(8, p.getCor());
+            pstm.setInt(9, p.getQtProdutos());
+            pstm.setInt(10, p.getCodProduto());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             ConnectionFactory.closeConnection(conn, pstm);
@@ -97,14 +118,41 @@ public class ProdutosDaoJDBC implements ProdutoDAO {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Produto p = new Produto();
+
+                CategoriaProduto cp = new CategoriaProduto();
+                cp.setCodCategoriaProduto(rs.getInt("cod_categoria"));
+                cp.setNomeCategoriaProduto(rs.getString("categoria"));
+                cp.setDescricaoCategoriaProduto(rs.getString("descricao"));
+
+                Colecao c = new Colecao();
+                c.setCodColecao(rs.getInt("cod_colecao"));
+                c.setEstacaoColecao(rs.getString("estacao"));
+                c.setAnoColecao(rs.getInt("ano"));
+                c.setPubAlvoColecao(rs.getString("pub_alvo"));
+                c.setFunResponsavelColecao(null);
+                c.setCategoriaColecao(null);
+
+                Fabricante f = new Fabricante();
+                f.setCod(rs.getInt("cod_fabricante"));
+                f.setNmFantasia(rs.getString("nmfantasia"));
+                f.setCnpj(rs.getString("cnpj"));
+                f.setTelefone(rs.getString("telefone"));
+                f.setEmail(rs.getString("email"));
+                f.setEndereco(rs.getString("endereco"));
+
                 p.setCodProduto(rs.getInt("cod_produto"));
+                p.setCategoria(cp);
+                p.setColecao(c);
+                p.setFabricante(f);
                 p.setNome(rs.getString("nome"));
                 p.setModelo(rs.getString("modelo"));
                 p.setPreco(rs.getDouble("preco"));
                 p.setTamanho(rs.getString("tamanho"));
                 p.setCor(rs.getString("cor"));
-                p.setQtProdutos(rs.getInt("qt_produto"));
+                p.setQtProdutos(rs.getInt("qt_produtos"));
+
                 produtos.add(p);
+
             }
             ConnectionFactory.closeConnection(conn, pstm);
 
@@ -124,13 +172,39 @@ public class ProdutosDaoJDBC implements ProdutoDAO {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Produto p = new Produto();
+
+                CategoriaProduto cp = new CategoriaProduto();
+                cp.setCodCategoriaProduto(rs.getInt("cod_categoria"));
+                cp.setNomeCategoriaProduto(rs.getString("categoria"));
+                cp.setDescricaoCategoriaProduto(rs.getString("descricao"));
+
+                Colecao c = new Colecao();
+                c.setCodColecao(rs.getInt("cod_colecao"));
+                c.setEstacaoColecao(rs.getString("estacao"));
+                c.setAnoColecao(rs.getInt("ano"));
+                c.setPubAlvoColecao(rs.getString("pub_alvo"));
+                c.setFunResponsavelColecao(null);
+                c.setCategoriaColecao(null);
+
+                Fabricante f = new Fabricante();
+                f.setCod(rs.getInt("cod_fabricante"));
+                f.setNmFantasia(rs.getString("nmfantasia"));
+                f.setCnpj(rs.getString("cnpj"));
+                f.setTelefone(rs.getString("telefone"));
+                f.setEmail(rs.getString("email"));
+                f.setEndereco(rs.getString("endereco"));
+
                 p.setCodProduto(rs.getInt("cod_produto"));
+                p.setCategoria(cp);
+                p.setColecao(c);
+                p.setFabricante(f);
                 p.setNome(rs.getString("nome"));
                 p.setModelo(rs.getString("modelo"));
                 p.setPreco(rs.getDouble("preco"));
                 p.setTamanho(rs.getString("tamanho"));
                 p.setCor(rs.getString("cor"));
-                p.setQtProdutos(rs.getInt("qt_produto"));
+                p.setQtProdutos(rs.getInt("qt_produtos"));
+
                 return p;
             }
             ConnectionFactory.closeConnection(conn, pstm);
@@ -140,6 +214,4 @@ public class ProdutosDaoJDBC implements ProdutoDAO {
         }
         return null;
     }
-    
-
 }
