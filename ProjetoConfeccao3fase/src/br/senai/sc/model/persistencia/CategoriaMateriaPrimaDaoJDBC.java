@@ -35,10 +35,9 @@ public class CategoriaMateriaPrimaDaoJDBC implements CategoriaMateriaPrimaDAO {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(INSERT);
 
-            pstm.setInt(1, cmp.getCod());
-            pstm.setString(2, cmp.getNome());
-            pstm.setString(3, cmp.getDescricao());
-            pstm.setString(4, cmp.getMateriaPrima());
+      
+            pstm.setString(1, cmp.getNome());
+            pstm.setString(2, cmp.getDescricao());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com "
                     + "sucesso");
@@ -61,8 +60,8 @@ public class CategoriaMateriaPrimaDaoJDBC implements CategoriaMateriaPrimaDAO {
             PreparedStatement pstm = conn.prepareStatement(UPDATE);
 
             pstm.setInt(1, cmp.getCod());
-            pstm.setString(2, cmp.getDescricao());
-            pstm.setString(3, cmp.getMateriaPrima());
+            pstm.setString(2, cmp.getNome());
+            pstm.setString(3,cmp.getDescricao());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com "
                     + "sucesso");
@@ -112,9 +111,10 @@ public class CategoriaMateriaPrimaDaoJDBC implements CategoriaMateriaPrimaDAO {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 CategoriaMateriaPrima cmp = new CategoriaMateriaPrima();
-                cmp.setCod(rs.getInt("codigo"));
-                cmp.setDescricao(rs.getString("descrição"));
-                cmp.setMateriaPrima(rs.getString("matéria-prima"));
+                cmp.setCod(rs.getInt("Codigo"));
+                cmp.setNome("Nome da categoria da matéria-prima:");
+                cmp.setDescricao(rs.getString("Descrição:"));
+              
                 categoriamateriaprima.add(cmp);
 
 
@@ -144,9 +144,10 @@ public class CategoriaMateriaPrimaDaoJDBC implements CategoriaMateriaPrimaDAO {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 CategoriaMateriaPrima cmp = new CategoriaMateriaPrima();
-                cmp.setCod(rs.getInt("codigo Categoria matéria-prima"));
-                cmp.setDescricao(rs.getString("descrição"));
-                cmp.setMateriaPrima(rs.getString("matéria-prima"));
+                cmp.setCod(rs.getInt("Codigo Categoria matéria-prima:"));
+                cmp.setNome(rs.getString("Nome da categoria da matéria-prima:"));
+                cmp.setDescricao(rs.getString("Descrição:"));
+              
                 return cmp;
             }
             ConnectionFactory.closeConnection(conn, pstm);
