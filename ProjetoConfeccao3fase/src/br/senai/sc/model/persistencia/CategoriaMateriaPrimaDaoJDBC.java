@@ -20,10 +20,9 @@ public class CategoriaMateriaPrimaDaoJDBC implements CategoriaMateriaPrimaDAO {
     private final String INSERT = "insert into categoria_materia_prima(nm_categoria_materia_prima,descricao) "
             + "values (?, ?)";
     private final String UPDATE = "update categoria_materia_prima set nm_categoria_materia_prima = ?, "
-            + "descricao = ? where cod = ?";
-    private final String DELETE = "delete from categoria_materia_prima where id = ?";
+            + "descricao = ? where cod_categoria_materia_prima = ?";
+    private final String DELETE = "delete from categoria_materia_prima where cod_categoria_materia_prima= ?";
     private final String LIST = "select * from categoria_materia_prima";
-    private final String LISTBYID = "select * from categoria_materia_prima";
     /*
      * Método que realiza a inserção de uma categoria de matéria-prima na base de dados
      */
@@ -92,7 +91,7 @@ public class CategoriaMateriaPrimaDaoJDBC implements CategoriaMateriaPrimaDAO {
             return true;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Não foi possível efetuar a "
-                    + "transação");
+                    + "transação: " + e.getMessage());
             return false;
         }
     }
@@ -126,40 +125,16 @@ public class CategoriaMateriaPrimaDaoJDBC implements CategoriaMateriaPrimaDAO {
         }
         return categoriamateriaprima;
     }
-    /*
-     * Método responsável por listar uma pessoa com o código enviado por 
-     * parâmetro
-     */
-
-    public CategoriaMateriaPrima listById(int codCategoriaMateriaPrima) {
-
-        Connection conn;
-
-        try {
-            conn = ConnectionFactory.getConnection();
-
-            PreparedStatement pstm = conn.prepareStatement(LISTBYID);
-
-            pstm.setInt(1, codCategoriaMateriaPrima);
-            ResultSet rs = pstm.executeQuery();
-            while (rs.next()) {
-                CategoriaMateriaPrima cmp = new CategoriaMateriaPrima();
-                cmp.setCod(rs.getInt("Codigo Categoria matéria-prima:"));
-                cmp.setNome(rs.getString("Nome da categoria da matéria-prima:"));
-                cmp.setDescricao(rs.getString("Descrição:"));
-              
-                return cmp;
-            }
-            ConnectionFactory.closeConnection(conn, pstm);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possível efetuar a "
-                    + "transação");
-        }
-        return null;
-    }
+   
 
     @Override
     public List<CategoriaMateriaPrima> listAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public CategoriaMateriaPrima listById(int codCategoriaMateriaPrima) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
+
