@@ -4,6 +4,7 @@
  */
 package br.senai.sc.model.negocio;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -16,7 +17,7 @@ public class PessoaFisica extends Pessoa {
     // Atributos
     private String cpf;
     private String nome;
-    private String dtNascimento;
+    private Date dtNascimento;
     private String rg;
     
     //Construtor vazio
@@ -41,11 +42,11 @@ public class PessoaFisica extends Pessoa {
         this.nome = nome;
     }
 
-    public String getDtNascimento() {
+    public Date getDtNascimento() {
         return dtNascimento;
     }
 
-    public void setDtNascimento(String dtNascimento) {
+    public void setDtNascimento(Date dtNascimento) {
         this.dtNascimento = dtNascimento;
     }
 
