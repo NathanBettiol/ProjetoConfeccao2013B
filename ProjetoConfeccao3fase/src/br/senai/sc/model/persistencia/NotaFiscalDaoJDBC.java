@@ -24,11 +24,11 @@ public class NotaFiscalDaoJDBC implements NotaFiscalDAO {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(INSERT);
             pstm.setDate(1, new java.sql.Date(e.getDataEmissao().getTime()));
-            pstm.setString(2, e.getProdutos());
+            pstm.setInt(2, e.getProdutos().getCodProduto());
             pstm.setDouble(3, e.getValorTotal());
             pstm.setString(4, e.getDestinatario());
             pstm.setString(5, e.getRemetente());
-            pstm.setString(6, e.getFuncionarioResponsavel());
+            pstm.setInt(6, e.getFuncionarioResponsavel().getCod());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             ConnectionFactory.closeConnection(conn, pstm);
@@ -49,11 +49,11 @@ public class NotaFiscalDaoJDBC implements NotaFiscalDAO {
             PreparedStatement pstm = conn.prepareStatement(UPDATE);
 
             pstm.setDate(1, new java.sql.Date(e.getDataEmissao().getTime()));
-            pstm.setString(2, e.getProdutos());
+            pstm.setInt(2, e.getProdutos().getCodProduto());
             pstm.setDouble(3, e.getValorTotal());
             pstm.setString(4, e.getDestinatario());
             pstm.setString(5, e.getRemetente());
-            pstm.setString(6, e.getFuncionarioResponsavel());
+             pstm.setInt(6, e.getFuncionarioResponsavel().getCod());
             pstm.setInt(7, e.getCodNumero());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
