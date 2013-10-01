@@ -4,7 +4,9 @@
  */
 package br.senai.sc.testes.persistencia;
 
+import br.senai.sc.model.negocio.Funcionario;
 import br.senai.sc.model.negocio.NotaFiscal;
+import br.senai.sc.model.negocio.Produto;
 
 import br.senai.sc.model.persistencia.NotaFiscalDaoJDBC;
 import java.text.ParseException;
@@ -20,24 +22,24 @@ public class TesteInsercaoNotaFiscal {
 
     public static void main(String[] args) {
         NotaFiscal e = new NotaFiscal();
-        e.setProdutos(JOptionPane.showInputDialog(" codigo Produtos: "));
+        Funcionario f = new Funcionario();
+        Produto p = new Produto();
+        p.setCodProduto(Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do produto:")));
+        e.setProdutos(p);
         e.setValorTotal(Double.parseDouble(JOptionPane.showInputDialog("Valor Total: ")));
         e.setDestinatario(JOptionPane.showInputDialog("Destinatário"));
         e.setRemetente(JOptionPane.showInputDialog("Remetente"));
-        e.setFuncionarioResponsavel(JOptionPane.showInputDialog("codigo Funcionario: "));
-        
+        f.setCod(2);
+        e.setFuncionarioResponsavel(f);
+        String data = JOptionPane.showInputDialog("Data:");
         try {
-             String data = JOptionPane.showInputDialog("Data:");
-            e.setDataEmissao((Date)new SimpleDateFormat("dd/mm/yyyy").parse(data));
-     
+            e.setDataEmissao((Date) new SimpleDateFormat("dd/mm/yyyy").parse(data));
+
         } catch (ParseException ex) {
             System.out.println("Erro ao converter a data de nascimento" + ex.getMessage());
         }
-
-
-
-
         NotaFiscalDaoJDBC dao = new NotaFiscalDaoJDBC();
+
         dao.insert(e);
     }
 }

@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  *
  * @author Gabriel Arsênio
  */
-public class ColecaoDaoJDBC implements ColecaoDAO{
+public class ColecaoDaoJDBC implements ColecaoDAO {
 
     //Strings com os comandos SQL
     private static final String INSERT = "INSERT INTO colecao VALUES "
@@ -28,9 +28,9 @@ public class ColecaoDaoJDBC implements ColecaoDAO{
     private static final String UPDATE = "UPDATE colecao set estacao = ?, ano = ?, "
             + "pub_alvo = ?, cod_funcionario = ?, categoria_colecao_cod_categoria = ? "
             + "where cod_colecao = ?";
-    private static final String DELETE = "DELETE FROM categoria_colecao "
+    private static final String DELETE = "DELETE FROM colecao "
             + "WHERE cod_categoria = ?";
-    private static final String SELECT = "select * from categoria_colecao";
+    private static final String SELECT = "select * from colecao";
 
     //Método de inserção de valores da tabela categoria_colecao
     @Override
@@ -46,9 +46,10 @@ public class ColecaoDaoJDBC implements ColecaoDAO{
             pstm.setString(1, c.getEstacaoColecao());
             pstm.setInt(2, c.getAnoColecao());
             pstm.setString(3, c.getPubAlvoColecao());
-            pstm.setInt(4, c.getFunResponsavelColecao().getCod());
-            pstm.setInt(5, c.getCategoriaColecao().getCodCategoriaColecao());
-            pstm.setInt(6, c.getCodColecao());
+            pstm.setInt(4, 1);
+//            pstm.setInt(4, c.getFunResponsavelColecao().getCod());
+            pstm.setInt(5, 1);
+
             //Executa o comando SQL
             pstm.execute();
             //Fecha a conexão
@@ -77,8 +78,8 @@ public class ColecaoDaoJDBC implements ColecaoDAO{
             pstm.setString(1, c.getEstacaoColecao());
             pstm.setInt(2, c.getAnoColecao());
             pstm.setString(3, c.getPubAlvoColecao());
-            pstm.setInt(4, c.getFunResponsavelColecao().getCod());
-            pstm.setInt(5, c.getCategoriaColecao().getCodCategoriaColecao());
+            pstm.setInt(4, 1);
+            pstm.setInt(5, 1);
             pstm.setInt(6, c.getCodColecao());
             //Executa o comando
             pstm.execute();
@@ -118,7 +119,7 @@ public class ColecaoDaoJDBC implements ColecaoDAO{
             return false;
         }
     }
-    
+
     //Método para procurar valores da tabela categoria_colecao
     @Override
     public List<Colecao> listAll() throws SQLException {
@@ -147,7 +148,7 @@ public class ColecaoDaoJDBC implements ColecaoDAO{
                 //Pega os valores que estão no campo "cod_funcionario" da tabela
                 c.setFunResponsavelColecao((Funcionario) rs.getObject("cod_funcionario"));
                 //Pega os valores que estão no campo "categoria_colecao_cod_categoria" da tabela
-                c.setCategoriaColecao((CategoriaColecao) rs.getObject("categoria_colecao_cod_categoria"));                
+                c.setCategoriaColecao((CategoriaColecao) rs.getObject("categoria_colecao_cod_categoria"));
                 //Adiciona os valores na lista
                 listaColecao.add(c);
             }
