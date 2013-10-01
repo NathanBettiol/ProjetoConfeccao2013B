@@ -1,8 +1,10 @@
+package br.senai.sc.persistencia.dao;
+
 import br.senai.sc.model.negocio.Funcionario;
 import java.util.List;
 
 /**
- * @version 1.0 16/09/2013
+ * @version 1.0 21/09/2013
  * @author patricia_gageiro
  */
 public interface FuncionarioDAO {

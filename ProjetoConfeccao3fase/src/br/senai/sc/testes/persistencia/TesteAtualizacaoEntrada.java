@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author nathan_bettiol
+ * 
+ * Classe de teste da atualização do banco de dados da tabela entrada
  */
 public class TesteAtualizacaoEntrada {
     
@@ -24,7 +26,7 @@ public static void main(String[] args) {
         Entrada e = new Entrada();
         
         e.setProduto(JOptionPane.showInputDialog("Informe o nome do produto: "));
-        String dataEmissao = JOptionPane.showInputDialog("Informe a data de Emissao: ");
+        String dataEmissao = JOptionPane.showInputDialog("Informe a data de Emissao: DD/MM/YYYY ");
         try {
             e.setDtEmissao(new SimpleDateFormat("dd/MM/yyyy").parse(dataEmissao));
         } catch (Exception ex) {

@@ -1,4 +1,4 @@
-package br.senai.sc.testes;
+package br.senai.sc.testes.persistencia;
 
 import br.senai.sc.model.negocio.Funcionario;
 import br.senai.sc.model.persistencia.FuncionariodaoJDBC;

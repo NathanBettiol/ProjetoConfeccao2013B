@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class TesteRemocaoNotaFiscal {
 
     public static void main(String[] args) {
-        int codNumero = Integer.parseInt(JOptionPane.showInputDialog("Informe o ID a ser deletedo: "));
+        int codNumero = Integer.parseInt(JOptionPane.showInputDialog("Informe o ID a ser deletado: "));
         NotaFiscalDAO dao = new NotaFiscalDaoJDBC();
         dao.delete(codNumero);
     }

@@ -46,5 +46,4 @@ public interface EntradaDAO {
      * @param cod_entrada
      * @return
      */
-    Entrada listById(int cod_entrada);
 }

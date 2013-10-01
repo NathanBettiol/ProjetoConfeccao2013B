@@ -20,24 +20,20 @@ public class TesteCategoriaColecao {
 
     public static void main(String[] args) throws SQLException {
 
+        JOptionPane.showMessageDialog(null, "Cadastre pelo menos duas categrias de coleção");
+        
         //Instância de CategoriaColecao 0
-//        CategoriaColecao cc = new CategoriaColecao();        
-//        cc.setNomeCategoriaColecao(JOptionPane.showInputDialog("Informe o nome da categoria de coleção"));
-//        cc.setDescricaoCategoriaColecao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
-
         CategoriaColecaoDaoJDBC ccjdbc = new CategoriaColecaoDaoJDBC();
-//        ccjdbc.insert(cc);
-        ccjdbc.delete(1);
-        JOptionPane.showMessageDialog(null, ccjdbc.listAll());
+        CategoriaColecao cc = new CategoriaColecao();
+        cc.setNomeCategoriaColecao(JOptionPane.showInputDialog("Informe o nome da categoria de coleção"));
+        cc.setDescricaoCategoriaColecao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));     
+        ccjdbc.insert(cc);
+        JOptionPane.showMessageDialog(null, cc.toString());
 
-//        JOptionPane.showMessageDialog(null, cc.toString());
-
-//        //Instância de CategoriaColecao 1
-//        CategoriaColecao cc1 = new CategoriaColecao();
-//        cc1.setCodCategoriaColecao(1);
-//        cc1.setNomeCategoriaColecao(JOptionPane.showInputDialog("Informe o nome da categoria de coleção"));
-//        cc1.setDescricaoCategoriaColecao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
-//
-//        JOptionPane.showMessageDialog(null, cc1.toString());
+        //Instância de CategoriaColecao 1             
+        cc.setNomeCategoriaColecao(JOptionPane.showInputDialog("Informe o nome da categoria de coleção"));
+        cc.setDescricaoCategoriaColecao(JOptionPane.showInputDialog("Dê uma descrição dessa categoria"));
+        ccjdbc.insert(cc);
+        JOptionPane.showMessageDialog(null, cc.toString());
     }
 }

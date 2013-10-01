@@ -1,4 +1,4 @@
-package br.senai.sc.testes;
+package br.senai.sc.testes.persistencia;
 
 import br.senai.sc.model.negocio.Funcionario;
 import br.senai.sc.model.persistencia.FuncionariodaoJDBC;
@@ -6,7 +6,7 @@ import br.senai.sc.persistencia.dao.FuncionarioDAO;
 import javax.swing.JOptionPane;
 
 /**
- * @version 1.0 16/09/2013
+ * @version 1.0 21/09/2013
  * @author patricia_gageiro
  * @param p
  * @return

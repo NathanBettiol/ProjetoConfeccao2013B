@@ -13,6 +13,7 @@ import java.util.List;
 /**
  *
  * @author nathan_bettiol
+ * Classe responsavel por listar os registro da base de dados
  */
 public class TesteListaEntrada {
     

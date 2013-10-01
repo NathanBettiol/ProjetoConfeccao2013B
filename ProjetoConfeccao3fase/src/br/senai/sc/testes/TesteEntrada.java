@@ -44,7 +44,6 @@ public class TesteEntrada {
         System.out.println(e1.toString());
         System.out.println(e2.toString());*/
         
-        e1.insert(Entrada e);
-         
+       
     }
 }

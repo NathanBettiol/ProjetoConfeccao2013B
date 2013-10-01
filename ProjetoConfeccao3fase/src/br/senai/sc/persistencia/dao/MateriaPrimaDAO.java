@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.senai.sc.persistencia.dao;
 
 import br.senai.sc.model.negocio.MateriaPrima;
@@ -10,6 +7,7 @@ import java.util.List;
 /**
  *
  * @author leticia_jesus
+ * @version 1.0 20/09/2013
  */
 public interface MateriaPrimaDAO {
     

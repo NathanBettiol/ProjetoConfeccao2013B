@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author nathan_bettiol
+ * classe que remove um registro da base de dados
+ * 
  */
 public class TesteRemocaoEntrada {
     

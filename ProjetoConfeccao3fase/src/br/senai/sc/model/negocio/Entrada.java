@@ -96,36 +96,7 @@ public class Entrada {
     }
     
     //Final Getters and Setters --------------------------------------------
-    
-    //Metodos
-    
-    
-    //Metodo para alteração dos preços
-    public double alteraPreco(double preco){
-    
-       
-        
-        return this.preco;
-    }
-    
-    //Metodo para alteração dos nomes dos produtos
-    public String alteraNomeProduto(String produto){
-    
-      
-        
-        return this.produto;
-    }
-    
-    
-    //Metodo para alteração das quantidades de produtos
-      public int alteraQtProduto(int qtProduto){
-    
-      
-        
-        return this.qtProduto;
-    }
-    
-    //Final Metodos--------------------------------------------
+
     
     //To String Retorna os valores do Objeto.
    

@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.senai.sc.model.persistencia;
 
 import br.senai.sc.model.negocio.Endereco;
@@ -16,8 +13,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author leticia_jesus
+ * @version 1.0 20/09/2013
  */
 public class MateriaPrimaDaoJDBC implements MateriaPrimaDAO {
 
@@ -71,7 +68,7 @@ public class MateriaPrimaDaoJDBC implements MateriaPrimaDAO {
             pstm.setString(3, mp.getTpUnidade());
             pstm.setInt(4, mp.getQuantidade());
             //* pstm.setString(5,mp.getFornecedor()); está dando erro por causa da classe fornecedor que está imcompleta//
-
+            pstm.setInt(6,mp.getCodigo());
 
             pstm.execute();
 
