@@ -29,7 +29,7 @@ public class SobradaoJDBC implements SobraDAO {
         try {
             con = ConnectionFactory.getConnection();
             PreparedStatement pstm = con.prepareStatement(INSERT);
-            pstm.setString(1, sob.getCodSobra());
+            pstm.setInt(1, sob.getCodSobra());
             pstm.setString(2, sob.getPeso());
             pstm.setString(3, sob.getCategoria());
             pstm.setString(4, sob.getMateriaPrima());
@@ -53,7 +53,7 @@ public class SobradaoJDBC implements SobraDAO {
         try {
             con = ConnectionFactory.getConnection();
             PreparedStatement pstm = con.prepareStatement(UPDATE);
-            pstm.setString(1, sob.getCodSobra());
+            pstm.setInt(1, sob.getCodSobra());
             pstm.setString(2, sob.getPeso());
             pstm.setString(3, sob.getCategoria());
             pstm.setString(4, sob.getMateriaPrima());
@@ -75,7 +75,7 @@ public class SobradaoJDBC implements SobraDAO {
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(DELETE);
-            pstm.setString(1, sob.getCodSobra());
+            pstm.setInt(1, sob.getCodSobra());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             return true;
@@ -95,7 +95,7 @@ public class SobradaoJDBC implements SobraDAO {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Sobra sob = new Sobra();
-                sob.setCodSobra(rs.getString("codSobra"));
+                sob.setCodSobra(rs.getInt("codSobra"));
                 sob.setPeso(rs.getString("peso"));
                 sob.setCategoria(rs.getString("categoria"));
                 sob.setMateriaPrima(rs.getString("materiaPrima"));
@@ -126,5 +126,4 @@ public class SobradaoJDBC implements SobraDAO {
     public Sobra listById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
     }
