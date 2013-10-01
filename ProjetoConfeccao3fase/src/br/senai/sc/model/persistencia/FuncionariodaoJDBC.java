@@ -16,27 +16,32 @@ import javax.swing.JOptionPane;
  */
 public class FuncionariodaoJDBC implements FuncionarioDAO {
 
-    private static final String INSERT = "insert into funcionario(cod_funcionario, login, email, ctps, cargo, salario, dt_adimissao, dt_recisao) values (?,?,?,?,?,?,?,?)";
-    private static final String UPDATE = "update funcionario set login = ?, email = ?, ctps = ?, cargo = ?, salario = ?, dt_adimissao = ?, dt_recisao = ? where cod_funcionario = ?";
+    private static final String INSERT = "insert into funcionario( nome, cpf, rg, dt_nascimento, login, email, ctps, cargo, salario, dt_adimissao, dt_recisao) values (?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String UPDATE = "update funcionario set nome = ? , cpf = ? , rg = ?, dt_nascimento = ?, login = ?, email = ?, ctps = ?, cargo = ?, salario = ?, dt_adimissao = ?, dt_recisao = ? where cod_funcionario = ?";
     private static final String DELETE = "delete from funcionario where cod_funcionario = ?";
     private static final String LIST = "select * from funcionario";
     private static final String LISTBYID = "select * from funcionario where cod_funcionario = ?";
 
-    @Override
+    
     public boolean insert(Funcionario fun) {
         Connection con;
 
         try {
             con = ConnectionFactory.getConnection();
             PreparedStatement pstm = con.prepareStatement(INSERT);
-            pstm.setString(1, Integer.toString(fun.getCod()));
-            pstm.setString(2, fun.getLogin());
-            pstm.setString(3, fun.getEmail());
-            pstm.setString(4, fun.getCtps());
-            pstm.setString(5, fun.getCargo());
-            pstm.setString(6, Double.toString(fun.getSalario()));
-            pstm.setDate(7, new java.sql.Date(fun.getDtAdimissao().getTime()));
-            pstm.setDate(8,new java.sql.Date(fun.getDtRecisao().getTime()));
+            pstm.setString(1, fun.getNome());
+            pstm.setString(2, fun.getCpf());
+            pstm.setString(3, fun.getRg());
+            
+            pstm.setDate(4,new java.sql.Date(fun.getDtNascimento().getTime()));
+           
+            pstm.setString(5, fun.getLogin());
+            pstm.setString(6, fun.getEmail());
+            pstm.setString(7, fun.getCtps());
+            pstm.setString(8, fun.getCargo());
+            pstm.setString(9, Double.toString(fun.getSalario()));
+            pstm.setDate(10, new java.sql.Date(fun.getDtAdimissao().getTime()));
+            pstm.setDate(11,new java.sql.Date(fun.getDtRecisao().getTime()));
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             ConnectionFactory.closeConnection(con, pstm);
@@ -54,16 +59,20 @@ public class FuncionariodaoJDBC implements FuncionarioDAO {
         try {
             con = ConnectionFactory.getConnection();
             PreparedStatement pstm = con.prepareStatement(UPDATE);
+            
+            pstm.setString(1, fun.getNome());
+            pstm.setString(2, fun.getCpf());
+            pstm.setString(3, fun.getRg());
+            pstm.setDate(4,new java.sql.Date(fun.getDtNascimento().getTime()));
+            pstm.setString(5, fun.getLogin());
+            pstm.setString(6, fun.getEmail());
+            pstm.setString(7, fun.getCtps());
+            pstm.setString(8, fun.getCargo());
+            pstm.setString(9, Double.toString(fun.getSalario()));
 
-            pstm.setString(1, fun.getLogin());
-            pstm.setString(2, fun.getEmail());
-            pstm.setString(3, fun.getCtps());
-            pstm.setString(4, fun.getCargo());
-            pstm.setString(5, Double.toString(fun.getSalario()));
-
-            pstm.setDate(6, new java.sql.Date(fun.getDtAdimissao().getTime()));
-            pstm.setDate(7,new java.sql.Date(fun.getDtRecisao().getTime()));
-            pstm.setString(8, Integer.toString(fun.getCod()));
+            pstm.setDate(10, new java.sql.Date(fun.getDtAdimissao().getTime()));
+            pstm.setDate(11,new java.sql.Date(fun.getDtRecisao().getTime()));
+            pstm.setInt(12, fun.getCod());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             return true;
@@ -80,7 +89,7 @@ public class FuncionariodaoJDBC implements FuncionarioDAO {
         try {
             con = ConnectionFactory.getConnection();
             PreparedStatement pstm = con.prepareStatement(DELETE);
-            pstm.setString(1, Integer.toString(fun.getCod()));
+            pstm.setInt(1,fun.getCod());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             return true;
