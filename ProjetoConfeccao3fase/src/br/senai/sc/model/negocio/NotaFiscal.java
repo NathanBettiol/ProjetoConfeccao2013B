@@ -107,11 +107,4 @@ public class NotaFiscal {
         return true;
     }
 
-    public void setFuncionarioResponsavel(String showInputDialog) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setProdutos(String showInputDialog) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
