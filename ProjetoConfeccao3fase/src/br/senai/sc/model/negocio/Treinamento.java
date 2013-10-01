@@ -13,7 +13,7 @@ public class Treinamento {
     
     //Variaveis declaradas
     
-    public Long id;
+    public int id;
     public String nome;
     public int cargaHoraria;
     public String conteudo;
@@ -29,11 +29,11 @@ public class Treinamento {
     
 
     //Iniciando o id com LONG
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
     //Finalizando o id com LONG
