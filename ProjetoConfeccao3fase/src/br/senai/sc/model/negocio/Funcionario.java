@@ -20,6 +20,8 @@ public class Funcionario extends PessoaFisica {
     private Date dtAdimissao;
     private Date dtRecisao;
 
+    
+    
     public Funcionario() {
     }
 
@@ -91,7 +93,6 @@ public class Funcionario extends PessoaFisica {
     public String toString() {
         return "Código: "                    + this.getCod()
                 + "Login:  "                 + this.getLogin()
-                + "Nome: "                   + this.getNome()
                 + "Cpf: "                    + this.getCpf()
                 + "Email: "                  + this.getEmail()
                 + "Telefone: "               + this.getTelefone()
