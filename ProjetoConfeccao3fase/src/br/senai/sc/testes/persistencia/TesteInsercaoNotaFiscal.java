@@ -20,7 +20,7 @@ public class TesteInsercaoNotaFiscal {
 
     public static void main(String[] args) {
         NotaFiscal e = new NotaFiscal();
-        e.setProdutos(JOptionPane.showInputDialog("Produtos: "));
+        e.setProdutos(JOptionPane.showInputDialog(" codigo Produtos: "));
         e.setValorTotal(Double.parseDouble(JOptionPane.showInputDialog("Valor Total: ")));
         e.setDestinatario(JOptionPane.showInputDialog("Destinatário"));
         e.setRemetente(JOptionPane.showInputDialog("Remetente"));
