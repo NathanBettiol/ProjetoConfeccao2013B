@@ -11,7 +11,7 @@ public class NotaFiscal {
     private Date dataEmissao;
     private String produtos;
     private double valorTotal;
-    private String funcionarioResponsavel;
+    private int funcionarioResponsavel;
     private String destinatario;
     private String remetente;
 
@@ -45,13 +45,15 @@ public class NotaFiscal {
         this.valorTotal = valorTotal;
     }
 
-    public String getFuncionarioResponsavel() {
+    public int getFuncionarioResponsavel() {
         return funcionarioResponsavel;
     }
 
-    public void setFuncionarioResponsavel(String funcionarioResponsavel) {
+    public void setFuncionarioResponsavel(int funcionarioResponsavel) {
         this.funcionarioResponsavel = funcionarioResponsavel;
     }
+
+   
 
     public String getDestinatario() {
         return destinatario;
