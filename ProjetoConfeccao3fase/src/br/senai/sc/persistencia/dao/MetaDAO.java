@@ -11,7 +11,7 @@ public interface MetaDAO {
     /**
      * Método responsável pela inserção de um endereço 
      * na base de dados
-     * @author Rosicléia Frasson
+     * @author douglas_ghisleri
      * @version 1.0 09/09/13
      * @param m
      * @return 
@@ -21,7 +21,7 @@ public interface MetaDAO {
     /**
      * Método responsável pela atualização de um endereço
      * na base de dados
-     * @author Rosicléia Frasson
+     * @author douglas_ghisleri
      * @version 1.0 09/09/13
      * @param m
      * @return 
@@ -31,7 +31,7 @@ public interface MetaDAO {
     /**
      * Método responsável pela remoção de um endereço na
      * base de dados
-     * @author Rosicléia Frasson
+     * @author douglas_ghisleri
      * @version 1.0 09/09/13
      * @param cod_meta
      * @return 
@@ -41,7 +41,7 @@ public interface MetaDAO {
     /**
      * Método responsável pela listagem de todas os
      * endereços cadastrados na base de dados
-     * @author Rosicléia Frasson
+     * @author douglas_ghisleri
      * @version 1.0 09/09/13
      * @return 
      */
@@ -50,7 +50,7 @@ public interface MetaDAO {
     /**
      * Método responsável por buscar um endereço na base de
      * dados através de um id
-     * @author Rosicléia Frasson
+     * @author douglas_ghisleri
      * @version 1.0 09/09/13
      * @param cod_meta
      * @return 
