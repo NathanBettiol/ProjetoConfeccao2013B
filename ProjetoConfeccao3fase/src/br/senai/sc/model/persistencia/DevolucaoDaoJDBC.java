@@ -40,7 +40,7 @@ public class DevolucaoDaoJDBC {
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(INSERT);
-            pstm.setString(1, d.getDataDevolucao());
+            pstm.setDate(1, new java.sql.Date(d.getDataDevolucao().getTime()));
             pstm.setString(2, d.getPeca());
             pstm.setInt(3, d.getQuantidade());
             pstm.execute();
@@ -64,7 +64,7 @@ public class DevolucaoDaoJDBC {
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(UPDATE);
-            pstm.setString(1, d.getDataDevolucao());
+            pstm.setDate(1, new java.sql.Date(d.getDataDevolucao().getTime()));
             pstm.setString(2, d.getPeca());
             pstm.setInt(3, d.getQuantidade());
             pstm.setInt(4, d.getCod_devolucao());
@@ -117,7 +117,7 @@ public class DevolucaoDaoJDBC {
             while (rs.next()) {
                 Devolucao d = new Devolucao();
                 d.setPeca(rs.getString("Peça"));
-                d.setDataDevolucao(rs.getString("Data devolução"));
+                d.setDataDevolucao(rs.getDate("Data devolução"));
                 d.setCod_devolucao(rs.getInt("Codigo devolução"));
                 d.setQuantidade(rs.getInt("Quantidade"));
 
@@ -149,7 +149,7 @@ public class DevolucaoDaoJDBC {
             while (rs.next()) {
                 Devolucao d = new Devolucao();
                 d.setPeca(rs.getString("Peça"));
-                d.setDataDevolucao(rs.getString("Data devolução"));
+                d.setDataDevolucao(rs.getDate("Data devolução"));
                 d.setCod_devolucao(rs.getInt("Codigo devolução"));
                 d.setQuantidade(rs.getInt("Quantidade"));
                 return d;
