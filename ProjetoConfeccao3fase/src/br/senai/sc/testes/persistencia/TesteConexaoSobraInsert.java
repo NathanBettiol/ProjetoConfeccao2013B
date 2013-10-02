@@ -28,7 +28,7 @@ public class TesteConexaoSobraInsert {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
         }
-        sob.setFuncionarioResponsavel(JOptionPane.showInputDialog("funcionarioResponsavel"));
+        sob.setFuncionarioResponsavel(JOptionPane.showInputDialog("funcionario Responsavel"));
         
         SobraDAO dao = new SobradaoJDBC();
         dao.insert(sob);
