@@ -20,7 +20,7 @@ public class Ferias {
         
     }
 
-    private String funcionario;
+    private Funcionario funcionario;
     private Date dataInicio;
     private Date dataFim;
 
@@ -31,11 +31,11 @@ public class Ferias {
     //getters e setters
     
 
-    public String getFuncionario() {
+    public Funcionario getFuncionario() {
         return funcionario;
     }
 
-    public void setFuncionario(String funcionario) {
+    public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
 
@@ -89,6 +89,7 @@ public class Ferias {
                 + "\nData de Inicio: " + dataInicio 
                 + "\nData do Fim: " + dataFim;
     }
+
     
     
 }
