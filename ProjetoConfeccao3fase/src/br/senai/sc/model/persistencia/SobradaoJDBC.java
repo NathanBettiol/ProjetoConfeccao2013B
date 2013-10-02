@@ -17,8 +17,8 @@ import javax.swing.JOptionPane;
  */
 public class SobradaoJDBC implements SobraDAO {
 
-    private static final String INSERT = "insert into sobra(cod_sobra, peso, categoria, materiaPrima, dtCadastro, funcionarioResposavel, values (?,?,?,?,?,?)";
-    private static final String UPDATE = "update sobra set cod= ? , peso = ?, categoria = ?, materiaPrima = ?, dtCadasto = ?, funcionarioResponsavel = ?";
+    private static final String INSERT = "insert into sobra(peso, categoria, materiaPrima, dtCadastro, funcionarioResposavel values (?,?,?,?,?)";
+    private static final String UPDATE = "update sobra set cod = ? , peso = ?, categoria = ?, materiaPrima = ?, dtCadasto = ?, funcionarioResponsavel = ?";
     private static final String DELETE = "delete from sobra where cod_sobra = ?";
     private static final String LIST = "select * from sobra";
     private static final String LISTBYID = "select * from sobra where cod_sobra = ?";
@@ -29,12 +29,11 @@ public class SobradaoJDBC implements SobraDAO {
         try {
             con = ConnectionFactory.getConnection();
             PreparedStatement pstm = con.prepareStatement(INSERT);
-            pstm.setInt(1, sob.getCodSobra());
-            pstm.setString(2, sob.getPeso());
-            pstm.setString(3, sob.getCategoria());
-            pstm.setString(4, sob.getMateriaPrima());
-            pstm.setDate(5, new java.sql.Date(sob.getDtCadastro().getTime()));
-            pstm.setString(6, sob.getFuncionarioResponsavel());
+            pstm.setString(1, sob.getPeso());
+            pstm.setString(2, sob.getCategoria());
+            pstm.setString(3, sob.getMateriaPrima());
+            pstm.setDate(4, new java.sql.Date(sob.getDtCadastro().getTime()));
+            pstm.setString(5, sob.getFuncionarioResponsavel());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             ConnectionFactory.closeConnection(con, pstm);
@@ -46,7 +45,7 @@ public class SobradaoJDBC implements SobraDAO {
         }
     }
 
-    @Override
+   
     public boolean update(Sobra sob) {
         Connection con;
 
