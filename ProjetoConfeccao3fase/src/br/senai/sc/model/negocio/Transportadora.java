@@ -44,7 +44,7 @@ public class Transportadora extends PessoaJuridica {
         this.contato = contato;
     }
 
-//------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------
     //Equals
     @Override
     public boolean equals(Object obj) {
@@ -55,34 +55,13 @@ public class Transportadora extends PessoaJuridica {
             return false;
         }
         final Transportadora other = (Transportadora) obj;
-        if (!Objects.equals(this.getCod(), other.getCod())) {
-            return false;
-        }
-        if (!Objects.equals(this.getNmFantasia(), other.email)) {
-            return false;
-        }
-        if (!Objects.equals(this.getRazaoSocial(), other.getRazaoSocial())) {
-            return false;
-        }
-        if (!Objects.equals(this.getCnpj(), other.getCnpj())) {
-            return false;
-        }
-        if (!Objects.equals(this.getEndereco(), other.getEndereco())) {
-            return false;
-        }
-        if (!Objects.equals(this.getTelefone(), other.getTelefone())) {
-            return false;
-        }
-        if (!Objects.equals(this.contato, other.contato)) {
-            return false;
-        }
         if (!Objects.equals(this.email, other.email)) {
             return false;
         }
         if (!Objects.equals(this.paginaWeb, other.paginaWeb)) {
             return false;
         }
-        if (!Objects.equals(this.getDtCadastro(), other.getDtCadastro())) {
+        if (!Objects.equals(this.contato, other.contato)) {
             return false;
         }
         return true;
@@ -93,16 +72,9 @@ public class Transportadora extends PessoaJuridica {
     @Override
     public String toString() {
         return "------ TRANSPORTADORA ------"
-                + "\nCodigo: " + getCod()
-                + "\nNome Fantasia: " + getNmFantasia()
-                + "\nRazão Social: " + getRazaoSocial()
-                + "\nCnpj: " + getCnpj()
-                + "\nEndereco: " + getEndereco()
-                + "\nTelefone: " + getTelefone()
                 + "\nContato: " + contato
                 + "\nE-mail: " + email
                 + "\nPagina Web: " + paginaWeb
-                + "\nData de Cadastro: " + getDtCadastro()
                 + "\n\n";
     }
 }
