@@ -1,11 +1,17 @@
 package br.senai.sc.model.negocio;
 
+//------------------------------------------------------------------------------
 import java.util.Objects;
 
+//------------------------------------------------------------------------------
 /**
+ * Classe responsável por representar a transportadora, a qual se encarrega da
+ * distribuição de mercadorias
  *
  * @author wesley_s
+ * @version 1.0
  */
+//------------------------------------------------------------------------------
 public class Transportadora extends PessoaJuridica {
 
     //Atributos
@@ -13,12 +19,12 @@ public class Transportadora extends PessoaJuridica {
     private String paginaWeb;
     private String contato;
 
-//------------------------------------------------------------------------------
-    //Construtor sem parâmetros
+    //--------------------------------------------------------------------------
+    //Construtor Padrão
     public Transportadora() {
     }
 
-//------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     //Métodos getters e setters
     public String getEmail() {
         return email;
@@ -44,7 +50,7 @@ public class Transportadora extends PessoaJuridica {
         this.contato = contato;
     }
 
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     //Equals
     @Override
     public boolean equals(Object obj) {
@@ -67,8 +73,8 @@ public class Transportadora extends PessoaJuridica {
         return true;
     }
 
-//------------------------------------------------------------------------------
-    //toString
+    //--------------------------------------------------------------------------
+    //Método toString
     @Override
     public String toString() {
         return "------ TRANSPORTADORA ------"

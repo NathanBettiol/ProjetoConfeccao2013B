@@ -1,10 +1,15 @@
 package br.senai.sc.model.negocio;
 
+//------------------------------------------------------------------------------
 import java.util.Objects;
 
+//------------------------------------------------------------------------------
 /**
- * @version v1.0 04/09/2013
+ * Classe responsável por representar a assistencia que sera oferecidada as
+ * maquinas e equipamentos da confecção
+ *
  * @author wesley_s
+ * @version v1.0 04/09/2013
  */
 //------------------------------------------------------------------------------
 public class Assistencia extends PessoaJuridica {
@@ -14,13 +19,13 @@ public class Assistencia extends PessoaJuridica {
     private String paginaWeb;
     private String contato;
 
-//------------------------------------------------------------------------------
-    //Construtor default
+    //--------------------------------------------------------------------------
+    //Construtor Padrão
     public Assistencia() {
     }
 
-//------------------------------------------------------------------------------
-    //Getters e Setters
+    //--------------------------------------------------------------------------
+    //Métodos getters e setters
     public String getEmail() {
         return email;
     }
@@ -44,9 +49,8 @@ public class Assistencia extends PessoaJuridica {
     public void setContato(String contato) {
         this.contato = contato;
     }
-    //Fim Getters e Setters
 
-//------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     //Método equals
     @Override
     public boolean equals(Object obj) {
@@ -57,54 +61,26 @@ public class Assistencia extends PessoaJuridica {
             return false;
         }
         final Assistencia other = (Assistencia) obj;
-        if (this.getCod() != other.getCod()) {
+        if (!Objects.equals(this.email, other.email)) {
             return false;
         }
-        if (!Objects.equals(this.getNmFantasia(), other.getNmFantasia())) {
+        if (!Objects.equals(this.paginaWeb, other.paginaWeb)) {
             return false;
         }
-        if (!Objects.equals(this.getRazaoSocial(), other.getRazaoSocial())) {
-            return false;
-        }
-        if (!Objects.equals(this.getCnpj(), other.getCnpj())) {
-            return false;
-        }
-        if (!Objects.equals(this.getTelefone(), other.getTelefone())) {
-            return false;
-        }
-        if (!Objects.equals(this.getEndereco(), other.getEndereco())) {
-            return false;
-        }
-        if (!Objects.equals(this.getEmail(), other.getEmail())) {
-            return false;
-        }
-        if (!Objects.equals(this.getPaginaWeb(), other.getPaginaWeb())) {
-            return false;
-        }
-        if (!Objects.equals(this.getContato(), other.getContato())) {
-            return false;
-        }
-        if (!Objects.equals(this.getDtCadastro(), other.getDtCadastro())) {
+        if (!Objects.equals(this.contato, other.contato)) {
             return false;
         }
         return true;
     }
 
-//------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     //Método toString
     @Override
     public String toString() {
         return "------ ASSISTÊNCIA ------"
-                + "\nCódigo: " + getCod()
-                + "\nNome Fantasia: " + getNmFantasia()
-                + "\nRazao Social: " + getRazaoSocial()
-                + "\nCNPJ: " + getCnpj()
-                + "\nTelefone: " + getTelefone()
-                + "\nEndereço: " + getEndereco()
                 + "\nE-mail: " + email
                 + "\nPágina Web: " + paginaWeb
                 + "\nContato: " + contato
-                + "\nData de Cadastro: " + getDtCadastro()
                 + "\n\n";
     }
 }
