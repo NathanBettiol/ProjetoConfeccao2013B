@@ -6,20 +6,19 @@ import br.senai.sc.persistencia.dao.CategoriaColecaoDAO;
 import java.sql.SQLException;
 
 /**
- * Teste de inserção de banco no banco da classe CategoriaColecao
+ * Teste de remoção de banco da classe CategoriaColecao
  *
  * @author Gabriel Arsênio
- * @version 1.0 01/10/2013
+ * @version 1.0 04/10/2013
  */
-public class TesteInsercaoCategoriaColecao {
-    
+public class TesteCategoriaColecaoRemocao {
+
     public static void main(String[] args) throws SQLException {
-        
         CategoriaColecao cc = new CategoriaColecao();
-        cc.setDescricaoCategoriaColecao("Descrição da categoria de verão");
-        cc.setNomeCategoriaColecao("Verão");
-        
+        cc.setCodCategoriaColecao(1);
+
         CategoriaColecaoDAO dao = new CategoriaColecaoDaoJDBC();
-        dao.insert(cc);
+        dao.delete(cc.getCodCategoriaColecao());
+
     }
 }

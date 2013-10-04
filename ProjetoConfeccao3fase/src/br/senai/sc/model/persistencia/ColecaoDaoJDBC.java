@@ -80,7 +80,7 @@ public class ColecaoDaoJDBC implements ColecaoDAO {
             pstm.setString(3, c.getPubAlvoColecao());
             pstm.setInt(4, 1);
             pstm.setInt(5, 1);
-            pstm.setInt(6, c.getCodColecao());
+            pstm.setInt(6, 3);
             //Executa o comando
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Alterado com sucesso!");

@@ -96,6 +96,8 @@ public class CategoriaColecaoDaoJDBC implements CategoriaColecaoDAO{
             //Percorre a lista colocando os resultados dentro do ResultSet rs
             while (rs.next()) {
                 CategoriaColecao cc = new CategoriaColecao();
+                
+                cc.setCodCategoriaColecao(rs.getInt("cod_categoria"));
                 //Pega os valores que estão no campo "nm_categoria_colecao" da tabela
                 cc.setNomeCategoriaColecao(rs.getString("nm_categoria_colecao"));
                 //pega os valores que estão no campo "descricao" da tabela

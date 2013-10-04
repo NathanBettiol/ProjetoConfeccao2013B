@@ -6,23 +6,23 @@ import br.senai.sc.persistencia.dao.ColecaoDAO;
 import java.sql.SQLException;
 
 /**
- * Teste de inserção de banco no banco da classe Colecao
+ * Teste de atualização de banco no banco da classe Colecao
  *
  * @author Gabriel Arsênio
  * @version 1.0 01/10/2013
  */
-public class TesteInsercaoColecao {
+public class TesteColecaoAtualizacao {
 
     public static void main(String[] args) throws SQLException {
 
         Colecao c = new Colecao();
         c.setAnoColecao(2013);
         c.setCategoriaColecao(null);
-        c.setEstacaoColecao("Verão");
+        c.setEstacaoColecao("Inverno");
         c.setFunResponsavelColecao(null);
-        c.setPubAlvoColecao("Jovens");
+        c.setPubAlvoColecao("Adultos");
 
         ColecaoDAO dao = new ColecaoDaoJDBC();
-        dao.insert(c);
+        dao.update(c);
     }
 }
