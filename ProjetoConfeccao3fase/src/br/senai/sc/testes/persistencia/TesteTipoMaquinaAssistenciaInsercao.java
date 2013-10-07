@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * @author Gabriel Arsênio
  * @version 1.0 01/10/2013
  */
-public class TesteInsercaoTipoMaquinaAssistencia {
+public class TesteTipoMaquinaAssistenciaInsercao {
     
     public static void main(String[] args) throws SQLException {
         

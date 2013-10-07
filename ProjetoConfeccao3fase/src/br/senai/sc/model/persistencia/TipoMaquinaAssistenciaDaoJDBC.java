@@ -34,7 +34,7 @@ public class TipoMaquinaAssistenciaDaoJDBC implements TipoMaquinaAssistenciaDAO 
         //Cria uma nova conexão
         Connection con = null;
         try {
-            //Abre a conexão 'conn'
+            //Abre a conexão 'con'
             con = ConnectionFactory.getConnection();
             //Recebe a String com o comando SQL, no caso, o comando INSERT
             PreparedStatement pstm = con.prepareStatement(INSERT);
@@ -82,7 +82,27 @@ public class TipoMaquinaAssistenciaDaoJDBC implements TipoMaquinaAssistenciaDAO 
 
     @Override
     public boolean delete(int cod) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Cria uma nova conexão
+        Connection con = null;
+        try {
+            //Abre a conexão
+            con = ConnectionFactory.getConnection();
+            //Executa o comando SQL
+            PreparedStatement pstm = con.prepareStatement(DELETE);
+            //Substitui os pontos de interrogação do comando            
+            pstm.setInt(1, cod);
+            //Executa o comando
+            pstm.execute();
+            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+            //Fecha a conexão e o statement
+            ConnectionFactory.closeConnection(con, pstm);
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir: " + ex.getMessage());
+            //Fecha a conexão
+            ConnectionFactory.closeConnection(con);
+            return false;
+        }
     }
 
     @Override

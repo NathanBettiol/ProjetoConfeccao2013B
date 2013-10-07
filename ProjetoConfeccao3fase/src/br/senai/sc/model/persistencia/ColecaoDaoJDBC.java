@@ -29,7 +29,7 @@ public class ColecaoDaoJDBC implements ColecaoDAO {
             + "pub_alvo = ?, cod_funcionario = ?, categoria_colecao_cod_categoria = ? "
             + "where cod_colecao = ?";
     private static final String DELETE = "DELETE FROM colecao "
-            + "WHERE cod_categoria = ?";
+            + "WHERE cod_colecao = ?";
     private static final String SELECT = "select * from colecao";
 
     //Método de inserção de valores da tabela categoria_colecao
@@ -146,9 +146,9 @@ public class ColecaoDaoJDBC implements ColecaoDAO {
                 //Pega os valores que estão no campo "pub_alvo" da tabela
                 c.setPubAlvoColecao(rs.getString("pub_alvo"));
                 //Pega os valores que estão no campo "cod_funcionario" da tabela
-                c.setFunResponsavelColecao((Funcionario) rs.getObject("cod_funcionario"));
+                
                 //Pega os valores que estão no campo "categoria_colecao_cod_categoria" da tabela
-                c.setCategoriaColecao((CategoriaColecao) rs.getObject("categoria_colecao_cod_categoria"));
+                
                 //Adiciona os valores na lista
                 listaColecao.add(c);
             }
