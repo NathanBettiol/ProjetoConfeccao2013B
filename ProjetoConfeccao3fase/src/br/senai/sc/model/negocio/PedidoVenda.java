@@ -12,12 +12,12 @@ public class PedidoVenda {
 
     private int codPedidoVenda;
     private int numPedido;
-    private String cliente;
+    private PessoaJuridica cliente;
     private Date dtCadastro;
     private Date dtEntrega;
     private double valorTotal;
     private String formaPagamento;
-    private String transportadoraResp;
+    private Transportadora transportadoraResp;
     private int notaFiscal;
 
     //Métodos Getters e Setters
@@ -37,11 +37,11 @@ public class PedidoVenda {
         this.numPedido = numPedido;
     }
 
-    public String getCliente() {
+    public PessoaJuridica getCliente() {
         return cliente;
     }
 
-    public void setCliente(String cliente) {
+    public void setCliente(PessoaJuridica cliente) {
         this.cliente = cliente;
     }
 
@@ -77,11 +77,11 @@ public class PedidoVenda {
         this.formaPagamento = formaPagamento;
     }
 
-    public String getTransportadoraResp() {
+    public Transportadora getTransportadoraResp() {
         return transportadoraResp;
     }
 
-    public void setTransportadoraResp(String transportadoraResp) {
+    public void setTransportadoraResp(Transportadora transportadoraResp) {
         this.transportadoraResp = transportadoraResp;
     }
 
