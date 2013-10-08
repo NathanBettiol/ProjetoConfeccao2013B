@@ -1,6 +1,8 @@
 package br.senai.sc.model.persistencia;
 
 import br.senai.sc.model.negocio.PedidoVenda;
+import br.senai.sc.model.negocio.PessoaJuridica;
+import br.senai.sc.model.negocio.Transportadora;
 import br.senai.sc.persistencia.dao.PedidoVendaDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,7 +34,7 @@ public class PedidoVendaDaoJDBC implements PedidoVendaDAO {
             PreparedStatement pstm = con.prepareStatement(INSERT);
             pstm.setString(1, Integer.toString(pev.getCodPedidoVenda()));
             pstm.setString(2, Integer.toString(pev.getNumPedido()));
-            pstm.setString(3, pev.getCliente());
+            pstm.setInt(3, pev.getCliente().getCod());
             try {
                 String data = JOptionPane.showInputDialog("Data Cadastro");
 
@@ -50,7 +52,7 @@ public class PedidoVendaDaoJDBC implements PedidoVendaDAO {
             }
             pstm.setString(4, Double.toString(pev.getValorTotal()));
             pstm.setString(5, pev.getFormaPagamento());
-            pstm.setString(6, pev.getTransportadoraResp());
+            pstm.setInt(6, pev.getTransportadoraResp().getCod());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             ConnectionFactory.closeConnection(con, pstm);
@@ -70,12 +72,12 @@ public class PedidoVendaDaoJDBC implements PedidoVendaDAO {
             PreparedStatement pstm = con.prepareStatement(UPDATE);
 
             pstm.setString(1, Integer.toString(pev.getNumPedido()));
-            pstm.setString(2, pev.getCliente());
+            pstm.setInt(2, pev.getCliente().getCod());
             pstm.setDate(3, new java.sql.Date(pev.getDtCadastro().getTime()));
             pstm.setDate(4, new java.sql.Date(pev.getDtEntrega().getTime()));
             pstm.setString(5, Double.toString(pev.getValorTotal()));
             pstm.setString(6, pev.getFormaPagamento());
-            pstm.setString(7,pev.getTransportadoraResp());
+            pstm.setInt(7,pev.getTransportadoraResp().getCod());
             pstm.setString(8,Integer.toString(pev.getCodPedidoVenda()));
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
@@ -119,7 +121,10 @@ public class PedidoVendaDaoJDBC implements PedidoVendaDAO {
                 PedidoVenda pev = new PedidoVenda();
                 pev.setCodPedidoVenda(rs.getInt("cod_pedido_venda"));
                 pev.setNumPedido(rs.getInt("num_pedido"));
-                pev.setCliente(rs.getString("Cliente"));
+                PessoaJuridica p = new PessoaJuridica();
+                p.setCod(rs.getInt("cliente"));
+                pev.setCliente(p);
+                
                 try {
                     String data = JOptionPane.showInputDialog("Data Cadastro");
 
@@ -135,7 +140,9 @@ public class PedidoVendaDaoJDBC implements PedidoVendaDAO {
                     JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
                 }
                 pev.setValorTotal(rs.getDouble("valor_total"));
-                pev.setTransportadoraResp(rs.getString("trasnsportadora_responsavel"));
+                Transportadora t = new Transportadora();
+                t.setCod(rs.getInt("transportadora_responsavel"));
+                pev.setTransportadoraResp(t);
                
 
                
