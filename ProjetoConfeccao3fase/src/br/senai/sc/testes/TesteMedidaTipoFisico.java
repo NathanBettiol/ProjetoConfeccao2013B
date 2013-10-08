@@ -27,23 +27,9 @@ public class TesteMedidaTipoFisico {
         //Instancia da classe Usuario
         Usuario usuario = new Usuario();
 
-        usuario.setCod(Integer.parseInt(JOptionPane.showInputDialog("Informe o código: ")));
-        usuario.setNome(JOptionPane.showInputDialog("Digite seu nome: "));
-        usuario.setCpf(JOptionPane.showInputDialog("Informe o cpf: "));
-        try {
-            String data = JOptionPane.showInputDialog("Data de Cadastro: ");
-            usuario.setDtCadastro((Date) new SimpleDateFormat("dd/MM/yyyy").parse(data));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Data incorreta: " + e);
-        }
-        try {
-            String data = JOptionPane.showInputDialog("Data de Nascimento: ");
-            usuario.setDataNascimento((Date) new SimpleDateFormat("dd/MM/yyyy").parse(data));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Data incorreta: " + e);
-        }
-        usuario.setEmail(JOptionPane.showInputDialog("Informe seu E-mail: "));
-        usuario.setEndereco(JOptionPane.showInputDialog("Informe o endereço: "));
+        
+        usuario.setNome(JOptionPane.showInputDialog("Digite seu nome: "));       
+        usuario.setEmail(JOptionPane.showInputDialog("Informe seu E-mail: "));       
         usuario.setLogin(JOptionPane.showInputDialog("Entre com o login: "));
         usuario.setSenha(JOptionPane.showInputDialog("Digite sua senha: "));
 
