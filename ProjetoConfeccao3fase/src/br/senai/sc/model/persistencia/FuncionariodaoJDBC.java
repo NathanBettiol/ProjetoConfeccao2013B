@@ -22,7 +22,6 @@ public class FuncionariodaoJDBC implements FuncionarioDAO {
     private static final String LIST = "select * from funcionario";
     private static final String LISTBYID = "select * from funcionario where cod_funcionario = ?";
 
-    
     public boolean insert(Funcionario fun) {
         Connection con;
 
@@ -32,16 +31,16 @@ public class FuncionariodaoJDBC implements FuncionarioDAO {
             pstm.setString(1, fun.getNome());
             pstm.setString(2, fun.getCpf());
             pstm.setString(3, fun.getRg());
-            
-            pstm.setDate(4,new java.sql.Date(fun.getDtNascimento().getTime()));
-           
+
+            pstm.setDate(4, new java.sql.Date(fun.getDtNascimento().getTime()));
+
             pstm.setString(5, fun.getLogin());
             pstm.setString(6, fun.getEmail());
             pstm.setString(7, fun.getCtps());
             pstm.setString(8, fun.getCargo());
             pstm.setString(9, Double.toString(fun.getSalario()));
             pstm.setDate(10, new java.sql.Date(fun.getDtAdimissao().getTime()));
-            pstm.setDate(11,new java.sql.Date(fun.getDtRecisao().getTime()));
+            pstm.setDate(11, new java.sql.Date(fun.getDtRecisao().getTime()));
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             ConnectionFactory.closeConnection(con, pstm);
@@ -59,11 +58,11 @@ public class FuncionariodaoJDBC implements FuncionarioDAO {
         try {
             con = ConnectionFactory.getConnection();
             PreparedStatement pstm = con.prepareStatement(UPDATE);
-            
+
             pstm.setString(1, fun.getNome());
             pstm.setString(2, fun.getCpf());
             pstm.setString(3, fun.getRg());
-            pstm.setDate(4,new java.sql.Date(fun.getDtNascimento().getTime()));
+            pstm.setDate(4, new java.sql.Date(fun.getDtNascimento().getTime()));
             pstm.setString(5, fun.getLogin());
             pstm.setString(6, fun.getEmail());
             pstm.setString(7, fun.getCtps());
@@ -71,7 +70,7 @@ public class FuncionariodaoJDBC implements FuncionarioDAO {
             pstm.setString(9, Double.toString(fun.getSalario()));
 
             pstm.setDate(10, new java.sql.Date(fun.getDtAdimissao().getTime()));
-            pstm.setDate(11,new java.sql.Date(fun.getDtRecisao().getTime()));
+            pstm.setDate(11, new java.sql.Date(fun.getDtRecisao().getTime()));
             pstm.setInt(12, fun.getCod());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
@@ -89,7 +88,7 @@ public class FuncionariodaoJDBC implements FuncionarioDAO {
         try {
             con = ConnectionFactory.getConnection();
             PreparedStatement pstm = con.prepareStatement(DELETE);
-            pstm.setInt(1,fun.getCod());
+            pstm.setInt(1, fun.getCod());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso");
             return true;
@@ -100,7 +99,41 @@ public class FuncionariodaoJDBC implements FuncionarioDAO {
         }
     }
 
-    public List<Funcionario> ListAll() {
+    public Funcionario listById(int id) {
+        Connection con;
+
+        try {
+
+            con = ConnectionFactory.getConnection();
+            PreparedStatement pstm = con.prepareStatement(LISTBYID);
+            pstm.setInt(1, id);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                Funcionario fun = new Funcionario();
+                fun.setCod(rs.getInt("cod_funcionario"));
+                fun.setLogin(rs.getString("Login"));
+                fun.setEmail(rs.getString("Email"));
+                fun.setCtps(rs.getString("Ctps"));
+                fun.setCargo(rs.getString("Cargo"));
+                fun.setSalario(rs.getDouble("Salário"));
+                fun.setDtAdimissao(rs.getDate("Data de adimissão"));
+                fun.setDtRecisao(rs.getDate("Data de recisão"));
+                return fun;
+
+            }
+
+            ConnectionFactory.closeConnection(con, pstm);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Não foi possível efetuar a transação" + ex.getMessage());
+        }
+
+        return null;
+
+    }
+
+    
+    @Override
+    public List<Funcionario> listAll() {
         Connection con;
         List<Funcionario> funcionarios = new ArrayList<>();
 
@@ -143,37 +176,5 @@ public class FuncionariodaoJDBC implements FuncionarioDAO {
 
         }
         return funcionarios;
-    }
-
-    public Funcionario listById(int id) {
-        Connection con;
-
-        try {
-
-            con = ConnectionFactory.getConnection();
-            PreparedStatement pstm = con.prepareStatement(LISTBYID);
-            pstm.setInt(1, id);
-            ResultSet rs = pstm.executeQuery();
-            while (rs.next()) {
-                Funcionario fun = new Funcionario();
-                fun.setCod(rs.getInt("cod_funcionario"));
-                fun.setLogin(rs.getString("Login"));
-                fun.setEmail(rs.getString("Email"));
-                fun.setCtps(rs.getString("Ctps"));
-                fun.setCargo(rs.getString("Cargo"));
-                fun.setSalario(rs.getDouble("Salário"));
-                fun.setDtAdimissao(rs.getDate("Data de adimissão"));
-                fun.setDtRecisao(rs.getDate("Data de recisão"));
-                return fun;
-
-            }
-
-            ConnectionFactory.closeConnection(con, pstm);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Não foi possível efetuar a transação" + ex.getMessage());
-        }
-
-        return null;
-
     }
 }
