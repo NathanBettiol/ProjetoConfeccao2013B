@@ -39,14 +39,6 @@ public interface FuncionarioDAO {
      */
     boolean delete(Funcionario fun);
 
-    /*
-     * Método responsável pela listagem dos funcionários.
-     * @version 1.0 16/09/2013
-     * @author Patricia Gageiro
-     * @param p
-     * @return
-     */
-    List<Funcionario> ListAll();
     
     /*
      * Método responsável pela listagem por id dos funcionários.
