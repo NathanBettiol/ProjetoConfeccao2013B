@@ -56,4 +56,7 @@ public interface FuncionarioDAO {
      * @return
      */
     Funcionario listById(int id);
+
+    public List<Funcionario> listAll();
+
 }
