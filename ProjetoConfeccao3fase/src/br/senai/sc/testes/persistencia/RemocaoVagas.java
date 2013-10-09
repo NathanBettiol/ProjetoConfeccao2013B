@@ -17,7 +17,7 @@ public class RemocaoVagas {
         
         VagasDAO dao = new VagasDaoJDBC();
         
-        dao.delete(0);
+        dao.delete(1);
         
         
     }
