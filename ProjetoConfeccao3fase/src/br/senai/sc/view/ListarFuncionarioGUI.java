@@ -37,11 +37,11 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         painelFuncionario = new javax.swing.JPanel();
         txBuscar = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txDeletar = new javax.swing.JLabel();
-        txEditar = new javax.swing.JLabel();
         scrollFuncionario = new javax.swing.JScrollPane();
         jLabel5 = new javax.swing.JLabel();
+        btInserir = new javax.swing.JButton();
+        btEditar = new javax.swing.JButton();
+        btDeletar = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -57,49 +57,38 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
 
         painelFuncionario.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sc/view/img/inserir.jpg"))); // NOI18N
-        jLabel4.setText("Inserir");
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        txDeletar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        txDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sc/view/img/deletar.jpg"))); // NOI18N
-        txDeletar.setText("Deletar");
-        txDeletar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        txDeletar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        txEditar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        txEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sc/view/img/editar.jpg"))); // NOI18N
-        txEditar.setText("Editar");
-        txEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        txEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel5.setText("Pesquisar:  ");
+
+        btInserir.setText("Inserir");
+
+        btEditar.setText("Editar");
+
+        btDeletar.setText("Deletar");
 
         javax.swing.GroupLayout painelFuncionarioLayout = new javax.swing.GroupLayout(painelFuncionario);
         painelFuncionario.setLayout(painelFuncionarioLayout);
         painelFuncionarioLayout.setHorizontalGroup(
             painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFuncionarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(scrollFuncionario)
                 .addGap(23, 23, 23))
             .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txEditar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txDeletar)
-                .addGap(33, 33, 33))
+                .addGap(41, 41, 41)
+                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
+                        .addComponent(btInserir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btDeletar)
+                        .addGap(42, 42, 42))))
         );
         painelFuncionarioLayout.setVerticalGroup(
             painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,12 +97,12 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
                 .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(31, 31, 31)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txEditar)
-                    .addComponent(jLabel4)
-                    .addComponent(txDeletar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(40, 40, 40)
+                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btInserir)
+                    .addComponent(btEditar)
+                    .addComponent(btDeletar))
+                .addGap(55, 55, 55)
                 .addComponent(scrollFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -167,18 +156,18 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btDeletar;
+    private javax.swing.JButton btEditar;
+    private javax.swing.JButton btInserir;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel painelFuncionario;
     private javax.swing.JScrollPane scrollFuncionario;
     private javax.swing.JTextField txBuscar;
-    private javax.swing.JLabel txDeletar;
-    private javax.swing.JLabel txEditar;
     // End of variables declaration//GEN-END:variables
 
     private void criaJTable() {
