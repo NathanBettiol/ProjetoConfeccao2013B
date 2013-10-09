@@ -5,9 +5,12 @@
 package br.senai.sc.model.persistencia;
 
 import br.senai.sc.model.negocio.Medida;
+import br.senai.sc.model.negocio.Usuario;
 import br.senai.sc.persistencia.dao.MedidaDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -85,8 +88,34 @@ public class MedidaDaoJDBC implements MedidaDAO {
 
     }
 
-    @Override
     public List<Medida> listall() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Medida> medidas = new ArrayList<>();
+        Connection conn;
+        try {
+            conn = ConnectionFactory.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(LIST);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                Medida m = new Medida();
+                Usuario u = new Usuario();
+
+                m.setCodigo(rs.getInt("cod_medidas"));
+                
+                u.setNome(rs.getString("nome"));
+                m.setUsuario(u);
+                
+                m.setMdBusto(rs.getDouble("md_busto"));
+                m.setMdCintura(rs.getDouble("md_cintura"));
+                m.setMdQuadril(rs.getDouble("md_quadril"));
+                m.setMdOmbros(rs.getDouble("md_ombros"));
+                m.setAltura(rs.getDouble("altura"));
+
+            }
+            ConnectionFactory.closeConnection(conn, pstm);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro. " + ex.getMessage());
+        }
+        return medidas;
     }
 }
