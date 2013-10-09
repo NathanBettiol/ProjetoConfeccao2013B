@@ -52,9 +52,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButton15 = new javax.swing.JButton();
-        btPessoa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1024, 768));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         PainelFundo.setBackground(new java.awt.Color(255, 255, 255));
         PainelFundo.setLayout(new java.awt.GridLayout(6, 1));
@@ -64,6 +66,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         painelBiotipo.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         painelBiotipo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\biotipo.jpg")); // NOI18N
         btUsuario.setText("Usuário");
         btUsuario.setBorder(null);
         btUsuario.setContentAreaFilled(false);
@@ -74,29 +77,33 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 btUsuarioActionPerformed(evt);
             }
         });
-        painelBiotipo.add(btUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 70, 80));
+        painelBiotipo.add(btUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 70, 80));
 
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\biotipo.jpg")); // NOI18N
         jButton2.setText("Medida");
         jButton2.setBorder(null);
         jButton2.setContentAreaFilled(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        painelBiotipo.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 70, 80));
+        painelBiotipo.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 70, 80));
 
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\biotipo.jpg")); // NOI18N
         jButton3.setText("Tipo Fisico");
         jButton3.setBorder(null);
         jButton3.setContentAreaFilled(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        painelBiotipo.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 70, 80));
+        painelBiotipo.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 70, 80));
 
+        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\biotipo.jpg")); // NOI18N
         jButton4.setText("Coleção");
         jButton4.setBorder(null);
         jButton4.setContentAreaFilled(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        painelBiotipo.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 80, 80));
+        painelBiotipo.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 80, 80));
 
+        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\biotipo.jpg")); // NOI18N
         jButton5.setText("Categoria Coleção");
         jButton5.setToolTipText("");
         jButton5.setBorder(null);
@@ -108,7 +115,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        painelBiotipo.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 80));
+        painelBiotipo.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 90, 80));
 
         PainelFundo.add(painelBiotipo);
 
@@ -116,19 +123,23 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         painelEstoque.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estoque", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
         painelEstoque.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btEntrada.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\estoque.jpg")); // NOI18N
         btEntrada.setText("Entrada");
         btEntrada.setBorder(null);
         btEntrada.setContentAreaFilled(false);
         btEntrada.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btEntrada.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        painelEstoque.add(btEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 70, 100));
+        painelEstoque.add(btEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 100));
 
+        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\estoque.jpg")); // NOI18N
         jButton6.setText("Produto");
+        jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        painelEstoque.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 70, 100));
+        painelEstoque.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 70, 100));
 
+        jButton7.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\estoque.jpg")); // NOI18N
         jButton7.setText("Matéria Prima");
         jButton7.setBorder(null);
         jButton7.setContentAreaFilled(false);
@@ -139,8 +150,9 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        painelEstoque.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 70, 100));
+        painelEstoque.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 70, 100));
 
+        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\estoque.jpg")); // NOI18N
         jButton8.setText("Categoria Matéria Prima");
         jButton8.setBorder(null);
         jButton8.setContentAreaFilled(false);
@@ -148,7 +160,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton8.setIconTextGap(10);
         jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        painelEstoque.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 70, 120));
+        painelEstoque.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 70, 120));
 
         PainelFundo.add(painelEstoque);
 
@@ -156,6 +168,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         painelFinanceiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Financeiro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
         painelFinanceiro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\financeiro.jpg")); // NOI18N
         jButton1.setText("Nota Fiscal");
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
@@ -169,13 +182,17 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         painelPcp.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PCP", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
         painelPcp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btFornecedor.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\pcp.jpg")); // NOI18N
         btFornecedor.setText("Fornecedor");
+        btFornecedor.setBorderPainted(false);
         btFornecedor.setContentAreaFilled(false);
         btFornecedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btFornecedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         painelPcp.add(btFornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 100));
 
+        jButton9.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\pcp.jpg")); // NOI18N
         jButton9.setText("Trasnportadora");
+        jButton9.setBorderPainted(false);
         jButton9.setContentAreaFilled(false);
         jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -186,7 +203,9 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         });
         painelPcp.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 110, 100));
 
+        jButton10.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\pcp.jpg")); // NOI18N
         jButton10.setText("Conserto");
+        jButton10.setBorderPainted(false);
         jButton10.setContentAreaFilled(false);
         jButton10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -198,32 +217,42 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         PainelRh.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RH", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
         PainelRh.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btFuncionario.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\rh.jpg")); // NOI18N
         btFuncionario.setText("Funcionário");
         btFuncionario.setToolTipText("Funcionário");
+        btFuncionario.setBorderPainted(false);
         btFuncionario.setContentAreaFilled(false);
         btFuncionario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btFuncionario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         PainelRh.add(btFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 90, 100));
 
+        jButton11.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\rh.jpg")); // NOI18N
         jButton11.setText("Férias");
+        jButton11.setBorderPainted(false);
         jButton11.setContentAreaFilled(false);
         jButton11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         PainelRh.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 70, 100));
 
+        jButton12.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\rh.jpg")); // NOI18N
         jButton12.setText("Currículo");
+        jButton12.setBorderPainted(false);
         jButton12.setContentAreaFilled(false);
         jButton12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         PainelRh.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 80, 100));
 
+        jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\rh.jpg")); // NOI18N
         jButton13.setText("Vagas");
+        jButton13.setBorderPainted(false);
         jButton13.setContentAreaFilled(false);
         jButton13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton13.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         PainelRh.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 60, 100));
 
+        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\rosicleia.souza\\Documents\\NetBeansProjects\\ProjetoConfeccao2013B\\ProjetoConfeccao3fase\\image\\rh.jpg")); // NOI18N
         jButton14.setText("Treinamento");
+        jButton14.setBorderPainted(false);
         jButton14.setContentAreaFilled(false);
         jButton14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton14.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -241,14 +270,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jButton15.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jPanel1.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 30, 80, -1));
 
-        btPessoa.setText("Pessoa");
-        btPessoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btPessoaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btPessoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
-
         PainelFundo.add(jPanel1);
 
         getContentPane().add(PainelFundo, java.awt.BorderLayout.CENTER);
@@ -259,12 +280,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private void btUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btUsuarioActionPerformed
-
-    private void btPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPessoaActionPerformed
-        ListarPessoaGUI lp = new ListarPessoaGUI();
-        lp.setLocationRelativeTo(null);
-        lp.setVisible(true);
-    }//GEN-LAST:event_btPessoaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -284,7 +299,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btEntrada;
     private javax.swing.JButton btFornecedor;
     private javax.swing.JButton btFuncionario;
-    private javax.swing.JButton btPessoa;
     private javax.swing.JButton btUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;

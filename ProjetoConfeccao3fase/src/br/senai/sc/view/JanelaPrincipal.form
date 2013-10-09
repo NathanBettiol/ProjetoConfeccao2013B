@@ -3,6 +3,15 @@
 <Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1024, 768]"/>
+    </Property>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[800, 600]"/>
+    </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[800, 600]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -18,7 +27,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,-124,0,0,6,56"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,88,0,0,3,32"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -64,6 +73,9 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btUsuario">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\biotipo.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -77,12 +89,15 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="40" width="70" height="80"/>
+                  <AbsoluteConstraints x="10" y="20" width="70" height="80"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\biotipo.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Medida"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -93,12 +108,15 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="90" y="40" width="70" height="80"/>
+                  <AbsoluteConstraints x="90" y="20" width="70" height="80"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButton3">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\biotipo.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Tipo Fisico"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -109,12 +127,15 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="160" y="40" width="70" height="80"/>
+                  <AbsoluteConstraints x="160" y="20" width="70" height="80"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButton4">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\biotipo.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cole&#xe7;&#xe3;o"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -125,12 +146,15 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="230" y="40" width="80" height="80"/>
+                  <AbsoluteConstraints x="230" y="20" width="80" height="80"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\biotipo.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Categoria Cole&#xe7;&#xe3;o"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -145,7 +169,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="300" y="40" width="90" height="80"/>
+                  <AbsoluteConstraints x="300" y="20" width="90" height="80"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -172,6 +196,9 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btEntrada">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\estoque.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Entrada"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -182,25 +209,32 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="30" width="70" height="100"/>
+                  <AbsoluteConstraints x="10" y="10" width="70" height="100"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButton6">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\estoque.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Produto"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="80" y="30" width="70" height="100"/>
+                  <AbsoluteConstraints x="80" y="10" width="70" height="100"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButton7">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\estoque.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Mat&#xe9;ria Prima"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -214,12 +248,15 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="30" width="70" height="100"/>
+                  <AbsoluteConstraints x="150" y="10" width="70" height="100"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButton8">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\estoque.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Categoria Mat&#xe9;ria Prima"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -232,7 +269,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="230" y="20" width="70" height="120"/>
+                  <AbsoluteConstraints x="230" y="0" width="70" height="120"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -259,6 +296,9 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\financeiro.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nota Fiscal"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -296,7 +336,11 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btFornecedor">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\pcp.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Fornecedor"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
@@ -309,7 +353,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton9">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\pcp.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Trasnportadora"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
@@ -325,7 +373,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton10">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\pcp.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Conserto"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
@@ -359,8 +411,12 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btFuncionario">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\rh.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Funcion&#xe1;rio"/>
                 <Property name="toolTipText" type="java.lang.String" value="Funcion&#xe1;rio"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
@@ -373,7 +429,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton11">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\rh.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="F&#xe9;rias"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
@@ -386,7 +446,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton12">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\rh.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Curr&#xed;culo"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
@@ -399,7 +463,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton13">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\rh.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Vagas"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
@@ -412,7 +480,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton14">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\rosicleia.souza\Documents\NetBeansProjects\ProjetoConfeccao2013B\ProjetoConfeccao3fase\image\rh.jpg"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Treinamento"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
@@ -462,19 +534,6 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="9" y="30" width="80" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JButton" name="btPessoa">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Pessoa"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btPessoaActionPerformed"/>
-              </Events>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="110" y="40" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
