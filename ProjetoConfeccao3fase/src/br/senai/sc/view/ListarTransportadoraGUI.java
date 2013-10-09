@@ -7,7 +7,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author patricia_gageiro
+ * @author wesley_s
  * @version 1.0 09/10/2013
  */
 public class ListarTransportadoraGUI extends javax.swing.JFrame {
