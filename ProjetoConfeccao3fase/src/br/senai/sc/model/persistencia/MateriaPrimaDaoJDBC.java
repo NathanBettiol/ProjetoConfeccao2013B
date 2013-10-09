@@ -127,7 +127,7 @@ public class MateriaPrimaDaoJDBC implements MateriaPrimaDAO {
                 mp.setTpUnidade(rs.getString("tipo unidade"));
 
                 mp.setQuantidade(rs.getInt("quantidade"));
-              //  mp.setFornecedor(rs.getString("fornecedor"));
+              //mp.setFornecedor(rs.getString("fornecedor"));
 
                 materiaprima.add(mp);
             }

@@ -37,7 +37,7 @@ public class TesteConexaoTransportadoraInsercao {
             t.setDtCadastro(new SimpleDateFormat("dd/MM/yyyy").parse(
                     dtCadastro));
         } catch (ParseException ex) {
-            System.out.println("Erro ao converter a data de nascimento");
+            System.out.println("Erro ao converter a data de cadastro");
         }
 
         TransportadoraDAO daoTrans = new TransportadoraDaoJDBC();
