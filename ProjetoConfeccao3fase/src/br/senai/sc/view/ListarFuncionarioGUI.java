@@ -2,6 +2,7 @@ package br.senai.sc.view;
 
 import br.senai.sc.controller.FuncionarioController;
 import br.senai.sc.model.negocio.Funcionario;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -12,8 +13,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ListarFuncionarioGUI extends javax.swing.JFrame {
 
-    private DefaultTableModel modelo;
+ 
     private JTable tabela;
+    private DefaultTableModel modelo = new DefaultTableModel();
 
     public ListarFuncionarioGUI() {
         initComponents();
@@ -60,35 +62,38 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel5.setText("Pesquisar:  ");
 
+        btInserir.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btInserir.setText("Inserir");
 
+        btEditar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btEditar.setText("Editar");
 
+        btDeletar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btDeletar.setText("Deletar");
 
         javax.swing.GroupLayout painelFuncionarioLayout = new javax.swing.GroupLayout(painelFuncionario);
         painelFuncionario.setLayout(painelFuncionarioLayout);
         painelFuncionarioLayout.setHorizontalGroup(
             painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFuncionarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollFuncionario)
-                .addGap(23, 23, 23))
             .addGroup(painelFuncionarioLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelFuncionarioLayout.createSequentialGroup()
+                        .addComponent(btInserir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btDeletar)
+                        .addGap(64, 64, 64))
+                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                        .addComponent(btInserir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btDeletar)
-                        .addGap(42, 42, 42))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFuncionarioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scrollFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         painelFuncionarioLayout.setVerticalGroup(
             painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,14 +102,14 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
                 .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(40, 40, 40)
+                .addGap(28, 28, 28)
                 .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btInserir)
-                    .addComponent(btEditar)
-                    .addComponent(btDeletar))
-                .addGap(55, 55, 55)
-                .addComponent(scrollFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(btDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scrollFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -115,7 +120,10 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(painelFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -176,13 +184,15 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
         modelo.addColumn("Nome");
         modelo.addColumn("Cpf");
         modelo.addColumn("Rg");
+        modelo.addColumn("Telefone");
+        modelo.addColumn("Cargo");
         preencherJTable();
     }
 
     private void preencherJTable() {
         FuncionarioController fc = new FuncionarioController();
         for (Funcionario fun : fc.listAll()) {
-            modelo.addRow(new Object[]{fun.getCod(), fun.getNome(), fun.getCpf(), fun.getRg()});
+            modelo.addRow(new Object[]{fun.getCod(), fun.getNome(), fun.getCpf(), fun.getRg(), fun.getTelefone(), fun.getCargo()});
         }
 
     }
