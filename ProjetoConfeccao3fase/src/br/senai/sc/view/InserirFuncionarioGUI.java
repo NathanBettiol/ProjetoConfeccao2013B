@@ -7,6 +7,7 @@ package br.senai.sc.view;
 import br.senai.sc.controller.FuncionarioController;
 import br.senai.sc.model.negocio.Funcionario;
 import java.text.SimpleDateFormat;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -69,7 +70,7 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         painelFuncionario.setBackground(new java.awt.Color(255, 255, 255));
-        painelFuncionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Funcionário", 0, 0, new java.awt.Font("Verdana", 1, 14), new java.awt.Color(102, 102, 102))); // NOI18N
+        painelFuncionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Funcionário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 1, 14), new java.awt.Color(102, 102, 102))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel3.setText("Nome:  ");
@@ -106,6 +107,11 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
 
         cbCargoFuncionario.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         cbCargoFuncionario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Designer", "Corte", "Serviços Gerais", "Secretária", "Estagiário (a)" }));
+        cbCargoFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCargoFuncionarioActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel11.setText("Salário:  ");
@@ -305,11 +311,15 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
             txLoginFuncionario.setText(null);
             txEmailFuncionario.setText(null);
             txCtpsFuncionario.setText(null);
-            cbCargoFuncionario.setToolTipText(null);
+            cbCargoFuncionario.setSelectedIndex(0);
             txSalarioFuncionario.setText(null);
             txDataAdimissaoFuncionario.setText(null);
             txDataRecisaoFuncionario.setText(null);
     }//GEN-LAST:event_btLimparActionPerformed
+
+    private void cbCargoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCargoFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
