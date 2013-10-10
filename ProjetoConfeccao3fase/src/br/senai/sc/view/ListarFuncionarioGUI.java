@@ -64,6 +64,11 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
 
         btInserir.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btInserir.setText("Inserir");
+        btInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btInserirActionPerformed(evt);
+            }
+        });
 
         btEditar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btEditar.setText("Editar");
@@ -129,6 +134,14 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
+       
+        ListarFuncionarioGUI lpg = new ListarFuncionarioGUI();
+        
+        lpg.setLocationRelativeTo(null);
+        lpg.setVisible(true);
+    }//GEN-LAST:event_btInserirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -191,7 +204,7 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
     private void preencherJTable() {
         FuncionarioController fc = new FuncionarioController();
         for (Funcionario fun : fc.listAll()) {
-            modelo.addRow(new Object[]{fun.getCod(), fun.getNome(), fun.getCpf(), fun.getRg(), fun.getTelefone(), fun.getCargo()});
+            modelo.addRow(new Object[]{fun.getCod(), fun.getNome(), fun.getCpf(), fun.getRg(), fun.getTelefone()});
         }
 
     }
