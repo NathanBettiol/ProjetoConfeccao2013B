@@ -185,7 +185,6 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
         modelo.addColumn("Cpf");
         modelo.addColumn("Rg");
         modelo.addColumn("Telefone");
-        modelo.addColumn("Cargo");
         preencherJTable();
     }
 
