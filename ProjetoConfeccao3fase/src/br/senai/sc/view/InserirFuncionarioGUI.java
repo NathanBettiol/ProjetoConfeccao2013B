@@ -4,11 +4,16 @@
  */
 package br.senai.sc.view;
 
+import br.senai.sc.controller.FuncionarioController;
+import br.senai.sc.model.negocio.Funcionario;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author patricia_gageiro
+ * @version 1.0 09/10/2013
  */
 public class InserirFuncionarioGUI extends javax.swing.JFrame {
 
@@ -49,14 +54,14 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
         txCtpsFuncionario = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         cbCargoFuncionario = new javax.swing.JComboBox();
-        txDataNascimento = new javax.swing.JTextField();
+        txDataNascimentoFuncionario = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txSalarioFuncionario = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txDataAdimissaoFuncionario = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txDataRecisaoFuncionario = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btLimpar = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
@@ -111,13 +116,23 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel13.setText("Data Recisão:  ");
 
-        jButton1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 102, 102));
-        jButton1.setText("Limpar");
+        btLimpar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btLimpar.setForeground(new java.awt.Color(102, 102, 102));
+        btLimpar.setText("Limpar");
+        btLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparActionPerformed(evt);
+            }
+        });
 
         btSalvar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btSalvar.setForeground(new java.awt.Color(102, 102, 102));
         btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout painelFuncionarioLayout = new javax.swing.GroupLayout(painelFuncionario);
         painelFuncionario.setLayout(painelFuncionarioLayout);
@@ -150,7 +165,7 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
                     .addComponent(txEmailFuncionario)
                     .addComponent(txCtpsFuncionario)
                     .addComponent(cbCargoFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txDataNascimento)
+                    .addComponent(txDataNascimentoFuncionario)
                     .addComponent(txSalarioFuncionario)
                     .addComponent(txDataAdimissaoFuncionario)
                     .addComponent(txDataRecisaoFuncionario)
@@ -162,7 +177,7 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
                 .addGap(116, 116, 116)
                 .addComponent(btSalvar)
                 .addGap(35, 35, 35)
-                .addComponent(jButton1)
+                .addComponent(btLimpar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         painelFuncionarioLayout.setVerticalGroup(
@@ -187,7 +202,7 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txDataNascimentoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -219,7 +234,7 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -240,6 +255,61 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
     private void txLoginFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txLoginFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txLoginFuncionarioActionPerformed
+
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+       Funcionario fun = new Funcionario();
+       fun.setNome(txNomeFuncionario.getText());
+       fun.setCpf(txCpfFuncionario.getText());
+       fun.setRg(txRgFuncionario.getText());
+       fun.setTelefone(txTelefoneFuncionario.getText());
+        try {
+                    String data =  txDataNascimentoFuncionario.getText();
+
+                    fun.setDtNascimento(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
+                }
+       fun.setLogin(txLoginFuncionario.getText());
+       fun.setEmail(txEmailFuncionario.getText());
+       fun.setCtps(txCtpsFuncionario.getText());
+       fun.setCargo(cbCargoFuncionario.getSelectedItem().toString());
+       fun.setSalario(Double.parseDouble(txSalarioFuncionario.getText()));
+         try {
+                    String data = txDataAdimissaoFuncionario.getText();
+
+                    fun.setDtAdimissao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
+                }
+        try {
+                    String data = txDataRecisaoFuncionario.getText();
+
+                    fun.setDtRecisao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
+                }
+       
+       FuncionarioController fc = new FuncionarioController();
+       modelo.addRow(new Object []{ fun.getNome(), fun.getCpf(), fun.getRg(), fun.getTelefone(),fun.getDtNascimento(),  fun.getLogin(), fun.getEmail(), fun.getCtps(), fun.getCargo(), fun.getSalario(), fun.getDtAdimissao(), fun.getDtRecisao()});
+       dispose();
+       
+       
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
+            txNomeFuncionario.setText(null);
+            txCpfFuncionario.setText(null);
+            txRgFuncionario.setText(null);
+            txTelefoneFuncionario.setText(null);
+            txDataNascimentoFuncionario.setText(null);
+            txLoginFuncionario.setText(null);
+            txEmailFuncionario.setText(null);
+            txCtpsFuncionario.setText(null);
+            cbCargoFuncionario.setToolTipText(null);
+            txSalarioFuncionario.setText(null);
+            txDataAdimissaoFuncionario.setText(null);
+            txDataRecisaoFuncionario.setText(null);
+    }//GEN-LAST:event_btLimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,9 +346,9 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btLimpar;
     private javax.swing.JButton btSalvar;
     private javax.swing.JComboBox cbCargoFuncionario;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -296,7 +366,7 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txCpfFuncionario;
     private javax.swing.JTextField txCtpsFuncionario;
     private javax.swing.JTextField txDataAdimissaoFuncionario;
-    private javax.swing.JTextField txDataNascimento;
+    private javax.swing.JTextField txDataNascimentoFuncionario;
     private javax.swing.JTextField txDataRecisaoFuncionario;
     private javax.swing.JTextField txEmailFuncionario;
     private javax.swing.JTextField txLoginFuncionario;

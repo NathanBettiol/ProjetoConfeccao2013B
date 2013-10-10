@@ -88,7 +88,7 @@
                       <Component id="txEmailFuncionario" alignment="0" max="32767" attributes="0"/>
                       <Component id="txCtpsFuncionario" alignment="0" max="32767" attributes="0"/>
                       <Component id="cbCargoFuncionario" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txDataNascimento" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txDataNascimentoFuncionario" alignment="0" max="32767" attributes="0"/>
                       <Component id="txSalarioFuncionario" alignment="0" max="32767" attributes="0"/>
                       <Component id="txDataAdimissaoFuncionario" alignment="0" max="32767" attributes="0"/>
                       <Component id="txDataRecisaoFuncionario" alignment="0" max="32767" attributes="0"/>
@@ -103,7 +103,7 @@
                   <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                   <Component id="btSalvar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btLimpar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -134,7 +134,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txDataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txDataNascimentoFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -174,7 +174,7 @@
                   <EmptySpace pref="38" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btSalvar" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="btLimpar" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -288,7 +288,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txDataNascimento">
+        <Component class="javax.swing.JTextField" name="txDataNascimentoFuncionario">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
@@ -320,7 +320,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txDataRecisaoFuncionario">
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btLimpar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="12" style="1"/>
@@ -330,6 +330,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btLimparActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btSalvar">
           <Properties>
@@ -341,6 +344,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Salvar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalvarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
