@@ -1,8 +1,8 @@
 package br.senai.sc.view.list;
 
-import br.senai.sc.controller.TransportadoraController;
-import br.senai.sc.model.negocio.Transportadora;
-import br.senai.sc.view.inserir.InserirTransportadoraGUI;
+import br.senai.sc.controller.AssistenciaController;
+import br.senai.sc.model.negocio.Assistencia;
+import br.senai.sc.view.inserir.InserirAssistenciaGUI;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -11,15 +11,15 @@ import javax.swing.table.DefaultTableModel;
  * @author wesley_s
  * @version 1.0 09/10/2013
  */
-public class ListarTransportadoraGUI extends javax.swing.JFrame {
+public class ListarAssistenciaGUI extends javax.swing.JFrame { 
 
     private DefaultTableModel modelo = new DefaultTableModel();
     private JTable tabela;
 
-    public ListarTransportadoraGUI() {
+    public ListarAssistenciaGUI() {
         initComponents();
         criaJTable();
-        scrollTransportadora.setViewportView(tabela);
+        scrollAssistencia.setViewportView(tabela);
     }
 
     /**
@@ -36,9 +36,9 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
-        painelTransportadora = new javax.swing.JPanel();
+        painelAssistencia = new javax.swing.JPanel();
         txBuscar = new javax.swing.JTextField();
-        scrollTransportadora = new javax.swing.JScrollPane();
+        scrollAssistencia = new javax.swing.JScrollPane();
         jLabel5 = new javax.swing.JLabel();
         btInserir = new javax.swing.JButton();
         btEditar = new javax.swing.JButton();
@@ -56,7 +56,7 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        painelTransportadora.setBackground(new java.awt.Color(255, 255, 255));
+        painelAssistencia.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel5.setText("Pesquisar:  ");
@@ -78,20 +78,20 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
         btDeletar.setText("Deletar");
         btDeletar.setToolTipText("");
 
-        javax.swing.GroupLayout painelTransportadoraLayout = new javax.swing.GroupLayout(painelTransportadora);
-        painelTransportadora.setLayout(painelTransportadoraLayout);
-        painelTransportadoraLayout.setHorizontalGroup(
-            painelTransportadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelTransportadoraLayout.createSequentialGroup()
+        javax.swing.GroupLayout painelAssistenciaLayout = new javax.swing.GroupLayout(painelAssistencia);
+        painelAssistencia.setLayout(painelAssistenciaLayout);
+        painelAssistenciaLayout.setHorizontalGroup(
+            painelAssistenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelAssistenciaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(painelTransportadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollTransportadora)
-                    .addGroup(painelTransportadoraLayout.createSequentialGroup()
+                .addGroup(painelAssistenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollAssistencia)
+                    .addGroup(painelAssistenciaLayout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 273, Short.MAX_VALUE))
-                    .addGroup(painelTransportadoraLayout.createSequentialGroup()
+                    .addGroup(painelAssistenciaLayout.createSequentialGroup()
                         .addComponent(btInserir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btEditar)
@@ -99,20 +99,20 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
                         .addComponent(btDeletar)))
                 .addContainerGap())
         );
-        painelTransportadoraLayout.setVerticalGroup(
-            painelTransportadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelTransportadoraLayout.createSequentialGroup()
+        painelAssistenciaLayout.setVerticalGroup(
+            painelAssistenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelAssistenciaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(painelTransportadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(painelAssistenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(painelTransportadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(painelAssistenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btInserir)
                     .addComponent(btEditar)
                     .addComponent(btDeletar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scrollTransportadora, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+                .addComponent(scrollAssistencia, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -120,18 +120,18 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelTransportadora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(painelAssistencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelTransportadora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(painelAssistencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
-        InserirTransportadoraGUI it = new InserirTransportadoraGUI(modelo);
+        InserirAssistenciaGUI it = new InserirAssistenciaGUI(modelo);
 
         it.setLocationRelativeTo(null);
         it.setVisible(true);
@@ -158,20 +158,21 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListarTransportadoraGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarAssistenciaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListarTransportadoraGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarAssistenciaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListarTransportadoraGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarAssistenciaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListarTransportadoraGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarAssistenciaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new ListarTransportadoraGUI().setVisible(true);
+                new ListarAssistenciaGUI().setVisible(true);
             }
         });
     }
@@ -185,8 +186,8 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel painelTransportadora;
-    private javax.swing.JScrollPane scrollTransportadora;
+    private javax.swing.JPanel painelAssistencia;
+    private javax.swing.JScrollPane scrollAssistencia;
     private javax.swing.JTextField txBuscar;
     // End of variables declaration//GEN-END:variables
 
@@ -200,9 +201,9 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
     }
 
     private void preencherJTable() {
-        TransportadoraController tc = new TransportadoraController();
-        for (Transportadora t : tc.listAll()) {
-            modelo.addRow(new Object[]{t.getCod(), t.getNmFantasia(), t.getCnpj(), t.getTelefone()});
+        AssistenciaController ac = new AssistenciaController();
+        for (Assistencia a : ac.listAll()) {
+            modelo.addRow(new Object[]{a.getCod(), a.getNmFantasia(), a.getCnpj(), a.getTelefone()});
         }
     }
 }

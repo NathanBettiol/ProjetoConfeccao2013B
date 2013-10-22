@@ -4,8 +4,8 @@
  */
 package br.senai.sc.view.inserir;
 
-import br.senai.sc.controller.TransportadoraController;
-import br.senai.sc.model.negocio.Transportadora;
+import br.senai.sc.controller.AssistenciaController;
+import br.senai.sc.model.negocio.Assistencia;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.table.DefaultTableModel;
@@ -15,14 +15,14 @@ import javax.swing.table.DefaultTableModel;
  * @author wesley_s
  * @version 1.0 09/10/2013
  */
-public class InserirTransportadoraGUI extends javax.swing.JFrame {
+public class InserirAssistenciaGUI extends javax.swing.JFrame {
 
     private DefaultTableModel modelo;
 
     /**
-     * Creates new form InserirTransportadoraGUI
+     * Creates new form InserirAssistenciaGUI
      */
-    public InserirTransportadoraGUI(DefaultTableModel modelo) {
+    public InserirAssistenciaGUI(DefaultTableModel modelo) {
         this.modelo = modelo;
         initComponents();
     }
@@ -63,7 +63,7 @@ public class InserirTransportadoraGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Transportadora"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Assistência"));
 
         jLabel1.setText("Id.: ");
 
@@ -219,26 +219,26 @@ public class InserirTransportadoraGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txTelefoneActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        Transportadora t = new Transportadora();
-        t.setNmFantasia(txNmFantasia.getText());
-        t.setRazaoSocial(txRazaoSocial.getText());
-        t.setCnpj(txCnpj.getText());
-        t.setEndereco(txEndereco.getText());
-        t.setTelefone(txTelefone.getText());
-        t.setContato(txContato.getText());
-        t.setEmail(txEmail.getText());
-        t.setPaginaWeb(txPaginaWeb.getText());
+        Assistencia a = new Assistencia();
+        a.setNmFantasia(txNmFantasia.getText());
+        a.setRazaoSocial(txRazaoSocial.getText());
+        a.setCnpj(txCnpj.getText());
+        a.setEndereco(txEndereco.getText());
+        a.setTelefone(txTelefone.getText());
+        a.setContato(txContato.getText());
+        a.setEmail(txEmail.getText());
+        a.setPaginaWeb(txPaginaWeb.getText());
         try {
-            t.setDtCadastro(new SimpleDateFormat("dd/MM/yyyy").parse(
+            a.setDtCadastro(new SimpleDateFormat("dd/MM/yyyy").parse(
                     txDtCadastro.getText()));
         } catch (ParseException ex) {
             System.out.println("Erro ao converter a data de nascimento");
         }
 
-        TransportadoraController tc = new TransportadoraController();
+        AssistenciaController ac = new AssistenciaController();
 
-        modelo.addRow(new Object[]{tc.inserir(t),
-            t.getNmFantasia(), t.getTelefone()});
+        modelo.addRow(new Object[]{ac.inserir(a),
+            a.getNmFantasia(), a.getTelefone()});
         dispose();
 
     }//GEN-LAST:event_btSalvarActionPerformed
@@ -275,6 +275,4 @@ public class InserirTransportadoraGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txRazaoSocial;
     private javax.swing.JTextField txTelefone;
     // End of variables declaration//GEN-END:variables
-
-    
 }

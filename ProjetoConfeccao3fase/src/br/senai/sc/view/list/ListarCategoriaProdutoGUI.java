@@ -2,6 +2,7 @@ package br.senai.sc.view.list;
 
 import br.senai.sc.controller.CategoriaProdutoController;
 import br.senai.sc.model.negocio.CategoriaProduto;
+import br.senai.sc.view.inserir.InserirCategoriaProdutosGUI;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -44,7 +45,6 @@ public class ListarCategoriaProdutoGUI extends javax.swing.JFrame {
         btEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        btInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sc/view/inserir.jpg"))); // NOI18N
         btInserir.setText("Inserir");
         btInserir.setContentAreaFilled(false);
         btInserir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -93,7 +93,7 @@ public class ListarCategoriaProdutoGUI extends javax.swing.JFrame {
                 .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btDeletar)
                     .addGroup(painelFundoLayout.createSequentialGroup()
@@ -102,7 +102,7 @@ public class ListarCategoriaProdutoGUI extends javax.swing.JFrame {
                             .addComponent(btInserir))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         getContentPane().add(painelFundo, java.awt.BorderLayout.CENTER);
@@ -111,7 +111,10 @@ public class ListarCategoriaProdutoGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
-        //
+        InserirCategoriaProdutosGUI icp = new InserirCategoriaProdutosGUI(modelo);
+        
+        icp.setLocationRelativeTo(null);
+        icp.setVisible(true);
     }//GEN-LAST:event_btInserirActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDeletar;

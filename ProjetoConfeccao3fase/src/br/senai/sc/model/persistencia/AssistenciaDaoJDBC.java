@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author wesley_s
  */
-public class AssistenciaDaoJDBC implements AssistenciaDAO {
+public class AssistenciaDaoJDBC implements AssistenciaDAO { 
 
     private final String INSERT = "insert into assistencia("
             + "nm_assistencia, razao_social, cnpj, endereco, telefone, "
@@ -132,8 +132,8 @@ public class AssistenciaDaoJDBC implements AssistenciaDAO {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Assistencia a = new Assistencia();
-                a.setCod(rs.getInt("cod_transportadora"));
-                a.setNmFantasia(rs.getString("nm_transportadora"));
+                a.setCod(rs.getInt("cod_assistencia"));
+                a.setNmFantasia(rs.getString("nm_assistencia"));
                 a.setRazaoSocial(rs.getString("razao_social"));
                 a.setCnpj(rs.getString("cnpj"));
                 a.setEndereco(rs.getString("endereco"));
