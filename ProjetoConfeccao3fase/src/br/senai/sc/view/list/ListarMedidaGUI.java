@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senai.sc.view;
+package br.senai.sc.view.list;
 
+import br.senai.sc.view.inserir.InserirMedidaGUI;
 import br.senai.sc.controller.MedidaController;
 import br.senai.sc.model.negocio.Medida;
 

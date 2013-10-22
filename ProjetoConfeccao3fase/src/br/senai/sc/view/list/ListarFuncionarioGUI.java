@@ -1,4 +1,4 @@
-package br.senai.sc.view;
+package br.senai.sc.view.list;
 
 import br.senai.sc.controller.FuncionarioController;
 import br.senai.sc.model.negocio.Funcionario;

@@ -1,4 +1,4 @@
-package br.senai.sc.view;
+package br.senai.sc.view.list;
 
 import br.senai.sc.controller.TransportadoraController;
 import br.senai.sc.model.negocio.Transportadora;

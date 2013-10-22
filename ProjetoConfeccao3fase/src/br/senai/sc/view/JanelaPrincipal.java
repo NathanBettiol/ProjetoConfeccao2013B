@@ -4,6 +4,8 @@
  */
 package br.senai.sc.view;
 
+import br.senai.sc.view.list.ListarMateriaPrimaGUI;
+
 /**
  *
  * @author patricia_gageiro
