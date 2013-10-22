@@ -38,7 +38,7 @@ public class CategoriaProdutoDaoJDBC implements CategoriaProdutoDAO {
             ConnectionFactory.closeConnection(conn, pstm);
             return true;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possível efetuar a transação 1" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Não foi possível efetuar a transação" + e.getMessage());
             return false;
         }
     }
