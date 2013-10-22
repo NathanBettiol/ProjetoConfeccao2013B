@@ -14,12 +14,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class InserirCategoriaProdutosGUI extends javax.swing.JFrame {
 
-    private DefaultTableModel modelo;
+    private DefaultTableModel modelo = new DefaultTableModel();;
 
     /**
      * Creates new form InserirCategoriaProdutosGUI
      */
-    public InserirCategoriaProdutosGUI(DefaultTableModel modelo) {
+    public InserirCategoriaProdutosGUI() {
         initComponents();
         this.modelo = modelo;
     }
@@ -39,7 +39,7 @@ public class InserirCategoriaProdutosGUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txId = new javax.swing.JTextField();
         txNome = new javax.swing.JTextField();
-        txTelefone = new javax.swing.JTextField();
+        txDescricao = new javax.swing.JTextField();
         btSalvar = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
 
@@ -52,11 +52,11 @@ public class InserirCategoriaProdutosGUI extends javax.swing.JFrame {
 
         jLabel2.setText("Nome.:  ");
 
-        jLabel3.setText("Telefone.:");
+        jLabel3.setText("Descrição.:");
 
-        txTelefone.addActionListener(new java.awt.event.ActionListener() {
+        txDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txTelefoneActionPerformed(evt);
+                txDescricaoActionPerformed(evt);
             }
         });
 
@@ -89,8 +89,8 @@ public class InserirCategoriaProdutosGUI extends javax.swing.JFrame {
                     .addComponent(txNome)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txId, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 163, Short.MAX_VALUE))
-                    .addComponent(txTelefone))
+                        .addGap(0, 159, Short.MAX_VALUE))
+                    .addComponent(txDescricao))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -113,7 +113,7 @@ public class InserirCategoriaProdutosGUI extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvar)
@@ -135,20 +135,19 @@ public class InserirCategoriaProdutosGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txTelefoneActionPerformed
+    private void txDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txDescricaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txTelefoneActionPerformed
+    }//GEN-LAST:event_txDescricaoActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         CategoriaProduto cp = new CategoriaProduto();
         cp.setNomeCategoriaProduto(txNome.getText());
-        cp.setDescricaoCategoriaProduto(txTelefone.getText());
+        cp.setDescricaoCategoriaProduto(txDescricao.getText());
+
         CategoriaProdutoController pc = new CategoriaProdutoController();
-
-        modelo.addRow(new Object[]{pc.insert(cp),
-            cp.getNomeCategoriaProduto(), cp.getDescricaoCategoriaProduto()});
+        pc.insert(cp);
+        modelo.addRow(new Object[]{cp.getCodCategoriaProduto(), cp.getNomeCategoriaProduto(), cp.getDescricaoCategoriaProduto()});
         dispose();
-
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
@@ -161,8 +160,8 @@ public class InserirCategoriaProdutosGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txDescricao;
     private javax.swing.JTextField txId;
     private javax.swing.JTextField txNome;
-    private javax.swing.JTextField txTelefone;
     // End of variables declaration//GEN-END:variables
 }
