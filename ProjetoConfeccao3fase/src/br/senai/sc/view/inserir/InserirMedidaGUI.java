@@ -7,6 +7,9 @@ package br.senai.sc.view.inserir;
 import br.senai.sc.controller.MedidaController;
 import br.senai.sc.model.negocio.Medida;
 import br.senai.sc.model.negocio.Usuario;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -24,6 +27,7 @@ public class InserirMedidaGUI extends javax.swing.JFrame {
     public InserirMedidaGUI(DefaultTableModel modelo) {
         initComponents();
         this.modelo = modelo;
+        carregarCombo();
     }
 
     /**
@@ -46,12 +50,12 @@ public class InserirMedidaGUI extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        txNome = new javax.swing.JTextField();
         txMdBusto = new javax.swing.JTextField();
         txMdCintura = new javax.swing.JTextField();
         txMdQuadril = new javax.swing.JTextField();
         txMdOmbros = new javax.swing.JTextField();
         txAltura = new javax.swing.JTextField();
+        cbNome = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,39 +90,33 @@ public class InserirMedidaGUI extends javax.swing.JFrame {
         painelFundoLayout.setHorizontalGroup(
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFundoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelFundoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                        .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txAltura)
+                            .addComponent(txMdOmbros)
+                            .addComponent(txMdQuadril)
+                            .addComponent(txMdCintura)
+                            .addComponent(txMdBusto)
+                            .addComponent(txId)
+                            .addComponent(cbNome, 0, 138, Short.MAX_VALUE))
+                        .addGap(188, 188, 188))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFundoLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btSalvar)
-                        .addGap(43, 43, 43)
-                        .addComponent(btLimpar))
-                    .addGroup(painelFundoLayout.createSequentialGroup()
-                        .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(painelFundoLayout.createSequentialGroup()
-                                .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelFundoLayout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE))
-                            .addGroup(painelFundoLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txNome, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txId, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txAltura, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txMdOmbros, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txMdQuadril, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txMdCintura, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txMdBusto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)))))
-                .addGap(18, 18, 18))
+                        .addGap(18, 18, 18)))
+                .addComponent(btLimpar)
+                .addContainerGap())
         );
         painelFundoLayout.setVerticalGroup(
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +128,7 @@ public class InserirMedidaGUI extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -162,11 +160,11 @@ public class InserirMedidaGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(painelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(painelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -174,9 +172,7 @@ public class InserirMedidaGUI extends javax.swing.JFrame {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         Medida m = new Medida();
-        Usuario u = new Usuario();
-        u.setNome(txNome.getText());
-        m.setUsuario(u);
+        m.setUsuario((Usuario) cbNome.getSelectedItem());
         m.setAltura(Double.parseDouble(txAltura.getText()));
         m.setMdCintura(Double.parseDouble(txMdCintura.getText()));
         m.setMdBusto(Double.parseDouble(txMdBusto.getText()));
@@ -193,6 +189,7 @@ public class InserirMedidaGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btSalvar;
+    private javax.swing.JComboBox cbNome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -207,6 +204,19 @@ public class InserirMedidaGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txMdCintura;
     private javax.swing.JTextField txMdOmbros;
     private javax.swing.JTextField txMdQuadril;
-    private javax.swing.JTextField txNome;
     // End of variables declaration//GEN-END:variables
+
+    private void carregarCombo() {
+
+        DefaultComboBoxModel comboModel = (DefaultComboBoxModel) cbNome.getModel();
+        comboModel.removeAllElements();
+        List<Medida> medidas = new ArrayList<>();
+        MedidaController mc = new MedidaController();
+        medidas = mc.listAll();
+
+        for (int linha = 0; linha < medidas.size(); linha++) {
+            Medida m = medidas.get(linha);
+            comboModel.addElement(m);
+        }
+    }
 }
