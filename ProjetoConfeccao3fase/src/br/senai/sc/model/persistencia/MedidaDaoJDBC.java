@@ -10,6 +10,7 @@ import br.senai.sc.persistencia.dao.MedidaDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -30,7 +31,7 @@ public class MedidaDaoJDBC implements MedidaDAO {
         Connection conn;
         try {
             conn = ConnectionFactory.getConnection();
-            PreparedStatement pstm = conn.prepareStatement(INSERT);
+            PreparedStatement pstm = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             pstm.setInt(1, m.getUsuario().getCod());
             pstm.setDouble(2, m.getMdBusto());
             pstm.setDouble(3, m.getMdCintura());
@@ -53,7 +54,7 @@ public class MedidaDaoJDBC implements MedidaDAO {
         Connection conn;
         try {
             conn = ConnectionFactory.getConnection();
-            PreparedStatement pstm = conn.prepareStatement(INSERT);
+            PreparedStatement pstm = conn.prepareStatement(UPDATE);
             pstm.setInt(1, m.getUsuario().getCod());
             pstm.setDouble(2, m.getMdBusto());
             pstm.setDouble(3, m.getMdCintura());
