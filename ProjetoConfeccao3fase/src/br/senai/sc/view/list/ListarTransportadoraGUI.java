@@ -2,6 +2,7 @@ package br.senai.sc.view.list;
 
 import br.senai.sc.controller.TransportadoraController;
 import br.senai.sc.model.negocio.Transportadora;
+import br.senai.sc.view.inserir.InserirTransportadoraGUI;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -61,7 +62,6 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
         jLabel5.setText("Pesquisar:  ");
 
         btInserir.setText("Inserir");
-        btInserir.setContentAreaFilled(false);
         btInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btInserirActionPerformed(evt);
@@ -69,7 +69,6 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
         });
 
         btEditar.setText("Editar");
-        btEditar.setContentAreaFilled(false);
         btEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEditarActionPerformed(evt);
@@ -78,7 +77,6 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
 
         btDeletar.setText("Deletar");
         btDeletar.setToolTipText("");
-        btDeletar.setContentAreaFilled(false);
 
         javax.swing.GroupLayout painelTransportadoraLayout = new javax.swing.GroupLayout(painelTransportadora);
         painelTransportadora.setLayout(painelTransportadoraLayout);
@@ -133,7 +131,10 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
-        // TODO add your handling code here:
+        InserirTransportadoraGUI it = new InserirTransportadoraGUI(modelo);
+
+        it.setLocationRelativeTo(null);
+        it.setVisible(true);
     }//GEN-LAST:event_btInserirActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
