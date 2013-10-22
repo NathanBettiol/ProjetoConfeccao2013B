@@ -135,7 +135,6 @@ public class FuncionariodaoJDBC implements FuncionarioDAO {
 
     }
 
-    
     @Override
     public List<Funcionario> listAll() {
         Connection con;
@@ -149,26 +148,10 @@ public class FuncionariodaoJDBC implements FuncionarioDAO {
             while (rs.next()) {
                 Funcionario fun = new Funcionario();
                 fun.setCod(rs.getInt("cod_funcionario"));
-                fun.setLogin(rs.getString("Login"));
-                fun.setEmail(rs.getString("Email"));
-                fun.setCtps(rs.getString("Ctps"));
-                fun.setCargo(rs.getString("Cargo"));
-                fun.setSalario(rs.getDouble("Salário"));
-                try {
-                    String data = JOptionPane.showInputDialog("Data Adimissão");
-
-                    fun.setDtAdimissao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
-                }
-
-                try {
-                    String data = JOptionPane.showInputDialog("Data Recisão");
-
-                    fun.setDtRecisao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
-                }
+                fun.setNome(rs.getString("nome"));
+                fun.setEmail(rs.getString("email"));
+                fun.setTelefone(rs.getString("telefone"));
+                
 
                 funcionarios.add(fun);
 
