@@ -12,14 +12,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author rosicleia.souza
  */
-public class InserirCategoriaProdutosGUI extends javax.swing.JFrame {
+public class InserirProdutosGUI extends javax.swing.JFrame {
 
     private DefaultTableModel modelo = new DefaultTableModel();;
 
     /**
      * Creates new form InserirCategoriaProdutosGUI
      */
-    public InserirCategoriaProdutosGUI(DefaultTableModel modelo) {
+    public InserirProdutosGUI(DefaultTableModel modelo) {
         initComponents();
         this.modelo = modelo;
     }

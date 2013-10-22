@@ -2,6 +2,7 @@ package br.senai.sc.view.list;
 
 import br.senai.sc.controller.CategoriaProdutoController;
 import br.senai.sc.model.negocio.CategoriaProduto;
+import br.senai.sc.view.inserir.InserirCategoriaProdutosGUI;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -110,7 +111,10 @@ public class ListarProdutoGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
-        //
+        InserirCategoriaProdutosGUI icp = new InserirCategoriaProdutosGUI(modelo);
+        
+        icp.setLocationRelativeTo(null);
+        icp.setVisible(true);
     }//GEN-LAST:event_btInserirActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDeletar;
@@ -125,8 +129,15 @@ public class ListarProdutoGUI extends javax.swing.JFrame {
     private void criaJTable() {
         tabela = new JTable(modelo);
         modelo.addColumn("Id");
+        modelo.addColumn("Categoria");
+        modelo.addColumn("Coleção");
+        modelo.addColumn("Fabricante");
         modelo.addColumn("Nome");
-        modelo.addColumn("Descrição");
+        modelo.addColumn("Modelo");
+        modelo.addColumn("Preço");
+        modelo.addColumn("Tamanho");
+        modelo.addColumn("Cor");
+        modelo.addColumn("QTD.");
         preencherJTable();
     }
 
