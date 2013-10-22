@@ -9,6 +9,7 @@ import br.senai.sc.persistencia.dao.TipoFisicoDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -29,7 +30,7 @@ public class TipoFisicoDaoJDCB implements TipoFisicoDAO {
         Connection conn;
         try {
             conn = ConnectionFactory.getConnection();
-            PreparedStatement pstm = conn.prepareStatement(INSERT);
+            PreparedStatement pstm = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             pstm.setString(1, tf.getNome());
             pstm.setString(2, tf.getGenero());
             pstm.setString(3, tf.getDescicao());
