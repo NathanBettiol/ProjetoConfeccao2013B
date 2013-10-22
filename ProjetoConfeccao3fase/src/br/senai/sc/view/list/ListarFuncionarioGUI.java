@@ -2,6 +2,7 @@ package br.senai.sc.view.list;
 
 import br.senai.sc.controller.FuncionarioController;
 import br.senai.sc.model.negocio.Funcionario;
+import br.senai.sc.view.inserir.InserirFuncionarioGUI;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +22,7 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
         initComponents();
         criaJTable();
         scrollFuncionario.setViewportView(tabela);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -136,7 +138,7 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
        
-        ListarFuncionarioGUI lpg = new ListarFuncionarioGUI();
+        InserirFuncionarioGUI lpg = new InserirFuncionarioGUI(modelo);
         
         lpg.setLocationRelativeTo(null);
         lpg.setVisible(true);
@@ -195,8 +197,7 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
         tabela = new JTable(modelo);
         modelo.addColumn("Id");
         modelo.addColumn("Nome");
-        modelo.addColumn("Cpf");
-        modelo.addColumn("Rg");
+        modelo.addColumn("Email");
         modelo.addColumn("Telefone");
         preencherJTable();
     }
@@ -204,7 +205,7 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
     private void preencherJTable() {
         FuncionarioController fc = new FuncionarioController();
         for (Funcionario fun : fc.listAll()) {
-            modelo.addRow(new Object[]{fun.getCod(), fun.getNome(), fun.getCpf(), fun.getRg(), fun.getTelefone()});
+            modelo.addRow(new Object[]{fun.getCod(), fun.getNome(),fun.getEmail(),  fun.getTelefone()});
         }
 
     }
