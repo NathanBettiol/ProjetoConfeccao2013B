@@ -4,8 +4,15 @@
  */
 package br.senai.sc.view.inserir;
 
+import br.senai.sc.controller.CategoriaMateriaPrimaController;
+import br.senai.sc.controller.FornecedorController;
 import br.senai.sc.model.negocio.MateriaPrima;
 import br.senai.sc.controller.MateriaPrimaController;
+import br.senai.sc.model.negocio.CategoriaMateriaPrima;
+import br.senai.sc.model.negocio.Fornecedor;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -13,7 +20,9 @@ import javax.swing.table.DefaultTableModel;
  * @author rosicleia.souza
  */
 public class InserirMateriaPrimaGUI extends javax.swing.JFrame {
-private DefaultTableModel modelo;
+
+    private DefaultTableModel modelo;
+
     /**
      * Creates new form InserirPessoaGUI
      */
@@ -36,7 +45,6 @@ private DefaultTableModel modelo;
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txId = new javax.swing.JTextField();
-        txFornecedor = new javax.swing.JTextField();
         txNome = new javax.swing.JTextField();
         btSalvar = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
@@ -47,7 +55,8 @@ private DefaultTableModel modelo;
         txTipoUnidade = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txQuantidade = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        cbCategoria = new javax.swing.JComboBox();
+        cbFornecedor = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,7 +97,9 @@ private DefaultTableModel modelo;
 
         jLabel7.setText("Quantidade.:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbFornecedor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,11 +121,11 @@ private DefaultTableModel modelo;
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txId, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txFornecedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
-                            .addComponent(txNome, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(txNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -123,7 +134,7 @@ private DefaultTableModel modelo;
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 617, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -142,7 +153,7 @@ private DefaultTableModel modelo;
                         .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -150,7 +161,7 @@ private DefaultTableModel modelo;
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -189,9 +200,9 @@ private DefaultTableModel modelo;
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         MateriaPrima mp = new MateriaPrima();
-        mp.setNome(txFornecedor.getText());
+        mp.setFornecedor((Fornecedor) cbFornecedor.getSelectedItem());
         mp.setNome(txNome.getText());
-        //mp.setCategoria(txCategoria.getText());
+        mp.setCategoria((CategoriaMateriaPrima) cbCategoria.getSelectedItem());
         mp.setPreco(Double.parseDouble(txPreco.getText()));
         mp.setTpUnidade(txTipoUnidade.getText());
         mp.setQuantidade(Integer.parseInt(txQuantidade.getText()));
@@ -199,20 +210,19 @@ private DefaultTableModel modelo;
         MateriaPrimaController mpc = new MateriaPrimaController();
 
         modelo.addRow(new Object[]{mpc.inserir(mp),
-            mp.getNome(),mp.getNome(),mp.getCategoria(),mp.getPreco(),mp.getTpUnidade(),mp.getQuantidade()});
-    dispose();
+            mp.getNome(), mp.getNome(), mp.getCategoria(), mp.getPreco(), mp.getTpUnidade(), mp.getQuantidade()});
+        dispose();
 
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void txNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txNomeActionPerformed
-
-   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btSalvar;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox cbCategoria;
+    private javax.swing.JComboBox cbFornecedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -221,11 +231,38 @@ private DefaultTableModel modelo;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txFornecedor;
     private javax.swing.JTextField txId;
     private javax.swing.JTextField txNome;
     private javax.swing.JTextField txPreco;
     private javax.swing.JTextField txQuantidade;
     private javax.swing.JTextField txTipoUnidade;
     // End of variables declaration//GEN-END:variables
+
+    private void carregarComboFornecedor() {
+
+        DefaultComboBoxModel comboModel = (DefaultComboBoxModel) cbFornecedor.getModel();
+        comboModel.removeAllElements();
+        List<Fornecedor> fornecedores = new ArrayList<>();
+        FornecedorController f = new FornecedorController();
+        fornecedores = f.listAll();
+
+        for (int linha = 0; linha < fornecedores.size(); linha++) {
+            Fornecedor fo = fornecedores.get(linha);
+            comboModel.addElement(fo);
+        }
+    }
+
+    private void carregarComboCategoria() {
+
+        DefaultComboBoxModel comboModel = (DefaultComboBoxModel) cbCategoria.getModel();
+        comboModel.removeAllElements();
+        List<CategoriaMateriaPrima> categoriamateriasprima = new ArrayList<>();
+        CategoriaMateriaPrimaController cmpc = new CategoriaMateriaPrimaController();
+        categoriamateriasprima = cmpc.listAll();
+
+        for (int linha = 0; linha < categoriamateriasprima.size(); linha++) {
+            CategoriaMateriaPrima cmp = categoriamateriasprima.get(linha);
+            comboModel.addElement(cmp);
+        }
+    }
 }

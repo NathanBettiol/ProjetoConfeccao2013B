@@ -111,7 +111,7 @@ public class ListarCategoriaProdutoGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
-        InserirCategoriaProdutosGUI icp = new InserirCategoriaProdutosGUI();
+        InserirCategoriaProdutosGUI icp = new InserirCategoriaProdutosGUI(modelo);
         
         icp.setLocationRelativeTo(null);
         icp.setVisible(true);

@@ -2,15 +2,16 @@ package br.senai.sc.view.list;
 
 
 import br.senai.sc.controller.MateriaPrimaController;
-import br.senai.sc.controller.PessoaController;
+
 import br.senai.sc.model.negocio.MateriaPrima;
-import br.senai.sc.model.negocio.Pessoa;
+import br.senai.sc.view.inserir.InserirMateriaPrimaGUI;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author patricia_gageiro
+ * @author leticia_jesus
  */
 public class ListarMateriaPrimaGUI extends javax.swing.JFrame {
         private JTable tabela;
@@ -123,7 +124,11 @@ public class ListarMateriaPrimaGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
-      //
+     
+        InserirMateriaPrimaGUI mp = new InserirMateriaPrimaGUI(modelo);
+
+        mp.setLocationRelativeTo(null);
+        mp.setVisible(true);
     }//GEN-LAST:event_btInserirActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
