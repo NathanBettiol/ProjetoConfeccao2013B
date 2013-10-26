@@ -4,16 +4,22 @@
  */
 package br.senai.sc.view.inserir;
 
+import br.senai.sc.controller.FuncionarioController;
+import br.senai.sc.model.negocio.Funcionario;
+import com.sun.media.sound.ModelOscillator;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Pati
  */
 public class InserirFuncionarioGUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InserirFuncionarioGUI
-     */
-    public InserirFuncionarioGUI() {
+    private DefaultTableModel modelo = new DefaultTableModel();
+
+    public InserirFuncionarioGUI(DefaultTableModel modelo) {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -59,7 +65,7 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         painelFuncionario.setBackground(new java.awt.Color(255, 255, 255));
@@ -277,10 +283,11 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
                 .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(txDtRecisao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -314,43 +321,55 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txCtpsFuncionarioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        Funcionario fun = new Funcionario();
+        fun.setNome(txNomeFuncionario.getText());
+        fun.setTelefone(txTelefoneFuncionario.getText());
+        fun.setEmail(txEmailFuncionario.getText());
+        fun.setCpf(txCpfFuncionario.getText());
+        fun.setRg(txRgFuncionario.getText());
+        fun.setEndereco(txEnderecoFuncionario.getText());
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InserirFuncionarioGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InserirFuncionarioGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InserirFuncionarioGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InserirFuncionarioGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+            String data = txDtNascimentoFuncionario.getText();
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new InserirFuncionarioGUI().setVisible(true);
-            }
-        });
-    }
+            fun.setDtNascimento(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
+        }
+        fun.setLogin(txLoginFuncionario.getText());
+        try {
+            String data = txDtCadastroFuncionario.getText();
+
+            fun.setDtCadastro(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
+        }
+        fun.setCargo(cbCargoFuncionario.getSelectedItem().toString());
+        fun.setCtps(txCtpsFuncionario.getText());
+        fun.setSalario(Double.parseDouble(txSalarioFuncionario.getText()));
+        try {
+            String data = txDtAdmissao.getText();
+
+            fun.setDtAdimissao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
+        }
+        try {
+            String data = txDtRecisao.getText();
+
+            fun.setDtRecisao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
+        }
+
+        FuncionarioController fc = new FuncionarioController();
+        modelo.addRow(new Object[]{fun.getCod(), fun.getNome(), fun.getTelefone(), fun.getEmail()});
+        dispose();
+        fc.inserir(fun);
+
+
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cbCargoFuncionario;
     private javax.swing.JButton jButton1;
