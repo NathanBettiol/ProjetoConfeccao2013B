@@ -4,7 +4,10 @@
  */
 package br.senai.sc.view;
 
+import br.senai.sc.model.negocio.Funcionario;
+import br.senai.sc.view.list.ListarFuncionarioGUI;
 import br.senai.sc.view.list.ListarMateriaPrimaGUI;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -12,6 +15,7 @@ import br.senai.sc.view.list.ListarMateriaPrimaGUI;
  */
 public class JanelaPrincipal extends javax.swing.JFrame {
 
+        
     /**
      * Creates new form JanelaPrincipal
      */
@@ -60,12 +64,13 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1024, 768));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         PainelFundo.setBackground(new java.awt.Color(255, 255, 255));
         PainelFundo.setLayout(new java.awt.GridLayout(6, 1));
 
         painelBiotipo.setBackground(new java.awt.Color(255, 255, 255));
-        painelBiotipo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Biotipo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
+        painelBiotipo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Biotipo", 0, 0, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
         painelBiotipo.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         painelBiotipo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -118,7 +123,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         PainelFundo.add(painelBiotipo);
 
         painelEstoque.setBackground(new java.awt.Color(255, 255, 255));
-        painelEstoque.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estoque", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
+        painelEstoque.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estoque", 0, 0, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
         painelEstoque.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btEntrada.setText("Entrada");
@@ -172,7 +177,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         PainelFundo.add(painelEstoque);
 
         painelFinanceiro.setBackground(new java.awt.Color(255, 255, 255));
-        painelFinanceiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Financeiro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
+        painelFinanceiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Financeiro", 0, 0, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
         painelFinanceiro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Nota Fiscal");
@@ -185,7 +190,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         PainelFundo.add(painelFinanceiro);
 
         painelPcp.setBackground(new java.awt.Color(255, 255, 255));
-        painelPcp.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PCP", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
+        painelPcp.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PCP", 0, 0, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
         painelPcp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btFornecedor.setText("Fornecedor");
@@ -217,7 +222,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         PainelFundo.add(painelPcp);
 
         PainelRh.setBackground(new java.awt.Color(255, 255, 255));
-        PainelRh.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RH", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
+        PainelRh.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RH", 0, 0, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
         PainelRh.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btFuncionario.setText("Funcionário");
@@ -226,6 +231,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         btFuncionario.setContentAreaFilled(false);
         btFuncionario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btFuncionario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFuncionarioActionPerformed(evt);
+            }
+        });
         PainelRh.add(btFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 90, 100));
 
         jButton11.setText("Férias");
@@ -259,7 +269,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         PainelFundo.add(PainelRh);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Outros", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Outros", 0, 0, new java.awt.Font("Calibri", 1, 18), new java.awt.Color(0, 0, 0))))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton15.setText("Endereço");
@@ -293,6 +303,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void btFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFuncionarioActionPerformed
+      
+        
+        
+    }//GEN-LAST:event_btFuncionarioActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PainelFundo;
