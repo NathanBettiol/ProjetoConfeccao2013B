@@ -7,6 +7,7 @@ package br.senai.sc.view.list;
 import br.senai.sc.controller.FuncionarioController;
 import br.senai.sc.model.negocio.Funcionario;
 import br.senai.sc.view.inserir.InserirFuncionarioGUI;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,7 +24,7 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
     private JTable tabela;
     private DefaultTableModel modelo = new DefaultTableModel();
 
-    public ListarFuncionarioGUI(DefaultTableModel modelo) {
+    public ListarFuncionarioGUI() {
         initComponents();
         criaJTable();
         scrollFuncionario.setViewportView(tabela);
@@ -55,6 +56,12 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel2.setText("Pesquisar:  ");
 
+        txPesquisarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txPesquisarFuncionarioActionPerformed(evt);
+            }
+        });
+
         btInserirFuncionario.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btInserirFuncionario.setText("Inserir");
         btInserirFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -65,9 +72,19 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
 
         btExcluirFuncionario.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btExcluirFuncionario.setText("Excluir");
+        btExcluirFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirFuncionarioActionPerformed(evt);
+            }
+        });
 
         btEditarFuncionario.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         btEditarFuncionario.setText("Editar");
+        btEditarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditarFuncionarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,6 +136,52 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
         ifg.setVisible(true);
     }//GEN-LAST:event_btInserirFuncionarioActionPerformed
 
+    private void btEditarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarFuncionarioActionPerformed
+        int linhaSelecionada = -1;
+        linhaSelecionada = tabela.getSelectedRow();
+        if (linhaSelecionada >=0){
+            int idFuncionario = (int)
+                    tabela.getValueAt(linhaSelecionada, 0);
+            FuncionarioController fc = new FuncionarioController();
+            InserirFuncionarioGUI ing = new InserirFuncionarioGUI(modelo, linhaSelecionada, idFuncionario);
+            ing.setVisible(true);
+            
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "É necessário selecionar uma linha");
+    }
+    }//GEN-LAST:event_btEditarFuncionarioActionPerformed
+
+    private void btExcluirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirFuncionarioActionPerformed
+        Funcionario fun = new Funcionario();
+        int linhaSelecionada = -1;
+        linhaSelecionada = tabela.getSelectedRow();
+        if (linhaSelecionada >=0){
+            int idFuncionario = (int)
+                    tabela.getValueAt(linhaSelecionada, 0);
+            fun.setCod(idFuncionario);
+            FuncionarioController fc = new FuncionarioController();
+            if (fc.delete(fun)){
+                
+                modelo.removeRow(linhaSelecionada);
+            }
+            
+            
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "É necessário selecionar uma linha");
+    }
+       
+    }//GEN-LAST:event_btExcluirFuncionarioActionPerformed
+
+    private void txPesquisarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPesquisarFuncionarioActionPerformed
+            FuncionarioController fc = new FuncionarioController();
+            modelo.setNumRows(0);
+            for (Funcionario fun: fc.pesquisar(txPesquisarFuncionario.getText())){
+                modelo.addRow(new Object[]{ fun.getCod(), fun.getNome(), fun.getEmail(), fun.getTelefone()});
+            }
+    }//GEN-LAST:event_txPesquisarFuncionarioActionPerformed
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEditarFuncionario;
@@ -134,8 +197,8 @@ public class ListarFuncionarioGUI extends javax.swing.JFrame {
         tabela = new JTable(modelo);
         modelo.addColumn("Id");
         modelo.addColumn("Nome");
+        modelo.addColumn("Email");
         modelo.addColumn("Telefone");
-        modelo.addColumn("Endereco");
         
         preencherJTable();
     }
