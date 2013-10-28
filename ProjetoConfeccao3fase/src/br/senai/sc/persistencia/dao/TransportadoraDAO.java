@@ -31,7 +31,7 @@ public interface TransportadoraDAO {
      * @param t
      * @return
      */
-    boolean update(Transportadora t);
+    int update(Transportadora t);
 
 //------------------------------------------------------------------------------
     /**
@@ -67,4 +67,16 @@ public interface TransportadoraDAO {
      * @return
      */
     Transportadora listById(int cod);
+
+//------------------------------------------------------------------------------
+    /**
+     * Método responsável listar uma transportadora que o usuário deseja
+     * pesquisar
+     *
+     * @author Wesley Batista
+     * @version 1.0 28/10/13
+     * @param texto
+     * @return
+     */
+    List<Transportadora> listPesquisa(String texto);
 }

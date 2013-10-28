@@ -30,6 +30,8 @@ public class Ferias {
     
     //getters e setters
     
+    
+    
 
     public Funcionario getFuncionario() {
         return funcionario;

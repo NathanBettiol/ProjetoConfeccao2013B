@@ -18,13 +18,35 @@ import javax.swing.table.DefaultTableModel;
 public class InserirTransportadoraGUI extends javax.swing.JFrame {
 
     private DefaultTableModel modelo;
+    private int linhaSelecionada;
 
     /**
      * Creates new form InserirTransportadoraGUI
      */
-    public InserirTransportadoraGUI(DefaultTableModel modelo) {
-        this.modelo = modelo;
+    public InserirTransportadoraGUI(DefaultTableModel modelo, int linhaSelecionada, int idTransportadora) {
+
         initComponents();
+        this.modelo = modelo;
+        this.linhaSelecionada = linhaSelecionada;
+        TransportadoraController tc = new TransportadoraController();
+        Transportadora t = tc.listById(idTransportadora);
+        txId.setText(String.valueOf(t.getCod()));
+        txNmFantasia.setText(t.getNmFantasia());
+        txRazaoSocial.setText(t.getRazaoSocial());
+        txCnpj.setText(t.getCnpj());
+        txTelefone.setText(t.getTelefone());
+        txContato.setText(t.getContato());
+        txEndereco.setText(t.getEndereco());
+        txEmail.setText(t.getEmail());
+        txPaginaWeb.setText(t.getPaginaWeb());
+        SimpleDateFormat formataData = new SimpleDateFormat("dd/MM/yyyy");
+        String data = formataData.format(t.getDtCadastro());
+        txDtCadastro.setText(data);
+    }
+
+    public InserirTransportadoraGUI(DefaultTableModel modelo) {
+        initComponents();
+        this.modelo = modelo;
     }
 
     /**
@@ -71,6 +93,7 @@ public class InserirTransportadoraGUI extends javax.swing.JFrame {
 
         jLabel3.setText("Telefone.:");
 
+        txId.setEditable(false);
         txId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txIdActionPerformed(evt);
@@ -236,11 +259,17 @@ public class InserirTransportadoraGUI extends javax.swing.JFrame {
         }
 
         TransportadoraController tc = new TransportadoraController();
+        if (!(txId.getText().equals("") || (txId.getText().equals(null)))) {
+            t.setCod(Integer.parseInt(txId.getText()));
+            tc.update(t);
+            modelo.removeRow(linhaSelecionada);
+            modelo.addRow(new Object[]{t.getCod(), t.getNmFantasia(), t.getCnpj(), t.getTelefone()});
+            this.dispose();
+        } else {
+            tc.inserir(t);
+        }
 
-        modelo.addRow(new Object[]{tc.inserir(t),
-            t.getNmFantasia(), t.getTelefone()});
-        dispose();
-
+  
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
@@ -275,6 +304,4 @@ public class InserirTransportadoraGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txRazaoSocial;
     private javax.swing.JTextField txTelefone;
     // End of variables declaration//GEN-END:variables
-
-    
 }

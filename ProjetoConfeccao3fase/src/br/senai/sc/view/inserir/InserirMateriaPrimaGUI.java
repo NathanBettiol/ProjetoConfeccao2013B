@@ -22,13 +22,25 @@ import javax.swing.table.DefaultTableModel;
 public class InserirMateriaPrimaGUI extends javax.swing.JFrame {
 
     private DefaultTableModel modelo;
+        private int linhaSelecionada;
 
     /**
      * Creates new form InserirPessoaGUI
      */
-    public InserirMateriaPrimaGUI(DefaultTableModel modelo) {
+    public InserirMateriaPrimaGUI(DefaultTableModel modelo,int linhaSelecionada, int IdMateriaPrima) {
         initComponents();
         this.modelo = modelo;
+
+        this.linhaSelecionada = linhaSelecionada;
+        MateriaPrimaController mpc = new MateriaPrimaController();
+        MateriaPrima mp = mpc.listById(IdMateriaPrima);
+        //Preencher o formulário
+        txId.setText(String.valueOf(mpc.getId()));
+        txNome.setText(mpc.getNome());
+        txDescricao.setText(mpc.getDescricao());
+
+
+    }
     }
 
     /**
@@ -98,6 +110,11 @@ public class InserirMateriaPrimaGUI extends javax.swing.JFrame {
         jLabel7.setText("Quantidade.:");
 
         cbCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCategoriaActionPerformed(evt);
+            }
+        });
 
         cbFornecedor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -218,6 +235,11 @@ public class InserirMateriaPrimaGUI extends javax.swing.JFrame {
     private void txNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txNomeActionPerformed
+
+    private void cbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCategoriaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btSalvar;
@@ -263,6 +285,6 @@ public class InserirMateriaPrimaGUI extends javax.swing.JFrame {
         for (int linha = 0; linha < categoriamateriasprima.size(); linha++) {
             CategoriaMateriaPrima cmp = categoriamateriasprima.get(linha);
             comboModel.addElement(cmp);
-        }
+}
     }
 }
