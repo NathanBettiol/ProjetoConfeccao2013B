@@ -3,6 +3,7 @@ package br.senai.sc.view.list;
 import br.senai.sc.controller.TransportadoraController;
 import br.senai.sc.model.negocio.Transportadora;
 import br.senai.sc.view.inserir.InserirTransportadoraGUI;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -37,7 +38,7 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         painelTransportadora = new javax.swing.JPanel();
-        txBuscar = new javax.swing.JTextField();
+        txPesquisa = new javax.swing.JTextField();
         scrollTransportadora = new javax.swing.JScrollPane();
         jLabel5 = new javax.swing.JLabel();
         btInserir = new javax.swing.JButton();
@@ -58,6 +59,12 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
 
         painelTransportadora.setBackground(new java.awt.Color(255, 255, 255));
 
+        txPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txPesquisaActionPerformed(evt);
+            }
+        });
+
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel5.setText("Pesquisar:  ");
 
@@ -77,6 +84,11 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
 
         btDeletar.setText("Deletar");
         btDeletar.setToolTipText("");
+        btDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDeletarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout painelTransportadoraLayout = new javax.swing.GroupLayout(painelTransportadora);
         painelTransportadora.setLayout(painelTransportadoraLayout);
@@ -89,7 +101,7 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
                     .addGroup(painelTransportadoraLayout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 273, Short.MAX_VALUE))
                     .addGroup(painelTransportadoraLayout.createSequentialGroup()
                         .addComponent(btInserir)
@@ -105,7 +117,7 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(painelTransportadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(painelTransportadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btInserir)
@@ -131,15 +143,48 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
-        InserirTransportadoraGUI it = new InserirTransportadoraGUI(modelo);
+        InserirTransportadoraGUI itg = new InserirTransportadoraGUI(modelo);
 
-        it.setLocationRelativeTo(null);
-        it.setVisible(true);
+        itg.setLocationRelativeTo(null);
+        itg.setVisible(true);
     }//GEN-LAST:event_btInserirActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-        // TODO add your handling code here:
+        int linhaSelecionada = -1;
+        linhaSelecionada = tabela.getSelectedRow();
+        if (linhaSelecionada >= 0) {
+            int idFuncao = (int) tabela.getValueAt(linhaSelecionada, 0);
+            TransportadoraController fc = new TransportadoraController();
+            InserirTransportadoraGUI itg = new InserirTransportadoraGUI(modelo, linhaSelecionada, idFuncao);
+            itg.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "É necessário selecionar uma "
+                    + "linha");
+        }
     }//GEN-LAST:event_btEditarActionPerformed
+
+    private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
+        int linhaSelecionada = -1;
+        linhaSelecionada = tabela.getSelectedRow();
+        if (linhaSelecionada >= 0) {
+            int idFuncao = (int) tabela.getValueAt(linhaSelecionada, 0);
+            TransportadoraController fc = new TransportadoraController();
+            if (fc.delete(idFuncao)) {
+                modelo.removeRow(linhaSelecionada);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "É necessário selecionar uma "
+                    + "linha");
+        }
+    }//GEN-LAST:event_btDeletarActionPerformed
+
+    private void txPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPesquisaActionPerformed
+        TransportadoraController fc = new TransportadoraController();
+        modelo.setNumRows(0);
+        for (Transportadora t : fc.pesquisar(txPesquisa.getText())) {
+            modelo.addRow(new Object[]{t.getCod(), t.getNmFantasia()});
+        }
+    }//GEN-LAST:event_txPesquisaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,6 +215,7 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new ListarTransportadoraGUI().setVisible(true);
             }
@@ -187,7 +233,7 @@ public class ListarTransportadoraGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel painelTransportadora;
     private javax.swing.JScrollPane scrollTransportadora;
-    private javax.swing.JTextField txBuscar;
+    private javax.swing.JTextField txPesquisa;
     // End of variables declaration//GEN-END:variables
 
     private void criaJTable() {
