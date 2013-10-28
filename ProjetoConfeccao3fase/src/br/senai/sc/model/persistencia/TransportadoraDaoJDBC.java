@@ -30,6 +30,7 @@ public class TransportadoraDaoJDBC implements TransportadoraDAO {
     private final String LIST = "select * from transportadora";
     private final String LISTBYID = "select * from transportadora "
             + "where cod_transportadora = ?";
+    private static final String PESQUISA = "select * from transportadora where cod_transportadora like ? or nm_transportadora like ?";
 
 //------------------------------------------------------------------------------
     /*
@@ -68,11 +69,13 @@ public class TransportadoraDaoJDBC implements TransportadoraDAO {
      * Método responsável por atualizar uma transportadora na base de dados
      */
     @Override
-    public boolean update(Transportadora t) {
-        Connection conn;
+    public int update(Transportadora t) {
+        int retorno = -1;
+        Connection con = null;
+        PreparedStatement pstm = null;
         try {
-            conn = ConnectionFactory.getConnection();
-            PreparedStatement pstm = conn.prepareStatement(UPDATE);
+            con = ConnectionFactory.getConnection();
+            pstm = con.prepareStatement(UPDATE);
 
             pstm.setString(1, t.getNmFantasia());
             pstm.setString(2, t.getRazaoSocial());
@@ -85,15 +88,18 @@ public class TransportadoraDaoJDBC implements TransportadoraDAO {
             pstm.setDate(9, new java.sql.Date(t.getDtCadastro().getTime()));
             pstm.setInt(10, t.getCod());
             pstm.execute();
-            JOptionPane.showMessageDialog(null, "Transação efetuada com "
-                    + "sucesso");
-            ConnectionFactory.closeConnection(conn, pstm);
-            return true;
+            retorno = t.getCod();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possível efetuar a "
-                    + "transação: " + e.getMessage());
-            return false;
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar uma transportadora: " + e.getMessage());
+            
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(con, pstm);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Erro ao fechar conexão: " + e.getMessage());
+            }
         }
+        return retorno;
     }
 
 //------------------------------------------------------------------------------
@@ -189,5 +195,37 @@ public class TransportadoraDaoJDBC implements TransportadoraDAO {
                     + "transação");
         }
         return null;
+    }
+
+//------------------------------------------------------------------------------
+    @Override
+    public List<Transportadora> listPesquisa(String texto) {
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        List<Transportadora> transportadoras = new ArrayList<>();
+        try {
+            con = ConnectionFactory.getConnection();
+            pstm = con.prepareStatement(PESQUISA);
+            pstm.setString(1, "%" + texto + "%");
+            pstm.setString(2, "%" + texto + "%");
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Transportadora t = new Transportadora();
+                t.setCod(rs.getInt("cod_transportadora"));
+                t.setNmFantasia(rs.getString("nm_transportadora"));
+                transportadoras.add(t);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar: " + e.getMessage());
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(con, pstm, rs);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Erro ao fechar a conexão:"
+                        + e.getMessage());
+            }
+        }
+        return transportadoras;
     }
 }

@@ -1,29 +1,34 @@
 package br.senai.sc.controller;
 
-import br.senai.sc.model.negocio.CategoriaProduto;
-import br.senai.sc.model.persistencia.CategoriaProdutoDaoJDBC;
-import br.senai.sc.persistencia.dao.CategoriaProdutoDAO;
+import br.senai.sc.model.negocio.Produto;
+import br.senai.sc.model.persistencia.ProdutoDaoJDBC;
+import br.senai.sc.persistencia.dao.ProdutoDAO;
 import java.util.List;
 
 public class ProdutoController {
 
-    public List<CategoriaProduto> listAll() {
-        CategoriaProdutoDAO dao = new CategoriaProdutoDaoJDBC();
+    public List<Produto> listAll() {
+        ProdutoDAO dao = new ProdutoDaoJDBC();
         return dao.listAll();
     }
 
-    public boolean insert (CategoriaProduto cp){
-        CategoriaProdutoDAO dao = new CategoriaProdutoDaoJDBC();
+    public boolean insert(Produto cp) {
+        ProdutoDAO dao = new ProdutoDaoJDBC();
         return dao.insert(cp);
     }
-    
-    public boolean update (CategoriaProduto cp){
-        CategoriaProdutoDAO dao = new CategoriaProdutoDaoJDBC();
+
+    public boolean update(Produto cp) {
+        ProdutoDAO dao = new ProdutoDaoJDBC();
         return dao.update(cp);
     }
-    
-     public boolean delete (int codCategoriaProduto){
-        CategoriaProdutoDAO dao = new CategoriaProdutoDaoJDBC();
-        return dao.delete(codCategoriaProduto);
+
+    public boolean delete(int codProduto) {
+        ProdutoDAO dao = new ProdutoDaoJDBC();
+        return dao.delete(codProduto);
     }
+
+//    public boolean search(String texto) {
+//        ProdutoDAO dao = new ProdutoDaoJDBC();
+//        return dao.search(texto);
+//    }
 }
