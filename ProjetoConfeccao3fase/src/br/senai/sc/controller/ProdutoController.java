@@ -12,18 +12,23 @@ public class ProdutoController {
         return dao.listAll();
     }
 
-    public boolean insert (Produto cp){
+    public boolean insert(Produto cp) {
         ProdutoDAO dao = new ProdutoDaoJDBC();
         return dao.insert(cp);
     }
-    
-    public boolean update (Produto cp){
+
+    public boolean update(Produto cp) {
         ProdutoDAO dao = new ProdutoDaoJDBC();
         return dao.update(cp);
     }
-    
-     public boolean delete (int codProduto){
+
+    public boolean delete(int codProduto) {
         ProdutoDAO dao = new ProdutoDaoJDBC();
         return dao.delete(codProduto);
     }
+
+//    public boolean search(String texto) {
+//        ProdutoDAO dao = new ProdutoDaoJDBC();
+//        return dao.search(texto);
+//    }
 }

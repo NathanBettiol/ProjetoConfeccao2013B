@@ -22,14 +22,14 @@ public class ProdutoDaoJDBC implements ProdutoDAO {
             + "cp.cod_categoria, cp.nome AS categoria, cp.descricao, "
             + "f.cod_fabricante, f.nmfantasia, f.cnpj, f.telefone, f.email, f.endereco, "
             + "c.cod_colecao, c.estacao, c.ano, c.pub_alvo, c.cod_funcionario, c.categoria_colecao_cod_categoria FROM produtos p "
-            + "LEFT JOIN categorias_produtos cp ON (cp.cod_categoria = p.cod_categoria) "
+            + "LEFT JOIN categoria_produto cp ON (cp.cod_categoria = p.cod_categoria) "
             + "LEFT JOIN colecao c ON (c.cod_colecao = p.cod_categoria) "
             + "LEFT JOIN fabricante f ON (f.cod_fabricante = p.cod_categoria)";
     private final String LISTBYID = "SELECT p.cod_produto, p.nome, p.modelo, p.preco, p.cor, p.tamanho, p.cor, p.qt_produtos, "
             + "cp.cod_categoria, cp.nome AS categoria, cp.descricao, "
             + "f.cod_fabricante, f.nmfantasia, f.cnpj, f.telefone, f.email, f.endereco, "
             + "c.cod_colecao, c.estacao, c.ano, c.pub_alvo, c.cod_funcionario, c.categoria_colecao_cod_categoria FROM produtos p "
-            + "LEFT JOIN categorias_produtos cp ON (cp.cod_categoria = p.cod_categoria) "
+            + "LEFT JOIN categoria_produto cp ON (cp.cod_categoria = p.cod_categoria) "
             + "LEFT JOIN colecao c ON (c.cod_colecao = p.cod_categoria) "
             + "LEFT JOIN fabricante f ON (f.cod_fabricante = p.cod_categoria) "
             + "WHERE p.cod_produto = ?";
@@ -115,6 +115,7 @@ public class ProdutoDaoJDBC implements ProdutoDAO {
         try {
             conn = ConnectionFactory.getConnection();
             PreparedStatement pstm = conn.prepareStatement(LIST);
+            System.out.println(LIST);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Produto p = new Produto();

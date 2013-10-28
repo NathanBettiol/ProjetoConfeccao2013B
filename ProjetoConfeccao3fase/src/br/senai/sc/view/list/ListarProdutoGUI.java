@@ -2,7 +2,7 @@ package br.senai.sc.view.list;
 
 import br.senai.sc.controller.ProdutoController;
 import br.senai.sc.model.negocio.Produto;
-import br.senai.sc.view.inserir.InserirProdutosGUI;
+import br.senai.sc.view.inserir.InserirProdutoGUI;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -111,7 +111,7 @@ public class ListarProdutoGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
-        InserirProdutosGUI icp = new InserirProdutosGUI(modelo);
+        InserirProdutoGUI icp = new InserirProdutoGUI(modelo);
 
         icp.setLocationRelativeTo(null);
         icp.setVisible(true);

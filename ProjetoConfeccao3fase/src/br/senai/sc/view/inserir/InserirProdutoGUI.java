@@ -12,14 +12,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author rosicleia.souza
  */
-public class InserirProdutosGUI extends javax.swing.JFrame {
+public class InserirProdutoGUI extends javax.swing.JFrame {
 
     private DefaultTableModel modelo = new DefaultTableModel();;
 
     /**
      * Creates new form InserirCategoriaProdutosGUI
      */
-    public InserirProdutosGUI(DefaultTableModel modelo) {
+    public InserirProdutoGUI(DefaultTableModel modelo) {
         initComponents();
         this.modelo = modelo;
     }
@@ -114,7 +114,7 @@ public class InserirProdutosGUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvar)
                     .addComponent(btLimpar))
@@ -129,7 +129,7 @@ public class InserirProdutosGUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
