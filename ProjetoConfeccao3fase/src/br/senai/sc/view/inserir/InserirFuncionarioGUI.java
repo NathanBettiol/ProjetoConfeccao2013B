@@ -6,7 +6,6 @@ package br.senai.sc.view.inserir;
 
 import br.senai.sc.controller.FuncionarioController;
 import br.senai.sc.model.negocio.Funcionario;
-import com.sun.media.sound.ModelOscillator;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -18,8 +17,18 @@ import javax.swing.table.DefaultTableModel;
 public class InserirFuncionarioGUI extends javax.swing.JFrame {
 
     private DefaultTableModel modelo = new DefaultTableModel();
+    private int linhaSelecionada;
 
     public InserirFuncionarioGUI(DefaultTableModel modelo) {
+        this.modelo = modelo;
+        initComponents();
+        setLocationRelativeTo(null);
+    }
+
+    public InserirFuncionarioGUI(DefaultTableModel modelo, int linhaSelecionada, int idFuncionario) {
+        this.modelo = modelo;
+        this.linhaSelecionada = linhaSelecionada;
+
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -45,13 +54,10 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txRgFuncionario = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txEnderecoFuncionario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txDtNascimentoFuncionario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txDtCadastroFuncionario = new javax.swing.JTextField();
-        txLoginFuncionario = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         cbCargoFuncionario = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
@@ -62,243 +68,148 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
         txDtAdmissao = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         txDtRecisao = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btSalvar = new javax.swing.JButton();
+        btExcluir = new javax.swing.JButton();
+        txDtNascimentoFuncionario = new javax.swing.JTextField();
+        txLoginFuncionario = new javax.swing.JTextField();
+        txEnderecoFuncionario = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        txIdFuncionario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         painelFuncionario.setBackground(new java.awt.Color(255, 255, 255));
-        painelFuncionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Funcionário", 0, 0, new java.awt.Font("Verdana", 1, 14), new java.awt.Color(102, 102, 102))); // NOI18N
+        painelFuncionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Funcionário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 1, 14), new java.awt.Color(102, 102, 102))); // NOI18N
+        painelFuncionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel1.setText("Nome:  ");
+        painelFuncionario.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 43, 123, -1));
 
         txNomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txNomeFuncionarioActionPerformed(evt);
             }
         });
+        painelFuncionario.add(txNomeFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 284, -1));
 
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel2.setText("Telefone:  ");
+        painelFuncionario.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 69, 123, -1));
+        painelFuncionario.add(txTelefoneFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 68, 284, -1));
 
         jLabel3.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel3.setText("Email:  ");
+        painelFuncionario.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 95, 123, -1));
+        painelFuncionario.add(txEmailFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 94, 284, -1));
 
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel4.setText("Cpf:  ");
+        painelFuncionario.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 121, 123, -1));
+        painelFuncionario.add(txCpfFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 120, 284, -1));
 
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel5.setText("Rg:  ");
+        painelFuncionario.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 147, 123, -1));
+        painelFuncionario.add(txRgFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 146, 284, -1));
 
         jLabel6.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel6.setText("Endereço:  ");
-
-        txEnderecoFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txEnderecoFuncionarioActionPerformed(evt);
-            }
-        });
+        painelFuncionario.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 173, 123, -1));
 
         jLabel7.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jLabel7.setText("Data Nascimento:  ");
-
-        txDtNascimentoFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txDtNascimentoFuncionarioActionPerformed(evt);
-            }
-        });
+        jLabel7.setText("Dt Nascimento:  ");
+        painelFuncionario.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 200, 112, -1));
 
         jLabel8.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel8.setText("Login Funcionário:  ");
+        painelFuncionario.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 226, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel9.setText("Data Cadastro:  ");
+        painelFuncionario.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 252, 119, -1));
+        painelFuncionario.add(txDtCadastroFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 251, 284, -1));
 
         jLabel10.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel10.setText("Cargo:  ");
+        painelFuncionario.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 280, 121, -1));
 
         cbCargoFuncionario.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         cbCargoFuncionario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Designer", "Auxiliar de Corte", "Auxiliar de ficha técnica", "Estagiário(a)", "Serviços Gerais" }));
+        cbCargoFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCargoFuncionarioActionPerformed(evt);
+            }
+        });
+        painelFuncionario.add(cbCargoFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 277, 284, -1));
 
         jLabel11.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel11.setText("Ctps:  ");
+        painelFuncionario.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 306, 121, -1));
 
         txCtpsFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txCtpsFuncionarioActionPerformed(evt);
             }
         });
+        painelFuncionario.add(txCtpsFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 305, 284, -1));
 
         jLabel12.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel12.setText("Salário:  ");
+        painelFuncionario.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 332, 121, -1));
+        painelFuncionario.add(txSalarioFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 331, 284, -1));
 
         jLabel13.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jLabel13.setText("Data Admissão:  ");
+        jLabel13.setText("Dt Admissão:  ");
+        painelFuncionario.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 358, 121, -1));
+        painelFuncionario.add(txDtAdmissao, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 357, 284, -1));
 
         jLabel14.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jLabel14.setText("Data Recisão:  ");
+        jLabel14.setText("Dt Recisão:  ");
+        painelFuncionario.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 384, 111, -1));
+        painelFuncionario.add(txDtRecisao, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 383, 284, -1));
 
-        jButton1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 102, 102));
-        jButton1.setText("Salvar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btSalvar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btSalvar.setForeground(new java.awt.Color(102, 102, 102));
+        btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btSalvarActionPerformed(evt);
             }
         });
+        painelFuncionario.add(btSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 440, -1, 49));
 
-        jButton2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(102, 102, 102));
-        jButton2.setText("Excluir");
+        btExcluir.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btExcluir.setForeground(new java.awt.Color(102, 102, 102));
+        btExcluir.setText("Excluir");
+        painelFuncionario.add(btExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 440, -1, 49));
 
-        javax.swing.GroupLayout painelFuncionarioLayout = new javax.swing.GroupLayout(painelFuncionario);
-        painelFuncionario.setLayout(painelFuncionarioLayout);
-        painelFuncionarioLayout.setHorizontalGroup(
-            painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                        .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbCargoFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txCtpsFuncionario)))
-                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txSalarioFuncionario))
-                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(txDtAdmissao))
-                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txDtRecisao))
-                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                        .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txDtNascimentoFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
-                            .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(4, 4, 4))
-                                    .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                                        .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txEnderecoFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                                    .addComponent(txTelefoneFuncionario, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txEmailFuncionario, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txCpfFuncionario, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txRgFuncionario)
-                                    .addComponent(txNomeFuncionario)))
-                            .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(1, 1, 1)
-                                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txLoginFuncionario)
-                                    .addComponent(txDtCadastroFuncionario))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        painelFuncionarioLayout.setVerticalGroup(
-            painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelFuncionarioLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txTelefoneFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txEmailFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txCpfFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txRgFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(txEnderecoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txDtNascimentoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txLoginFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txDtCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(cbCargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txCtpsFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(txSalarioFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txDtAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(txDtRecisao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(painelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 25, Short.MAX_VALUE))
-        );
+        txDtNascimentoFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txDtNascimentoFuncionarioActionPerformed(evt);
+            }
+        });
+        painelFuncionario.add(txDtNascimentoFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 199, 284, -1));
+        painelFuncionario.add(txLoginFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 225, 284, -1));
+        painelFuncionario.add(txEnderecoFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 172, 284, -1));
+
+        jLabel15.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel15.setText("Id Funcionário:  ");
+        painelFuncionario.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+        painelFuncionario.add(txIdFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 280, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(painelFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(painelFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 43, Short.MAX_VALUE))
         );
 
         pack();
@@ -308,19 +219,11 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txNomeFuncionarioActionPerformed
 
-    private void txEnderecoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txEnderecoFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txEnderecoFuncionarioActionPerformed
-
-    private void txDtNascimentoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txDtNascimentoFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txDtNascimentoFuncionarioActionPerformed
-
     private void txCtpsFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txCtpsFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txCtpsFuncionarioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         Funcionario fun = new Funcionario();
         fun.setNome(txNomeFuncionario.getText());
         fun.setTelefone(txTelefoneFuncionario.getText());
@@ -349,7 +252,7 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
         try {
             String data = txDtAdmissao.getText();
 
-            fun.setDtAdimissao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
+            fun.setDtAdmissao(new SimpleDateFormat("dd/mm/yyyy").parse(data));
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Data incorreta" + ex);
         }
@@ -362,24 +265,43 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
         }
 
         FuncionarioController fc = new FuncionarioController();
-        modelo.addRow(new Object[]{fun.getCod(), fun.getNome(), fun.getTelefone(), fun.getEmail()});
-        dispose();
-        fc.inserir(fun);
+        if (!(txIdFuncionario.getText().equals("")
+                || (txIdFuncionario.getText().equals(null)))) {
+            fun.setNome(txIdFuncionario.getText());
+
+            fc.update(fun);
+            modelo.removeRow(linhaSelecionada);
+            modelo.addRow(new Object[]{fun.getNome(), fun.getTelefone(), fun.getEmail()});
+            this.dispose();
+        }else{
+            fc.inserir(fun);
+        }
+        txIdFuncionario.setText(null);
+            
 
 
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void cbCargoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCargoFuncionarioActionPerformed
+
+    private void txDtNascimentoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txDtNascimentoFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txDtNascimentoFuncionarioActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btExcluir;
+    private javax.swing.JButton btSalvar;
     private javax.swing.JComboBox cbCargoFuncionario;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -397,6 +319,7 @@ public class InserirFuncionarioGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txDtRecisao;
     private javax.swing.JTextField txEmailFuncionario;
     private javax.swing.JTextField txEnderecoFuncionario;
+    private javax.swing.JTextField txIdFuncionario;
     private javax.swing.JTextField txLoginFuncionario;
     private javax.swing.JTextField txNomeFuncionario;
     private javax.swing.JTextField txRgFuncionario;
