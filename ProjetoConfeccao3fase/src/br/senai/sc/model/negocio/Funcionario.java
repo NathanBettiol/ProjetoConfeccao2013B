@@ -11,13 +11,13 @@ import java.util.Objects;
  */
 public class Funcionario extends PessoaFisica {
     
-    private int codFuncionario;
+    
     private String login;
     private String email;
     private String ctps;
     private String cargo;
     private double salario;
-    private Date dtAdimissao;
+    private Date dtAdmissao;
     private Date dtRecisao;
 
     
@@ -65,12 +65,12 @@ public class Funcionario extends PessoaFisica {
         this.salario = salario;
     }
 
-    public Date getDtAdimissao() {
-        return dtAdimissao;
+    public Date getDtAdmissao() {
+        return dtAdmissao;
     }
 
-    public void setDtAdimissao(Date dtAdimissao) {
-        this.dtAdimissao = dtAdimissao;
+    public void setDtAdmissao(Date dtAdimissao) {
+        this.dtAdmissao = dtAdmissao;
     }
 
     public Date getDtRecisao() {
@@ -80,13 +80,7 @@ public class Funcionario extends PessoaFisica {
     public void setDtRecisao(Date dtRecisao) {
         this.dtRecisao = dtRecisao;
     }
-    public int getCodFuncionario() {
-        return codFuncionario;
-    }
-
-    public void setCodFuncionario(int codFuncionario) {
-        this.codFuncionario = codFuncionario;
-    }
+   
     
     //Métodos ToString
 
@@ -102,7 +96,7 @@ public class Funcionario extends PessoaFisica {
                 + "Cargo: "                  + this.getCargo()
                 + "Rg: "                     + this.getRg()
                 + "Salário: "                + this.getSalario()
-                + "Data Adimissão: "         + this.getDtAdimissao()
+                + "Data Admissão: "         + this.getDtAdmissao()
                 + "Data Nascimento: "        + this.getDtNascimento()
                 + "Data Recisão: "           + this.getDtRecisao();
     }
@@ -137,7 +131,7 @@ public class Funcionario extends PessoaFisica {
         if (Double.doubleToLongBits(this.salario) != Double.doubleToLongBits(other.salario)) {
             return false;
         }
-        if (!Objects.equals(this.dtAdimissao, other.dtAdimissao)) {
+        if (!Objects.equals(this.dtAdmissao, other.dtAdmissao)) {
             return false;
         }
 
