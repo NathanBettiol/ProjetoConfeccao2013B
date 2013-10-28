@@ -22,4 +22,19 @@ public class FuncionarioController {
         FuncionarioDAO dao = new FuncionariodaoJDBC();
         return dao.insert(fun);
     }
+    
+    public boolean delete(Funcionario fun){
+        FuncionarioDAO dao = new FuncionariodaoJDBC();
+        return dao.delete(fun);
+    }
+    
+    public List<Funcionario> pesquisar(String texto){
+        FuncionarioDAO dao = new FuncionariodaoJDBC();
+        return dao.ListPesquisa(texto);
+    }
+    
+    public boolean update (Funcionario fun){
+        FuncionarioDAO dao = new FuncionariodaoJDBC();
+        return dao.update(fun);
+    }
 }
