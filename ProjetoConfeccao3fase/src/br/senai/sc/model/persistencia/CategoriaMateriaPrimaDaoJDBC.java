@@ -22,6 +22,7 @@ public class CategoriaMateriaPrimaDaoJDBC implements CategoriaMateriaPrimaDAO {
     private final String UPDATE = "update categoria_materia_prima set nm_categoria_materia_prima = ?, "
             + "descricao = ? where cod_categoria_materia_prima = ?";
     private final String DELETE = "delete from categoria_materia_prima where cod_categoria_materia_prima= ?";
+    private static final String Pesquisa = "select * from categoria_materia_prima where cod_categoria_materia_prima like ? or nome like?";
     private final String LIST = "select * from categoria_materia_prima";
     /*
      * Método que realiza a inserção de uma categoria de matéria-prima na base de dados
@@ -136,5 +137,37 @@ public class CategoriaMateriaPrimaDaoJDBC implements CategoriaMateriaPrimaDAO {
     public CategoriaMateriaPrima listById(int codCategoriaMateriaPrima) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+       public List<CategoriaMateriaPrima> listPesquisa(String texto) {
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        List<CategoriaMateriaPrima> categoriasmateriaprima = new ArrayList<>();
+        try {
+            con = ConnectionFactory.getConnection();
+            pstm = con.prepareStatement(Pesquisa);
+            pstm.setString(1, "%" + texto + "%");
+             pstm.setString(2, "%" + texto + "%");
+             pstm.setString(3,"%"+ texto+"%");
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                CategoriaMateriaPrima cmp = new CategoriaMateriaPrima();
+                cmp.setCod(rs.getInt("cod_categoria_materia_prima"));
+                cmp.setNome(rs.getString("nome"));
+                cmp.setDescricao(rs.getString("descricao"));
+                categoriasmateriaprima.add(cmp);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar: " + e.getMessage());
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(con, pstm, rs);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Erro ao fechar a conexão:"
+                        + e.getMessage());
+            }
+        }
+        return categoriasmateriaprima;
+    }
 }
+
 

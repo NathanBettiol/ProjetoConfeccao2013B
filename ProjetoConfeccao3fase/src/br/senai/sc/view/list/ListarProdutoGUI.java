@@ -1,8 +1,8 @@
 package br.senai.sc.view.list;
 
-import br.senai.sc.controller.CategoriaProdutoController;
-import br.senai.sc.model.negocio.CategoriaProduto;
-import br.senai.sc.view.inserir.InserirCategoriaProdutosGUI;
+import br.senai.sc.controller.ProdutoController;
+import br.senai.sc.model.negocio.Produto;
+import br.senai.sc.view.inserir.InserirProdutoGUI;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -111,8 +111,8 @@ public class ListarProdutoGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
-        InserirCategoriaProdutosGUI icp = new InserirCategoriaProdutosGUI(modelo);
-        
+        InserirProdutoGUI icp = new InserirProdutoGUI(modelo);
+
         icp.setLocationRelativeTo(null);
         icp.setVisible(true);
     }//GEN-LAST:event_btInserirActionPerformed
@@ -142,9 +142,20 @@ public class ListarProdutoGUI extends javax.swing.JFrame {
     }
 
     private void preencherJTable() {
-        CategoriaProdutoController cpc = new CategoriaProdutoController();
-        for (CategoriaProduto cp : cpc.listAll()) {
-            modelo.addRow(new Object[]{cp.getCodCategoriaProduto(), cp.getNomeCategoriaProduto(), cp.getDescricaoCategoriaProduto()});
+        ProdutoController pc = new ProdutoController();
+        for (Produto p : pc.listAll()) {
+            modelo.addRow(new Object[]{
+                p.getCodProduto(),
+                p.getCategoria().getNomeCategoriaProduto(),
+                p.getColecao().getEstacaoColecao(),
+                p.getFabricante().getRazaoSocial(),
+                p.getNome(),
+                p.getModelo(),
+                p.getPreco(),
+                p.getTamanho(),
+                p.getCor(),
+                p.getQtProdutos()
+            });
         }
 
     }

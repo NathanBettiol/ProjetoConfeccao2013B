@@ -15,13 +15,25 @@ import javax.swing.table.DefaultTableModel;
  * @author leticia_jesus
  */
 public class InserirCategoriaMateriaPrimaGUI extends javax.swing.JFrame {
-private DefaultTableModel modelo;
+
+    private DefaultTableModel modelo;
+    private int linhaSelecionada;
+
     /**
      * Creates new form InserirCategoriaMateriaPrimaGUI
      */
-    public InserirCategoriaMateriaPrimaGUI(DefaultTableModel modelo) {
+    public InserirCategoriaMateriaPrimaGUI(DefaultTableModel modelo, int linhaSelecionada, int IdCategoriaMateriaPrima) {
         initComponents();
         this.modelo = modelo;
+        this.linhaSelecionada = linhaSelecionada;
+        CategoriaMateriaPrimaController cmpc = new CategoriaMateriaPrimaController();
+        CategoriaMateriaPrima mpc = cmpc.listById(IdCategoriaMateriaPrima);
+        //Preencher o formulário
+        txId.setText(String.valueOf(mpc.getCod()));
+        txNome.setText(mpc.getNome());
+        txDescricao.setText(mpc.getDescricao());
+
+
     }
 
     /**
@@ -143,24 +155,22 @@ private DefaultTableModel modelo;
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         CategoriaMateriaPrima cmp = new CategoriaMateriaPrima();
-       
+
         cmp.setNome(txNome.getText());
         cmp.setDescricao(txDescricao.getText());
-       
+
 
         CategoriaMateriaPrimaController cmpc = new CategoriaMateriaPrimaController();
 
         modelo.addRow(new Object[]{cmpc.inserir(cmp),
-            cmp.getNome(),cmp.getDescricao()});
-    dispose();
+            cmp.getNome(), cmp.getDescricao()});
+        dispose();
 
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void txNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txNomeActionPerformed
-
-   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btSalvar;

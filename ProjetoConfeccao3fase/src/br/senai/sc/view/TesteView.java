@@ -4,7 +4,7 @@
  */
 package br.senai.sc.view;
 
-import br.senai.sc.view.list.ListarCategoriaProdutoGUI;
+import br.senai.sc.view.list.ListarProdutoGUI;
 
 /**
  *
@@ -49,7 +49,7 @@ public class TesteView extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
 
-        ListarCategoriaProdutoGUI lcp = new ListarCategoriaProdutoGUI();
+        ListarProdutoGUI lcp = new ListarProdutoGUI();
         lcp.setLocationRelativeTo(null);
         lcp.setVisible(true);
 

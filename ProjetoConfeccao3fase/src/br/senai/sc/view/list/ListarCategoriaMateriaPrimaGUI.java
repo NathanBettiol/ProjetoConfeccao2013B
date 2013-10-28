@@ -4,6 +4,7 @@ package br.senai.sc.view.list;
 import br.senai.sc.controller.CategoriaMateriaPrimaController;
 import br.senai.sc.model.negocio.CategoriaMateriaPrima;
 import br.senai.sc.view.inserir.InserirCategoriaMateriaPrimaGUI;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -32,14 +33,15 @@ public class ListarCategoriaMateriaPrimaGUI extends javax.swing.JFrame {
 
         painelFundo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txPesquisar = new javax.swing.JTextField();
         scroll = new javax.swing.JScrollPane();
         btEditar = new javax.swing.JButton();
         btInserir = new javax.swing.JButton();
-        btDeletar = new javax.swing.JButton();
+        btExcluir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
 
@@ -48,6 +50,11 @@ public class ListarCategoriaMateriaPrimaGUI extends javax.swing.JFrame {
         btEditar.setContentAreaFilled(false);
         btEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditarActionPerformed(evt);
+            }
+        });
 
         btInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inserir.jpg"))); // NOI18N
         btInserir.setText("Inserir");
@@ -60,11 +67,16 @@ public class ListarCategoriaMateriaPrimaGUI extends javax.swing.JFrame {
             }
         });
 
-        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/deletar.jpg"))); // NOI18N
-        btDeletar.setText("Deletar");
-        btDeletar.setContentAreaFilled(false);
-        btDeletar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btDeletar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/deletar.jpg"))); // NOI18N
+        btExcluir.setText("Excluir");
+        btExcluir.setContentAreaFilled(false);
+        btExcluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btExcluir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Pesquisar.:");
 
@@ -73,27 +85,25 @@ public class ListarCategoriaMateriaPrimaGUI extends javax.swing.JFrame {
         painelFundoLayout.setHorizontalGroup(
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelFundoLayout.createSequentialGroup()
-                .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFundoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(scroll))
-                    .addGroup(painelFundoLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFundoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(txPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(painelFundoLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addComponent(btInserir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 613, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btEditar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btDeletar)
+                .addComponent(btExcluir)
                 .addGap(40, 40, 40))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFundoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scroll)
+                .addContainerGap())
         );
         painelFundoLayout.setVerticalGroup(
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,21 +112,19 @@ public class ListarCategoriaMateriaPrimaGUI extends javax.swing.JFrame {
                 .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1)
+                        .addComponent(txPesquisar)
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelFundoLayout.createSequentialGroup()
-                        .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btEditar)
-                            .addComponent(btInserir))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btDeletar))
-                .addContainerGap())
+                    .addComponent(btEditar)
+                    .addComponent(btInserir)
+                    .addComponent(btExcluir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
-        getContentPane().add(painelFundo, java.awt.BorderLayout.CENTER);
+        getContentPane().add(painelFundo, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -127,20 +135,49 @@ public class ListarCategoriaMateriaPrimaGUI extends javax.swing.JFrame {
         cmp.setLocationRelativeTo(null);
         cmp.setVisible(true);
     }//GEN-LAST:event_btInserirActionPerformed
+
+    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
+       // TODO add your handling code here:
+    }//GEN-LAST:event_btExcluirActionPerformed
+
+    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
+      int linhaSelecionada = -1;
+        linhaSelecionada = tabela.getSelectedRow();
+        if (linhaSelecionada >= 0) {
+            int idFuncao = (int) tabela.getValueAt(linhaSelecionada, 0);
+            CategoriaMateriaPrimaController fc = new CategoriaMateriaPrimaController();
+            InserirCategoriaMateriaPrima icmp = new InserirCategoriaMateriaPrima(modelo, linhaSelecionada,idCategoriaMateriaPrima);
+            icmp.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "É necessário selecionar uma "
+                    + "linha");
+        }
+                
+          private void txPesquisaActionPerformed(java.awt.event.ActionEvent evt) {                                           
+       CategoriaMateriaPrimaController cmp = new CategoriaMateriaPrimaController();
+     modelo.setNumRows(0);
+     for(CategoriaMateriaPrima cmp: cmp.Pesquisa(txPesquisa.getText())){
+         modelo.addRow(new Object []{cmp.getCod(),cmp.getNome(),cmp.getDescricao()});
+     }
+                                        
+
+
+    }//GEN-LAST:event_btEditarActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btDeletar;
     private javax.swing.JButton btEditar;
+    private javax.swing.JButton btExcluir;
     private javax.swing.JButton btInserir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel painelFundo;
     private javax.swing.JScrollPane scroll;
+    private javax.swing.JTextField txPesquisar;
     // End of variables declaration//GEN-END:variables
 
     private void criaJTable() {
         tabela = new JTable(modelo);
+        modelo.addColumn("Código");
         modelo.addColumn("Nome");
         modelo.addColumn("Descrição");
      

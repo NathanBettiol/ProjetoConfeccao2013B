@@ -6,7 +6,7 @@ import br.senai.sc.model.negocio.Colecao;
 import br.senai.sc.model.negocio.Fabricante;
 import br.senai.sc.model.negocio.Funcionario;
 import br.senai.sc.model.negocio.Produto;
-import br.senai.sc.model.persistencia.ProdutosDaoJDBC;
+import br.senai.sc.model.persistencia.ProdutoDaoJDBC;
 import br.senai.sc.persistencia.dao.ProdutoDAO;
 import javax.swing.JOptionPane;
 
@@ -54,7 +54,7 @@ public class TesteProduto {
         p1.setCor(JOptionPane.showInputDialog("Informe a cor do produto:"));
         p1.setQtProdutos(Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade do produto:")));
 
-        ProdutoDAO dao01 = new ProdutosDaoJDBC();
+        ProdutoDAO dao01 = new ProdutoDaoJDBC();
         dao01.insert(p1);
         System.out.println(p1.toString());
 
@@ -70,17 +70,17 @@ public class TesteProduto {
         p2.setCor(JOptionPane.showInputDialog("Informe a cor do produto:"));
         p2.setQtProdutos(Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade do produto:")));
 
-        ProdutoDAO dao02 = new ProdutosDaoJDBC();
+        ProdutoDAO dao02 = new ProdutoDaoJDBC();
         dao02.update(p2);
         System.out.println(p2.toString());
 
-        ProdutoDAO dao03 = new ProdutosDaoJDBC();
+        ProdutoDAO dao03 = new ProdutoDaoJDBC();
         dao03.delete(Integer.parseInt(JOptionPane.showInputDialog("Informe o codigo do produto a ser excluido:")));
 
-        ProdutoDAO dao04 = new ProdutosDaoJDBC();
+        ProdutoDAO dao04 = new ProdutoDaoJDBC();
         System.out.println(dao04.listAll());
 
-        ProdutoDAO dao05 = new ProdutosDaoJDBC();
+        ProdutoDAO dao05 = new ProdutoDaoJDBC();
         System.out.println(dao05.listById(Integer.parseInt(JOptionPane.showInputDialog("Informe o codigo do produto a ser listado:"))));
 
     }
