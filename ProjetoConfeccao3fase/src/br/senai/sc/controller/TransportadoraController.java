@@ -24,4 +24,24 @@ public class TransportadoraController {
         TransportadoraDAO dao = new TransportadoraDaoJDBC();
         return dao.insert(t);
     }
+
+    public boolean delete(int id) {
+        TransportadoraDAO dao = new TransportadoraDaoJDBC();
+        return dao.delete(id);
+    }
+
+    public int update(Transportadora t) {
+        TransportadoraDAO dao = new TransportadoraDaoJDBC();
+        return dao.update(t);
+    }
+
+    public Transportadora listById(int id) {
+        TransportadoraDAO dao = new TransportadoraDaoJDBC();
+        return dao.listById(id);
+    }
+
+    public List<Transportadora> pesquisar(String texto) {
+        TransportadoraDAO dao = new TransportadoraDaoJDBC();
+        return dao.listPesquisa(texto);
+    }
 }
