@@ -50,5 +50,7 @@ public interface FuncionarioDAO {
     Funcionario listById(int id);
 
     public List<Funcionario> listAll();
+    
+    List<Funcionario> ListPesquisa(String texto);
 
 }
