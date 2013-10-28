@@ -1,7 +1,7 @@
 package br.senai.sc.testes;
 
 import br.senai.sc.model.negocio.Produto;
-import br.senai.sc.model.persistencia.ProdutosDaoJDBC;
+import br.senai.sc.model.persistencia.ProdutoDaoJDBC;
 import br.senai.sc.persistencia.dao.ProdutoDAO;
 import javax.swing.JOptionPane;
 
@@ -33,7 +33,7 @@ public class TesteProduto {
 //        dao02.insert(p2);
 //        System.out.println(p2.toString());
 //        
-        ProdutoDAO dao03 = new ProdutosDaoJDBC();
+        ProdutoDAO dao03 = new ProdutoDaoJDBC();
         dao03.delete(1);
     }
 }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class ProdutosDaoJDBC implements ProdutoDAO {
+public class ProdutoDaoJDBC implements ProdutoDAO {
 
     private final String INSERT = "INSERT INTO produtos (cod_categoria, cod_colecao, cod_fabricante, modelo, nome, preco, tamanho, cor, qt_produtos)VALUES(?,?,?,?,?,?,?,?,?)";
     private final String UPDATE = "UPDATE produtos SET cod_categoria = ?, cod_colecao = ?, cod_fabricante = ?, modelo = ?, nome = ?, preco = ?, tamanho = ?, cor = ?, qt_produtos = ? WHERE cod_produto = ?";
